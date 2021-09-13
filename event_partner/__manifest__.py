@@ -21,12 +21,12 @@
 ##############################################################################
 
 {
-    'name': 'HR Partner Department',
+    'name': 'HR Partner Event',
     'version': '14.0.0.0',
     'category': 'Employee',
-    'summary': 'To be able to have multiple addresses on department and select them on employee.',
+    'summary': 'To be able to have multiple partners on event.',
     'description': """
-        To be able to have multiple addresses on department and select them on employee.
+        To be able to have multiple partners on event..
     """,
     'author': 'Vertel AB',
     'website': 'https://www.vertel.se',
