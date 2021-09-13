@@ -16,7 +16,8 @@
         </t>
         <!-- List -->
         <t t-foreach="event_ids" t-as="event">
-            <t t-if="request.env.user._is_public() and not event.sudo().res_partner_ids">
+<!--            <t t-if="request.env.user._is_public() and not event.sudo().res_partner_ids">-->
+            <t t-if="not request.env.user.has_group('base.group_user') and not event.sudo().res_partner_ids">
                 <div t-attf-class=" #{opt_event_size} mb-4">
                     <a t-attf-href="/event/#{ slug(event) }/#{(not event.menu_id) and 'register'}" class="text-decoration-none">
                         <article t-attf-class="h-100 #{opt_events_list_cards and 'card border-0 shadow-sm'}" itemscope="itemscope" itemtype="http://schema.org/Event">
@@ -94,7 +95,8 @@
                 </div>
             </t>
 
-            <t t-elif="not request.env.user._is_public() and request.env.user.partner_id in event.res_partner_ids or not event.res_partner_ids">
+<!--            <t t-elif="not request.env.user._is_public() and request.env.user.partner_id in event.res_partner_ids or not event.res_partner_ids">-->
+            <t t-elif="request.env.user.has_group('base.group_user') and request.env.user.partner_id in event.res_partner_ids or not event.res_partner_ids">
                 <div t-attf-class=" #{opt_event_size} mb-4">
                     <a t-attf-href="/event/#{ slug(event) }/#{(not event.menu_id) and 'register'}" class="text-decoration-none">
                         <article t-attf-class="h-100 #{opt_events_list_cards and 'card border-0 shadow-sm'}" itemscope="itemscope" itemtype="http://schema.org/Event">
