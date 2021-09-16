@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+        <record id="event_event_partner_form" model="ir.ui.view">
+            <field name="name">event.event.form</field>
+            <field name="model">event.event</field>
+            <field name="inherit_id" ref="event.view_event_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button
+                        string="Create Event From Template"
+                        type="object"
+                        name="create_event_from_template"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('is_template', '=', False)]}"
+                    />
+                </xpath>
+                <xpath expr="//div[@name='event_menu_configuration']" position="inside">
+                    <label for="is_template" string="Is Template"/>
+                    <field name="is_template"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>
