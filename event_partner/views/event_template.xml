@@ -176,4 +176,13 @@
             <t t-call="website.pager"/>
         </div>
     </template>
+
+    <template id="registration_template" inherit_id="website_event.registration_template">
+        <xpath expr="//form[@id='registration_form']/div[@id='o_wevent_tickets']//div[@id='o_wevent_tickets_collapse']/div[hasclass('border-bottom')]/div[1]/small[last()]" position="after">
+            <t t-set="seats_max_ticket" t-value="(not ticket.seats_limited or ticket.seats_available &gt; 9) and 10 or ticket.seats_available + 1"/>
+            <t t-set="seats_max_event" t-value="(not event.seats_limited or event.seats_available &gt; 9) and 10 or event.seats_available + 1"/>
+            <t t-set="seats_max" t-value="min(seats_max_ticket, seats_max_event)"/>
+            <small t-if="ticket.end_sale_date and ticket.sale_available and not ticket.is_expired" class="text-muted mr-3" itemprop="availabilityEnds">Maximum Seats: <span itemprop="maxseat" t-esc="seats_max - 1"/></small>
+        </xpath>
+    </template>
 </odoo>
