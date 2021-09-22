@@ -1,0 +1,136 @@
+<odoo>
+    <template id="reservation_attendee_details" name="Reservation Attendee Details">
+        <div id="modal_attendees_registration" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <form id="attendee_reservation" t-attf-action="/event/#{slug(event)}/reserve/confirm" method="post" class="js_website_submit_form">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <div class="modal-content">
+                        <div class="modal-header align-items-center">
+                            <h4 class="modal-title">Reservation</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>×</span></button>
+                        </div>
+                        <t t-set="counter_type" t-value="1"/>
+                        <t t-set="counter" t-value="0"/>
+                        <t t-foreach="tickets" t-as="ticket">
+                            <t t-foreach="range(1, ticket['quantity'] + 1)" t-as="att_counter" name="attendee_loop">
+                                <t t-set="counter" t-value="counter + 1"/>
+                                <div class="modal-body bg-light border-bottom">
+                                    <h5 class="mt-1 pb-2 border-bottom">Ticket #<span t-esc="counter"/> <small class="text-muted">- <span t-esc="ticket['name']"/></small></h5>
+                                    <div class="row">
+                                        <div class="col-lg my-2">
+                                            <label>Name</label>
+                                            <input class="form-control" type="text" t-attf-name="#{counter}-name" required="This field is required"/>
+                                        </div>
+                                        <div class="col-lg my-2">
+                                            <label>Email</label>
+                                            <input class="form-control" type="email" t-attf-name="#{counter}-email" required="This field is required"/>
+                                        </div>
+                                        <div class="col-lg my-2">
+                                            <label>Phone <small>(Optional)</small></label>
+                                            <input class="form-control" type="tel" t-attf-name="#{counter}-phone"/>
+                                        </div>
+                                        <input class="d-none" type="text" t-attf-name="#{counter}-event_ticket_id" t-attf-value="#{ticket['id']}"/>
+                                    </div>
+                                </div>
+                            </t>
+                            <t t-set="counter_type" t-value="counter_type + 1"/>
+                        </t>
+
+                        <div class="modal-footer border-0 justify-content-between">
+                            <button type="button" class="btn btn-secondary js_goto_event" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary" t-if="availability_check">Continue</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </template>
+
+    <template id="registration_template" inherit_id="website_event.registration_template">
+        <xpath expr="//div[hasclass('mb-5')]/div[1]" position="after">
+            <div style="text-align: right;padding: 5px;" t-if="event.event_registrations_sold_out">
+                <button class="btn btn-primary ml-3 col-md-4 py-2" style="width: 355px;" id="reservation_form">
+                    <span t-if="event.event_registrations_sold_out">Reserve Seat</span>
+                </button>
+            </div>
+
+            <div id="modal_attendees_reservation" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-lg" role="document" style="margin-top: 50px;">
+                    <form id="attendee_reservation" t-attf-action="/event/#{slug(event)}/reserve/confirm" method="post" class="js_website_submit_form">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div class="modal-content">
+                            <div class="modal-header align-items-center">
+                                <h4 class="modal-title">Reservation</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>×</span></button>
+                            </div>
+                            <t t-set="counter_type" t-value="1"/>
+                            <t t-set="counter" t-value="0"/>
+<!--                            <t t-foreach="tickets" t-as="ticket">-->
+<!--                                <t t-foreach="range(1, ticket['quantity'] + 1)" t-as="att_counter" name="attendee_loop">-->
+<!--                                    <t t-set="counter" t-value="counter + 1"/>-->
+                                    <div class="modal-body bg-light border-bottom">
+                                        <h5 class="mt-1 pb-2 border-bottom">Ticket #</h5>
+                                        <div class="row">
+                                            <div class="col-lg my-2">
+                                                <label>Name</label>
+                                                <input class="form-control" type="text" t-attf-name="name" required="This field is required"/>
+                                            </div>
+                                            <div class="col-lg my-2">
+                                                <label>Email</label>
+                                                <input class="form-control" type="email" t-attf-name="email" required="This field is required"/>
+                                            </div>
+                                            <div class="col-lg my-2">
+                                                <label>Phone <small>(Optional)</small></label>
+                                                <input class="form-control" type="tel" t-attf-name="phone"/>
+                                            </div>
+<!--                                            <input class="d-none" type="text" t-attf-name="event_ticket_id" t-attf-value="{ticket['id']}"/>-->
+                                        </div>
+                                    </div>
+
+                            <div class="modal-footer border-0 justify-content-between">
+                                <button type="button" class="btn btn-secondary js_goto_event" data-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Continue</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="reservation_complete" name="Reservation Completed">
+        <t t-call="website_event.layout">
+            <div class="container my-5 o_wereg_confirmed">
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <h3>Reservation confirmed!</h3>
+                        <span class="h4 text-muted" t-esc="event.name"/>
+                    </div>
+                </div>
+                <div class="row mb-3 o_wereg_confirmed_attendees">
+                    <div class="col-md-4 col-xs-12 mt-3" t-foreach="attendees" t-as="attendee">
+                        <div class="d-flex flex-column">
+                            <span class="font-weight-bold">
+                                <t t-if="attendee.name" t-esc="attendee.name"/>
+                                <t t-else="">N/A</t>
+                            </span>
+                            <span>
+                                <i class="fa fa-envelope mr-2   "></i>
+                                <t t-if="attendee.email" t-esc="attendee.email"/>
+                                <t t-else="">N/A</t>
+                            </span>
+                            <span>
+                                <i class="fa fa-phone mr-2"></i>
+                                <t t-if="attendee.phone" t-esc="attendee.phone"/>
+                                <t t-else="">N/A</t>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </t>
+    </template>
+
+
+</odoo>
