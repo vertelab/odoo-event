@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 
 
 class Event_event(models.Model):
@@ -15,7 +15,7 @@ class Event_event(models.Model):
             elif rec.date_begin:
                 rec.calendar_event_id = rec.env['calendar.event'].with_context(no_mail_to_attendees=True).create({
                             'name': rec.name,
-                            'description': 'Planned event',
+                            'description': _('Planned event'),
                             'start': rec.date_begin,
                             'stop': rec.date_end,
                             'privacy': 'confidential',
