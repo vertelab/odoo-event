@@ -180,15 +180,15 @@
     <template id="registration_template" inherit_id="website_event.registration_template">
         <xpath expr="//form[@id='registration_form']/div[@id='o_wevent_tickets']//div[@id='o_wevent_tickets_collapse']/div[hasclass('border-bottom')]/div[1]/small[last()]" position="after">
             <small t-if="ticket.end_sale_date and ticket.sale_available and not ticket.is_expired" class="text-muted mr-3" itemprop="availabilityEnds">
-                Maximum Seats: <span itemprop="maxseat" t-field="ticket.seats_max"/>
+                Available Seats: <span t-field="ticket.seats_available"/>
             </small>
         </xpath>
         <xpath expr="//form[@id='registration_form']/div[@id='o_wevent_tickets']/div[@t-else='']//div[hasclass('o_wevent_nowrap')]" position="before">
             <small t-if="not event.event_ticket_ids and event.seats_limited">
-                Maximum Seats: <span t-esc="event.seats_max"/>
+                Available Seats: <span t-esc="event.seats_available"/>
             </small>
             <small t-elif="event.event_ticket_ids">
-                Maximum Seats: <span t-esc="event.event_ticket_ids[0].seats_max"/>
+                Available Seats: <span t-esc="event.event_ticket_ids[0].seats_available"/>
             </small>
         </xpath>
     </template>
