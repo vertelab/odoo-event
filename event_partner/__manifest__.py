@@ -22,11 +22,14 @@
 
 {
     'name': 'HR Partner Event',
-    'version': '14.0.0.0',
+    'version': '14.0.0.1',
     'category': 'Employee',
     'summary': 'To be able to have multiple partners on event.',
     'description': """
-        To be able to have multiple partners on event..
+        To be able to have multiple partners on event. \n
+        14.0.0.1
+            - Changed Maximum seat to Available seat
+            - Improved access right for event partners
     """,
     'author': 'Vertel AB',
     'website': 'https://www.vertel.se',
