@@ -1,7 +1,7 @@
 # Copyright 2021 Tecnativa - Jairo Llopis
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 
 
 class SaleOrderLine(models.Model):
@@ -10,13 +10,13 @@ class SaleOrderLine(models.Model):
     event_registration_ids = fields.One2many(
         comodel_name="event.registration",
         inverse_name="sale_order_line_id",
-        string="Event registrations",
-        help="Event registrations related to this sale order line",
+        string=_("Event registrations"),
+        help=_("Event registrations related to this sale order line"),
     )
     event_registration_count = fields.Integer(
         compute="_compute_event_registration_count",
         store=True,
-        help="Count of event registrations related to this sale order line",
+        help=_("Count of event registrations related to this sale order line"),
     )
     event_reservation_type_id = fields.Many2one(
         index=True,

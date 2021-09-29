@@ -1,7 +1,7 @@
 # Copyright 2021 Tecnativa - Jairo Llopis
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models
+from odoo import fields, models, _
 from odoo.tools import frozendict
 
 
@@ -11,7 +11,7 @@ class SaleReport(models.Model):
     event_reservation_type_id = fields.Many2one(
         comodel_name="event.type",
         readonly=True,
-        string="Event reservation type",
+        string=_("Event reservation type"),
     )
 
     def _query(self, with_clause="", fields=frozendict(), groupby="", from_clause=""):

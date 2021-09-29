@@ -1,19 +1,19 @@
 # Copyright 2021 Tecnativa - Jairo Llopis
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 
 
 class EventType(models.Model):
     _inherit = "event.type"
 
     reserved_sale_order_line_ids = fields.One2many(
-        string="Reserved sale order lines",
+        string=_("Reserved sale order lines"),
         comodel_name="sale.order.line",
         inverse_name="event_reservation_type_id",
     )
     seats_reservation_total = fields.Integer(
-        string="Reserved seats",
+        string=_("Reserved seats"),
         compute="_compute_reservations_total",
         store=True,
         help="Seats reserved for events of this type.",

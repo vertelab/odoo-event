@@ -9,16 +9,16 @@ class SaleOrder(models.Model):
 
     event_reservations_pending = fields.Integer(
         compute="_compute_event_reservations_pending",
-        string="Pending event reservations",
-        help=(
+        string=_("Pending event reservations"),
+        help=_(
             "Indicates how many event reservations are still not linked to "
             "any registration."
         ),
     )
     event_registration_count = fields.Integer(
         compute="_compute_event_registration_count",
-        string="Event registrations",
-        help=("Indicates how many event registrations are linked to this order."),
+        string=_("Event registrations"),
+        help=_("Indicates how many event registrations are linked to this order."),
     )
 
     @api.depends("order_line.product_uom_qty", "order_line.event_registration_count")

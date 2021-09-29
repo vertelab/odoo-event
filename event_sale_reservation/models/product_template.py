@@ -10,8 +10,8 @@ class Product(models.Model):
 
     event_reservation_ok = fields.Boolean(
         index=True,
-        string="Is an event reservation",
-        help=(
+        string=_("Is an event reservation"),
+        help=_(
             "If checked, this product enables selling event reservations "
             "even before an event of the specified type has been scheduled."
         ),
@@ -19,8 +19,8 @@ class Product(models.Model):
     event_reservation_type_id = fields.Many2one(
         comodel_name="event.type",
         index=True,
-        string="Event type for reservations",
-        help="Type of events that can be reserved by buying this product",
+        string=_("Event type for reservations"),
+        help=_("Type of events that can be reserved by buying this product"),
     )
 
     @api.constrains("event_ok", "event_reservation_ok")

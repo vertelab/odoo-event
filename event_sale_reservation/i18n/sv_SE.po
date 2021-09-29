@@ -1,0 +1,351 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_sale_reservation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0-20210312\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-29 09:00+0000\n"
+"PO-Revision-Date: 2021-09-29 12:32+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.3\n"
+"Last-Translator: \n"
+"Language: sv\n"
+
+#. module: event_sale_reservation
+#: code:addons/event_sale_reservation/models/sale_order.py:0
+#, python-format
+msgid "Attendees"
+msgstr "Deltagare"
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_editor_reservations_view_form
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_template
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.reservation_attendee_details
+msgid "Cancel"
+msgstr "Avbryt"
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_template
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.reservation_attendee_details
+msgid "Close"
+msgstr "Stäng"
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_editor_reservations_view_form
+msgid "Configure registrations"
+msgstr "Konfigurera registreringar"
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_template
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.reservation_attendee_details
+msgid "Continue"
+msgstr "Fortsätt"
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_editor_reservations_view_form
+msgid "Convert pending event reservations into registrations for"
+msgstr "Konvertera öppna reservationer till registreringar för"
+
+#. module: event_sale_reservation
+#: code:addons/event_sale_reservation/models/sale_order_line.py:0
+#: model:ir.model.fields,help:event_sale_reservation.field_sale_order_line__event_registration_count
+#, python-format
+msgid "Count of event registrations related to this sale order line"
+msgstr ""
+"Antal evenemangsreservationer som är relaterade till den här orderraden"
+
+#. module: event_sale_reservation
+#: model:ir.model.fields,field_description:event_sale_reservation.field_event_type__display_name
+#: model:ir.model.fields,field_description:event_sale_reservation.field_product_template__display_name
+#: model:ir.model.fields,field_description:event_sale_reservation.field_registration_editor__display_name
+#: model:ir.model.fields,field_description:event_sale_reservation.field_registration_editor_line__display_name
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order__display_name
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order_line__display_name
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_report__display_name
+msgid "Display Name"
+msgstr "Visningsnamn"
+
+#. module: event_sale_reservation
+#: model:ir.model,name:event_sale_reservation.model_registration_editor
+msgid "Edit Attendee Details on Sales Confirmation"
+msgstr "Redigera detagarens detaljer vid försäljningsbekräftelse"
+
+#. module: event_sale_reservation
+#: model:ir.model,name:event_sale_reservation.model_registration_editor_line
+msgid "Edit Attendee Line on Sales Confirmation"
+msgstr "Redigera deltagarrad vid försäljningsbekräftelse"
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_template
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.reservation_attendee_details
+msgid "Email"
+msgstr "Epost"
+
+#. module: event_sale_reservation
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order_line__event_registration_count
+msgid "Event Registration Count"
+msgstr "Antal Evenemangsregistreringar"
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.view_order_product_search
+msgid "Event Reservation Type"
+msgstr "Typ av Evenemangsreservation"
+
+#. module: event_sale_reservation
+#: model:ir.model,name:event_sale_reservation.model_event_type
+msgid "Event Template"
+msgstr "Evenemangsmall"
+
+#. module: event_sale_reservation
+#: code:addons/event_sale_reservation/models/sale_order.py:0
+#: code:addons/event_sale_reservation/models/sale_order_line.py:0
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order__event_registration_count
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order_line__event_registration_ids
+#, python-format
+msgid "Event registrations"
+msgstr "Evenemangsregistreringar"
+
+#. module: event_sale_reservation
+#: code:addons/event_sale_reservation/models/sale_order_line.py:0
+#: model:ir.model.fields,help:event_sale_reservation.field_sale_order_line__event_registration_ids
+#, python-format
+msgid "Event registrations related to this sale order line"
+msgstr ""
+"Evenemangsregistreringar som är relaterade till den här säljorderraden"
+
+#. module: event_sale_reservation
+#: code:addons/event_sale_reservation/reports/sale_report.py:0
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_report__event_reservation_type_id
+#, python-format
+msgid "Event reservation type"
+msgstr "Typ av Evenemangsreservation"
+
+#. module: event_sale_reservation
+#: code:addons/event_sale_reservation/models/product_template.py:0
+#: model:ir.model.fields,field_description:event_sale_reservation.field_product_product__event_reservation_type_id
+#: model:ir.model.fields,field_description:event_sale_reservation.field_product_template__event_reservation_type_id
+#: model:ir.model.fields,field_description:event_sale_reservation.field_registration_editor_line__event_reservation_type_id
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order_line__event_reservation_type_id
+#, python-format
+msgid "Event type for reservations"
+msgstr "Evenemangstyp för reservationer"
+
+#. module: event_sale_reservation
+#: model:ir.model.fields,field_description:event_sale_reservation.field_event_type__id
+#: model:ir.model.fields,field_description:event_sale_reservation.field_product_template__id
+#: model:ir.model.fields,field_description:event_sale_reservation.field_registration_editor__id
+#: model:ir.model.fields,field_description:event_sale_reservation.field_registration_editor_line__id
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order__id
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order_line__id
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_report__id
+msgid "ID"
+msgstr "ID"
+
+#. module: event_sale_reservation
+#: code:addons/event_sale_reservation/models/product_template.py:0
+#: model:ir.model.fields,help:event_sale_reservation.field_product_product__event_reservation_ok
+#: model:ir.model.fields,help:event_sale_reservation.field_product_template__event_reservation_ok
+#, python-format
+msgid ""
+"If checked, this product enables selling event reservations even before an "
+"event of the specified type has been scheduled."
+msgstr ""
+"Om vald så  möjliggör denna produkt  försäljning av evenemangsreservationer "
+"innan ett evenemang av den specificerade typen har schemalagts."
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_editor_reservations_view_form
+msgid ""
+"If there is any line from that order that you still do\n"
+"                        not want to convert into real event registrations, "
+"you\n"
+"                        can remove it from the list below. You will be able "
+"to\n"
+"                        repeat this process later for those lines."
+msgstr ""
+"Om det är någon orderrad från ordern som du fortfarande\n"
+"inte vill konvertera till evenemangsregistreringar så kan du\n"
+"ta bort den från den nedanstående listan. Du kommer att\n"
+"kunna repetera denna process senare för de orderraderna."
+
+#. module: event_sale_reservation
+#: code:addons/event_sale_reservation/models/sale_order.py:0
+#: model:ir.model.fields,help:event_sale_reservation.field_sale_order__event_registration_count
+#, python-format
+msgid "Indicates how many event registrations are linked to this order."
+msgstr ""
+"Anger hur många evenemangsregistreringar som är kopplade till denna order."
+
+#. module: event_sale_reservation
+#: code:addons/event_sale_reservation/models/sale_order.py:0
+#: model:ir.model.fields,help:event_sale_reservation.field_sale_order__event_reservations_pending
+#, python-format
+msgid ""
+"Indicates how many event reservations are still not linked to any "
+"registration."
+msgstr ""
+"Anger hur många evenemangsreservationer som ännu inte är kopplade till "
+"någon registrering."
+
+#. module: event_sale_reservation
+#: code:addons/event_sale_reservation/models/product_template.py:0
+#: model:ir.model.fields,field_description:event_sale_reservation.field_product_product__event_reservation_ok
+#: model:ir.model.fields,field_description:event_sale_reservation.field_product_template__event_reservation_ok
+#, python-format
+msgid "Is an event reservation"
+msgstr "Är en evenemangsreservation"
+
+#. module: event_sale_reservation
+#: model:ir.model.fields,field_description:event_sale_reservation.field_event_type____last_update
+#: model:ir.model.fields,field_description:event_sale_reservation.field_product_template____last_update
+#: model:ir.model.fields,field_description:event_sale_reservation.field_registration_editor____last_update
+#: model:ir.model.fields,field_description:event_sale_reservation.field_registration_editor_line____last_update
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order____last_update
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order_line____last_update
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_report____last_update
+msgid "Last Modified on"
+msgstr "Senast ändrad"
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.reservation_complete
+msgid "N/A"
+msgstr "Ej tillgänglig"
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_template
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.reservation_attendee_details
+msgid "Name"
+msgstr "Namn"
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_editor_reservations_view_form
+msgid "Next"
+msgstr "Nästa"
+
+#. module: event_sale_reservation
+#: code:addons/event_sale_reservation/models/sale_order.py:0
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order__event_reservations_pending
+#, python-format
+msgid "Pending event reservations"
+msgstr "Öppna evenemangsreservationer"
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_template
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.reservation_attendee_details
+msgid "Phone <small>(Optional)</small>"
+msgstr "Telefonnummer<small>(Ej obligatoriskt)</small>"
+
+#. module: event_sale_reservation
+#. openerp-web
+#: code:addons/event_sale_reservation/static/src/js/event_reservation.js:0
+#, python-format
+msgid "Please select at least one ticket."
+msgstr "Var vänlig välj minst en biljett."
+
+#. module: event_sale_reservation
+#: code:addons/event_sale_reservation/models/product_template.py:0
+#, python-format
+msgid ""
+"Product %(name)s cannot be both an event ticket and an event reservation."
+msgstr ""
+"Produkten  %(name)s kan inte vara både en evenemangsbiljett och en "
+"evenemangsreservation."
+
+#. module: event_sale_reservation
+#: model:ir.model,name:event_sale_reservation.model_product_template
+msgid "Product Template"
+msgstr "Produktmall"
+
+#. module: event_sale_reservation
+#: model:ir.actions.act_window,name:event_sale_reservation.action_registration_editor_reservations
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.view_sale_order_form_inherit_event
+msgid "Register in event"
+msgstr "Registrera i evenemang"
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_editor_reservations_view_form
+msgid "Register reservations"
+msgstr "Registrera reservationer"
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_editor_reservations_view_form
+msgid "Registrations"
+msgstr "Registreringar"
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_template
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.reservation_attendee_details
+msgid "Reservation"
+msgstr "Reservation"
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.reservation_complete
+msgid "Reservation confirmed!"
+msgstr "Reservation bekräftad!"
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_template
+msgid "Reserve Seat"
+msgstr "Reservera plats"
+
+#. module: event_sale_reservation
+#: code:addons/event_sale_reservation/models/event_type.py:0
+#: model:ir.model.fields,field_description:event_sale_reservation.field_event_type__reserved_sale_order_line_ids
+#, python-format
+msgid "Reserved sale order lines"
+msgstr "Reserverade säljorderrader"
+
+#. module: event_sale_reservation
+#: code:addons/event_sale_reservation/models/event_type.py:0
+#: model:ir.model.fields,field_description:event_sale_reservation.field_event_type__seats_reservation_total
+#, python-format
+msgid "Reserved seats"
+msgstr "Reserverade platser"
+
+#. module: event_sale_reservation
+#: model:ir.model,name:event_sale_reservation.model_sale_report
+msgid "Sales Analysis Report"
+msgstr "Rapport för säljanalys"
+
+#. module: event_sale_reservation
+#: model:ir.model,name:event_sale_reservation.model_sale_order
+msgid "Sales Order"
+msgstr "Säljorder"
+
+#. module: event_sale_reservation
+#: model:ir.model,name:event_sale_reservation.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Säljorderrad"
+
+#. module: event_sale_reservation
+#: model:ir.model.fields,help:event_sale_reservation.field_event_type__seats_reservation_total
+msgid "Seats reserved for events of this type."
+msgstr "Reserverade platser för evenemang av den här typen."
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_template
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.reservation_attendee_details
+msgid "Ticket #"
+msgstr "Biljett #"
+
+#. module: event_sale_reservation
+#: code:addons/event_sale_reservation/models/product_template.py:0
+#: model:ir.model.fields,help:event_sale_reservation.field_product_product__event_reservation_type_id
+#: model:ir.model.fields,help:event_sale_reservation.field_product_template__event_reservation_type_id
+#: model:ir.model.fields,help:event_sale_reservation.field_registration_editor_line__event_reservation_type_id
+#: model:ir.model.fields,help:event_sale_reservation.field_sale_order_line__event_reservation_type_id
+#, python-format
+msgid "Type of events that can be reserved by buying this product"
+msgstr "Evenemangstyp som kan reserveras genom att köpa denna produkt"
+
+#. module: event_sale_reservation
+#: code:addons/event_sale_reservation/models/product_template.py:0
+#, python-format
+msgid "You must indicate event type for %(name)s."
+msgstr "Du måste ange evenemangstyp för %(name)s."
