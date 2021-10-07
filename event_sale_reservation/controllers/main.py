@@ -22,6 +22,9 @@ class WebsiteEventController(http.Controller):
         }
         if partner_id and order_id:
             return request.render("event_sale_reservation.reservation_complete", values)
+        else:
+            target_url = '/event/%s/register' % str(event.id)
+            return request.redirect(target_url)
 
     def _create_partner(self, post):
         partner_id = request.env['res.partner'].sudo().search([('email', '=', post.get('email'))], limit=1)
