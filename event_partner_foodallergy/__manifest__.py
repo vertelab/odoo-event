@@ -26,7 +26,13 @@
     'category': 'Event',
     'summary': 'Extends the event registration form view with an option about foodallergy',
     'description': """
-        Extends the event registration form view with an option about foodallergy
+        Extends the event registration form view with an option about foodallergy\n\n
+        Features:\n
+            *   Adds a "Food Is Served" check box on events. If its checked, the field "Food allergy" will be added to the\n
+                attendees of the event.\n
+            *   Adds a question about food allergy to the event registration form. The question is only visible if "Food Is Served"\n
+                is checked for the event.\n
+        This module is maintained from: https://github.com/vertelab/odoo-event/tree/14.0/event_partner_foodallergy/\n
     """,
     'author': 'Vertel AB',
     'website': 'https://www.vertel.se',
@@ -35,6 +41,5 @@
         'views/foodallergy_view.xml',
         'views/templates.xml',
     ],
-    'application': True,
     'installable': True,
 }

@@ -2,8 +2,8 @@
 <odoo>
 
 <template id="registration_template" inherit_id="website_event.registration_attendee_details" name="Food allergy registration">
-        <xpath expr="//div[@class='row']" position="inside">
-        <div class="col-lg my-2">
+    <xpath expr="//div[@class='row']" position="inside">
+        <div t-if="event.food_is_served" class="col-lg my-2">
             <label>Food allergy <small>(Optional)</small></label>
             <input class="form-control" type="text" t-attf-name="1-food_allergy"/>
         </div>
