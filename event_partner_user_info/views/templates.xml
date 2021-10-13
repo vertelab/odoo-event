@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="registration_template_course_size" inherit_id="website_event.registration_template" name="Show Course Size">
+    <xpath expr="//select[@class='w-auto custom-select']" position="after">
+        <t t-if="event.seats_limited" class="col-lg my-2">
+            <span>of</span>
+            <strong t-field="event.seats_available"/>
+        </t>
+    </xpath>
+</template>
+</odoo>
