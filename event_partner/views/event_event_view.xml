@@ -10,5 +10,27 @@
                 </field>
             </field>
         </record>
+
+        <record id="event_event_ticket_view_tree_from_event" model="ir.ui.view">
+            <field name="name">event.event.form</field>
+            <field name="model">event.event.ticket</field>
+            <field name="inherit_id" ref="event.event_event_ticket_view_tree_from_event"/>
+            <field name="arch" type="xml">
+                <field name="seats_unconfirmed" position="after">
+                    <field name="seats_available" sum="Total" width="110px" string="Available" optional="hide"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="event_event_ticket_view_form_from_event" model="ir.ui.view">
+            <field name="name">event.event.form</field>
+            <field name="model">event.event.ticket</field>
+            <field name="inherit_id" ref="event.event_event_ticket_view_form_from_event"/>
+            <field name="arch" type="xml">
+                <field name="seats_unconfirmed" position="after">
+                    <field name="seats_available"/>
+                </field>
+            </field>
+        </record>
     </data>
 </odoo>

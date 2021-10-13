@@ -32,6 +32,7 @@
             - Improved access right for event partners
         14.0.0.2
             - Improvement to Event Access Right
+            - Added the available seats to tree and form view
     """,
     'author': 'Vertel AB',
     'website': 'https://www.vertel.se',
