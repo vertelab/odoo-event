@@ -4,7 +4,7 @@
     <xpath expr="//select[@class='w-auto custom-select']" position="after">
         <t t-if="event.seats_limited" class="col-lg my-2">
             <span>of</span>
-            <strong t-field="event.seats_max"/>
+            <strong t-field="event.seats_available"/>
         </t>
     </xpath>
 </template>
