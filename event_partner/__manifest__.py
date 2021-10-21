@@ -23,7 +23,7 @@
     'name': 'HR Partner Event',
     'summary': 'To be able to have multiple partners on event.',
     'author': 'Vertel AB',
-    'contributor': 'Developer Name',
+    'contributor': '',
     'maintainer': 'Vertel AB',
     'repository': 'https://git.vertel.se/vertelab/odoo-event'
     'category': 'Employee',
