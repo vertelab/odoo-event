@@ -14,7 +14,6 @@
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU Affero General Public License for more details.
 #
-
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
@@ -22,14 +21,20 @@
 
 {
     'name': 'Event Template',
-    'version': '14.0.0.0',
-    'category': 'Employee',
     'summary': 'To be able to create event from another event.',
+    'author': 'Vertel AB',
+    'contributor': 'Mitchell Admin',
+    'maintainer': 'Vertel AB',
+    'version': '14.0.0.0',
+    'repository': 'https://github.com/vertelab/odoo-event.git',
+    'category': 'Employee',
+    'version': '14.0.1.2.3',
+    # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
+    'license': 'AGPL-3',
+    'website': 'https://vertel.se/',
     'description': """
         To be able to create event from another event.
     """,
-    'author': 'Vertel AB',
-    'website': 'https://www.vertel.se',
     'depends': ['website_event', 'event'],
     'data': [
         'views/event_event_view.xml'
