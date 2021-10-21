@@ -24,9 +24,11 @@
     'author': "Vertel AB",
     'contributor': '',
     'maintainer': 'Vertel AB',
-    'repository': 'https://git.vertel.se/vertelab/odooext-skogsstyrelsen'
+    'repository': 'git@github.com:vertelab/odoo-event.git'
+    'category': 'Tools',
+    'license': 'AGPL-3',
     'version': '14.0.0.0.1',
-    'category': '',
+    'website': 'https://vertel.se',
     'description': """
         Newly created events creates corresponding entries in the calendar.\n\n
         Features:\n
@@ -35,8 +37,6 @@
             * The calendar entry is removed when the event is removed.\n\n
         This module is maintained from: https://github.com/vertelab/odoo-event/tree/14.0/event_partner_calendar/ \n
 """,
-    'license': "AGPL-3",
-    'website': 'https://www.vertel.se',
     'depends': ['event','calendar'],
     'data': [],
     'installable': True,
