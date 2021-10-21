@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution, third party addon
-#    Copyright (C) 2004-2021 Vertel AB (<http://vertel.se>).
+#    Copyright (C) 2004-2021 Vertel AB (<https://vertel.se>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,9 +20,13 @@
 
 {
     'name': 'Event Partner Calendar',
+    'summary': 'New events are shown in the calendar',
+    'author': "Vertel AB",
+    'contributor': '',
+    'maintainer': 'Vertel AB',
+    'repository': 'https://git.vertel.se/vertelab/odooext-skogsstyrelsen'
     'version': '14.0.0.0.1',
     'category': '',
-    'summary': 'New events are shown in the calendar',
     'description': """
         Newly created events creates corresponding entries in the calendar.\n\n
         Features:\n
@@ -31,7 +35,6 @@
             * The calendar entry is removed when the event is removed.\n\n
         This module is maintained from: https://github.com/vertelab/odoo-event/tree/14.0/event_partner_calendar/ \n
 """,
-    'author': "Vertel AB",
     'license': "AGPL-3",
     'website': 'https://www.vertel.se',
     'depends': ['event','calendar'],
