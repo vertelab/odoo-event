@@ -28,6 +28,7 @@
     'repository': 'https://git.vertel.se/vertelab/odoo-event'
     'category': 'Employee',
     'version': '14.0.0.2',
+    # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'website': 'https://vertel.se',
     'description': """
         To be able to have multiple partners on event. \n
