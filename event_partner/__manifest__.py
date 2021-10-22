@@ -40,8 +40,6 @@
             - Improvement to Event Access Right
             - Added the available seats to tree and form view
     """,
-    'author': 'Vertel AB',
-    'website': 'https://www.vertel.se',
     'depends': ['website_event', 'event'],
     'data': [
         'views/event_event_view.xml',
