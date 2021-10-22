@@ -7,7 +7,7 @@ This is template module that provide format of module structure.
 Installation
 ============
 
-This module depends on ``calendar``, ``contacts`` .
+This module depends on ``website_event``, ``event`` .
 
 This module is maintained from: https://github.com/vertelab/odoo-event/
 
