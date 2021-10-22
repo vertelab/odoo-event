@@ -24,7 +24,7 @@
     'author': "Vertel AB",
     'contributor': '',
     'maintainer': 'Vertel AB',
-    'repository': 'git@github.com:vertelab/odoo-event.git'
+    'repository': 'git@github.com:vertelab/odoo-event.git',
     'category': 'Tools',
     'license': 'AGPL-3',
     'version': '14.0.0.0.1',
