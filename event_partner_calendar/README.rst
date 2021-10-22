@@ -7,9 +7,10 @@ New events are shown in the calendar.
 
 Newly created events creates corresponding entries in the calendar.
 Features:
-* The start/end-time of the calendar entry is updated when the start/end time of the event changes.
-* Attendees of the event are added to the calendar event when they are added/removed to/from the event.
-* The calendar entry is removed when the event is removed.
+| 
+| * The start/end-time of the calendar entry is updated when the start/end time of the event changes.
+| * Attendees of the event are added to the calendar event when they are added/removed to/from the event.
+| * The calendar entry is removed when the event is removed.
 | 
 | This module is maintained from: https://github.com/vertelab/odoo-event/tree/14.0/event_partner_calendar/
 
