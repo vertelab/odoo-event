@@ -17,7 +17,6 @@ Configuration
 
 Usage
 =====
-| Test Module.
 | 
 | Version ledger: 
 | 14.0 = Odoo version
