@@ -1,4 +1,5 @@
 
+==================
 odoo-event
 ==================
 
@@ -17,14 +18,14 @@ Configuration
 
 Usage
 =====
-Test Module.
-
-Version ledger: <br />
-14.0 = Odoo version <br />
-1 = Major, Non regressionable code <br />
-2 = Minor, New features that are regressionable <br />
-3 = Bug fixes <br />
-
-Hover over fields to se a brief description of them. For more information make sure you are in debug mode.
-
-v14.0.1.0 - AFC-123 Added the module to the repo.
+| Information
+| 
+| Version ledger:
+| 14.0 = Odoo version
+| 1 = Major, Non regressionable code
+| 2 = Minor, New features that are regressionable
+| 3 = Bug fixes
+| 
+| Hover over fields to se a brief description of them. For more information make sure you are in debug mode.
+| 
+| v14.0.1.0 - AFC-123 Added the module to the repo.
