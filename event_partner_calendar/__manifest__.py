@@ -28,7 +28,7 @@
     'category': 'Tools',
     'license': 'AGPL-3',
     'version': '14.0.0.0.1',
-    'website': 'https://vertel.se',
+    'website': 'https://vertel.se/apps/event-partner',
     'description': """
         Newly created events creates corresponding entries in the calendar.\n\n
         Features:\n
