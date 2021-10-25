@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Odoo, Open Source Management Solution, third party addon
-#    Copyright (C) 2021- Vertel AB (<http://vertel.se>).
+#    Odoo SA, Open Source Management Solution, third party addon
+#    Copyright (C) 2021- Vertel AB (<https://vertel.se>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -14,17 +14,22 @@
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU Affero General Public License for more details.
 #
-
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 
 {
     'name': 'Event Partner Food Allergy',
+    'summary': 'Extends the event registration form view with an option about foodallergy.',
+    'author': 'Vertel AB',
+    'contributor': '',
+    'maintainer': 'Vertel AB',
+    'repository': 'https://github.com/vertelab/odoo-event',
     'version': '14.0.0.1',
-    'category': 'Event',
-    'summary': 'Extends the event registration form view with an option about foodallergy',
+    # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
+    'license': 'AGPL-3',
+    'website': 'https://vertel.se/apps/event-partner',
     'description': """
         Extends the event registration form view with an option about foodallergy\n\n
         Features:\n
@@ -34,8 +39,6 @@
                 is checked for the event.\n
         This module is maintained from: https://github.com/vertelab/odoo-event/tree/14.0/event_partner_foodallergy/\n
     """,
-    'author': 'Vertel AB',
-    'website': 'https://www.vertel.se',
     'depends': ['event','website_event'],
     'data': [
         'views/foodallergy_view.xml',
