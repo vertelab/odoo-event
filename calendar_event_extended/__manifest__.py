@@ -29,7 +29,7 @@
         To be able to open calendar form view instead of a popup
     """,
     'author': 'Vertel AB',
-    'website': 'https://www.vertel.se',
+    'website': 'https://www.vertel.se/apps/calendar-event-extrended',
     'depends': ['calendar'],
     'data': [
         'views/calendar_view.xml'
