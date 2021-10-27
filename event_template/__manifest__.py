@@ -20,7 +20,7 @@
 ##############################################################################
 
 {
-    'name': 'Event Template',
+    'name': 'Depreciated - Event Template',
     'summary': 'To be able to create event from another event.',
     'author': 'Vertel AB',
     'contributor': 'Mitchell Admin',
@@ -33,13 +33,14 @@
     'license': 'AGPL-3',
     'website': 'https://vertel.se/',
     'description': """
-        To be able to create event from another event.
+        To be able to create event from another event. \n
+        Depreciated since there is a template-function in the core-module.\n
     """,
     'depends': ['website_event', 'event'],
     'data': [
         'views/event_event_view.xml'
     ],
-    'application': True,
+    'application': False,
     'installable': True,
 }
 # vim:expandtab:smartindent:tabstop=4s:softtabstop=4:shiftwidth=4:
