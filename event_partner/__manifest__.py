@@ -45,7 +45,7 @@
         'views/event_event_view.xml',
         'views/event_template.xml',
     ],
-    'application': True,
+    'application': False,
     'installable': True,
 }
 # vim:expandtab:smartindent:tabstop=4s:softtabstop=4:shiftwidth=4:
