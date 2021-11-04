@@ -1,7 +1,7 @@
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution, third party addon
-#    Copyright (C) 2004-2021 Vertel AB (<http://vertel.se>).
+#    Odoo SA, Open Source Management Solution, third party addon
+#    Copyright (C) 2021- Vertel AB (<https://vertel.se>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -14,15 +14,21 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 
 {
     'name': 'Event Partner Calendar',
-    'version': '14.0.0.0.1',
-    'category': '',
     'summary': 'New events are shown in the calendar',
+    'author': "Vertel AB",
+    'contributor': '',
+    'maintainer': 'Vertel AB',
+    'repository': 'git@github.com:vertelab/odoo-event.git',
+    'category': 'Tools',
+    'license': 'AGPL-3',
+    'version': '14.0.0.0.1',
+    'website': 'https://vertel.se/apps/event-partner',
     'description': """
         Newly created events creates corresponding entries in the calendar.\n\n
         Features:\n
@@ -31,9 +37,6 @@
             * The calendar entry is removed when the event is removed.\n\n
         This module is maintained from: https://github.com/vertelab/odoo-event/tree/14.0/event_partner_calendar/ \n
 """,
-    'author': "Vertel AB",
-    'license': "AGPL-3",
-    'website': 'https://www.vertel.se',
     'depends': ['event','calendar'],
     'data': [],
     'installable': True,
