@@ -7,20 +7,6 @@ class EventEvent(models.Model):
     event_publish_date = fields.Date(string="Publish On")
     event_un_publish_date = fields.Date(string="Un-Publish On")
 
-    @api.model
-    def create(self, vals):
-        res = super(EventEvent, self).create(vals)
-        if vals.get('event_publish_date'):
-            pub_date_dt = fields.Date.from_string(vals.get('event_publish_date'))
-            vals['website_published'] = pub_date_dt == fields.Date.today()
-        return res
-
-    def write(self, value):
-        res = super(EventEvent, self).write(value)
-        if self.event_publish_date and not self.website_published:
-            self.website_published = self.event_publish_date == fields.Date.today()
-        return res
-
     def _cron_publish_event(self):
         recs = self.search(
             [('website_published', '=', False),

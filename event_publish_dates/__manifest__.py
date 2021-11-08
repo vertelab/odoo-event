@@ -28,7 +28,8 @@
     'description': """
         Extends the website event publish date\n\n
         Features:\n
-            *   Adds cron job to auto publish event on website and also un-publish.\n
+            *   Two fields were added for a publishing date and un-publishing date. \n
+            *   Added cron job to auto publish event on website and also un-publish. \n
     """,
     'author': 'Vertel AB',
     'website': 'https://www.vertel.se',
