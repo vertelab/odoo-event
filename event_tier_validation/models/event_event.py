@@ -40,8 +40,3 @@ class EventEvent(models.Model):
             elif self.is_published and not record.validated:
                 raise UserError(
                     _("This event has not been reviewed yet, please start a review process by pressing 'Request Validation' button."))
-
-    # @api.onchange('review_ids')
-    # def _onchange_review_ids(self):
-    #     if not self.review_ids:
-    #         self.state = "draft"
