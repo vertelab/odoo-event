@@ -11,33 +11,31 @@
         <field name="inherit_id" ref="event.view_event_search" />
         <field name="arch" type="xml">
             <filter name="start_date" position="after">
-                <filter
-                    name="needs_review"
-                    string="Needs my Review"
-                    domain="[('reviewer_ids','in',uid), ('state', 'not in', ['done', 'cancel'])]"
-                    help="My Event Templates to review"
-                />
-                <filter
-                    name="tier_validated"
-                    string="Validated"
-                    domain="[('validated', '=', True)]"
-                    help="Event Templates validated and ready to be confirmed"
-                />
+                <filter 
+                    name="needs_review" 
+                    string="Needs my Review" 
+                    domain="[('reviewer_ids','in',uid)]" 
+                    help="My Event Templates to review" /> <!-- ('state', 'not in', ['verified', 'cancel']) -->
+                <filter 
+                    name="tier_validated" 
+                    string="Validated" 
+                    domain="[('validated', '=', True)]" 
+                    help="Event Templates validated and ready to be confirmed" />
             </filter>
         </field>
     </record>
 
-    <!-- 
+        <!-- 
         Create singel event form
      -->
     <record id="event_event_partner_form" model="ir.ui.view">
-            <field name="name">event.event.form</field>
-            <field name="model">event.event</field>
-            <field name="inherit_id" ref="event.view_event_form"/>
-            <field name="arch" type="xml">
-                <field name="kanban_state" position="after">
-                    <field name="state" invisible="1"/>
-                </field>
+        <field name="name">event.event.form</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_form"/>
+        <field name="arch" type="xml">
+            <field name="kanban_state" position="after">
+                <field name="state" invisible="1"/>
             </field>
-        </record>
+        </field>
+    </record>
 </odoo>
