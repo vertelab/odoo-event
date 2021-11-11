@@ -1,0 +1,60 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_publish_dates
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0-20210929\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-11 12:34+0000\n"
+"PO-Revision-Date: 2021-11-11 12:34+0000\n"
+"Last-Translator: Victor Ekström\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: event_publish_dates
+#: model:ir.actions.server,name:event_publish_dates.ir_cron_auto_publish_event_ir_actions_server
+#: model:ir.cron,cron_name:event_publish_dates.ir_cron_auto_publish_event
+#: model:ir.cron,name:event_publish_dates.ir_cron_auto_publish_event
+msgid "Auto Publish Events"
+msgstr "Automatisk Publicering"
+
+#. module: event_publish_dates
+#: model:ir.actions.server,name:event_publish_dates.ir_cron_auto_un_publish_event_ir_actions_server
+#: model:ir.cron,cron_name:event_publish_dates.ir_cron_auto_un_publish_event
+#: model:ir.cron,name:event_publish_dates.ir_cron_auto_un_publish_event
+msgid "Auto Un-Publish Events"
+msgstr "Automatisk Opublicering"
+
+#. module: event_publish_dates
+#: model:ir.model.fields,field_description:event_publish_dates.field_event_event__display_name
+msgid "Display Name"
+msgstr "Visningsnamn"
+
+#. module: event_publish_dates
+#: model:ir.model,name:event_publish_dates.model_event_event
+msgid "Event"
+msgstr "Evenemang"
+
+#. module: event_publish_dates
+#: model:ir.model.fields,field_description:event_publish_dates.field_event_event__id
+msgid "ID"
+msgstr ""
+
+#. module: event_publish_dates
+#: model:ir.model.fields,field_description:event_publish_dates.field_event_event____last_update
+msgid "Last Modified on"
+msgstr "Senast redigerad"
+
+#. module: event_publish_dates
+#: model:ir.model.fields,field_description:event_publish_dates.field_event_event__event_publish_date
+msgid "Publish On"
+msgstr "Publicerad"
+
+#. module: event_publish_dates
+#: model:ir.model.fields,field_description:event_publish_dates.field_event_event__event_un_publish_date
+msgid "Un-Publish On"
+msgstr "Opublicerad"
