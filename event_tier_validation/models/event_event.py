@@ -25,8 +25,8 @@ class EventEvent(models.Model):
 
     _tier_validation_manual_config = False
 
-    @api.constrains("state", "website_published", "is_published")
-    def _check_description(self):
+    @api.constrains("state", "website_published", "is_published")  
+    def _check_state(self):
         for record in self:
             if record.review_ids:
                 current_review = record.review_ids.sorted(

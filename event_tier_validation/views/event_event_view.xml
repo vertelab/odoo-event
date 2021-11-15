@@ -28,7 +28,7 @@
         <!-- 
         Create singel event form
      -->
-    <record id="event_event_partner_form" model="ir.ui.view">
+    <record id="event_event_state_form" model="ir.ui.view">
         <field name="name">event.event.form</field>
         <field name="model">event.event</field>
         <field name="inherit_id" ref="event.view_event_form"/>
