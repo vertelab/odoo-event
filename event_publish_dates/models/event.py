@@ -34,6 +34,6 @@ class EventEvent(models.Model):
         else:
             if fields.Date.today() > event.date_end.date():
                 event.stage_id = self.env.ref('event.event_stage_done').id
-            elif fields.Date.today() < self.date_end.date():
+            elif fields.Date.today() < event.date_end.date():
                 event.stage_id = self.env.ref('event.event_stage_cancelled').id
 
