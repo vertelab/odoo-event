@@ -23,12 +23,9 @@
     'name': 'Event Website Filters',
     'summary': 'Event Website Filters',
     'author': 'Vertel AB',
-    'contributor': '',
-    'maintainer': 'Vertel AB',
     'category': 'Employee',
     'version': '14.0.0.0',
     'license': 'AGPL-3',
-
     'description': """
         14.0.0.0
            -added filters to Website events.   
