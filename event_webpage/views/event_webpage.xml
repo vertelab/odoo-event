@@ -1,0 +1,16 @@
+<odoo>
+    
+<!--
+Adds product description to the webpage of an event.
+-->
+<!--
+<template id="event_default_descripton_inherit" inherit_id="event.event_default_descripton">
+        <xpath expr="//section[hasclass('s_text_block')]" position="before">
+                <h2>produkt</h2>
+                <span t-field="event.ticket_description"/>
+                (<t t-esc="ticket_description"/>)
+        </xpath>
+</template>
+-->
+    
+</odoo>
