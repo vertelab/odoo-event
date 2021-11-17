@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <menuitem
+                name="Event Templates"
+                id="event.menu_event_type"
+                sequence="1"
+                parent="event.menu_event_configuration"
+                groups="event_changed_user_rights.group_event_template_manager"
+        />
+    </data>
+
+</odoo>
