@@ -50,6 +50,18 @@
         </field>
     </record>
 
+    <record id="event_type_template_tree" model="ir.ui.view">
+        <field name="name">event.type.tree</field>
+        <field name="model">event.type</field>
+        <field name="inherit_id" ref="event.view_event_type_tree"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="state"/>
+            </field>
+        </field>
+    </record>
+
+
     <record id="view_event_type_kanban" model="ir.ui.view">
         <field name="name">event.type.kanban</field>
         <field name="model">event.type</field>
