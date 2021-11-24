@@ -29,8 +29,19 @@
         <field name="arch" type="xml">
             <xpath expr="//sheet" position="before">
                 <header>
-                    <button string="Demo Button" invisible="1"/>
-                    <field name="state" widget="statusbar" statusbar_visible="draft,reviewed"/>
+                    <button 
+                        string="Demo Button" 
+                        invisible="1"/>
+                    <button 
+                        name="confirm_state" 
+                        string="Bekräfta" 
+                        type="object" 
+                        states="draft"/>
+                        />
+                    <field 
+                        name="state" 
+                        widget="statusbar" 
+                        statusbar_visible="draft,reviewed"/>
                 </header>
             </xpath>
 

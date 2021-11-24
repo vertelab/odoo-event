@@ -38,4 +38,20 @@
             </field>
         </field>
     </record>
+
+    <record id="event_event_confirm_button" model="ir.ui.view">
+        <field name="name">event.event.form</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="/form/header" position="inside">
+                <button 
+                        name="confirm_state" 
+                        string="Bekräfta" 
+                        type="object" 
+                        states="draft"
+                        />
+            </xpath>
+        </field>
+    </record>
 </odoo>

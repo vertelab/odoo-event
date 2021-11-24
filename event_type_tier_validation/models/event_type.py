@@ -26,18 +26,5 @@ class EventType(models.Model):
 
     _tier_validation_manual_config = False
     
-    @api.constrains("state") #, "website_published", "is_published"
-    def _check_state(self):
-        for record in self:
-            if record.review_ids:
-                current_review = record.review_ids.sorted(
-                    key=lambda r: r.create_date)[0]
-                reviewers = len(current_review.done_by)
-                if reviewers:
-                    record.state = 'reviewed'
-                else:
-                    raise UserError(
-                        _("This event has not been reviewed, please ask your reviewers to take a look."))
-            # elif self.is_published and not record.validated:
-            #     raise UserError(
-            #         _("This event has not been reviewed yet, please start a review process by pressing 'Request Validation' button."))
+    def confirm_state(self):
+        self.state = 'reviewed'
