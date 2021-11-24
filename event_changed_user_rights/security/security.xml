@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <record id="group_event_template_manager" model="res.groups">
+            <field name="name">Event Template Access</field>
+            <field name="category_id" ref="base.module_category_hidden"/>
+            <field name="implied_ids" eval="[(4, ref('event.group_event_manager'))]"/>
+        </record>
+    </data>
+</odoo>

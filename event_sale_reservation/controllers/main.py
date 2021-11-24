@@ -33,7 +33,7 @@ class WebsiteEventController(http.Controller):
         return partner_id
 
     def _create_sales_order_from_reservation_post(self, event, partner_id):
-        if event.tag_ids:
+        if event.event_type_id:
             product_id = request.env['product.product'].sudo().search([
                 ('event_reservation_type_id', '=', event.event_type_id.id)], limit=1)
             if product_id:
