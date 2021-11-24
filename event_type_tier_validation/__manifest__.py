@@ -23,7 +23,7 @@
 #
 {
     'name': 'Event Type Tier Validation',
-    'version': '14.0.0.0.0',
+    'version': '14.0.0.0.1',
     'summary': """
         Extends the functionality of Event Type to
         support a tier validation process
@@ -31,20 +31,15 @@
     'category': 'Event', # Technical Settings|Localization|Payroll Localization|Account Charts|User types|Invoicing|Sales|Human Resources|Operations|Marketing|Manufacturing|Website|Theme|Administration|Appraisals|Sign|Helpdesk|Administration|Extra Rights|Other Extra Rights|
     'description': """
         Long description of module's purpose
+        14.0.0.0.1 - Added Kanban view and group by state on event type
     """,
-    #'sequence': 1,
     'images': ['static/descrition/banner.svg'],
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/',
     'license': 'AGPL-3',
-     #"external_dependencies": {
-     #   "bin": ["openssl",], 
-     #   "python": ["acme_tiny", "IPy",],
-     #},
     "data": ["views/event_type_view.xml"],
     "depends": ["event", "base_tier_validation"],
     'application': False,
     'installable': True,    
     'auto_install': False,
-    #"post_init_hook": "post_init_hook",
 }

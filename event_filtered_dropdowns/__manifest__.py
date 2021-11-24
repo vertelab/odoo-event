@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Odoo, Open Source Management Solution, third party addon
-#    Copyright (C) 2021- Vertel AB (<http://vertel.se>).
+#    Odoo SA, Open Source Management Solution, third party addon
+#    Copyright (C) 2021- Vertel AB (<https://vertel.se>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -14,29 +14,27 @@
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU Affero General Public License for more details.
 #
-
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 
 {
-    'name': 'Event Publish Dates',
-    'version': '14.0.0.2',
-    'category': 'Event',
-    'summary': 'Extends the website event publish date',
-    'description': """
-        Extends the website event publish date\n\n
-        Features:\n
-            *   Two fields were added for a publishing date and un-publishing date. \n
-            *   Added cron job to auto publish event on website and also un-publish. \n
-    """,
+    'name': 'Event Filtered Dropdown',
+    'summary': 'Filter organizer and venue dropdown',
     'author': 'Vertel AB',
-    'website': 'https://www.vertel.se',
-    'depends': ['event', 'website_event'],
+    'category': 'Event',
+    'version': '14.0.0.1',
+    'license': 'AGPL-3',
+    'website': 'https://vertel.se',
+    'description': """
+
+    """,
+    'depends': ['website_event', 'event', 'base'],
     'data': [
-        'views/event_view.xml',
-        'data/data.xml',
+        'views/event_view.xml'
     ],
+    'application': False,
     'installable': True,
 }
+# vim:expandtab:smartindent:tabstop=4s:softtabstop=4:shiftwidth=4:
