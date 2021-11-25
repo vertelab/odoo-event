@@ -1,21 +1,71 @@
 <odoo>
    <data>
-        <record id="view_event_type_form_inherit" model="ir.ui.view">
-                  <field name="name">view_event_type_form_inherit</field>
-                  <field name="model">event.type</field>
-                  <field name="inherit_id" ref="event.view_event_type_form"></field>
-                    <field name="arch" type="xml">
-                    <xpath expr="//div[@name='event_type_communication']" position="after">
-                            <h2>Default Website Description</h2>
-                            <field name="description" />
-                    </xpath>
-                    
+    <!--
+    Adds product description to the webpage of an event.
+    -->
 <!--
-                    <xpath expr="//field[@name='event_type_ticket_ids']" position="after">
-                                <field name="ticket_description"/>
-                    </xpath>         
+            <template id="template_intro_inherit" inherit_id="website_event.template_intro" priority="40" name="template_intro_inherit">
+                    <xpath expr="//div[@id='oe_structure_website_event_intro_1']" position="inside">
 -->
-                  </field>
-        </record>
+                        <!-- Description -->
+<!--
+                        <div id="o_wevent_event_main_col" class="container">
+                            <span t-field="event.description" itemprop="description"/>
+                        </div>
+                    </xpath>
+            </template>
+            
+            
+-->
+        
+<!--
+    Sorry inheritance did not do anything. So i override the view, sorry if that messes up stuff. What i did above should just work.
+-->
+            <template id="website_event.template_intro">
+            <t t-call="website_event.layout">
+                <div class="oe_structure oe_empty" id="oe_structure_website_event_intro_1"/>
+                <section class="s_title pt32 pb32" data-vcss="001" data-snippet="s_title" data-name="Title">
+                    <div class="container s_allow_columns">
+                        <h1 style="text-align: center;">
+                            <font style="font-size: 62px;" class="o_default_snippet_text">Introduction</font>
+                        </h1>
+                    </div>
+                </section>
+                <div class="oe_structure oe_empty" id="oe_structure_website_event_intro_2"/>
+                <div id="o_wevent_event_main_col" class="oe_structure oe_empty">
+                                <span t-field="event.description" itemprop="description"/>
+                </div>
+            </t>
+        </template>
+        
+        <template id="event_description_full_inherit" inherit_id="website_event.event_description_full" priority="40" name="event_description_full_inherit">
+                    <xpath expr="//div[@id='o_wevent_event_main_col']" position="replace">
+
+                    <div id="o_wevent_event_main_col" class="col-lg-8 bg-white px-3 pt-5 pb-0 shadow-sm">
+                        <span t-field="event.empty_description_html" itemprop="description"/>
+                    </div>
+                    </xpath>
+        </template>
+        
+    <template id="event_default_empty_description" name="Event default description">
+        <section class="s_text_block">
+                <p>
+                    <span></span>
+                </p>
+                    <span></span>
+                <p> 
+                     <span></span>
+                </p>
+                <p> 
+                    <span></span>
+                </p>
+        </section>
+    </template>    
+            
+        
+        
    </data>
 </odoo>
+
+
+
