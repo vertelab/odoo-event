@@ -32,7 +32,8 @@
     """,
     'depends': ['website_event', 'event', 'base'],
     'data': [
-        'views/event_view.xml'
+        'views/event_view.xml',
+        'views/templates.xml',
     ],
     'application': False,
     'installable': True,

@@ -11,6 +11,9 @@
                 <field name="organizer_id" position="replace">
                     <field name="organizer_id"/>
                 </field>
+                <field name="date_tz" position="replace">
+                    <field name="date_tz" groups="base.group_no_one"/>
+                </field>
             </field>
         </record>
 
