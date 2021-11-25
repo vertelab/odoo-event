@@ -42,10 +42,26 @@
                     <xpath expr="//div[@id='o_wevent_event_main_col']" position="replace">
 
                     <div id="o_wevent_event_main_col" class="col-lg-8 bg-white px-3 pt-5 pb-0 shadow-sm">
-                        <span t-field="event.empty_description" itemprop="description"/>
+                        <span t-field="event.empty_description_html" itemprop="description"/>
                     </div>
                     </xpath>
-            </template>
+        </template>
+        
+    <template id="event_default_empty_description" name="Event default description">
+        <section class="s_text_block">
+                <p>
+                    <span></span>
+                </p>
+                    <span></span>
+                <p> 
+                     <span></span>
+                </p>
+                <p> 
+                    <span></span>
+                </p>
+        </section>
+    </template>    
+            
         
         
    </data>
