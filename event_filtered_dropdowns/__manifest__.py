@@ -24,15 +24,18 @@
     'summary': 'Filter organizer and venue dropdown',
     'author': 'Vertel AB',
     'category': 'Event',
-    'version': '14.0.0.1',
+    'version': '14.0.0.2',
     'license': 'AGPL-3',
     'website': 'https://vertel.se',
     'description': """
-
+        14.0.0.2
+            - Defaulted website checkout country to Sweden and flipped zip and city
+            -  Defaulted timezone to Europe/Stockholm and added field to debug group
     """,
     'depends': ['website_event', 'event', 'base'],
     'data': [
-        'views/event_view.xml'
+        'views/event_view.xml',
+        'views/templates.xml',
     ],
     'application': False,
     'installable': True,

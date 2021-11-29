@@ -24,3 +24,7 @@ class EventEvent(models.Model):
     organizer_id = fields.Many2one(
         'res.partner', string='Organizer', tracking=True,
         domain="[('type', '=', 'hr_department')]")
+
+    date_tz = fields.Selection(
+        _tz_get, string='Timezone', required=True,
+        compute='_compute_date_tz', readonly=False, store=True, default='Europe/Stockholm')
