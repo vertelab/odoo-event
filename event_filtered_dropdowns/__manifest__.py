@@ -32,7 +32,7 @@
             - Defaulted website checkout country to Sweden and flipped zip and city
             -  Defaulted timezone to Europe/Stockholm and added field to debug group
     """,
-    'depends': ['website_event', 'event', 'base'],
+    'depends': ['website_event', 'event', 'base', 'website_sale'],
     'data': [
         'views/event_view.xml',
         'views/templates.xml',
