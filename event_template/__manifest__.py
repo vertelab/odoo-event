@@ -20,15 +20,14 @@
 ##############################################################################
 
 {
-    'name': 'Depreciated - Event Template',
+    'name': 'Event Template',
     'summary': 'To be able to create event from another event.',
     'author': 'Vertel AB',
     'contributor': 'Mitchell Admin',
     'maintainer': 'Vertel AB',
-    'version': '14.0.0.0',
     'repository': 'https://github.com/vertelab/odoo-event.git',
     'category': 'Employee',
-    'version': '14.0.1.2.3',
+    'version': '14.0.1.3.0,
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'license': 'AGPL-3',
     'website': 'https://vertel.se/',
