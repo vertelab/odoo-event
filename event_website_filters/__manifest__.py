@@ -24,11 +24,11 @@
     'summary': 'Event Website Filters',
     'author': 'Vertel AB',
     'category': 'Employee',
-    'version': '14.0.0.0',
+	"contributor": "Miracle Ayodele,Fredrik Arvas",
+    'version': '14.0.1.0',
     'license': 'AGPL-3',
     'description': """
-        14.0.0.0
-           -added filters to Website events.   
+        14.0.1.0 Added translation to swedish\n 
     """,
     'depends': ['website_event', 'event'],
     'data': [
