@@ -20,25 +20,26 @@
 ##############################################################################
 
 {
-    'name': 'HR Partner Event',
+    'name': 'Event Partner',
     'summary': 'To be able to have multiple partners on event.',
     'author': 'Vertel AB',
-    'contributor': '',
+    'contributor': 'Miracle Ayodele,Fredrik Arvas',
     'maintainer': 'Vertel AB',
     'repository': 'https://git.vertel.se/vertelab/odoo-event',
     'category': 'Employee',
-    'version': '14.0.0.2',
+    'version': '14.0.1.1.0',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'license': 'AGPL-3',
     'website': 'https://vertel.se/apps/event-partner',
     'description': """
         To be able to have multiple partners on event. \n
-        14.0.0.1
-            - Changed Maximum seat to Available seat
-            - Improved access right for event partners
-        14.0.0.2
-            - Improvement to Event Access Right
-            - Added the available seats to tree and form view
+        14.0.1.1.0 - Added translation \n
+        14.0.0.2 \n
+            - Improvement to Event Access Right \n
+            - Added the available seats to tree and form view \n
+        14.0.0.1 \n
+            - Changed Maximum seat to Available seat \n
+            - Improved access right for event partners \n
     """,
     'depends': ['website_event', 'event'],
     'data': [
