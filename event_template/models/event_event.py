@@ -12,7 +12,7 @@ class EventEvent(models.Model):
             new_name = self.name.replace(" (TEMPLATE)", " (COPY)")
         else:
             new_name = self.name + " (COPY)"
-        new_event = self.copy(
+        new_event = self.sudo().copy(
             default={"name": new_name, "active": True}
         )
 

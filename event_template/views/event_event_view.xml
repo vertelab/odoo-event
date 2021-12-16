@@ -6,12 +6,13 @@
             <field name="inherit_id" ref="event.view_event_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//header" position="inside">
+                    <field name="state" invisible='1'/>
                     <button
                         string="Create Event From Template"
                         type="object"
                         name="create_event_from_template"
                         class="oe_highlight"
-                        attrs="{'invisible': [('is_template', '=', False)]}"
+                        attrs="{'invisible': ['|', ('is_template', '=', False),  ('state', '!=', 'reviewed')]}"
                     />
                 </xpath>
                 <xpath expr="//div[@name='event_menu_configuration']" position="inside">

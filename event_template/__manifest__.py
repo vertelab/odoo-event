@@ -35,7 +35,7 @@
         To be able to create event from another event. \n
         Depreciated since there is a template-function in the core-module.\n
     """,
-    'depends': ['website_event', 'event'],
+    'depends': ['website_event', 'event', 'base_tier_validation', 'event_partner','event_tier_validation'],
     'data': [
         'views/event_event_view.xml'
     ],
