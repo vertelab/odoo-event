@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+    <record model="ir.ui.view" id="view_event_registration_pivot">
+        <field name="name">event.registration.pivot</field>
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event.view_event_registration_pivot" />
+        <field name="arch" type="xml">
+            <field name="event_id" positon="after">
+                <field name="partner_gender" type="col"/>
+            </field>
+        </field>
+    </record>
+</data>

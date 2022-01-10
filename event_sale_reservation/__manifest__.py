@@ -4,7 +4,7 @@
 {
     "name": "Sell event reservations",
     "summary": "Allow selling event registrations before the event exists",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.1.0",
     "development_status": "Beta",
     "category": "Marketing",
     "website": "https://github.com/OCA/event",
@@ -18,10 +18,12 @@
         "website_event",
         "web_ir_actions_act_multi",
         "web_ir_actions_act_view_reload",
-        "product"
+        "product",
+        "partner_gender"
     ],
     "data": [
         "reports/sale_report_view.xml",
+        "reports/event_registration_views.xml",
         "wizards/registration_editor_view.xml",
         "views/event_type_view.xml",
         "views/product_template_view.xml",
