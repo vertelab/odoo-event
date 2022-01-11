@@ -27,12 +27,12 @@
     'maintainer': 'Vertel AB',
     'repository': 'https://git.vertel.se/vertelab/odoo-event',
     'category': 'Employee',
-    'version': '14.0.0.0',
+    'version': '14.0.0.1.0',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'license': 'AGPL-3',
 
     'description': """
-        14.0.0.0
+        14.0.0.1.0
            -added the ticket desctiption on the webpage for an event.   
     """,
     'depends': ['website_event', 'event'],
