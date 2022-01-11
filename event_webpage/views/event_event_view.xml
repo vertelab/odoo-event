@@ -16,5 +16,20 @@
                   </field>
         </record>
    </data>
-</odoo>
 
+    <template id="contact" inherit_id="website_event.event_description_full" >
+        <xpath expr="//div[hasclass('mb-2')]" position="replace">
+            <div itemprop="location" class="mb-2">
+                <span class="w-100 o_force_ltr d-block" itemprop="streetAddress">
+                    <t t-esc="event.address_id.street"/> <br />
+                    <t t-if="event.address_id.street2">
+                        <t t-esc="event.address_id.street2"/> <br />
+                    </t>
+                    <t t-esc="event.address_id.zip"/>
+                    <t t-esc="event.address_id.city"/>
+                    <br />
+                </span>
+            </div>
+        </xpath>
+    </template>
+</odoo>
