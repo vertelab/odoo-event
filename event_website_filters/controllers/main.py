@@ -116,7 +116,7 @@ class WebsiteEventOrganizer(WebsiteEventController):
 
         if searches["state"] != 'all' and searches["state"] != 'online':
             current_state = request.env['res.country.state'].browse(int(searches['state']))
-            domain_search["state"] = ['|', ("state_id", "=", int(searches["state"])), ("state_id", "=", False)]
+            domain_search["state"] = [("state_id", "=", int(searches["state"]))]
         elif searches["state"] == 'online':
             domain_search["state"] = [("state_id", "=", False)]
 
@@ -132,35 +132,30 @@ class WebsiteEventOrganizer(WebsiteEventController):
             if date[0] != 'old':
                 date[3] = Event.search_count(dom_without('date') + date[2])
 
-        domain = dom_without('type')
-
         domain = dom_without('country')
         countries = Event.read_group(domain, ["id", "country_id"], groupby="country_id", orderby="country_id")
-
         countries.insert(0, {
             'country_id_count': sum([int(country['country_id_count']) for country in countries]),
             'country_id': ("all", _("All Countries"))
         })
 
+        #  Event Venue State
+        domain = dom_without('state')
+        states = Event.read_group(domain, ["id", "state_id"], groupby="state_id", orderby="state_id")
+        states.insert(0, {
+            'state_id_count': sum([int(state['state_id_count']) for state in states]),
+            'state_id': ("all", _("All States"))
+        })
+
         # Event Types
+        domain = dom_without('type')
         event_types = Event.read_group(domain, ["id", "event_type_id", "name"], groupby="event_type_id",
                                        orderby="event_type_id")
-
         event_types.insert(0, {
             'event_type_id_count': sum([
                 int(event_type['event_type_id_count']) for event_type in event_types if event_type['event_type_id']
             ]),
             'event_type_id': ("all", _("All Event Types"))
-        })
-
-        #  Event Venue State
-
-        domain = dom_without('state')
-        states = Event.read_group(domain, ["id", "state_id"], groupby="state_id", orderby="state_id")
-
-        states.insert(0, {
-            'state_id_count': sum([int(state['state_id_count']) for state in states]),
-            'state_id': ("all", _("All States"))
         })
 
         step = 12  # Number of events per page
@@ -190,8 +185,8 @@ class WebsiteEventOrganizer(WebsiteEventController):
             'event_ids': events,  # event_ids used in website_event_track so we keep name as it is
             'dates': dates,
             'categories': request.env['event.tag.category'].search([]),
-            'event_types': event_types,
             'countries': countries,
+            'event_types': event_types,
             'states': states,
             'pager': pager,
             'searches': searches,
