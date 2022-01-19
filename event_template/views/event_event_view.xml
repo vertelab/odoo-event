@@ -15,10 +15,10 @@
                         attrs="{'invisible': ['|', ('is_template', '=', False),  ('state', '!=', 'reviewed')]}"
                     />
                 </xpath>
-                <xpath expr="//div[@name='event_menu_configuration']" position="inside">
+                <field name="active" position="after">
                     <label for="is_template" string="Is Template"/>
                     <field name="is_template"/>
-                </xpath>
+                </field>
 
             </field>
         </record>
