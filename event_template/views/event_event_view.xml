@@ -16,7 +16,6 @@
                     />
                 </xpath>
                 <field name="active" position="after">
-                    <label for="is_template" string="Is Template"/>
                     <field name="is_template"/>
                 </field>
 
