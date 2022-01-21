@@ -4,14 +4,14 @@ from odoo.addons.http_routing.models.ir_http import slug
 
 class EventType(models.Model):
     _name = 'event.type'
-    _inherit = ["event.type", "website.published.mixin"]
+    _inherit = ["event.type", "website.published.multi.mixin"]
 
     def _default_cover_properties(self):
         res = super()._default_cover_properties()
         res['opacity'] = '0.4'
         return res
 
-    website_published = fields.Boolean(tracking=True)
+    website_published = fields.Boolean(tracking=False)
 
     @api.depends('name')
     def _compute_website_url(self):
