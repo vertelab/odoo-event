@@ -1,0 +1,11 @@
+<odoo>
+    <template id="event_type_template" name="Event Template">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container">
+                    <div itemprop="description" t-field="event_type.description" class="oe_structure oe_empty mt16" id="event_type_description"/>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
