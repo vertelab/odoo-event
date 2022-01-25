@@ -15,6 +15,7 @@ _logger = logging.getLogger(__name__)
 
 class EventType(models.Model):
     _name = "event.type"
+    _description = _('Event Template')
     _inherit = ["event.type", "tier.validation"]
     _state_from = ["draft"]
     _state_to = ["reviewed", "approved"]
