@@ -35,16 +35,18 @@
                     <button 
                         string="Demo Button" 
                         invisible="1"/>
-                    <button 
-                        name="confirm_state" 
-                        string="Bekräfta" 
-                        type="object" 
-                        states="draft"/>
-                        />
                     <field 
                         name="state" 
                         widget="statusbar" 
                         statusbar_visible="draft,reviewed"/>
+                    <field
+                        name="validated"  
+                        invisible="1"/>
+                    <button 
+                        name="confirm_state" 
+                        string="Bekräfta" 
+                        type="object" 
+                        attrs="{'invisible': ['|', ('validated', '!=', True), '&amp;', ('validated', '=', True), ('state', '=', 'reviewed')]}"/>
                 </header>
             </xpath>
         </field>
@@ -56,7 +58,7 @@
         <field name="inherit_id" ref="event.view_event_form"/>
         <field name="arch" type="xml">
             <field name="event_type_id" position="replace">
-                <field name="event_type_id" string="Template" placeholder="No Validated Templates" options="{'no_create':True}" domain="[('validated', '=', True)]"/>
+                <field name="event_type_id" string="Template" placeholder="No Validated Templates" options="{'no_create':True}"  domain="[('state', '=', 'reviewed')]"/>
             </field>
         </field>
     </record>
