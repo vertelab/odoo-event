@@ -18,7 +18,7 @@ class EventEventType(models.Model):
             self.ticket_description = ""
             _logger.warning(f"{self.description=}")
             if 'product_id' in self.env['event.event.ticket']._fields:
-                if self.event_type_ticket_ids and self.event_ticket_ids[0].product_id:
+                if self.event_type_ticket_ids and self.event_type_ticket_ids[0].product_id:
                     self.ticket_description = self.event_type_ticket_ids[0].product_id.description_sale
 
 
