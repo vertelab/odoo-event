@@ -10,4 +10,15 @@
             </field>
         </field>
     </record>
+
+    <record model="ir.ui.view" id="view_event_registration_form">
+        <field name="name">event.registration.gender.field</field>
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event.view_event_registration_form" />
+        <field name="arch" type="xml">
+            <field name="mobile" positon="after">
+                <field name="partner_gender"/>
+            </field>
+        </field>
+    </record>
 </data>
