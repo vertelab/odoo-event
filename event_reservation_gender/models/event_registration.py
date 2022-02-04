@@ -18,6 +18,11 @@ class EventRegistration(models.Model):
         readonly=True,
     )
 
+    def _get_website_registration_allowed_fields(self):
+        res = super(EventRegistration, self)._get_website_registration_allowed_fields()
+        res.add('partner_gender')
+        return res
+
     def _query(self, with_clause="", fields={}, groupby="", from_clause=""):
         fields["partner_gender"] = ", partner.gender as partner_gender"
         groupby += ", partner.gender"
