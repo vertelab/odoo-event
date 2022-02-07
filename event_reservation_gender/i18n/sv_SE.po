@@ -1,0 +1,94 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_reservation_gender
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0-20210312\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-07 08:19+0000\n"
+"PO-Revision-Date: 2022-02-07 08:19+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: event_reservation_gender
+#: model:ir.model.fields.selection,name:event_reservation_gender.selection__event_registration__partner_gender__other
+msgid "Annat"
+msgstr ""
+
+#. module: event_reservation_gender
+#: code:addons/event_reservation_gender/models/event_registration.py:0
+#: model_terms:ir.ui.view,arch_db:event_reservation_gender.attendee_gender_details
+#, python-format
+msgid "Decline to answer"
+msgstr "Vill ej svara"
+
+#. module: event_reservation_gender
+#: model:ir.model.fields,field_description:event_reservation_gender.field_event_registration__display_name
+msgid "Display Name"
+msgstr "Visningsnamn"
+
+#. module: event_reservation_gender
+#: model:ir.model,name:event_reservation_gender.model_event_registration
+msgid "Event Registration"
+msgstr "Anmälan"
+
+#. module: event_reservation_gender
+#: code:addons/event_reservation_gender/models/event_registration.py:0
+#: model_terms:ir.ui.view,arch_db:event_reservation_gender.attendee_gender_details
+#, python-format
+msgid "Female"
+msgstr "Kvinna"
+
+#. module: event_reservation_gender
+#: model_terms:ir.ui.view,arch_db:event_reservation_gender.attendee_gender_details
+msgid "Gender"
+msgstr "Kön"
+
+#. module: event_reservation_gender
+#: model:ir.model.fields,field_description:event_reservation_gender.field_event_registration__id
+msgid "ID"
+msgstr ""
+
+#. module: event_reservation_gender
+#: model:ir.model.fields.selection,name:event_reservation_gender.selection__event_registration__partner_gender__female
+msgid "Kvinna"
+msgstr "Woman"
+
+#. module: event_reservation_gender
+#: model:ir.model.fields,field_description:event_reservation_gender.field_event_registration____last_update
+msgid "Last Modified on"
+msgstr "Senast redigerad"
+
+#. module: event_reservation_gender
+#: code:addons/event_reservation_gender/models/event_registration.py:0
+#: model_terms:ir.ui.view,arch_db:event_reservation_gender.attendee_gender_details
+#, python-format
+msgid "Male"
+msgstr "Man"
+
+#. module: event_reservation_gender
+#: model:ir.model.fields.selection,name:event_reservation_gender.selection__event_registration__partner_gender__male
+msgid "Man"
+msgstr ""
+
+#. module: event_reservation_gender
+#: code:addons/event_reservation_gender/models/event_registration.py:0
+#: model_terms:ir.ui.view,arch_db:event_reservation_gender.attendee_gender_details
+#, python-format
+msgid "Other"
+msgstr "Annan"
+
+#. module: event_reservation_gender
+#: model:ir.model.fields,field_description:event_reservation_gender.field_event_registration__partner_gender
+msgid "Partner gender"
+msgstr "Deltagares Kön"
+
+#. module: event_reservation_gender
+#: model:ir.model.fields.selection,name:event_reservation_gender.selection__event_registration__partner_gender__decline
+msgid "Vill ej svara"
+msgstr ""
