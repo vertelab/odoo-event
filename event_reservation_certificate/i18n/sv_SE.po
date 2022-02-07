@@ -17,6 +17,7 @@ msgstr ""
 
 #. module: event_reservation_certificate
 #: model:ir.model.fields,field_description:event_reservation_certificate.field_event_registration__certified
+#: model:ir.model.fields.selection,name:event_reservation_certificate.selection__event_registration__certified__true
 msgid "Certified"
 msgstr "Certifierad"
 
@@ -44,3 +45,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:event_reservation_certificate.field_event_registration____last_update
 msgid "Last Modified on"
 msgstr "Senast redigerad"
+
+#. module: event_reservation_certificate
+#: model:ir.model.fields.selection,name:event_reservation_certificate.selection__event_registration__certified__false
+msgid "Uncertified"
+msgstr "Ocertifierad"

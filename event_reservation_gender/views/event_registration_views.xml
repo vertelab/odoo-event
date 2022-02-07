@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- Pivot View -->
     <record model="ir.ui.view" id="view_event_registration_gender_pivot">
         <field name="name">event.registration.pivot</field>
         <field name="model">event.registration</field>
@@ -11,6 +12,7 @@
         </field>
     </record>
 
+    <!-- Form View -->
     <record model="ir.ui.view" id="view_event_registration_form">
         <field name="name">event.registration.gender.field</field>
         <field name="model">event.registration</field>
@@ -22,6 +24,7 @@
         </field>
     </record>
 
+    <!-- Frontend Regristration Modal View -->
     <template id="attendee_gender_details" inherit_id="website_event.registration_attendee_details" name="Event Registration Gender Addition">
         <xpath expr="//div[hasclass('row')]/div[last()]" position="before">
             <div class="col-lg my-2">
