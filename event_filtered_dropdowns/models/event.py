@@ -12,6 +12,13 @@ from odoo.tools.translate import html_translate
 
 _logger = logging.getLogger(__name__)
 
+class EventEventType(models.Model):
+    """Event Type"""
+    _inherit = 'event.type'
+    department_id = fields.Many2one('hr.department')
+    organizer_id = fields.Many2one(
+        'res.partner', string='Organizer', tracking=True,
+        domain="[('type', '=', 'hr_department')]")
 
 class EventEvent(models.Model):
     """Event"""
@@ -28,3 +35,7 @@ class EventEvent(models.Model):
     date_tz = fields.Selection(
         _tz_get, string='Timezone', required=True,
         compute='_compute_date_tz', readonly=False, store=True, default='Europe/Stockholm')
+
+    @api.onchange("event_type_id")
+    def _set_organizer_to_event_type_organizer(self):
+        self.organizer_id = self.event_type_id.organizer_id
