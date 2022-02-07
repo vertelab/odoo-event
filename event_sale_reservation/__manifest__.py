@@ -23,7 +23,6 @@
     ],
     "data": [
         "reports/sale_report_view.xml",
-        "reports/event_registration_views.xml",
         "wizards/registration_editor_view.xml",
         "views/event_type_view.xml",
         "views/product_template_view.xml",
