@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+    <record model="ir.ui.view" id="view_event_registration_form">
+        <field name="name">event.registration.certificate.field</field>
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event.view_event_registration_form"/>
+        <field name="arch" type="xml">
+            <field name="mobile" position="before">
+                <field name="certified"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- List View -->
+    <record model="ir.ui.view" id="list_view_event_registration_certify">
+        <field name="name">event.registration.tree.certify.button</field>
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event.view_event_registration_tree"/>
+        <field name="arch" type="xml">
+            <field name="mobile" position="after">
+                <field name="certified"/>
+            </field>
+            <!-- Add your fields here -->
+            <button name="action_set_done" position="after">
+                <button name="action_certify" 
+                    string="Certify" 
+                    attrs="{'invisible': ['|', ('state', '!=', 'done'), '&amp;', ('state', '=', 'done'), ('certified', '=', 'True')]}"
+                    type="object" 
+                    icon="fa-check"/>
+            </button>
+        </field>
+    </record>
+
+
+    <!-- Pivot View-->
+    <record model="ir.ui.view" id="view_event_registration_certificate_pivot">
+        <field name="name">event.registration.certificate.pivot</field>
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event.view_event_registration_pivot" />
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="certified"/>
+            </pivot>
+        </field>
+    </record>
+</odoo>

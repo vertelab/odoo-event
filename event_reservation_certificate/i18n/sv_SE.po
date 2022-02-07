@@ -1,0 +1,46 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_reservation_certificate
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0-20210312\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-07 08:18+0000\n"
+"PO-Revision-Date: 2022-02-07 08:18+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: event_reservation_certificate
+#: model:ir.model.fields,field_description:event_reservation_certificate.field_event_registration__certified
+msgid "Certified"
+msgstr "Certifierad"
+
+#. module: event_reservation_certificate
+#: model_terms:ir.ui.view,arch_db:event_reservation_certificate.list_view_event_registration_certify
+msgid "Certify"
+msgstr "Certifiera"
+
+#. module: event_reservation_certificate
+#: model:ir.model.fields,field_description:event_reservation_certificate.field_event_registration__display_name
+msgid "Display Name"
+msgstr "Visningsnamn"
+
+#. module: event_reservation_certificate
+#: model:ir.model,name:event_reservation_certificate.model_event_registration
+msgid "Event Registration"
+msgstr "Anmälan"
+
+#. module: event_reservation_certificate
+#: model:ir.model.fields,field_description:event_reservation_certificate.field_event_registration__id
+msgid "ID"
+msgstr ""
+
+#. module: event_reservation_certificate
+#: model:ir.model.fields,field_description:event_reservation_certificate.field_event_registration____last_update
+msgid "Last Modified on"
+msgstr "Senast redigerad"
