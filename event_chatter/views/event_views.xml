@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Frontend Regristration Modal View -->
+    <template id="event_event_chatter" inherit_id="website_event.event_details" name="Event Chatter">
+        <xpath expr="//div[@name='event']" position="after">
+            <!-- chatter -->
+            <div id="event_event_communication" class="bg-200">
+                <section class="container">
+                    <h2>History</h2>
+                    <t t-call="portal.message_thread">
+                        <t t-set="object" t-value="event"/>
+                    </t>
+                </section>
+            </div>
+        </xpath>
+    </template>
+</odoo>
