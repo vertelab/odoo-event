@@ -44,7 +44,7 @@
                         invisible="1"/>
                     <button 
                         name="confirm_state" 
-                        string="Bekräfta" 
+                        string="Confirm"
                         type="object" 
                         attrs="{'invisible': ['|', ('validated', '!=', True), '&amp;', ('validated', '=', True), ('state', '=', 'reviewed')]}"/>
                 </header>
