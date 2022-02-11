@@ -62,12 +62,12 @@ msgstr "Utbildningsmall"
 #. module: event_type_tier_validation
 #: model:ir.model.fields.selection,name:event_type_tier_validation.selection__event_type__state__draft
 msgid "Event Template Draft"
-msgstr ""
+msgstr "Utbildning - utkast"
 
 #. module: event_type_tier_validation
 #: model:ir.model.fields.selection,name:event_type_tier_validation.selection__event_type__state__reviewed
 msgid "Event Template Reviewed"
-msgstr ""
+msgstr "Utbildning - granskad"
 
 #. module: event_type_tier_validation
 #: model_terms:ir.ui.view,arch_db:event_type_tier_validation.view_event_type_filter
