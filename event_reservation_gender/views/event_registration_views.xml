@@ -26,6 +26,9 @@
 
     <!-- Frontend Regristration Modal View -->
     <template id="attendee_gender_details" inherit_id="website_event.registration_attendee_details" name="Event Registration Gender Addition">
+        <xpath expr="//input[@type='tel']" position="replace">
+            <input class="form-control" type="tel" pattern="[-0-9+ ]*" t-attf-name="#{counter}-phone"/>
+        </xpath>
         <xpath expr="//div[hasclass('row')]/div[last()]" position="before">
             <div class="col-lg my-2">
                 <label>Gender</label>
