@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0-20210312\n"
+"Project-Id-Version: Odoo Server 14.0-20211230\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-24 12:29+0000\n"
-"PO-Revision-Date: 2022-01-24 12:29+0000\n"
+"POT-Creation-Date: 2022-02-16 08:18+0000\n"
+"PO-Revision-Date: 2022-02-16 08:18+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,24 +16,29 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: event_type_tier_validation
-#: model_terms:ir.ui.view,arch_db:event_type_tier_validation.event_type_statusbar_form
-msgid "Bekräfta"
-msgstr ""
+#: model:ir.model.fields,field_description:event_type_tier_validation.field_event_type__can_forward
+msgid "Can Forward"
+msgstr "Kan vidarebefordra"
 
 #. module: event_type_tier_validation
 #: model:ir.model.fields,field_description:event_type_tier_validation.field_event_type__can_review
 msgid "Can Review"
-msgstr ""
+msgstr "Kan granska"
+
+#. module: event_type_tier_validation
+#: model_terms:ir.ui.view,arch_db:event_type_tier_validation.event_type_statusbar_form
+msgid "Confirm"
+msgstr "Bekräfta"
 
 #. module: event_type_tier_validation
 #: model_terms:ir.ui.view,arch_db:event_type_tier_validation.view_event_type_kanban
 msgid "Delete"
-msgstr ""
+msgstr "Radera"
 
 #. module: event_type_tier_validation
 #: model_terms:ir.ui.view,arch_db:event_type_tier_validation.event_type_statusbar_form
 msgid "Demo Button"
-msgstr ""
+msgstr "Demo knapp"
 
 #. module: event_type_tier_validation
 #: model:ir.model.fields,field_description:event_type_tier_validation.field_event_type__display_name
@@ -44,12 +49,12 @@ msgstr "Visningsnamn"
 #. module: event_type_tier_validation
 #: model_terms:ir.ui.view,arch_db:event_type_tier_validation.view_event_type_kanban
 msgid "Dropdown menu"
-msgstr ""
+msgstr "Rullgardinsmeny"
 
 #. module: event_type_tier_validation
 #: model_terms:ir.ui.view,arch_db:event_type_tier_validation.view_event_type_kanban
 msgid "Edit"
-msgstr ""
+msgstr "Redigera"
 
 #. module: event_type_tier_validation
 #: code:addons/event_type_tier_validation/models/event_type.py:0
@@ -72,17 +77,17 @@ msgstr "Utbildning - granskad"
 #. module: event_type_tier_validation
 #: model_terms:ir.ui.view,arch_db:event_type_tier_validation.view_event_type_filter
 msgid "Event Templates validated and ready to be confirmed"
-msgstr ""
+msgstr "Utbildningsmallar validerade och redo att bli godkända"
 
 #. module: event_type_tier_validation
 #: model_terms:ir.ui.view,arch_db:event_type_tier_validation.view_event_type_filter
 msgid "Group By"
-msgstr ""
+msgstr "Gruppera på"
 
 #. module: event_type_tier_validation
 #: model:ir.model.fields,field_description:event_type_tier_validation.field_event_type__has_comment
 msgid "Has Comment"
-msgstr ""
+msgstr "Har kommentar"
 
 #. module: event_type_tier_validation
 #: model:ir.model.fields,field_description:event_type_tier_validation.field_event_type__id
@@ -99,37 +104,37 @@ msgstr "Senast redigerad"
 #. module: event_type_tier_validation
 #: model_terms:ir.ui.view,arch_db:event_type_tier_validation.view_event_type_filter
 msgid "My Event Templates to review"
-msgstr ""
+msgstr "Mina utbildningsmallar att granska"
 
 #. module: event_type_tier_validation
 #: model:ir.model.fields,field_description:event_type_tier_validation.field_event_type__need_validation
 msgid "Need Validation"
-msgstr ""
+msgstr "Behöver validering"
 
 #. module: event_type_tier_validation
 #: model_terms:ir.ui.view,arch_db:event_type_tier_validation.view_event_type_filter
 msgid "Needs my Review"
-msgstr ""
+msgstr "Behöver granskning"
 
 #. module: event_type_tier_validation
 #: model:ir.model.fields,field_description:event_type_tier_validation.field_event_type__next_review
 msgid "Next Review"
-msgstr ""
+msgstr "Nästa granskning"
 
 #. module: event_type_tier_validation
 #: model_terms:ir.ui.view,arch_db:event_type_tier_validation.event_event_type_template_form
 msgid "No Validated Templates"
-msgstr ""
+msgstr "Inga validerade mallar"
 
 #. module: event_type_tier_validation
 #: model:ir.model.fields,field_description:event_type_tier_validation.field_event_type__rejected
 msgid "Rejected"
-msgstr ""
+msgstr "Avvisade"
 
 #. module: event_type_tier_validation
 #: model:ir.model.fields,field_description:event_type_tier_validation.field_event_type__reviewer_ids
 msgid "Reviewers"
-msgstr ""
+msgstr "Granskare"
 
 #. module: event_type_tier_validation
 #: model:ir.model.fields,field_description:event_type_tier_validation.field_event_type__state
@@ -140,7 +145,7 @@ msgstr ""
 #. module: event_type_tier_validation
 #: model_terms:ir.ui.view,arch_db:event_type_tier_validation.event_event_type_template_form
 msgid "Template"
-msgstr ""
+msgstr "Mall"
 
 #. module: event_type_tier_validation
 #: model:ir.model,name:event_type_tier_validation.model_tier_definition
@@ -148,12 +153,17 @@ msgid "Tier Definition"
 msgstr "Attestdefinition"
 
 #. module: event_type_tier_validation
+#: model:ir.model,name:event_type_tier_validation.model_event_type
+msgid "Utbildningsmall"
+msgstr ""
+
+#. module: event_type_tier_validation
 #: model:ir.model.fields,field_description:event_type_tier_validation.field_event_type__validated
 #: model_terms:ir.ui.view,arch_db:event_type_tier_validation.view_event_type_filter
 msgid "Validated"
-msgstr ""
+msgstr "Validerad"
 
 #. module: event_type_tier_validation
 #: model:ir.model.fields,field_description:event_type_tier_validation.field_event_type__review_ids
 msgid "Validations"
-msgstr ""
+msgstr "Valideringar"
