@@ -22,7 +22,6 @@
 
         <template id="event_description_full_inherit" inherit_id="website_event.event_description_full" priority="40" name="event_description_full_inherit">
             <xpath expr="//div[@id='o_wevent_event_main_col']" position="replace">
-
                 <div id="o_wevent_event_main_col" class="col-lg-8 bg-white px-3 pt-5 pb-0 shadow-sm">
                     <t t-if="len(event.event_ticket_ids) == 1">
                         <h3>Ticket Description</h3>
