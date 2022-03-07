@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <record id="waitinglist" model="ir.ui.view">
+            <field name="name">view_event_form_waitinglist</field>
+            <field name="model">event.event</field>
+            <field name="inherit_id" ref="event.view_event_form"></field>
+            <field name="arch" type="xml">
+                
+                <xpath expr="//div[hasclass('oe_title')]" position="after">
+                <div name="event_waitinglist" groups="base.group_no_one">
+                    <label for="is_waitinglist" string="Is Waiting List"/>
+                    <field name="is_waitinglist"/>
+                </div>
+            </xpath>
+            </field>
+        </record>
+
+    </data>
+
+</odoo>

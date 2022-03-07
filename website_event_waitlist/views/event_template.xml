@@ -1,0 +1,48 @@
+<odoo>
+   <data>
+
+            <template id="index">
+            <t t-call="website_event.layout">
+<!--
+                <div class="oe_structure oe_empty" id="oe_structure_website_event_intro_1"/>
+                <section class="s_title pt32 pb32" data-vcss="001" data-snippet="s_title" data-name="Title">
+                    <div class="container s_allow_columns">
+                        <h1 style="text-align: center;">
+                            <font style="font-size: 62px;" class="o_default_snippet_text">Introduction</font>
+                        </h1>
+                    </div>
+                </section>
+                <div class="oe_structure oe_empty" id="oe_structure_website_event_intro_2"/>
+                <div id="o_wevent_event_main_col" class="oe_structure oe_empty">
+                                <span t-field="event.description" itemprop="description"/>
+                </div>
+-->
+            </t>
+        </template>
+
+            <template id="waiting_list_page">
+            <t t-call="website_event.layout">
+                <div class="oe_structure oe_empty" id="oe_structure_website_event_intro_1"/>
+                <section class="s_title pt32 pb32" data-vcss="001" data-snippet="s_title" data-name="Title">
+                    <div class="container s_allow_columns">
+                        <h1 style="text-align: center;">
+                            <font style="font-size: 62px;" class="o_default_snippet_text">Introduction</font>
+                        </h1>
+                    </div>
+                </section>
+                <div class="oe_structure oe_empty" id="oe_structure_website_event_intro_2"/>
+                <div id="o_wevent_event_main_col" class="oe_structure oe_empty">
+                                <span t-field="event.description" itemprop="description"/>
+                </div>
+            </t>
+        </template>
+        
+        
+            
+        
+        
+   </data>
+</odoo>
+
+
+
