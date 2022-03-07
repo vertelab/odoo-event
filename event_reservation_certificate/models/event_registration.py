@@ -8,10 +8,9 @@ from odoo import fields, models, _
 class EventRegistration(models.Model):
     _inherit = "event.registration"
 
-    # certified = fields.Boolean(string='Certified', default=False, readonly=True)
     certified = fields.Selection(selection=[
-        ('True', 'Certified'),
-        ('False', 'Uncertified'),
+        ('True', 'Approved'),
+        ('False', 'Unapproved'),
     ], default='False', readonly=True)
 
     def action_certify(self):

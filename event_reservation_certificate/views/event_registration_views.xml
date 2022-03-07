@@ -24,7 +24,7 @@
             <!-- Add your fields here -->
             <button name="action_set_done" position="after">
                 <button name="action_certify" 
-                    string="Certify" 
+                    string="Approve" 
                     attrs="{'invisible': ['|', ('state', '!=', 'done'), '&amp;', ('state', '=', 'done'), ('certified', '=', 'True')]}"
                     type="object" 
                     icon="fa-check"/>

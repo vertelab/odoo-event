@@ -45,7 +45,7 @@
                     <button 
                         name="confirm_state" 
                         string="Confirm"
-                        type="object" 
+                        type="object"
                         attrs="{'invisible': ['|', ('validated', '!=', True), '&amp;', ('validated', '=', True), ('state', '=', 'reviewed')]}"/>
                 </header>
             </xpath>
