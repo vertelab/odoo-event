@@ -32,14 +32,8 @@ msgstr "Icke Godkänd"
 
 #. module: event_reservation_certificate
 #: model:ir.model.fields,field_description:event_reservation_certificate.field_event_registration__certified
-#: model:ir.model.fields.selection,name:event_reservation_certificate.selection__event_registration__certified__true
 msgid "Certified"
-msgstr "Certifierad"
-
-#. module: event_reservation_certificate
-#: model_terms:ir.ui.view,arch_db:event_reservation_certificate.list_view_event_registration_certify
-msgid "Certify"
-msgstr "Certifiera"
+msgstr "Godkänd"
 
 #. module: event_reservation_certificate
 #: model:ir.model.fields,field_description:event_reservation_certificate.field_event_registration__display_name
@@ -60,8 +54,3 @@ msgstr ""
 #: model:ir.model.fields,field_description:event_reservation_certificate.field_event_registration____last_update
 msgid "Last Modified on"
 msgstr "Senast redigerad"
-
-#. module: event_reservation_certificate
-#: model:ir.model.fields.selection,name:event_reservation_certificate.selection__event_registration__certified__false
-msgid "Uncertified"
-msgstr "Ocertifierad"
