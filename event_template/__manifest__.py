@@ -35,11 +35,11 @@
         To be able to create event from another event. \n
         Depreciated since there is a template-function in the core-module.\n
     """,
-    'depends': ['website_event', 'event', 'base_tier_validation', 'event_partner','event_tier_validation'],
+    'depends': ['website_event', 'event', 'base_tier_validation', 'event_partner'],
     'data': [
         'views/event_event_view.xml'
     ],
     'application': False,
     'installable': True,
 }
-# vim:expandtab:smartindent:tabstop=4s:softtabstop=4:shiftwidth=4:
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
