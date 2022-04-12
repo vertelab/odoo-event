@@ -3,6 +3,7 @@
 from odoo import fields, http, _
 from odoo.http import request
 from odoo.addons.website_event.controllers.main import WebsiteEventController
+from odoo.addons.base.models.ir_mail_server import MailDeliveryException
 
 
 class WebsiteEventControllerExtended(WebsiteEventController):
@@ -16,12 +17,17 @@ class WebsiteEventControllerExtended(WebsiteEventController):
                     'login': _rec.get('email'),
                     'email': _rec.get('email'),
                 })
+
                 if user_id:
                     user_id.partner_id.sudo().write({'phone': _rec.get('phone')})
 
                     reg.sudo().write({
                         'partner_id': user_id.partner_id.id
                     })
+                try:
+                    user_id.action_reset_password()
+                except MailDeliveryException:
+                    pass
 
     def _create_attendees_from_registration_post(self, event, registration_data):
         """ Also try to set a visitor (from request) and
