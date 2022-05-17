@@ -134,4 +134,4 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:event_reservation.event_reservation_attendee_details
 #: model_terms:ir.ui.view,arch_db:event_reservation.registration_template
 msgid "Ticket #"
-msgstr "Biljet #"
+msgstr "Biljett #"
