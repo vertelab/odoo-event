@@ -4,8 +4,6 @@ from odoo.addons.website_event.controllers.main import WebsiteEventController
 
 from odoo import fields, http, _
 from odoo.http import request
-import logging
-_logger = logging.getLogger(__name__)
 
 
 class WebsiteEventReservationController(WebsiteEventController):
@@ -48,7 +46,6 @@ class WebsiteEventReservationController(WebsiteEventController):
         registrations = self._process_reservation_form(event, post)
         if 'show_on_customer_portal' in request.env['event.registration']._fields:
             registrations[0]['show_on_customer_portal'] = True
-        _logger.warning(f'ROBIN: {registrations=}')
         attendees_sudo = \
             WebsiteEventController._create_attendees_from_registration_post(
                 self, event=event, registration_data=registrations
