@@ -31,8 +31,9 @@
         14.0.0.1
             - Added Chatter functionality to event
     """,
-    'depends': ['website_event', 'event', 'base'],
+    'depends': ['website_event', 'event', 'base', 'portal'],
     'data': [
+	'security/ir.model.access.csv',
         'views/event_views.xml',
     ],
     'application': False,
