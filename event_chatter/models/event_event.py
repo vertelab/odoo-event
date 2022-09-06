@@ -8,4 +8,4 @@ from odoo import fields, models, _
 class EventEvent(models.Model):
     _name = "event.event"
     _inherit = ["event.event", 'mail.activity.mixin', 'mail.thread']
-    
+

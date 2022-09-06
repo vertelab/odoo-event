@@ -6,7 +6,7 @@
     "summary": "Allow event registrations before the event exists",
     "version": "14.0.1.0.0",
     "category": "Event",
-    "website": "https://vertlab.com",
+    "website": "https://vertel.se",
     "license": "AGPL-3",
     "application": False,
     "installable": True,

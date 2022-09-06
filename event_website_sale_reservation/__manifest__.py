@@ -7,7 +7,7 @@
     "development_status": "Beta",
     "category": "Marketing",
     "website": "https://github.com/vertelab/odoo-event",
-    "author": "Vertelab",
+    "author": "Vertel AB",
     "maintainers": ["Vertelab"],
     "license": "AGPL-3",
     "application": False,
