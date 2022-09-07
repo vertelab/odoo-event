@@ -5,7 +5,7 @@
         <xpath expr="//div[@name='event']" position="after">
             <!-- chatter -->
             <t t-set="is_logged_in" t-value="not user_id._is_public()"/>
-            <div t-if="is_logged_in" id="event_event_communication" class="bg-200">
+            <div t-if="is_logged_in and event.is_participating" id="event_event_communication" class="bg-200">
                 <section class="container">
                     <h2>History</h2>
                     <t t-call="portal.message_thread">
