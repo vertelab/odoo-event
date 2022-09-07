@@ -16,7 +16,7 @@
                 <!-- ('state', 'not in', ['verified', 'cancel']) -->
                 <filter name="tier_validated" string="Validated" domain="[('validated', '=', True)]" help="Event Templates validated and ready to be confirmed" />
                 <group expand="1" string="Group By">
-                    <filter string="Status" name='group_state' context="{'group_by':'state'}"/>
+                   <!-- <filter string="Status" name='group_state' context="{'group_by':'state'}"/>-->
                 </group>
             </field>
         </field>
@@ -75,7 +75,7 @@
     </record>
 
 
-    <record id="view_event_type_kanban" model="ir.ui.view">
+    <!--<record id="view_event_type_kanban" model="ir.ui.view">
         <field name="name">event.type.kanban</field>
         <field name="model">event.type</field>
         <field name="arch" type="xml">
@@ -111,7 +111,7 @@
                 </templates>
             </kanban>
         </field>
-    </record>
+    </record>-->
 
     <record model="ir.actions.act_window" id="event.action_event_type">
         <field name="name">Event Templates</field>

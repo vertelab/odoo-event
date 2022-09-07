@@ -49,8 +49,9 @@ class Event_event(models.Model):
             attendee_list = []
             for attendee in registrations:
                 attendee_list.append(attendee.partner_id.id)
-            arranger_id = rec.user_id.partner_id.id
-            attendee_list.append(arranger_id)
+            arranger_id = rec.user_id and rec.user_id.partner_id.id or False
+            if arranger_id:
+                attendee_list.append(arranger_id)
             return attendee_list
 
 class Event_reg(models.Model):
