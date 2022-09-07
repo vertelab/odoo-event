@@ -41,3 +41,9 @@ class EventReservationTicket(models.Model):
                 ticket.seats_available = ticket.seats_max - (ticket.seats_reserved + ticket.seats_used)
                 if ticket.event_id and ticket.event_id.seats_limited:
                         ticket.seats_available_event_limit = min(ticket.seats_available,ticket.event_id.seats_available)
+                else: 
+                     ticket.seats_available_event_limit = ticket.seats_available
+            elif ticket.event_id.seats_limited:
+                ticket.seats_available_event_limit = ticket.event_id.seats_available
+            else:
+                ticket.seats_available_event_limit = 0
