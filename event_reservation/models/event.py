@@ -10,7 +10,7 @@ class EventReservationTicket(models.Model):
     _inherit = 'event.event.ticket'
     seats_available_event_limit = fields.Integer(string='Available Seats Event Limit', compute='_compute_seats_event_limit', store=True)
 
-    @api.depends('seats_max', 'registration_ids.state','event_id','event_id.seats_limited','event_id.seats_max')
+    @api.depends('seats_max', 'registration_ids.state','event_id','event_id.seats_limited','event_id.seats_max', 'event_id.seats_expected','event_id.seats_available')
     def _compute_seats_event_limit(self):
         """ Determine reserved, available, reserved but unconfirmed and used seats. """
         # initialize fields to 0 + compute seats availability
