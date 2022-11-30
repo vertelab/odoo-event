@@ -20,19 +20,27 @@
 ##############################################################################
 
 {
-    'name': 'Waiting list on website',
-    'summary': 'Enhance event with waiting list functionality',
-    'author': 'Vertel AB',
-    'contributor': '',
-    'maintainer': 'Vertel AB',
-    'category': 'Event',
+    'name': 'Event: Website Event Waitlist',
     'version': '14.0.0.1.0',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
-    'license': 'AGPL-3',
-
+    'summary': 'Enhance event with waiting list functionality.',
+    # Categories can be used to filter modules in modules listing
+    # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
+    # for the full list
+    'category': 'Event',
     'description': """
-
+    Enhance event with waiting list functionality.
     """,
+    #'sequence': '1',
+    'author': 'Vertel AB',
+    'website': 'https://vertel.se/apps/odoo-event/website_event_waitlist',
+    'images': ['static/description/banner.png'], # 560x280 px.
+    'license': 'AGPL-3',
+    'contributor': '',
+    'maintainer': 'Vertel AB',
+    'repository': 'https://github.com/vertelab/odoo-event',
+    # Any module necessary for this one to work correctly
+
     'depends': ['website_event', 'event'],
     'data': [
         'views/event_event_view.xml',
@@ -41,4 +49,4 @@
     'application': False,
     'installable': True,
 }
-# vim:expandtab:smartindent:tabstop=4s:softtabstop=4:shiftwidth=4:
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
