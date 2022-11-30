@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Odoo SA, Open Source Management Solution, third party addon
-#    Copyright (C) 2021- Vertel AB (<https://vertel.se>).
+#    Copyright (C) 2022- Vertel AB (<https://vertel.se>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,23 +20,27 @@
 ##############################################################################
 
 {
-    'name': 'Event: Type Webpage',
+    'name': 'Event: Event Type Webpage',
     'version': '14.0.0.1.0',
-    'summary': 'Allows for more control of the appearance of an using event templates',
+    # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
+    'summary': 'Allows for more control of the appearance of an using event templates.',
+    # Categories can be used to filter modules in modules listing
+    # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
+    # for the full list
     'category': 'Event',
     'description': """
     14.0.0.1.0 -- added Go to Website on Event Type.   
     """,
     #'sequence': '1',
     'author': 'Vertel AB',
-    'website': 'https://vertel.se/apps/odoo-event/event_template',
+    'website': 'https://vertel.se/apps/odoo-event/event_type_webpage',
     'images': ['static/description/banner.png'], # 560x280 px.
     'license': 'AGPL-3',
     'contributor': '',
     'maintainer': 'Vertel AB',
     'repository': 'https://github.com/vertelab/odoo-event',
     # Any module necessary for this one to work correctly
-    
+
     'depends': ['website_event', 'event', 'event_webpage'],
     'data': [
         'views/event_type_view.xml',
