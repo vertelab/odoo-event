@@ -20,21 +20,31 @@
 ##############################################################################
 
 {
-    'name': 'Website Event User Account',
-    'summary': 'Create portal account for participants of an event',
+    'name': 'Event: Website Event User Account',
+    'version': '14.0.0.1.0',
+    # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
+    'summary': 'Create portal account for participants of an event.',
+    # Categories can be used to filter modules in modules listing
+    # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
+    # for the full list
+    'category': 'Event',
+    'description': """
+    Create portal account for participants of an event.
+    """,
+    #'sequence': '1',
     'author': 'Vertel AB',
+    'website': 'https://vertel.se/apps/odoo-event/website_event_user_account',
+    'images': ['static/description/banner.png'], # 560x280 px.
+    'license': 'AGPL-3',
     'contributor': '',
     'maintainer': 'Vertel AB',
-    'category': 'Event',
-    'version': '14.0.0.1.0',
-    'license': 'AGPL-3',
-    'description': """
-        Create portal account for participants of an event
-    """,
+    'repository': 'https://github.com/vertelab/odoo-event',
+    # Any module necessary for this one to work correctly
+
     'depends': ['website_event', 'event'],
     'data': [
     ],
     'application': False,
     'installable': True,
 }
-# vim:expandtab:smartindent:tabstop=4s:softtabstop=4:shiftwidth=4:
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
