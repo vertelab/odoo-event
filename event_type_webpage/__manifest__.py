@@ -20,18 +20,23 @@
 ##############################################################################
 
 {
-    'name': 'Event Type Webpage',
-    'summary': 'Allows for more control of the appearance of an using event templates',
-    'author': 'Vertel AB',
-    'maintainer': 'Vertel AB',
-    'repository': 'https://git.vertel.se/vertelab/odoo-event',
-    'category': 'Employee',
+    'name': 'Event: Type Webpage',
     'version': '14.0.0.1.0',
-    'license': 'AGPL-3',
+    'summary': 'Allows for more control of the appearance of an using event templates',
+    'category': 'Event',
     'description': """
-        14.0.0.1.0
-           -added Go to Website on Event Type.   
+    14.0.0.1.0 -- added Go to Website on Event Type.   
     """,
+    #'sequence': '1',
+    'author': 'Vertel AB',
+    'website': 'https://vertel.se/apps/odoo-event/event_template',
+    'images': ['static/description/banner.png'], # 560x280 px.
+    'license': 'AGPL-3',
+    'contributor': '',
+    'maintainer': 'Vertel AB',
+    'repository': 'https://github.com/vertelab/odoo-event',
+    # Any module necessary for this one to work correctly
+    
     'depends': ['website_event', 'event', 'event_webpage'],
     'data': [
         'views/event_type_view.xml',
@@ -40,4 +45,4 @@
     'application': False,
     'installable': True,
 }
-# vim:expandtab:smartindent:tabstop=4s:softtabstop=4:shiftwidth=4:
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
