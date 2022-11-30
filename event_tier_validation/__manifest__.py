@@ -22,20 +22,20 @@
 # https://www.odoo.com/documentation/14.0/reference/module.html
 #
 {
-    'name': 'Event Tier Validation',
+    'name': 'Event: Tier Validation',
     'version': '14.0.0.0.0',
     'summary': """
         Extends the functionality of Event Type to
         support a tier validation process
     """,
-    'category': 'Event', # Technical Settings|Localization|Payroll Localization|Account Charts|User types|Invoicing|Sales|Human Resources|Operations|Marketing|Manufacturing|Website|Theme|Administration|Appraisals|Sign|Helpdesk|Administration|Extra Rights|Other Extra Rights|
+    'category': 'Event',
     'description': """
         Long description of module's purpose
     """,
     #'sequence': 1,
-    'images': ['static/descrition/banner.svg'],
+    'images': ['static/description/banner.png'], # 560x280 px.
     'author': 'Vertel AB',
-    'website': 'https://vertel.se/apps/',
+    'website': 'https://vertel.se/apps/odoo-event/event_tier_validation',
     'license': 'AGPL-3',
      #"external_dependencies": {
      #   "bin": ["openssl",], 
@@ -48,3 +48,4 @@
     'auto_install': False,
     #"post_init_hook": "post_init_hook",
 }
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
