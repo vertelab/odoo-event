@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Odoo SA, Open Source Management Solution, third party addon
-#    Copyright (C) 2021- Vertel AB (<https://vertel.se>).
+#    Copyright (C) 2022- Vertel AB (<https://vertel.se>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,21 +20,28 @@
 ##############################################################################
 
 {
-    'name': 'Event Webpage Description',
-    'summary': 'Allows for more control of the apearance of an using event templates',
-    'author': 'Vertel AB',
-    'contributor': '',
-    'maintainer': 'Vertel AB',
-    'repository': 'https://git.vertel.se/vertelab/odoo-event',
-    'category': 'Employee',
-    'version': '14.0.0.1.0',
+    'name': 'Event: Webpage',
+    'version': '14.0.0.1',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
-    'license': 'AGPL-3',
-
+    'summary': 'Allows for more control of the appearance of an using event templates.',
+    # Categories can be used to filter modules in modules listing
+    # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
+    # for the full list
+    'category': 'Technical',
     'description': """
         14.0.0.1.0
-           -added the ticket desctiption on the webpage for an event.   
+           - added the ticket desctiption on the webpage for an event.
     """,
+    #'sequence': '1',
+    'author': 'Vertel AB',
+    'website': 'https://vertel.se/apps/odoo-event/event_webpage',
+    'images': ['static/description/banner.png'], # 560x280 px.
+    'license': 'AGPL-3',
+    'contributor': '',
+    'maintainer': 'Vertel AB',
+    'repository': 'https://github.com/vertelab/odoo-event',
+    # Any module necessary for this one to work correctly
+
     'depends': ['website_event', 'event'],
     'data': [
         'views/event_event_view.xml',
@@ -44,4 +51,4 @@
     'application': False,
     'installable': True,
 }
-# vim:expandtab:smartindent:tabstop=4s:softtabstop=4:shiftwidth=4:
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
