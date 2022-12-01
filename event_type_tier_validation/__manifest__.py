@@ -24,10 +24,7 @@
 {
     'name': 'Event: Type Tier Validation',
     'version': '14.0.0.0.1',
-    'summary': """
-        Extends the functionality of Event Type to
-        support a tier validation process
-    """,
+    'summary': 'Extends the functionality of Event Type to support a tier validation process.',
     'category': 'Event',
     'description': """
     14.0.0.0.1 - Added Kanban view and group by state on event type
