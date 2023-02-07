@@ -44,13 +44,7 @@
     # Any module necessary for this one to work correctly
     "application": False,
     "installable": True,
-    "depends": [
-        "event_sale",
-        "website_event",
-        "web_ir_actions_act_multi",
-        "web_ir_actions_act_view_reload",
-        "product"
-    ],
+    'depends': ['event_sale','website_event','web_ir_actions_act_multi','web_ir_actions_act_view_reload','product',],
     "data": [
         "views/event_registration_views.xml",
         "views/event_templates_page_registration.xml",
