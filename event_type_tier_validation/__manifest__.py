@@ -36,7 +36,7 @@
     'repository': 'https://github.com/vertelab/odoo-event',
     # Any module necessary for this one to work correctly
     "data": ["views/event_type_view.xml"],
-    "depends": ["event", "base_tier_validation"],
+    'depends': ['event', 'base_tier_validation',],
     'application': False,
     'installable': True,    
     'auto_install': False,
