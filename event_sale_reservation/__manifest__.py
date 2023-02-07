@@ -42,14 +42,7 @@
     'maintainer':  ['Yajo', 'Vertel AB'],
     'repository': 'https://github.com/vertelab/odoo-event',
     # Any module necessary for this one to work correctly
-    "depends": [
-        "event_sale",
-        "website_event",
-        "web_ir_actions_act_multi",
-        "web_ir_actions_act_view_reload",
-        "product",
-        "partner_gender"
-    ],
+    'depends': ['event_sale','website_event','web_ir_actions_act_multi','web_ir_actions_act_view_reload','product','partner_gender',],
     "data": [
         "reports/sale_report_view.xml",
         "wizards/registration_editor_view.xml",
