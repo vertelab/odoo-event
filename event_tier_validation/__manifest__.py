@@ -24,13 +24,10 @@
 {
     'name': 'Event: Tier Validation',
     'version': '14.0.0.0.0',
-    'summary': """
-        Extends the functionality of Event Type to
-        support a tier validation process
-    """,
+    'summary': 'Extends the functionality of Event Type to support a tier validation process.',
     'category': 'Event',
     'description': """
-        Long description of module's purpose
+    Long description of module's purpose
     """,
     #'sequence': 1,
     'images': ['static/description/banner.png'], # 560x280 px.
@@ -42,7 +39,7 @@
      #   "python": ["acme_tiny", "IPy",],
      #},
     "data": ["views/event_event_view.xml"],
-    "depends": ["event", "base_tier_validation"],
+    'depends': ['event', 'base_tier_validation'],
     'application': False,
     'installable': True,    
     'auto_install': False,
