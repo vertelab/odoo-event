@@ -47,9 +47,7 @@
     "application": False,
     "installable": True,
     
-    "depends": [
-        "website_event_sale",
-    ],
+    'depends': ['website_event_sale',],
     "data": [
         "views/event_website_sale_reservation.xml",
     ],
