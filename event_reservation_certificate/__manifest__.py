@@ -21,7 +21,7 @@
 
 {
     'name': 'Event: Reservation Certificate',
-    'version': '14.0.0.1',
+    'version': '14.0.0.2',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'Adds Certificate to Event Reservation.',
     # Categories can be used to filter modules in modules listing
@@ -31,6 +31,8 @@
     'description': """
     14.0.0.1
         - Added Certificate and action to registration list view and registration form view
+    14.0.0.2
+        - Removed Readonly on the certificate field.
     """,
     #'sequence': '1',
     'author': 'Vertel AB',

@@ -11,7 +11,7 @@ class EventRegistration(models.Model):
     certified = fields.Selection(selection=[
         ('True', 'Approved'),
         ('False', 'Unapproved'),
-    ], default='False', readonly=True)
+    ], default='False',)
 
     def action_certify(self):
         self.certified = 'True'
