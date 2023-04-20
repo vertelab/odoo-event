@@ -24,6 +24,9 @@ class EventEvent(models.Model):
     """Event"""
     _inherit = 'event.event'
 
+    def _default_date_tz (self):
+        return self.env.user.tz
+
     address_id = fields.Many2one(
         'res.partner', string='Venue',
         tracking=True, domain="[('type', '=', 'delivery')]")
@@ -34,7 +37,7 @@ class EventEvent(models.Model):
 
     date_tz = fields.Selection(
         _tz_get, string='Timezone', required=True,
-        compute='_compute_date_tz', readonly=False, store=True, default='Europe/Stockholm')
+        compute='_compute_date_tz', readonly=False, store=True, default=_default_date_tz)
 
     @api.onchange("event_type_id")
     def _set_organizer_to_event_type_organizer(self):
