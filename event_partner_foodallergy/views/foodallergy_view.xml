@@ -23,17 +23,15 @@
         </field>
     </record>
 
-
-
-
-
-
-
-
-
-
-
-
-
+    <record id="special_food" model="ir.ui.view">
+        <field name="name">event.registration.inherit.special.food</field>
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event.view_event_registration_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='message_needaction']" position="after">
+                <field name="special_food"/>
+            </xpath>
+        </field>
+</record>
 
 </odoo>
