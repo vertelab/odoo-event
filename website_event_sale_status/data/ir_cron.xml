@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="ir_cron_clear_tentative_attendees" model="ir.cron">
+        <field name="name">Rensa ofullständiga utbildningsanmälningar</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">hours</field>
+        <field name="numbercall">-1</field>
+        <field name="model_id" ref="event_reservation.model_event_registration" />
+        <field name="code">model.cron_remove_tentative_registrations()</field>
+        <field name="active" eval="True" />
+    </record>
+</odoo>
