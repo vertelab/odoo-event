@@ -70,11 +70,13 @@ class Event_reg(models.Model):
         return res
     
     def unlink(self):
+        _logger.warning(f"{self.event_id=}")
         self.update_event_attendees(self)
         res = super().unlink()
         return res
 
     # Updates the calendar when attendees are added/removed from the event
     def update_event_attendees(self,res):
-        event = res.env['event.event'].search([('id','=',res.event_id.id)])
-        event.calendar_event_id.write({'partner_ids':[(6, 0, event.get_attendees())]})
+        if res.event_id.id:
+            event = res.env['event.event'].search([('id','=',res.event_id.id)])
+            event.calendar_event_id.write({'partner_ids':[(6, 0, event.get_attendees())]})
