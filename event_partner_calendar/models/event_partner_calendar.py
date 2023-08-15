@@ -61,23 +61,23 @@ class Event_reg(models.Model):
     @api.model
     def create(self,vals):
         res = super(Event_reg, self).create(vals)
-        self.update_event_attendees(res)
+        self.update_event_attendees()
         return res
 
     def write(self,vals):
         res = super().write(vals)
-        self.update_event_attendees(self)
+        self.update_event_attendees()
         return res
     
     def unlink(self):
         _logger.warning(f"{self.event_id=}")
-        self.update_event_attendees(self)
+        self.update_event_attendees()
         res = super().unlink()
         return res
 
     # Updates the calendar when attendees are added/removed from the event
-    def update_event_attendees(self,ress):
-        for res in ress:
+    def update_event_attendees(self):
+        for res in self:
             if res.event_id.id:
                 event = res.env['event.event'].search([('id','=',res.event_id.id)])
                 event.calendar_event_id.write({'partner_ids':[(6, 0, event.get_attendees())]})
