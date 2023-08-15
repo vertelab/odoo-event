@@ -76,7 +76,8 @@ class Event_reg(models.Model):
         return res
 
     # Updates the calendar when attendees are added/removed from the event
-    def update_event_attendees(self,res):
-        if res.event_id.id:
-            event = res.env['event.event'].search([('id','=',res.event_id.id)])
-            event.calendar_event_id.write({'partner_ids':[(6, 0, event.get_attendees())]})
+    def update_event_attendees(self,ress):
+        for res in ress:
+            if res.event_id.id:
+                event = res.env['event.event'].search([('id','=',res.event_id.id)])
+                event.calendar_event_id.write({'partner_ids':[(6, 0, event.get_attendees())]})
