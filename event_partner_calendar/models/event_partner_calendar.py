@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
-
+import logging
+_logger = logging.getLogger(__name__)
 
 class Event_event(models.Model):
     _inherit = 'event.event'
@@ -57,10 +58,23 @@ class Event_event(models.Model):
 class Event_reg(models.Model):
     _inherit = 'event.registration'
 
-    # Updates the calendar when attendees are added/removed from the event
     @api.model
     def create(self,vals):
         res = super(Event_reg, self).create(vals)
+        self.update_event_attendees(res)
+        return res
+
+    def write(self,vals):
+        res = super().write(vals)
+        self.update_event_attendees(self)
+        return res
+    
+    def unlink(self):
+        self.update_event_attendees(self)
+        res = super().unlink()
+        return res
+
+    # Updates the calendar when attendees are added/removed from the event
+    def update_event_attendees(self,res):
         event = res.env['event.event'].search([('id','=',res.event_id.id)])
         event.calendar_event_id.write({'partner_ids':[(6, 0, event.get_attendees())]})
-        return res
