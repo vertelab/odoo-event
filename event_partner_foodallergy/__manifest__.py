@@ -21,7 +21,7 @@
 
 {
     'name': 'Event: Partner Foodallergy',
-    'version': '14.0.0.2',
+    'version': '14.0.0.3',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'Extends the event registration form view with an option about foodallergy.',
     # Categories can be used to filter modules in modules listing
@@ -35,6 +35,7 @@
                 attendees of the event.\n
             *   Adds a question about food allergy to the event registration form. The question is only visible if "Food Is Served"\n
                 is checked for the event.\n
+            *   Adds a "Special food" checkbox in the attendee list view for attendees that have food allergy.\n
         This module is maintained from: https://github.com/vertelab/odoo-event/tree/14.0/event_partner_foodallergy/\n
     """,
     #'sequence': '1',

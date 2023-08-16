@@ -16,10 +16,11 @@ class EventRegistration(models.Model):
         return res
 
     def _has_food_allergy(self):
-        if self.food_allergy:
-            if len(self.food_allergy) > 0:
-                self.special_food = True
+        for attendee in self:
+            if attendee.food_allergy:
+                if len(attendee.food_allergy) > 0:
+                    attendee.special_food = True
+                else:
+                    attendee.special_food = False
             else:
-                self.special_food = False
-        else:
-            self.special_food = False
+                attendee.special_food = False
