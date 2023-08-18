@@ -80,4 +80,6 @@ class Event_reg(models.Model):
         for res in self:
             if res.event_id.id:
                 event = res.env['event.event'].search([('id','=',res.event_id.id)])
-                event.calendar_event_id.write({'partner_ids':[(6, 0, event.get_attendees())]})
+                attendees = event.get_attendees()
+                if attendees:
+                    event.calendar_event_id.write({'partner_ids':[(6, 0, attendees)]})
