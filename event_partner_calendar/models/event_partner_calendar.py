@@ -49,7 +49,10 @@ class Event_event(models.Model):
             registrations = rec.env['event.registration'].search([('event_id','=',rec.id),('state','!=','cancel')])
             attendee_list = []
             for attendee in registrations:
-                attendee_list.append(attendee.partner_id.id)
+                if attendee.partner_id:
+                    attendee_list.append(attendee.partner_id.id)
+                if attendee.attendee_partner_id:
+                    attendee_list.append(attendee.attendee_partner_id.id)
             arranger_id = rec.user_id and rec.user_id.partner_id.id or False
             if arranger_id:
                 attendee_list.append(arranger_id)
@@ -80,4 +83,6 @@ class Event_reg(models.Model):
         for res in self:
             if res.event_id.id:
                 event = res.env['event.event'].search([('id','=',res.event_id.id)])
-                event.calendar_event_id.write({'partner_ids':[(6, 0, event.get_attendees())]})
+                attendees = event.get_attendees()
+                if attendees:
+                    event.calendar_event_id.write({'partner_ids':[(6, 0, attendees)]})

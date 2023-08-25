@@ -45,7 +45,7 @@
     'maintainer': 'Vertel AB',
     'repository': 'https://github.com/vertelab/odoo-event',
     # Any module necessary for this one to work correctly
-    'depends': ['event','calendar'],
+    'depends': ['event','calendar','partner_event'],
     'data': [],
     'installable': True,
 }
