@@ -49,7 +49,10 @@ class Event_event(models.Model):
             registrations = rec.env['event.registration'].search([('event_id','=',rec.id),('state','!=','cancel')])
             attendee_list = []
             for attendee in registrations:
-                attendee_list.append(attendee.partner_id.id)
+                if attendee.partner_id:
+                    attendee_list.append(attendee.partner_id.id)
+                if attendee.attendee_partner_id:
+                    attendee_list.append(attendee.attendee_partner_id.id)
             arranger_id = rec.user_id and rec.user_id.partner_id.id or False
             if arranger_id:
                 attendee_list.append(arranger_id)
