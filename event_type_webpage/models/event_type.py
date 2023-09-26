@@ -11,7 +11,7 @@ class EventType(models.Model):
         res['opacity'] = '0.4'
         return res
 
-    website_published = fields.Boolean(tracking=False)
+    website_published = fields.Boolean(tracking=True)
 
     @api.depends('name')
     def _compute_website_url(self):

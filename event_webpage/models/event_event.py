@@ -30,7 +30,7 @@ class EventEvent(models.Model):
         #def _default_empty_description(self):
             #return self.env['ir.ui.view']._render_template('event_default_empty_description')
         #empty_description= fields.Text(default="   \n   \n   \n   \n    \n   \n   \n   \n    \n   \n   \n   \n    \n   \n   \n   \n    \n   \n   \n   \n    \n   \n   \n   \n", string="Is used for the description view since we want it to be empty, and if I remove it the formating breaks,so we have this useless empty string, go team!")
-        empty_description_html = fields.Html(string='Description', translate=html_translate, sanitize_attributes=False, sanitize_form=False)
+        empty_description_html = fields.Html(string='HTML Description', translate=html_translate, sanitize_attributes=False, sanitize_form=False)
         
         @api.onchange("event_type_id")
         def _set_decription_to_event_type_description(self):
