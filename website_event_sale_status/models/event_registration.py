@@ -15,7 +15,7 @@ class EventRegistrationCron(models.Model):
             ('visitor_id', '!=', False), ('state', '=', 'draft')
         ])
         registration_search_filtered = registration_search.filtered(
-            lambda x: x.event_id.active and x.event_id.is_published)
+            lambda x: x.event_id.active and x.event_id.website_published)
         _logger.warning(f"The following event.registration are deemed 'incomplete' ones, and will be removed if they "
                         f"are too old: {registration_search_filtered}")
         for registration in registration_search_filtered:
