@@ -72,14 +72,14 @@ class TriggerEventType(models.Model):
 class EventRegistration(models.Model):
     _inherit = "event.registration"
 
-    def write(self, vals):
-        ret = super(EventRegistration, self).write(vals)
-
-        if vals.get('state') == 'open':
-            # auto-trigger after_sub (on subscribe) mail schedulers, if needed
-            onsubscribe_schedulers = self.mapped('event_id.event_mail_ids').filtered(
-                lambda s: s.interval_type in ['after_sub', 'after_confirmed_so']
-            )
-            onsubscribe_schedulers.with_user(SUPERUSER_ID).execute()
-
-        return ret
+    # def write(self, vals):
+    #     ret = super(EventRegistration, self).write(vals)
+    #
+    #     if vals.get('state') == 'open':
+    #         # auto-trigger after_sub (on subscribe) mail schedulers, if needed
+    #         onsubscribe_schedulers = self.mapped('event_id.event_mail_ids').filtered(
+    #             lambda s: s.interval_type in ['after_sub', 'after_confirmed_so']
+    #         )
+    #         onsubscribe_schedulers.with_user(SUPERUSER_ID).execute()
+    #
+    #     return ret
