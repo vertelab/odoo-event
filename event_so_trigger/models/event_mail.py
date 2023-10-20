@@ -1,4 +1,4 @@
-from odoo import models, api, fields
+from odoo import models, api, fields, SUPERUSER_ID
 from odoo.addons.event.models.event_mail import _INTERVALS
 
 
@@ -67,3 +67,19 @@ class TriggerEventType(models.Model):
     interval_type = fields.Selection(
         selection_add=[('after_confirmed_so', 'After Confirmed SO')],
         ondelete={'after_confirmed_so': 'cascade'})
+
+
+class EventRegistration(models.Model):
+    _inherit = "event.registration"
+
+    def write(self, vals):
+        ret = super(EventRegistration, self).write(vals)
+
+        if vals.get('state') == 'open':
+            # auto-trigger after_sub (on subscribe) mail schedulers, if needed
+            onsubscribe_schedulers = self.mapped('event_id.event_mail_ids').filtered(
+                lambda s: s.interval_type in ['after_sub', 'after_confirmed_so']
+            )
+            onsubscribe_schedulers.with_user(SUPERUSER_ID).execute()
+
+        return ret
