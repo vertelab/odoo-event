@@ -31,7 +31,6 @@ class TriggerEvent(models.Model):
 
     def execute(self):
         for mail in self:
-            print(mail.interval_type)
             now = fields.Datetime.now()
             if mail.interval_type == 'after_sub':
                 # update registration lines
@@ -46,7 +45,7 @@ class TriggerEvent(models.Model):
             elif mail.interval_type == 'after_confirmed_so':
                 lines = [
                     (0, 0, {'registration_id': registration.id})
-                    for registration in mail.event_id.registration_ids
+                    for registration in mail.event_id.registration_ids - mail.mapped('mail_registration_ids.registration_id')
                     if registration.sale_order_id.state in ['sale', 'done']
                 ]
                 if lines:
