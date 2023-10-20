@@ -46,7 +46,8 @@ class TriggerEvent(models.Model):
             elif mail.interval_type == 'after_confirmed_so':
                 lines = [
                     (0, 0, {'registration_id': registration.id})
-                    for registration in mail.event_id.registration_ids if registration.sale_order_id
+                    for registration in mail.event_id.registration_ids
+                    if registration.sale_order_id.state in ['sale', 'done']
                 ]
                 if lines:
                     mail.write({'mail_registration_ids': lines})
