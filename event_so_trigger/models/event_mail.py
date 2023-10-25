@@ -76,7 +76,7 @@ class TriggerEventType(models.Model):
     interval_type = fields.Selection(
         selection_add=[('after_confirmed_so', 'After Confirmed SO'),
                        ('after_reservation_reg', 'After Reservation Registration')],
-        ondelete={'after_confirmed_so': 'cascade'})
+        ondelete={'after_confirmed_so': 'cascade', 'after_reservation_reg': 'cascade'})
 
 
 class EventRegistration(models.Model):
