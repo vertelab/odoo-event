@@ -10,7 +10,7 @@ class TriggerEvent(models.Model):
             ('after_confirmed_so', 'After Confirmed SO'),
             ('after_reservation_reg', 'After Reservation Registration')
         ],
-        ondelete={'after_confirmed_so': 'cascade'})
+        ondelete={'after_confirmed_so': 'cascade', 'after_reservation_reg': 'cascade'})
 
     def _compute_done(self):
         for mail in self:
