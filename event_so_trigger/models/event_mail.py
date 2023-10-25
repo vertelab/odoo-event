@@ -6,7 +6,10 @@ class TriggerEvent(models.Model):
     _inherit = "event.mail"
 
     interval_type = fields.Selection(
-        selection_add=[('after_confirmed_so', 'After Confirmed SO')],
+        selection_add=[
+            ('after_confirmed_so', 'After Confirmed SO'),
+            ('after_reservation_reg', 'After Reservation Registration')
+        ],
         ondelete={'after_confirmed_so': 'cascade'})
 
     def _compute_done(self):
@@ -18,9 +21,7 @@ class TriggerEvent(models.Model):
 
     def _compute_scheduled_date(self):
         for mail in self:
-            if mail.interval_type == 'after_sub':
-                date, sign = mail.event_id.create_date, 1
-            elif mail.interval_type == 'after_confirmed_so':
+            if mail.interval_type in ['after_sub', 'after_confirmed_so', 'after_reservation_reg']:
                 date, sign = mail.event_id.create_date, 1
             elif mail.interval_type == 'before_event':
                 date, sign = mail.event_id.date_begin, -1
@@ -51,6 +52,15 @@ class TriggerEvent(models.Model):
                 if lines:
                     mail.write({'mail_registration_ids': lines})
                 mail.mail_registration_ids.execute()
+            elif mail.interval_type == 'after_reservation_reg':
+                lines = [
+                    (0, 0, {'registration_id': registration.id})
+                    for registration in mail.event_id.registration_ids.filtered(
+                        lambda reg: reg.state == 'reservation') - mail.mapped('mail_registration_ids.registration_id')
+                ]
+                if lines:
+                    mail.write({'mail_registration_ids': lines})
+                mail.mail_registration_ids.execute()
             else:
                 # Do not send emails if the mailing was scheduled before the event but the event is over
                 if not mail.mail_sent and mail.scheduled_date <= now and mail.notification_type == 'mail' and \
@@ -64,7 +74,8 @@ class TriggerEventType(models.Model):
     _inherit = "event.type.mail"
 
     interval_type = fields.Selection(
-        selection_add=[('after_confirmed_so', 'After Confirmed SO')],
+        selection_add=[('after_confirmed_so', 'After Confirmed SO'),
+                       ('after_reservation_reg', 'After Reservation Registration')],
         ondelete={'after_confirmed_so': 'cascade'})
 
 
@@ -78,6 +89,12 @@ class EventRegistration(models.Model):
             # auto-trigger after_sub (on subscribe) mail schedulers, if needed
             onsubscribe_schedulers = self.mapped('event_id.event_mail_ids').filtered(
                 lambda s: s.interval_type in ['after_sub', 'after_confirmed_so']
+            )
+            onsubscribe_schedulers.with_user(SUPERUSER_ID).execute()
+
+        if vals.get('state') == 'reservation':
+            onsubscribe_schedulers = self.mapped('event_id.event_mail_ids').filtered(
+                lambda s: s.interval_type == 'after_reservation_reg'
             )
             onsubscribe_schedulers.with_user(SUPERUSER_ID).execute()
 
