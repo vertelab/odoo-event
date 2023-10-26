@@ -53,7 +53,6 @@ class TriggerEvent(models.Model):
                 ]
                 if lines:
                     mail.write({'mail_registration_ids': lines})
-                print(mail.mail_registration_ids)
                 mail.mail_registration_ids.execute()
             else:
                 # Do not send emails if the mailing was scheduled before the event but the event is over
