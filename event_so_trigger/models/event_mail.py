@@ -12,13 +12,6 @@ class TriggerEvent(models.Model):
         ],
         ondelete={'after_confirmed_so': 'cascade', 'after_reservation_reg': 'cascade'})
 
-    def _compute_done(self):
-        for mail in self:
-            if mail.interval_type in ['before_event', 'after_event']:
-                mail.done = mail.mail_sent
-            else:
-                mail.done = len(mail.mail_registration_ids) == len(mail.event_id.registration_ids) and all(mail.mail_sent for mail in mail.mail_registration_ids)
-
     def _compute_scheduled_date(self):
         for mail in self:
             if mail.interval_type in ['after_sub', 'after_confirmed_so', 'after_reservation_reg']:
@@ -60,6 +53,7 @@ class TriggerEvent(models.Model):
                 ]
                 if lines:
                     mail.write({'mail_registration_ids': lines})
+                print(mail.mail_registration_ids)
                 mail.mail_registration_ids.execute()
             else:
                 # Do not send emails if the mailing was scheduled before the event but the event is over
@@ -82,6 +76,17 @@ class TriggerEventType(models.Model):
 class EventRegistration(models.Model):
     _inherit = "event.registration"
 
+    @api.model_create_multi
+    def create(self, vals_list):
+        registrations = super(EventRegistration, self).create(vals_list)
+        if registrations.state == 'reservation':
+            onsubscribe_schedulers = registrations.mapped('event_id.event_mail_ids').filtered(
+                lambda s: s.interval_type == 'after_reservation_reg'
+            )
+            onsubscribe_schedulers.with_user(SUPERUSER_ID).execute()
+
+        return registrations
+
     def write(self, vals):
         ret = super(EventRegistration, self).write(vals)
 
@@ -92,10 +97,41 @@ class EventRegistration(models.Model):
             )
             onsubscribe_schedulers.with_user(SUPERUSER_ID).execute()
 
-        if vals.get('state') == 'reservation':
-            onsubscribe_schedulers = self.mapped('event_id.event_mail_ids').filtered(
-                lambda s: s.interval_type == 'after_reservation_reg'
-            )
-            onsubscribe_schedulers.with_user(SUPERUSER_ID).execute()
-
         return ret
+
+
+class EventMailRegistration(models.Model):
+    _inherit = "event.mail.registration"
+
+    def execute(self):
+        now = fields.Datetime.now()
+        todo = self.filtered(lambda reg_mail:
+            not reg_mail.mail_sent and \
+            reg_mail.registration_id.state in ['open', 'done', 'reservation'] and \
+            (reg_mail.scheduled_date and reg_mail.scheduled_date <= now) and \
+            reg_mail.scheduler_id.notification_type == 'mail'
+        )
+        todo += self.filtered(lambda reg_mail:
+             not reg_mail.mail_sent and \
+             reg_mail.registration_id.state == 'reservation' and \
+             (reg_mail.scheduled_date and reg_mail.scheduled_date <= now) and \
+             reg_mail.scheduler_id.notification_type == 'mail' and reg_mail.scheduler_id.interval_type == 'after_reservation_reg'
+         )
+        for reg_mail in set(todo):
+            organizer = reg_mail.scheduler_id.event_id.organizer_id
+            company = self.env.company
+            author = self.env.ref('base.user_root')
+            if organizer.email:
+                author = organizer
+            elif company.email:
+                author = company.partner_id
+            elif self.env.user.email:
+                author = self.env.user
+
+            email_values = {
+                'author_id': author.id,
+            }
+            if not reg_mail.scheduler_id.template_id.email_from:
+                email_values['email_from'] = author.email_formatted
+            reg_mail.scheduler_id.template_id.send_mail(reg_mail.registration_id.id, email_values=email_values)
+        todo.write({'mail_sent': True})
