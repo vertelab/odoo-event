@@ -7,7 +7,7 @@ class TriggerEvent(models.Model):
 
     interval_type = fields.Selection(
         selection_add=[
-            ('after_confirmed_so', 'After Confirmed SO'),
+            ('after_confirmed_so', 'After Confirmed Sale Order'),
             ('after_reservation_reg', 'After Reservation Registration')
         ],
         ondelete={'after_confirmed_so': 'cascade', 'after_reservation_reg': 'cascade'})
@@ -67,7 +67,7 @@ class TriggerEventType(models.Model):
     _inherit = "event.type.mail"
 
     interval_type = fields.Selection(
-        selection_add=[('after_confirmed_so', 'After Confirmed SO'),
+        selection_add=[('after_confirmed_so', 'After Confirmed Sale Order'),
                        ('after_reservation_reg', 'After Reservation Registration')],
         ondelete={'after_confirmed_so': 'cascade', 'after_reservation_reg': 'cascade'})
 
