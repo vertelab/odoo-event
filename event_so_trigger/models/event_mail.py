@@ -106,7 +106,7 @@ class EventMailRegistration(models.Model):
         now = fields.Datetime.now()
         todo = self.filtered(lambda reg_mail:
             not reg_mail.mail_sent and \
-            reg_mail.registration_id.state in ['open', 'done', 'reservation'] and \
+            reg_mail.registration_id.state in ['open', 'done'] and \
             (reg_mail.scheduled_date and reg_mail.scheduled_date <= now) and \
             reg_mail.scheduler_id.notification_type == 'mail'
         )
