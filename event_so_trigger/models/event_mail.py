@@ -78,11 +78,12 @@ class EventRegistration(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         registrations = super(EventRegistration, self).create(vals_list)
-        if registrations.state == 'reservation':
-            onsubscribe_schedulers = registrations.mapped('event_id.event_mail_ids').filtered(
-                lambda s: s.interval_type == 'after_reservation_reg'
-            )
-            onsubscribe_schedulers.with_user(SUPERUSER_ID).execute()
+        for reg in registrations:
+            if reg.state == 'reservation':
+                onsubscribe_schedulers = reg.mapped('event_id.event_mail_ids').filtered(
+                    lambda s: s.interval_type == 'after_reservation_reg'
+                )
+                onsubscribe_schedulers.with_user(SUPERUSER_ID).execute()
 
         return registrations
 
