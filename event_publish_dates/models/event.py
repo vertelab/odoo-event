@@ -12,10 +12,9 @@ class EventEvent(models.Model):
             [('website_published', '=', False),
              ('event_publish_date', '=', fields.Date.today())])
         if len(recs):
-            return recs.write({
-                'stage_id': self.env.ref('event.event_stage_announced').id,
-                'website_published': True
-            })
+            for rec in recs:
+                rec.stage_id = self.env.ref('event.event_stage_announced').id
+                rec.website_published = True
         return True
 
     def _cron_un_publish_event(self):
@@ -23,9 +22,8 @@ class EventEvent(models.Model):
             [('website_published', '=', True),
              ('event_un_publish_date', '<=', fields.Date.today())])
         if len(recs):
-            return recs.write({
-                'website_published': False
-            })
+            for rec in recs:
+                rec.website_published = False
         return True
 
     def _set_event_stages(self, event):
