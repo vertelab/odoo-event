@@ -23,7 +23,7 @@
 #
 {
     'name': 'Event: Tier Validation',
-    'version': '14.0.0.0.0',
+    'version': '17.0.0.0.0',
     'summary': 'Extends the functionality of Event Type to support a tier validation process.',
     'category': 'Event',
     'description': """
