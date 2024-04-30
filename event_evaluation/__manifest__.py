@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Odoo SA, Open Source Management Solution, third party addon
-#    Copyright (C) 2022- Vertel AB (<https://vertel.se>).
+#    Copyright (C) 2024- Vertel AB (<https://vertel.se>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,37 +20,30 @@
 ##############################################################################
 
 {
-    'name': 'Event: Partner',
-    'version': '17.0.1.1.0',
-    # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
-    'summary': 'To be able to have multiple partners on event.',
+    'name': 'Event: Evalutation',
+    'version': '17.0.0.0.0',
+    # Version ledger: 17.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
+    'summary': 'On an event, we add parameter: evaluation_id.',
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Event',
     'description': """
-    To be able to have multiple partners on event. \n
-    14.0.1.1.0 - Added translation \n
-    14.0.0.2 \n
-        - Improvement to Event Access Right \n
-        - Added the available seats to tree and form view \n
-    14.0.0.1 \n
-        - Changed Maximum seat to Available seat \n
-        - Improved access right for event partners \n
+    We need to connect event and event_type.
     """,
     #'sequence': '1',
     'author': 'Vertel AB',
-    'website': 'https://vertel.se/apps/odoo-event/event_partner',
+    'website': 'https://vertel.se/apps/odoo-event/event_evaluation',
     'images': ['static/description/banner.png'], # 560x280 px.
     'license': 'AGPL-3',
-    'contributor': 'Miracle Ayodele, Fredrik Arvas',
+    'contributor': ' ',
     'maintainer': 'Vertel AB',
     'repository': 'https://github.com/vertelab/odoo-event',
     # Any module necessary for this one to work correctly
-    'depends': ['website_event', 'event'],
+    'depends': ['event'],
     'data': [
-        'views/event_event_view.xml',
-        'views/event_template.xml',
+        #'views/event_event_view.xml',
+        #'views/event_template.xml',
     ],
     'application': False,
     'installable': True,
