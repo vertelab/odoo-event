@@ -21,7 +21,7 @@
 
 {
     'name': 'Event: Trigger Email Based on Sale Order',
-    'version': '14.0.1.3.0',
+    'version': '17.0.1.3.0',
     'summary': 'Trigger Email Based on Sale Order.',
     'category': 'Event',
     'description': """
