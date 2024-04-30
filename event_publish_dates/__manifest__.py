@@ -21,7 +21,7 @@
 
 {
     'name': 'Event: Publish Dates',
-    'version': '14.0.0.2',
+    'version': '17.0.0.2',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'Extends the website event publish date.',
     # Categories can be used to filter modules in modules listing
