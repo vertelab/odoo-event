@@ -3,7 +3,11 @@
     <data>
     <report string="Event Attende Namebadges" id="event_attendee_glabel_namebadges" model="event.registration" report_type="glabels" name="event_attendee_namebadges.glabel_namebadges" />
     <record id="event_attendee_glabel_namebadges" model="ir.actions.report">
+        <!--
+        ## 2024-04-28 file name is cause of error!
         <field name="glabels_template" type="base64" file="event_attendee_badges/reports/event_registration_glabel.glabels" />
+        -->
+        <field name="glabels_template" type="base64"/>
     </record>
     
 <!--
