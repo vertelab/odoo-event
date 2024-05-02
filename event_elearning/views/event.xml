@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="event_event_form_view" model="ir.ui.view">
+            <field name="name">event.event.form_inherit</field>
+            <field name="model">event.event</field>
+            <field name="inherit_id" ref="event.view_event_form"/>
+            <field name="arch" type="xml">
+                <field name="event_type_id" position="after">
+                    <field name="slide_channel_id"/>
+                </field>
+            </field>
+        </record>
+        
+        <record id="event_type_form_view" model="ir.ui.view">
+            <field name="name">event.event.form_inherit</field>
+            <field name="model">event.type</field>
+            <field name="inherit_id" ref="event.view_event_type_form"/>
+            <field name="arch" type="xml">
+                <field name="tag_ids" position="before">
+                    <field name="slide_channel_id"/>
+                </field>
+            </field>
+        </record>
+        
+        <record id="slide_channel_view_form" model="ir.ui.view">
+            <field name="name">event.event.form_inherit</field>
+            <field name="model">slide.channel</field>
+            <field name="inherit_id" ref="website_slides.view_slide_channel_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                   <page name="events" string="Events" invisible="event_event_ids == False">
+                    <field name="event_event_ids" invisible="0" placeholder="Events" />
+                   </page>
+                </notebook>
+            </field>
+        </record>
+   
+    </data>
+</odoo>
