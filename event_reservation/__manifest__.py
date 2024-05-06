@@ -24,6 +24,7 @@
 {
     'name': 'Event: Reservation',
     'version': '17.0.1.0.0',
+    # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'Allow event registrations before the event exists.',
     'category': 'Event',
     'description': """
