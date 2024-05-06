@@ -116,9 +116,9 @@ class WebsiteEventWaitlistController(WebsiteEventController):
             'current_type': current_type,
             'event_type_ids': events.sudo(),  # event_ids used in website_event_track so we keep name as it is
             # 'dates': dates,
-            # 'categories': request.env['event.tag.category'].search([
-            #     ('is_published', '=', True), '|', ('website_id', '=', website.id), ('website_id', '=', False)
-            # ]),
+            'categories': request.env['event.tag.category'].search([
+                ('is_published', '=', True), '|', ('website_id', '=', website.id), ('website_id', '=', False)
+            ]),
             # 'countries': countries,
             'pager': pager,
             'searches': searches,

@@ -249,7 +249,7 @@ class EventType(models.Model):
             'model': 'event.type',
             'base_domain': domain,
             'search_fields': search_fields,
-            'search_extra': search_in_address,
+            # 'search_extra': search_in_address,
             'fetch_fields': fetch_fields,
             'mapping': mapping,
             'icon': 'fa-ticket',
