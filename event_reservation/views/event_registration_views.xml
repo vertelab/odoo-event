@@ -9,7 +9,7 @@
                     <field name="state" nolabel="1" colspan="2" widget="statusbar" statusbar_visible="draft,open,done,reservation"/>
                 </field>
                 <button name="action_set_done" position="replace">
-                    <button name="action_set_done" string="Attended" states="open,reservation" type="object" class="oe_highlight"/>
+                    <button name="action_set_done" string="Attended" invisible="state not in ['open', 'reservation']" type="object" class="oe_highlight"/>
                 </button>
             </field>
         </record>

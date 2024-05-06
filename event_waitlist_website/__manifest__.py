@@ -22,33 +22,34 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
-    'name': 'Event: Reservation',
+    'name': 'Event Waitlist Website',
     'version': '17.0.1.0.0',
-    'summary': 'Allow event registrations before the event exists.',
+    'summary': 'Allow event waitlist on event template from website.',
     'category': 'Event',
     'description': """
-        Allow event registrations before the event exists.
+        Allow event waitlist on event template from website.
     """,
     'author': 'Vertel AB',
-    'website': 'https://vertel.se/apps/odoo-event/event_reservation',
+    'website': 'https://vertel.se/apps/odoo-event/event_waitlist_website',
     'images': ['static/description/banner.png'], # 560x280 px.
     'license': 'AGPL-3',
     'contributor': '',
     'maintainer': 'Vertel AB',
     'repository': 'https://github.com/vertelab/odoo-event',
-    "application": False,
+    "application": True,
     "installable": True,
     # 'depends': ['event_sale','website_event','web_ir_actions_act_multi','web_ir_actions_act_view_reload','product',],
     'depends': ['event_sale','website_event','product',],
     "data": [
-        "views/event_registration_views.xml",
-        "views/event_templates_page_registration.xml",
-        # "views/assets.xml",
+        'security/ir.model.access.csv',
+        'views/event_type_templates.xml',
+        'views/event_type_view.xml',
+        'views/event_waiting_list_view.xml'
     ],
-    # 'assets': {
-    #     'web.assets_frontend': [
-    #         'event_reservation/static/src/js/event_reservation.js'
-    #     ]
-    # }
+    'assets': {
+        'web.assets_frontend': [
+            'event_waitlist_website/static/src/js/website_event.js',
+        ],
+    },
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
