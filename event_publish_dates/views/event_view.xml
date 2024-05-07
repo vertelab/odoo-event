@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record id="auto_publish_event_form_view" model="ir.ui.view">
+            <field name="name">event.event</field>
+            <field name="model">event.event</field>
+            <field name="inherit_id" ref="event.view_event_form"/>
+            <field name="arch" type="xml">
+                <field name="date_tz" position="before">
+                    <field name="event_publish_date"/>
+                    <field name="event_un_publish_date"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

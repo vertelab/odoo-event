@@ -44,8 +44,7 @@
         'security/ir.model.access.csv',
         'views/event_type_templates.xml',
         'views/event_type_view.xml',
-        'views/event_waiting_list_view.xml',
-        'data/data.xml'
+        'views/event_waiting_list_view.xml'
     ],
     'assets': {
         'web.assets_frontend': [

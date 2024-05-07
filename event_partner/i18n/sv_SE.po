@@ -1,0 +1,56 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_partner
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0-20210929\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-11 21:19+0000\n"
+"PO-Revision-Date: 2021-12-11 21:19+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: event_partner
+#: model_terms:ir.ui.view,arch_db:event_partner.event_event_ticket_view_tree_from_event
+msgid "Available"
+msgstr "Tillgängliga"
+
+#. module: event_partner
+#: model_terms:ir.ui.view,arch_db:event_partner.registration_template
+msgid "Available Seats:"
+msgstr "Tillgängliga platser"
+
+#. module: event_partner
+#: model:ir.model.fields,field_description:event_partner.field_event_event__display_name
+msgid "Display Name"
+msgstr "Visningsnamn"
+
+#. module: event_partner
+#: model:ir.model,name:event_partner.model_event_event
+msgid "Event"
+msgstr "Utbildningen"
+
+#. module: event_partner
+#: model:ir.model.fields,field_description:event_partner.field_event_event__id
+msgid "ID"
+msgstr ""
+
+#. module: event_partner
+#: model:ir.model.fields,field_description:event_partner.field_event_event____last_update
+msgid "Last Modified on"
+msgstr "Senast redigerad"
+
+#. module: event_partner
+#: model:ir.model.fields,field_description:event_partner.field_event_event__res_partner_ids
+msgid "Partners"
+msgstr "Kontakter"
+
+#. module: event_partner
+#: model_terms:ir.ui.view,arch_db:event_partner.event_event_ticket_view_tree_from_event
+msgid "Total"
+msgstr "Totalt"

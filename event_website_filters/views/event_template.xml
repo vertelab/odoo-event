@@ -1,0 +1,54 @@
+<odoo>
+    <data>
+        <template id="event_type_filter" inherit_id="website_event.index_topbar" customize_show="True" name="Filter by Event Type">
+            <xpath expr="//ul[hasclass('o_wevent_index_topbar_filters')]" position="inside">
+                <li class="nav-item dropdown mr-2 my-1">
+                    <a href="#" role="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-calendar"/>
+                        <t t-if="current_type" t-esc="current_type.name"/>
+                        <t t-else="">Event Types</t>
+                    </a>
+                    <div class="dropdown-menu">
+                        <t t-foreach="event_types" t-as="event_type">
+                            <t t-if="event_type['event_type_id']">
+                                <a t-att-href="keep('/event', type=event_type['event_type_id'][0])" t-attf-class="dropdown-item d-flex align-items-center justify-content-between #{searches.get('type') == str(event_type['event_type_id'] and event_type['event_type_id'][0]) and 'active'}">
+                                    <t t-esc="event_type['event_type_id'][1]"/>
+                                    <span t-esc="event_type['event_type_id_count']" class="badge badge-pill badge-primary ml-auto"/>
+                                </a>
+                            </t>
+                        </t>
+                    </div>
+                </li>
+            </xpath>
+        </template>
+
+        <template id="event_state_filter" inherit_id="website_event.index_topbar" customize_show="True" name="Filter by State">
+            <xpath expr="//ul[hasclass('o_wevent_index_topbar_filters')]" position="inside">
+                <li class="nav-item dropdown mr-2 my-1">
+                    <a href="#" role="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-map-marker"/>
+                        <t t-if="current_state" t-esc="current_state.name"/>
+                        <t t-else="">All states</t>
+                    </a>
+                    <div class="dropdown-menu">
+                        <t t-foreach="states" t-as="state">
+                            <t t-if="state['state_id']">
+                                <a t-att-href="keep('/event', state=state['state_id'][0])" t-attf-class="dropdown-item d-flex align-items-center justify-content-between #{searches.get('state') == str(state['state_id'] and state['state_id'][0]) and 'active'}">
+                                    <t t-esc="state['state_id'][1]"/>
+                                    <span t-esc="state['state_id_count']" class="badge badge-pill badge-primary ml-auto"/>
+                                </a>
+                            </t>
+                            <t t-else="">
+                                <a t-att-href="keep('/event', state='online')" t-attf-class="dropdown-item d-flex align-items-center justify-content-between #{searches.get('state') == 'online' and 'active'}">
+                                    <span>Online Events</span>
+                                    <span t-esc="state['state_id_count']" class="badge badge-pill badge-primary ml-3"/>
+                                </a>
+                            </t>
+                        </t>
+                    </div>
+                </li>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

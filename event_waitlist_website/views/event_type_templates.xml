@@ -49,7 +49,7 @@
     <template id="index_topbar" name="Topbar">
         <div class="container mt-3 mb-4">
             <div class="o_wevent_index_topbar_filters d-flex d-print-none align-items-center justify-content-end flex-wrap gap-2 w-100">
-                <h2 class="h4 my-0 me-auto pe-sm-4">Event Types</h2>
+                <h2 class="h4 my-0 me-auto pe-sm-4">Events</h2>
                     <t t-foreach="categories" t-as="category">
                         <div t-if="category.is_published and category.tag_ids and any(tag.color for tag in category.tag_ids)" class="dropdown d-none d-lg-block">
                             <a href="#" role="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
@@ -58,7 +58,7 @@
                             <div class="dropdown-menu">
                                 <t t-foreach="category.tag_ids" t-as="tag">
                                     <a t-if="tag.color"
-                                        t-att-href="'/event-types?%s' % keep_query('*', tags=str((search_tags - tag).ids if tag in search_tags else (tag | search_tags).ids))"
+                                        t-att-href="'/event?%s' % keep_query('*', tags=str((search_tags - tag).ids if tag in search_tags else (tag | search_tags).ids))"
                                         t-attf-class="dropdown-item d-flex align-items-center justify-content-between #{'active' if tag in search_tags else ''}">
                                         <t t-out="tag.name"/>
                                     </a>
@@ -67,9 +67,9 @@
                         </div>
                     </t>
                 <div class="o_wevent_search d-flex w-100 w-lg-auto">
-                    <div class="w-100 flex-grow-1">
-                        <t t-call="event_waitlist_website.event_types_search_box_input"/>
-                    </div>
+<!--                    <div class="w-100 flex-grow-1">-->
+<!--                        <t t-call="event_waitlist_website.events_search_box_input"/>-->
+<!--                    </div>-->
                     <button class="btn btn-light position-relative ms-2 d-lg-none"
                         data-bs-toggle="offcanvas"
                         data-bs-target="#o_wevent_index_offcanvas">
@@ -102,7 +102,7 @@
                                         <ul class="list-group list-group-flush">
                                             <t t-if="category.is_published and category.tag_ids and any(tag.color for tag in category.tag_ids)" t-foreach="category.tag_ids" t-as="tag">
                                                 <li t-if="tag.color" class="list-group-item border-0 px-0">
-                                                    <a t-att-href="'/event-types?%s' % keep_query('*', tags=str((search_tags - tag).ids if tag in search_tags else (tag | search_tags).ids))"
+                                                    <a t-att-href="'/event?%s' % keep_query('*', tags=str((search_tags - tag).ids if tag in search_tags else (tag | search_tags).ids))"
                                                         class="text-reset" t-att-title="tag.name">
                                                         <div class="form-check">
                                                             <input class="form-check-input pe-none" type="checkbox" t-attf-name="#{tag.color}" t-att-checked="tag in search_tags"/>
@@ -124,29 +124,12 @@
         </div>
     </template>
 
-    <template id="event_types_search_box_input" name="Event Types Search Box">
-        <t t-call="website.website_search_box_input">
-            <t t-set="_classes" t-valuef="o_wevent_event_searchbar_form flex-grow-1 #{_classes}"/>
-            <t t-set="search_type" t-valuef="event_types"/>
-            <t t-set="action" t-valuef="/event-types"/>
-            <t t-set="display_description" t-valuef="true"/>
-            <t t-set="display_detail" t-valuef="false"/>
-            <t t-set="search" t-value="search or searches and searches['search']"/>
-            <t t-set="placeholder">Search an event...</t>
-            <t t-foreach="searches" t-as="item">
-                <input t-if="item != 'search' and item_value != 'all'" type="hidden"
-                    t-att-name="item" t-att-value="item_value"/>
-            </t>
-            <t t-out="0"/>
-        </t>
-    </template>
-
     <template id="searched_tags" name="Searched tags">
         <div class="d-flex align-items-center">
             <t t-foreach="search_tags" t-as="tag">
                 <span t-attf-class="d-inline-flex align-items-baseline rounded border ps-2 me-2 mb-2 #{'o_tag_color_%s' % tag.color if tag.color else ''}">
                     <t t-out="tag.display_name"/>
-                    <a t-att-href="'/event-types?%s' % keep_query('*', tags=str((search_tags - tag).ids))" class="btn border-0 py-1 text-white">&#215;</a>
+                    <a t-att-href="'/event?%s' % keep_query('*', tags=str((search_tags - tag).ids))" class="btn border-0 py-1 text-white">&#215;</a>
                 </span>
             </t>
         </div>
