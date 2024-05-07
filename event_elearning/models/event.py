@@ -32,8 +32,7 @@ class EventRegistration(models.Model):
         string="Event Registration", comodel_name="slide.channel.partner",
     )
     
-    def createSlideChannelPartner(self):
-        logging.warning("create_slideChannelPartner"*100)
+    def writeSlideChannelPartner(self):
         for record in self:
             if record.state == "open" and record.event_id.slide_channel_id and not record.slide_channel_partner_id:
                partner_id = self.env['res.partner'].search([('name','=',record.name),('phone','=',record.phone),('email','=',record.email),('user_ids','!=',False),('employee_ids','!=',False)], limit=1)
@@ -64,6 +63,41 @@ class EventRegistration(models.Model):
                    # ~ 'event_registration_id':record.id,
                    })
                record.slide_channel_partner_id = slide_channel_partner_id
+
+    @api.model
+    def createSlideChannelPartner(self, vals_list):
+        vals_list2 = []
+        for vals in vals_list:
+            logging.warning(f"{vals=}")
+            event_id = self.env['event.event'].browse(vals.get('event_id'))
+            logging.warning(f"{vals.get('event_id')=}")
+            if vals.get('state','open') == "open" and event_id.slide_channel_id:
+               logging.warning(f"IF CASE COMPLetete")
+               partner_id = self.env['res.partner'].search([('name','=',vals.get('name')),('phone','=',vals.get('phone')),('email','=',vals.get('email')),('user_ids','!=',False),('employee_ids','!=',False)], limit=1)
+               if not partner_id:
+                   partner_id = self.env['res.partner'].search([('name','=',vals.get('name')),('phone','=',vals.get('phone')),('email','=',vals.get('email')),('user_ids','!=',False)], limit=1)
+               if not partner_id:
+                   partner_id = self.env['res.partner'].search([('name','=',vals.get('name')),('phone','=',vals.get('phone')),('email','=',vals.get('email'))], limit=1)
+               if not partner_id:
+                   partner_id = self.env['res.partner'].search([('name','=',vals.get('name')),('email','=',vals.get('email'))], limit=1)
+               if not partner_id:
+                   partner_id = self.env['res.partner'].search([('email','=',vals.get('email'))], limit=1)
+               if not partner_id:
+                   partner_id = self.env['res.partner'].create({
+                   'name':vals.get('name'),
+                   'phone':vals.get('phone'),
+                   'email':vals.get('email'),
+                   })
+
+               slide_channel_partner_id = self.env['slide.channel.partner'].search([('channel_id','=',event_id.slide_channel_id.id),('partner_id','=',partner_id.id)])
+               if not slide_channel_partner_id:
+                   slide_channel_partner_id = self.env['slide.channel.partner'].create({
+                   'channel_id':event_id.slide_channel_id.id,
+                   'partner_id':partner_id.id,
+                   })
+               vals['slide_channel_partner_id'] = slide_channel_partner_id.id
+               vals_list2.append(vals)
+        return vals_list2
     
     def write(self, vals):
         logging.warning("event write"*100)        
@@ -71,13 +105,14 @@ class EventRegistration(models.Model):
         if 'state' in vals and vals['state'] == "open":
             logging.warning(f'{vals=}')
             if self.event_id.slide_channel_id and not self.slide_channel_partner_id:
-               self.createSlideChannelPartner()
+               self.writeSlideChannelPartner()
         return res
-    
+
+
     @api.model_create_multi
     def create(self, vals_list):
+        vals_list = self.createSlideChannelPartner(vals_list)
         registrations = super(EventRegistration, self).create(vals_list)
-        registrations.createSlideChannelPartner()
         return registrations
 
 class SlideChannelPartner(models.Model):
