@@ -18,34 +18,38 @@
 #    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+# Copyright 2021 Tecnativa - Jairo Llopis
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
-    'name': 'Event: Changed User Rights',
-    'version': '17.0.0.1',
-    # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
-    'summary': 'Event User Rights.',
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
-    # for the full list
+    'name': 'Event Waitlist Website',
+    'version': '17.0.1.0.0',
+    'summary': 'Allow event waitlist on event template from website.',
     'category': 'Event',
     'description': """
-    This group will be used to limit various things the normal event_admin is allowed to do.
+        Allow event waitlist on event template from website.
     """,
-    #'sequence': '1',
     'author': 'Vertel AB',
-    'website': 'https://vertel.se/apps/odoo-event/event_changed_user_rights',
+    'website': 'https://vertel.se/apps/odoo-event/event_waitlist_website',
     'images': ['static/description/banner.png'], # 560x280 px.
     'license': 'AGPL-3',
     'contributor': '',
     'maintainer': 'Vertel AB',
     'repository': 'https://github.com/vertelab/odoo-event',
-    # Any module necessary for this one to work correctly
-    'depends': ['website_event', 'event', 'base'],
-    'data': [
-        'security/security.xml',
-        'views/event_menu.xml'
+    "application": True,
+    "installable": True,
+    # 'depends': ['event_sale','website_event','web_ir_actions_act_multi','web_ir_actions_act_view_reload','product',],
+    'depends': ['event_sale','website_event','product',],
+    "data": [
+        'security/ir.model.access.csv',
+        'views/event_type_templates.xml',
+        'views/event_type_view.xml',
+        'views/event_waiting_list_view.xml'
     ],
-    'application': False,
-    'installable': True,
+    'assets': {
+        'web.assets_frontend': [
+            'event_waitlist_website/static/src/js/website_event.js',
+        ],
+    },
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -24,16 +24,12 @@
 {
     'name': 'Event: Reservation',
     'version': '17.0.1.0.0',
-    # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
+    # Version ledger: 17.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'Allow event registrations before the event exists.',
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
-    # for the full list
     'category': 'Event',
     'description': """
-    Allow event registrations before the event exists.
+        Allow event registrations before the event exists.
     """,
-    #'sequence': '1',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-event/event_reservation',
     'images': ['static/description/banner.png'], # 560x280 px.
@@ -41,14 +37,19 @@
     'contributor': '',
     'maintainer': 'Vertel AB',
     'repository': 'https://github.com/vertelab/odoo-event',
-    # Any module necessary for this one to work correctly
     "application": False,
     "installable": True,
-    'depends': ['event_sale','website_event','web_ir_actions_act_multi','web_ir_actions_act_view_reload','product',],
+    # 'depends': ['event_sale','website_event','web_ir_actions_act_multi','web_ir_actions_act_view_reload','product',],
+    'depends': ['event_sale','website_event','product',],
     "data": [
         "views/event_registration_views.xml",
         "views/event_templates_page_registration.xml",
-        "views/assets.xml",
+        # "views/assets.xml",
     ],
+    # 'assets': {
+    #     'web.assets_frontend': [
+    #         'event_reservation/static/src/js/event_reservation.js'
+    #     ]
+    # }
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

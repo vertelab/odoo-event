@@ -6,16 +6,21 @@ class EventRegistration(models.Model):
 
     state = fields.Selection(selection_add=[('reservation', 'Reservation')])
 
+
 class EventReservationTicket(models.Model):
     _inherit = 'event.event.ticket'
-    seats_available_event_limit = fields.Integer(string='Available Seats Event Limit', compute='_compute_seats_event_limit', store=True)
 
-    @api.depends('seats_max', 'registration_ids.state','event_id','event_id.seats_limited','event_id.seats_max', 'event_id.seats_expected','event_id.seats_available')
+    seats_available_event_limit = fields.Integer(string='Available Seats Event Limit',
+                                                 compute='_compute_seats_event_limit', store=True)
+
+    @api.depends('seats_max', 'registration_ids.state', 'event_id', 'event_id.seats_limited', 'event_id.seats_max',
+                 'event_id.seats_available')
     def _compute_seats_event_limit(self):
         """ Determine reserved, available, reserved but unconfirmed and used seats. """
         # initialize fields to 0 + compute seats availability
         for ticket in self:
-            ticket.seats_unconfirmed = ticket.seats_reserved = ticket.seats_used = ticket.seats_available = 0
+            # ticket.seats_unconfirmed = ticket.seats_reserved = ticket.seats_used = ticket.seats_available = 0
+            ticket.seats_reserved = ticket.seats_used = ticket.seats_available = 0
         # aggregate registrations by ticket and by state
         results = {}
         if self.ids:
@@ -29,7 +34,7 @@ class EventReservationTicket(models.Model):
                         WHERE event_ticket_id IN %s AND state IN ('draft', 'open', 'done')
                         GROUP BY event_ticket_id, state
                     """
-            self.env['event.registration'].flush(['event_id', 'event_ticket_id', 'state'])
+            self.env['event.registration'].flush_model(['event_id', 'event_ticket_id', 'state'])
             self.env.cr.execute(query, (tuple(self.ids),))
             for event_ticket_id, state, num in self.env.cr.fetchall():
                 results.setdefault(event_ticket_id, {})[state_field[state]] = num
@@ -40,9 +45,9 @@ class EventReservationTicket(models.Model):
             if ticket.seats_max > 0:
                 ticket.seats_available = ticket.seats_max - (ticket.seats_reserved + ticket.seats_used)
                 if ticket.event_id and ticket.event_id.seats_limited:
-                        ticket.seats_available_event_limit = min(ticket.seats_available,ticket.event_id.seats_available)
-                else: 
-                     ticket.seats_available_event_limit = ticket.seats_available
+                    ticket.seats_available_event_limit = min(ticket.seats_available, ticket.event_id.seats_available)
+                else:
+                    ticket.seats_available_event_limit = ticket.seats_available
             elif ticket.event_id.seats_limited:
                 ticket.seats_available_event_limit = ticket.event_id.seats_available
             else:
@@ -52,7 +57,8 @@ class EventReservationTicket(models.Model):
 class EventEvent(models.Model):
     _inherit = 'event.event'
 
-    def mail_attendees(self, template_id, force_send=False, filter_func=lambda self: self.state not in ['cancel', 'reservation']):
+    def mail_attendees(self, template_id, force_send=False,
+                       filter_func=lambda self: self.state not in ['cancel', 'reservation']):
         for event in self:
             for attendee in event.registration_ids.filtered(filter_func):
                 self.env['mail.template'].browse(template_id).send_mail(attendee.id, force_send=force_send)
