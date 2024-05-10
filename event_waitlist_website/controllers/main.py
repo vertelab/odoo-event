@@ -116,9 +116,9 @@ class WebsiteEventWaitlistController(WebsiteEventController):
             'current_type': current_type,
             'event_type_ids': events.sudo(),  # event_ids used in website_event_track so we keep name as it is
             # 'dates': dates,
-            # 'categories': request.env['event.tag.category'].search([
-            #     ('is_published', '=', True), '|', ('website_id', '=', website.id), ('website_id', '=', False)
-            # ]),
+            'categories': request.env['event.tag.category'].search([
+                ('is_published', '=', True), '|', ('website_id', '=', website.id), ('website_id', '=', False)
+            ]),
             # 'countries': countries,
             'pager': pager,
             'searches': searches,
@@ -170,7 +170,7 @@ class WebsiteEventWaitlistController(WebsiteEventController):
 
     @http.route(['/event-type/<model("event.type"):event_type>/waitlist/success'], type='http', auth="public",
                 methods=['GET'], website=True, sitemap=False)
-    def event_registration_success(self, event_type, waiting_list_ids):
+    def event_waitlist_registration_success(self, event_type, waiting_list_ids):
         # fetch the related registrations, make sure they belong to the correct visitor / event pair
         visitor = request.env['website.visitor']._get_visitor_from_request()
         if not visitor:

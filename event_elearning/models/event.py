@@ -66,7 +66,7 @@ class EventRegistration(models.Model):
 
     @api.model
     def createSlideChannelPartner(self, vals_list):
-        vals_list2 = []
+        
         for vals in vals_list:
             logging.warning(f"{vals=}")
             event_id = self.env['event.event'].browse(vals.get('event_id'))
@@ -96,8 +96,7 @@ class EventRegistration(models.Model):
                    'partner_id':partner_id.id,
                    })
                vals['slide_channel_partner_id'] = slide_channel_partner_id.id
-               vals_list2.append(vals)
-        return vals_list2
+        return vals_list
     
     def write(self, vals):
         logging.warning("event write"*100)        
