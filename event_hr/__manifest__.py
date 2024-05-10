@@ -40,10 +40,12 @@
     'maintainer': 'Vertel AB',
     'repository': 'https://github.com/vertelab/odoo-event',
     # Any module necessary for this one to work correctly
-    'depends': ['hr', 'event', ],
+    'depends': ['hr', 'event', 'website_slides'],
     'data': [
 #	'security/ir.model.access.csv',
         'views/hr_job_views.xml',
+        'views/hr_employee_view.xml',
+        'views/res_partner_views.xml',
     ],
     'application': False,
     'installable': True,
