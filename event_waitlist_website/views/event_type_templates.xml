@@ -389,13 +389,19 @@
         </t>
     </template>
 
+    <template id="registration_configure_event_type_button" name="Event Template Configuration Button">
+        <a t-attf-class="o_not_editable text-nowrap {{linkClasses or '' }}" t-attf-href="/web#id=#{event_type.id}&amp;menu_id=#{backend_menu_id}&amp;view_type=form&amp;model=event.type" role="link"  title="Configure event template">
+            <i class="fa fa-gear me-1" role="img" aria-label="Configure" title="Configure event template"/><em>Configure Template</em>
+        </a>
+    </template>
+
     <!-- Event - Registration -->
     <template id="registration_template" name="Registration">
         <!-- Show the tickets button only on desktop -->
         <div t-attf-class="d-flex d-lg-block flex-wrap justify-content-between align-items-center {{event_type.open_waiting_list and 'pb-3 border-bottom' or ''}}">
             <div class="d-flex flex-wrap justify-content-between align-items-center w-100 mb-3">
-                <h4 class="mb-0">Tickets</h4>
-                <t t-call="website_event.registration_configure_tickets_button" t-if="request.env.user.has_group('event.group_event_manager')">
+                <h4 class="mb-0">Event Template</h4>
+                <t t-call="event_waitlist_website.registration_configure_event_type_button" t-if="request.env.user.has_group('event.group_event_manager')">
                     <t t-set="linkClasses" t-translation="off">ms-2</t>
                 </t>
             </div>

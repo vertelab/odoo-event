@@ -7,8 +7,10 @@
         <field name="arch" type="xml">
             <form js_class="website_new_content_form">
                 <group>
+                     <field name="website_url" invisible="1"/>
                     <field name="company_id" invisible="1"/>
                     <field name="name" string="Event Type Name"/>
+                    <field name="subtitle" string="Subtitle"/>
                     <field name="address_id" context="{'show_address': 1}"/>
                 </group>
             </form>
