@@ -41,7 +41,7 @@
     'depends': ['website_event', 'mail', 'portal'],
     "data": [
         'views/event_portal_templates.xml',
-        'security/security.xml',
+        # ~ 'security/security.xml',
     ],
     "auto_install": False,
     "application": True,

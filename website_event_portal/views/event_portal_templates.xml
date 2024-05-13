@@ -20,7 +20,6 @@
                 <t t-set="title">My Events</t>
                 <t t-set="url" t-value="'/my/events'"/>
                 <t t-set="icon" t-value="'/website_event_portal/static/src/img/tasks.svg'"/>
-
                 <t t-set="text">Follow, view or manage your event registration</t>
                 <t t-set="placeholder_count" t-value="'event_count'"/>
             </t>
