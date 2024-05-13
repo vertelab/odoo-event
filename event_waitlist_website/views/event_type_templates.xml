@@ -337,7 +337,7 @@
                                             <t t-foreach="event_type.event_ids" t-as="event">
                                                 <tr>
                                                     <td name="td_event_name">
-                                                        <a t-attf-href="/event/#{ slug(event_type) }/#{(not event.menu_id) and 'register'}">
+                                                        <a t-attf-href="/event/#{ slug(event) }/#{(not event.menu_id) and 'register'}">
                                                             <span t-esc="event.name"/>
                                                         </a>
                                                     </td>
