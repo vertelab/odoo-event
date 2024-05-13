@@ -1,12 +1,11 @@
 <odoo>
 
-    <template id="portal_my_home_events" name="Show Events"
-              inherit_id="portal.portal_my_home" customize_show="True"
-              priority="30">
+    <template id="portal_my_home_events" name="Show Events" inherit_id="portal.portal_my_home" customize_show="True" priority="30">
         <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
             <t t-call="portal.portal_docs_entry">
-                  <t t-set="title">Events</t>
+                <t t-set="title">Events</t>
                 <t t-set="url" t-value="'/my/events'"/>
+                <t t-set="text">Follow, view or manage your event registration</t>
                 <t t-set="placeholder_count" t-value="'event_count'"/>
             </t>
         </xpath>
@@ -20,6 +19,7 @@
             <t t-call="portal.portal_docs_entry">
                 <t t-set="title">My Events</t>
                 <t t-set="url" t-value="'/my/events'"/>
+                <t t-set="text">Follow, view or manage your event registration</t>
                 <t t-set="placeholder_count" t-value="'event_count'"/>
             </t>
         </xpath>
@@ -90,17 +90,29 @@
 
             <t t-call="portal.portal_record_layout">
                 <t t-set="card_header">
-                    <h5 class="mb-0">
-                         <a t-attf-href="/event/#{ slug(event_registration.event_id) }" t-att-title="event_registration.event_id.name">
-                            <span t-field="event_registration.event_id.name" class="text-truncate"/>
-                        </a>
-                    </h5>
-                    <h5 class="mb-0 text-right">
-                         <a t-attf-href="/event/#{ slug(event_registration.event_id) }" t-att-title="event_registration.event_id.name">
-                            <span t-field="event_registration.event_id.name" class="text-truncate"/>
-                        </a>
-                    </h5>
-                    
+                    <div class="row col-12">
+                        <div class="col-6">
+                            <h5 class="mb-0">
+                                <a t-attf-href="/event/#{ slug(event_registration.event_id) }" t-att-title="event_registration.event_id.name">
+                                    <span t-field="event_registration.event_id.name" class="text-truncate"/>
+                                </a>
+                            </h5>
+                        </div>
+                        <div class="col-6" style="text-align: end;">
+                            <t t-if="event_registration.state == 'cancel'">
+                                Unsubscribed
+                            </t>
+                            <t t-else="">
+                                <form id="un_reserve_attendee" t-attf-action="/event/#{event_registration.id}?action=unreserve" method="post">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                    <button class="btn btn-primary py-2 w-40" id="un_reserve_user">
+                                        Un-Reserve Seat
+                                    </button>
+                                </form>
+                            </t>
+                        </div>
+                    </div>
+
                 </t>
                 <t t-set="card_body">
                     <div class="row">

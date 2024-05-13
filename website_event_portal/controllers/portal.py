@@ -91,12 +91,16 @@ class PortalEvent(CustomerPortal):
         return self._get_page_view_values(
             event_registration, access_token, values, 'my_event_reservation_history', False, **kwargs)
 
-    @http.route(['/event/<int:event_registration_id>'], type='http', auth="user", website=True)
+    @http.route(['/event/<int:event_registration_id>',
+                 '/event/<int:event_registration_id>/un-reserve'], type='http', auth="user", website=True)
     def portal_my_event_reservations(self, event_registration_id=None, access_token=None, **kw):
         try:
             event_reg_sudo = self._document_check_access('event.registration', event_registration_id, access_token)
         except (AccessError, MissingError):
             return request.redirect('/my')
+        if kw.get('action') == 'unreserve':
+            event_reg_sudo.action_cancel()
 
         values = self._event_get_page_view_values(event_reg_sudo, access_token, **kw)
         return request.render("website_event_portal.event_my_event_registration", values)
+
