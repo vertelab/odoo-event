@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record id="view_survey_form" model="ir.ui.view">
+            <field name="name">survey.form</field>
+            <field name="model">survey.survey</field>
+            <field name="inherit_id" ref="survey.survey_survey_view_form"/>
+            <field name="arch" type="xml">
+                <field name="scoring_type" position="before">
+                    <field name="validity"/>
+                    <field name="lead_time"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

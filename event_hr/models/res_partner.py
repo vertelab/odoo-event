@@ -37,7 +37,9 @@ class ResPartner(models.Model):
             survey_user_input_ids = self.env['survey.user_input'].search([('partner_id', 'in', self.ids)])
             partner.survey_user_input_ids = survey_user_input_ids.ids
 
-            completed_survey_user_input_ids = survey_user_input_ids.filtered(lambda user_input: user_input.state == 'done')
+            completed_survey_user_input_ids = survey_user_input_ids.filtered(
+                lambda user_input: user_input.state == 'done'
+            )
 
             passed_survey_user_input_ids = survey_user_input_ids.filtered(
                 lambda user_input: user_input.scoring_success
