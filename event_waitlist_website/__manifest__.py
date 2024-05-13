@@ -44,12 +44,16 @@
         'security/ir.model.access.csv',
         'views/event_type_templates.xml',
         'views/event_type_view.xml',
+        'views/event_type_add.xml',
         'views/event_waiting_list_view.xml',
         'data/data.xml'
     ],
     'assets': {
         'web.assets_frontend': [
             'event_waitlist_website/static/src/js/website_event.js',
+        ],
+        'website.assets_editor': [
+            'event_waitlist_website/static/src/js/systray_item/content.js',
         ],
     },
 }

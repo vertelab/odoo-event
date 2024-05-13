@@ -260,3 +260,8 @@ class EventType(models.Model):
             'no_date_domain': no_date_domain,
             'no_country_domain': no_country_domain,
         }
+
+    @api.depends('website_id')
+    def _compute_website_menu(self):
+        for event in self:
+            event.website_menu = False
