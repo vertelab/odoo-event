@@ -327,7 +327,7 @@
                                         <thead>
                                             <tr>
                                                 <th name="th_event_name" class="text-start">Name</th>
-                                                <th name="th_event_tags" class="text-start">Tags</th>
+                                                <th name="th_event_tags" class="text-start">Typ</th>
                                                 <th name="th_event_date_begin" class="text-end">Date Begin</th>
                                                 <th name="th_event_date_end" class="text-end">Date End</th>
                                             </tr>
@@ -343,9 +343,9 @@
                                                     </td>
                                                     <td name="td_event_tags">
                                                         <div class="d-flex flex-wrap gap-1 small">
-                                                            <t t-foreach="event.tag_ids" t-as="tag">
+                                                            <t t-foreach="event.tag_ids.filtered(lambda tag: tag.category_id.name == 'Typ')" t-as="tag">
                                                                 <span t-if="tag.color"
-                                                                      t-attf-class="badge mt-3 mt-sm-0 rounded-pill px-2 p-1 o_tag_color_7 #{'o_tag_color_%s' % tag.color if tag.color else 'text-bg-light'}">
+                                                                    t-attf-class="badge mt-3 mt-sm-0 rounded-pill px-2 p-1 #{'o_tag_color_%s' % tag.color if tag.color else 'text-bg-light'}">
                                                                     <t t-out="tag.name"/>
                                                                 </span>
                                                             </t>
