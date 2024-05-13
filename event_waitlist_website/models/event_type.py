@@ -110,27 +110,28 @@ class EventType(models.Model):
 
     # website
     website_published = fields.Boolean(tracking=True)
-    website_menu = fields.Boolean(
-        string='Website Menu',
-        compute='_compute_website_menu', precompute=True, readonly=False, store=True,
-        help="Allows to display and manage event-specific menus on website.")
+    # website_menu = fields.Boolean(
+    #     string='Website Menu',
+    #     compute='_compute_website_menu', precompute=True, readonly=False, store=True,
+    #     help="Allows to display and manage event-specific menus on website.")
     menu_id = fields.Many2one('website.menu', 'Event Menu', copy=False)
     # menu_register_cta = fields.Boolean(
     #     'Extra Register Button', compute='_compute_menu_register_cta',
     #     readonly=False, store=True)
     # sub-menus management
-    introduction_menu = fields.Boolean(
-        "Introduction Menu", compute="_compute_website_menu_data",
-        readonly=False, store=True)
-    introduction_menu_ids = fields.One2many(
-        "website.event.menu", "event_id", string="Introduction Menus",
-        domain=[("menu_type", "=", "introduction")])
-    location_menu = fields.Boolean(
-        "Location Menu", compute="_compute_website_menu_data",
-        readonly=False, store=True)
-    location_menu_ids = fields.One2many(
-        "website.event.menu", "event_id", string="Location Menus",
-        domain=[("menu_type", "=", "location_menu")])
+    # introduction_menu = fields.Boolean(
+    #     "Introduction Menu", compute="_compute_website_menu_data",
+    #     readonly=False, store=True)
+    # introduction_menu_ids = fields.One2many(
+    #     "website.event.menu", "event_id", string="Introduction Menus",
+    #     domain=[("menu_type", "=", "introduction")])
+    # location_menu = fields.Boolean(
+    #     "Location Menu", compute="_compute_website_menu_data",
+    #     readonly=False, store=True)
+    # location_menu_ids = fields.One2many(
+    #     "website.event.menu", "event_id", string="Location Menus",
+    #     domain=[("menu_type", "=", "location_menu")])
+
     address_name = fields.Char(related='address_id.name')
 
     # is_one_day = fields.Boolean(compute='_compute_field_is_one_day')
@@ -164,13 +165,13 @@ class EventType(models.Model):
         """ Temporary method for stable """
         return self._google_map_link(zoom=zoom)
 
-    @api.depends("website_menu")
-    def _compute_website_menu_data(self):
-        """ Synchronize with website_menu at change and let people update them
-        at will afterwards. """
-        for event in self:
-            event.introduction_menu = event.website_menu
-            event.location_menu = event.website_menu
+    # @api.depends("website_menu")
+    # def _compute_website_menu_data(self):
+    #     """ Synchronize with website_menu at change and let people update them
+    #     at will afterwards. """
+    #     for event in self:
+    #         event.introduction_menu = event.website_menu
+    #         event.location_menu = event.website_menu
             # event.register_menu = event.website_menu
 
     @api.depends('name')
@@ -260,8 +261,3 @@ class EventType(models.Model):
             'no_date_domain': no_date_domain,
             'no_country_domain': no_country_domain,
         }
-
-    @api.depends('website_id')
-    def _compute_website_menu(self):
-        for event_type in self:
-            event_type.website_menu = False

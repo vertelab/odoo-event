@@ -33,6 +33,5 @@ patch(NewContentModal.prototype, {
         newEventType.createNewContent = () => this.onAddContent('event_waitlist_website.event_type_action_add', true);
         newEventType.status = MODULE_STATUS.INSTALLED;
         newEventType.model = 'event.type';
-        console.log('newEventType', newEventType)
     }
 })

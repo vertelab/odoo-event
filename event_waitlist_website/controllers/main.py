@@ -40,13 +40,9 @@ class WebsiteEventWaitlistController(WebsiteEventController):
                 type='http', auth="public", website=True)
     def event_types(self, page=1, **searches):
         Event = request.env['event.type'].sudo()
-        # SudoEventType = request.env['event.type'].sudo()
 
         searches.setdefault('search', '')
-        # searches.setdefault('date', 'upcoming')
         searches.setdefault('tags', '')
-        # searches.setdefault('type', 'all')
-        # searches.setdefault('country', 'all')
 
         website = request.website
 
@@ -57,7 +53,6 @@ class WebsiteEventWaitlistController(WebsiteEventController):
         if searches.get('date', 'upcoming') == 'old':
             order = 'create_date desc'
         order = 'is_published desc, ' + order
-        # order = 'is_published desc, '
         search = searches.get('search')
         event_count, details, fuzzy_search_term = website._search_with_fuzzy("event_types", search,
                                                                              limit=page * step, order=order,
@@ -115,7 +110,6 @@ class WebsiteEventWaitlistController(WebsiteEventController):
             'current_country': current_country,
             'current_type': current_type,
             'event_type_ids': events.sudo(),  # event_ids used in website_event_track so we keep name as it is
-            # 'dates': dates,
             'categories': request.env['event.tag.category'].search([
                 ('is_published', '=', True), '|', ('website_id', '=', website.id), ('website_id', '=', False)
             ]),
@@ -128,11 +122,6 @@ class WebsiteEventWaitlistController(WebsiteEventController):
             'original_search': fuzzy_search_term and search,
             'website': website
         }
-
-        # if searches['date'] == 'old':
-        # the only way to display this content is to set date=old so it must be canonical
-        # values['canonical_params'] = OrderedMultiDict([('date', 'old')])
-
         return request.render("event_waitlist_website.index_event_types", values)
 
     @http.route(['''/event-type/<model("event.type"):event_type>'''], type='http', auth="public", website=True,
