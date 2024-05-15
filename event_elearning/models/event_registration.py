@@ -1,29 +1,7 @@
-from odoo import models, fields, api, _
 import logging
-class EventType(models.Model):
-    _inherit = 'event.type'
-    slide_channel_id = fields.Many2one(
-        string="Slide Channel", comodel_name="slide.channel",
-    )
-    
+from odoo import models, fields, api, _
 
-class Event(models.Model):
-    _inherit = 'event.event'
-
-    slide_channel_id = fields.Many2one(
-        string="Slide Channel", comodel_name="slide.channel", compute='_compute_slide_channel', precompute=True, readonly=False, store=True)
-    
-    
-    @api.depends('event_type_id')
-    def _compute_slide_channel(self):
-        for event in self:
-            if event.event_type_id.slide_channel_id:
-                event.slide_channel_id = event.event_type_id.slide_channel_id
-
-    
-class SlideChannel(models.Model):
-    _inherit = 'slide.channel'
-    event_event_ids = fields.One2many('event.event', 'slide_channel_id', 'Events')
+_logger = logging.getLogger(__name__)
 
 
 class EventRegistration(models.Model):
@@ -113,9 +91,5 @@ class EventRegistration(models.Model):
         vals_list = self.createSlideChannelPartner(vals_list)
         registrations = super(EventRegistration, self).create(vals_list)
         return registrations
-
-class SlideChannelPartner(models.Model):
-    _inherit = 'slide.channel.partner'
-    event_registration_ids = fields.One2many('event.registration', 'slide_channel_partner_id', 'Events Registrations')
 
 
