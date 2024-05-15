@@ -1,8 +1,12 @@
-from odoo import models
+from odoo import models, fields
 
 class EventType(models.Model):
     
     _inherit = 'event.type'
+
+    slide_channel_id = fields.Many2one(
+        string="Slide Channel", comodel_name="slide.channel",
+    )
 
     def _default_event_mail_type_ids(self):
         return [(0, 0,
