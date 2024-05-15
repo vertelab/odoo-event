@@ -1,9 +1,5 @@
 from odoo import models, fields, _, api
 
-class EventMail(models.Model):
-    _inherit = "event.mail"
-    interval_type = fields.Selection(selection_add=[("waiting_list", "Skicka till Väntelistan"),("unreserve_mandatory","Skicka mail om avregistrering")], ondelete={"waiting_list": "set default","unreserve_mandatory": "set default"})
-
 class EventWaitingList(models.Model):
     _name = 'event.waiting.list'
     _inherit = ['mail.thread', 'mail.activity.mixin']
