@@ -42,6 +42,7 @@
     'depends': ['event_sale','website_event','product',],
     "data": [
         'security/ir.model.access.csv',
+        'data/event_open_slot_templet.xml',
         'views/event_type_templates.xml',
         'views/event_type_view.xml',
         'views/event_type_add.xml',
