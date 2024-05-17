@@ -97,10 +97,18 @@
 														</div>
 														<div>
 														<br />
+														<br />
 															You received this mail because of the waiting list you signed up for,
 															<br />
+																if you want to stop receiving these emails. 
+																<br/>
+																Click the link below to unsubscribe from the mailing list.
+																<a t-att-href="object.removal_link">
+																	<t t-out="object.removal_link" />
+																</a>
 															<span style="color: #454748;">
 																
+																<br />
 																<br />
 																<t t-if="event_organizer">
 																	<t t-out="event_organizer.name or ''">

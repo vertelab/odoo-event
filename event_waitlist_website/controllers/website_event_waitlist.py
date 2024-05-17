@@ -16,6 +16,8 @@ from odoo.exceptions import UserError
 
 from odoo.addons.website_event.controllers.main import WebsiteEventController
 
+import logging
+_logger = logging.getLogger(__name__)
 
 class WebsiteEventWaitlistController(WebsiteEventController):
     # ------------------------------------------------------------
@@ -36,8 +38,16 @@ class WebsiteEventWaitlistController(WebsiteEventController):
             'country': post.get('country'),
         }
 
-    @http.route(['/event-type', '/event-type/page/<int:page>', '/event-types', '/event-types/page/<int:page>'],
-                type='http', auth="public", website=True)
+    @http.route([
+                '/event-type', 
+                '/event-type/page/<int:page>', 
+                '/event-types', 
+                '/event-types/page/<int:page>'
+                ],
+                type='http',
+                auth="public", 
+                website=True)
+    
     def event_types(self, page=1, **searches):
         Event = request.env['event.type'].sudo()
 
@@ -124,7 +134,7 @@ class WebsiteEventWaitlistController(WebsiteEventController):
         }
         return request.render("event_waitlist_website.index_event_types", values)
 
-    @http.route(['''/event-type/<model("event.type"):event_type>'''], type='http', auth="public", website=True,
+    @http.route(['/event-type/<model("event.type"):event_type>'], type='http', auth="public", website=True,
                 sitemap=False)
     def event_type_register(self, event_type, **post):
         values = self._prepare_event_type_register_values(event_type, **post)
@@ -173,6 +183,19 @@ class WebsiteEventWaitlistController(WebsiteEventController):
             raise NotFound()
         vals = {'waiting_list_ids': waiting_list_sudo, 'event_type': event_type}
         return request.render("event_waitlist_website.registration_waitlist_complete", vals)
+
+
+    @http.route(['/event-type/waiting-list-registration/remove/<uuid>'], type='http',
+                auth="public", methods=['GET'], website=True)
+    def waiting_list_remove_registration(self, uuid):
+
+        waiting_list_id = request.env['event.waiting.list'].search([('unique_removal_uuid', '=', uuid)])
+
+        if waiting_list_id:
+
+            waiting_list_id.unlink()
+
+
 
     def _process_waiting_list_form(self, event_type, form_details):
         """ Process data posted from the attendee details form.
