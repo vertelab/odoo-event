@@ -42,6 +42,7 @@
                         <field name="event_ids" class="w-100">
                             <tree string="Events" editable="bottom">
                                 <field name="name"/>
+                                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
                                 <field name="date_begin"/>
                                 <field name="date_end"/>
                             </tree>
