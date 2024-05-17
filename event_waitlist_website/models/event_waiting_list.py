@@ -15,7 +15,7 @@ class EventWaitingList(models.Model):
 
     removal_link = fields.Char(compute="_compute_removal_link")
 
-    unique_removal_uuid = fields.Char(compute="_compute_unique_removal_uuid", store=True, string="This uuid is used to make it posibole for users to unsubscribe from the waiting list")
+    unique_removal_uuid = fields.Char(compute="_compute_unique_removal_uuid", store=True, string="This uuid is used to make it possible for users to unsubscribe from the waiting list")
 
     @api.depends('removal_link')
     def _compute_removal_link(self):

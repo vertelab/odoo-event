@@ -1,1 +1,1 @@
-from . import event_waitlist_website
+from . import website_event_waitlist
