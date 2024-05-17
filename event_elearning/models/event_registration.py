@@ -10,6 +10,23 @@ class EventRegistration(models.Model):
         string="Event Registration", comodel_name="slide.channel.partner",
     )
     
+    def action_cancel(self):
+        res = super(EventRegistration, self).action_cancel()
+        
+        ## Hitta rätt mail scedular och lägga in event.mail.registration classen på den.
+        mail_schedulers = self.env['event.mail'].search([('event_id','=',self.event_id.id),('interval_type','=','after_cancel')])
+        
+        for mail_scheduler in mail_schedulers:
+
+            new_registrations = self.env['event.registration'].search([
+                        ('id', 'in', self.ids),
+                        ('event_id', '=', mail_scheduler.event_id.id)
+            ]) - mail_scheduler.mail_registration_ids.registration_id
+
+            mail_scheduler._create_missing_mail_registrations(new_registrations)
+
+        return res
+
     def writeSlideChannelPartner(self):
         for record in self:
             if record.state == "open" and record.event_id.slide_channel_id and not record.slide_channel_partner_id:
@@ -77,7 +94,6 @@ class EventRegistration(models.Model):
         return vals_list
     
     def write(self, vals):
-        logging.warning("event write"*100)        
         res = super(EventRegistration, self).write(vals)
         if 'state' in vals and vals['state'] == "open":
             logging.warning(f'{vals=}')

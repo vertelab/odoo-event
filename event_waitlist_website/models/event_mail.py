@@ -19,8 +19,8 @@ class EventMailScheduler(models.Model):
     _inherit = "event.mail"
 
     interval_type = fields.Selection(
-        selection_add=[('open_event_slot','If there is a open spot on the event'), ('mandatory_event_consule','If the precipitation is cancelled')], 
-        ondelete={'open_event_slot': 'set default', 'mandatory_event_consule': 'set default'})
+        selection_add=[('open_event_slot','If there is a open spot on the event')], 
+        ondelete={'open_event_slot': 'set default'})
     
    
     @api.depends('event_id.date_begin', 'event_id.date_end', 'interval_type', 'interval_unit', 'interval_nbr')
@@ -35,20 +35,6 @@ class EventMailScheduler(models.Model):
 
             scheduler.scheduled_date = date.replace(microsecond=0) + _INTERVALS[scheduler.interval_unit](sign * scheduler.interval_nbr) if date else False
 
-    @api.depends('interval_type', 'scheduled_date', 'mail_done')
-    def _compute_mail_state(self):
-        for scheduler in self:
-            # registrations based
-            if scheduler.interval_type == 'after_sub' or scheduler.interval_type == 'open_event_slot':
-                scheduler.mail_state = 'running'
-            # global event based
-            elif scheduler.mail_done:
-                scheduler.mail_state = 'sent'
-            elif scheduler.scheduled_date:
-                scheduler.mail_state = 'scheduled'
-            else:
-                scheduler.mail_state = 'running'
-
 
     def execute(self):   
 
@@ -59,7 +45,6 @@ class EventMailScheduler(models.Model):
                     ('event_type_id','=',scheduler.event_id.event_type_id.id)
                 ])
                 for event_wait_contact in waiting_list_ids:
-                    #scheduler.event_id = scheduler.event_id
                     event_wait_contact.event_id = scheduler.event_id
                     self.env['mail.template'].browse(scheduler.template_ref.id).send_mail(event_wait_contact.id, force_send=True)
                     event_wait_contact.event_id = False
