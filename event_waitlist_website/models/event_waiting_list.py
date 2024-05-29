@@ -8,16 +8,12 @@ class EventWaitingList(models.Model):
     _order = 'id desc'
 
     event_type_id = fields.Many2one('event.type', string='Event Type', required=True)
-
     event_id = fields.Many2one('event.event', string='Event')
-
     active = fields.Boolean(default=True)
-
     removal_link = fields.Char(compute="_compute_removal_link")
+    unique_removal_uuid = fields.Char(compute="_compute_unique_removal_uuid", precompute=True,  store=True, string="This uuid is used to make it possible for users to unsubscribe from the waiting list")
 
-    unique_removal_uuid = fields.Char(compute="_compute_unique_removal_uuid", store=True, string="This uuid is used to make it possible for users to unsubscribe from the waiting list")
-
-    @api.depends('removal_link')
+    @api.depends('removal_link','unique_removal_uuid')
     def _compute_removal_link(self):
 
         base_url = self.env['ir.config_parameter'].get_param('web.base.url')
@@ -32,9 +28,11 @@ class EventWaitingList(models.Model):
 
         for waiting_list_id in self:
 
-            if waiting_list_id.unique_removal_uuid == False:
+            if waiting_list_id.unique_removal_uuid:
 
-                waiting_list_id.unique_removal_uuid = str(uuid.uuid4())
+                continue
+
+            waiting_list_id.unique_removal_uuid = str(uuid.uuid4())
 
 
     # utm informations
