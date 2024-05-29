@@ -10,20 +10,57 @@ class EventRegistration(models.Model):
         string="Event Registration", comodel_name="slide.channel.partner",
     )
     
+    hr_employee_manager_id = fields.Many2one(
+        string="Employee", comodel_name="hr.employee", compute='_compute_hr_employee_manager_id', readonly=False, store=True)
+
+    @api.depends('hr_employee_manager_id')
+    def _compute_hr_employee_manager_id(self):
+        
+        for registration in self:
+
+            registration.hr_employee_manager_id = False
+
+            hr_employee_domain = [('name', '=', registration.name),('work_phone', '=', registration.phone),('work_email', '=', registration.email)]
+            
+            hr_employee_id = self.env['hr.employee'].search(hr_employee_domain)
+            
+            if hr_employee_id:
+
+                registration.hr_employee_manager_id = hr_employee_id.parent_id
+
+
     def action_cancel(self):
-        res = super(EventRegistration, self).action_cancel()
+        
+        res = super().action_cancel()
         
         ## Hitta rätt mail scedular och lägga in event.mail.registration classen på den.
         mail_schedulers = self.env['event.mail'].search([('event_id','=',self.event_id.id),('interval_type','=','after_cancel')])
         
         for mail_scheduler in mail_schedulers:
 
-            new_registrations = self.env['event.registration'].search([
-                        ('id', 'in', self.ids),
-                        ('event_id', '=', mail_scheduler.event_id.id)
-            ]) - mail_scheduler.mail_registration_ids.registration_id
+            registrations_not_yet_in_scheduler_domain = [('id', 'in', self.ids),('event_id', '=', mail_scheduler.event_id.id)]
 
-            mail_scheduler._create_missing_mail_registrations(new_registrations)
+            registrations_not_yet_in_scheduler = self.env['event.registration'].search(registrations_not_yet_in_scheduler_domain)
+
+            for mail_registration in mail_scheduler.mail_registration_ids:
+
+                if mail_registration.registration_id in registrations_not_yet_in_scheduler:
+
+                    mail_registration.mail_sent = False
+
+            new_canceled_registrations = registrations_not_yet_in_scheduler - mail_scheduler.mail_registration_ids.registration_id
+
+            mail_scheduler._create_missing_mail_registrations(new_canceled_registrations)
+
+            all_mail_done = all(mail_registration.mail_sent == True for mail_registration in mail_scheduler.mail_registration_ids)
+            total_sent = len(mail_scheduler.mail_registration_ids.filtered(lambda reg: reg.mail_sent))
+
+            mail_scheduler.update({
+                    'mail_done': all_mail_done,
+                    'mail_count_done': total_sent
+                })
+
+        _logger.warning("cancel was invoked!!!!!"*100)
 
         return res
 

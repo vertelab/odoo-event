@@ -19,57 +19,69 @@ class EventMailScheduler(models.Model):
     interval_type = fields.Selection(
         selection_add=[('after_cancel','If the registration is cancelled')], 
         ondelete={'after_cancel': 'set default'})
+    
 
     @api.depends('event_id.date_begin', 'event_id.date_end', 'interval_type', 'interval_unit', 'interval_nbr')
     def _compute_scheduled_date(self):
+
+        res = super()._compute_scheduled_date()
+
         for scheduler in self:
-            if scheduler.interval_type == 'after_sub' or scheduler.interval_type == 'open_event_slot' or scheduler.interval_type == 'after_cancel':
+            if scheduler.interval_type == 'after_cancel':
                 date, sign = scheduler.event_id.create_date, 1
-            elif scheduler.interval_type == 'before_event':
-                date, sign = scheduler.event_id.date_begin, -1
-            else:
-                date, sign = scheduler.event_id.date_end, 1
 
-            scheduler.scheduled_date = date.replace(microsecond=0) + _INTERVALS[scheduler.interval_unit](sign * scheduler.interval_nbr) if date else False
+                scheduler.scheduled_date = date.replace(microsecond=0) + _INTERVALS[scheduler.interval_unit](sign * scheduler.interval_nbr) if date else False
 
+        return res
+    
 
-    @api.model
-    def schedule_communications(self, autocommit=False):
-                
-        schedulers = self.search([
-            ('event_id.active', '=', True),
-            ('mail_done', '=', False),
-            ('scheduled_date', '<=', fields.Datetime.now())
-        ])
+    @api.depends('interval_type', 'scheduled_date', 'mail_done')
+    def _compute_mail_state(self):
+        
+        res = super()._compute_mail_state()
+        
+        for scheduler in self:
+            # registrations based
+            if scheduler.interval_type == 'after_cancel':
+                scheduler.mail_state = 'running'
 
-        for scheduler in schedulers:
-            try:
-                # Prevent a mega prefetch of the registration ids of all the events of all the schedulers
-                self.browse(scheduler.id).after_cancel_exacute()
-            except Exception as e:
-                _logger.exception(e)
-                self.env.invalidate_all()
-                self._warn_template_error(scheduler, e)
+        return res
 
 
-        super().schedule_communications()
+    def _filter_schedulers(self,scheduler):
 
+        if scheduler.interval_type == 'after_cancel':
 
-    def after_cancel_exacute(self):
+            return scheduler
+        
+
+    def execute(self):
 
         for scheduler in self:
             
             if scheduler.interval_type == 'after_cancel':
-
-                attendee_ids = self.env['event.registration'].search([
-                    ('event_type_id','=',scheduler.event_id.event_type_id.id)
-                ])
-
-                for attendee in attendee_ids:
-                    attendee.event_id = scheduler.event_id
-                    self.env['mail.template'].browse(scheduler.template_ref.id).send_mail(attendee.id, force_send=True)
-                    attendee.event_id = False
                 
+                _logger.error(100*"cancel mail!!!!")
+
+                for mail_registration in scheduler.mail_registration_ids:
+
+                    registration = mail_registration.registration_id
+
+                    if mail_registration.mail_sent == False:
+
+                        if registration.hr_employee_manager_id:
+                            
+                            self.env['mail.template'].browse(scheduler.template_ref.id).send_mail(registration.id, force_send=True)
+                    
+                        mail_registration.mail_sent = True
+                        
+                all_mail_done = all(mail_registration.mail_sent == True for mail_registration in scheduler.mail_registration_ids)
+                total_sent = len(scheduler.mail_registration_ids.filtered(lambda reg: reg.mail_sent))
+
                 scheduler.update({
-                    'mail_done': True,
+                    'mail_done': all_mail_done,
+                    'mail_count_done': total_sent
                 })
+
+            schedulers = scheduler.filtered(lambda s: s.interval_type != 'after_cancel')
+            return super(EventMailScheduler, schedulers).execute()

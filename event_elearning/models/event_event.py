@@ -9,7 +9,7 @@ class EventEvent(models.Model):
     @api.depends('event_type_id')
     def _compute_slide_channel(self):
         for event in self:
-            if event.event_type_id.slide_channel_id:
+            if event.event_type_id and event.event_type_id.slide_channel_id:
                 event.slide_channel_id = event.event_type_id.slide_channel_id
 
     

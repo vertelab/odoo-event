@@ -2,22 +2,12 @@
 <odoo>
 	<data>
 		<record id="event_subscription_with_slide_link" model="mail.template">
-			<field name="name">
-				Event: Registration Confirmation With Course Link
-			</field>
+			<field name="name">Event: Registration Confirmation With Course Link</field>
 			<field name="model_id" ref="event.model_event_registration" />
-			<field name="subject">
-				Your registration at {{ object.event_id.name }}
-			</field>
-			<field name="email_from">
-				{{ (object.event_id.organizer_id.email_formatted or object.event_id.user_id.email_formatted or '') }}
-			</field>
-			<field name="email_to">
-				{{ (object.email and '"%s" &lt;%s&gt;' % (object.name, object.email) or object.partner_id.email_formatted or '') }}
-			</field>
-			<field name="description">
-				Sent to attendees after registering to an event
-			</field>
+			<field name="subject">Your registration at {{ object.event_id.name }}</field>
+			<field name="email_from">{{ (object.event_id.organizer_id.email_formatted or object.event_id.user_id.email_formatted or '') }}</field>
+			<field name="email_to">{{ (object.email and '"%s" &lt;%s&gt;' % (object.name, object.email) or object.partner_id.email_formatted or '') }}</field>
+			<field name="description">Sent to attendees after registering to an event</field>
 			<field name="body_html" type="html">
 				<table border="0" cellpadding="0" cellspacing="0" style="padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;">
 					<tr>
@@ -76,7 +66,8 @@
 													<td valign="top" style="font-size: 14px;">
 														<div>
 															Hello
-															<t t-out="object.name or 'Guest'" />,
+															<t t-out="object.name or 'Guest'" />
+															,
 															<br />
 															We are happy to confirm your registration to the event.
 															<t t-if="is_online">
@@ -89,20 +80,21 @@
 																	OpenWood Collection Online Reveal.
 																</strong>
 															</t>
-															<br/>
+															<br />
 															<t t-if="object.partner_id and object.partner_id.name and object.partner_id.name != object.name">
 																This ticket was registered by
-																<t t-out="object.partner_id.name"/>.
+																<t t-out="object.partner_id.name" />
+																.
 															</t>
-															<br/>
-															<br/>
-                                                            <t t-if="object.slide_channel_partner_id and object.slide_channel_partner_id.invitation_link">
+															<br />
+															<br />
+															<t t-if="object.slide_channel_partner_id and object.slide_channel_partner_id.invitation_link">
 																Please click this link to be taken to your registered course.
-																<br/>
-                                                                <a t-att-href="object.slide_channel_partner_id.invitation_link">
-																	<t t-out="object.slide_channel_partner_id.invitation_link"/>
+																<br />
+																<a t-att-href="object.slide_channel_partner_id.invitation_link">
+																	<t t-out="object.slide_channel_partner_id.invitation_link" />
 																</a>
-                                                            </t>
+															</t>
 														</div>
 														<div t-if="is_sale">
 															<br />

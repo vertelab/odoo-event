@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 	<data>
-		<record id="event_elearning.event_reminder_with_slide_link" model="mail.template">
-			<field name="name">Event: Reminder With Course Link</field>
+		<record id="event_elearning.event_cancled_obligatory" model="mail.template">
+			<field name="name">Event: Cancled event mail</field>
 			<field name="model_id" ref="event.model_event_registration" />
 			<field name="subject">{{ object.event_id.name }}: {{ object.get_date_range_str() }}</field>
 			<field name="email_from">{{ (object.event_id.organizer_id.email_formatted or object.event_id.user_id.email_formatted or '') }}</field>
-			<field name="email_to">{{ (object.email and '"%s" &lt;%s&gt;' % (object.name, object.email) or object.partner_id.email_formatted or '') }}</field>
-			<field name="description">Sent automatically to attendees if there is a reminder defined on the event</field>
+			<field name="email_to">{{ (object.hr_employee_manager_id.work_email and '"%s" &lt;%s&gt;' % (object.hr_employee_manager_id.name, object.hr_employee_manager_id.work_email) or '') }}</field>
+			<field name="description">Sent to employees manager if they cancel their attendance to an obligatory event</field>
 			<field name="body_html" type="html">
 				<table border="0" cellpadding="0" cellspacing="0" style="padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;">
 					<tr>
@@ -29,7 +29,7 @@
 															Your registration
 														</span>
 														<br />
-														<span style="font-size: 20px; font-weight: bold;" t-out="object.name or 'Guest'" />
+														<span style="font-size: 20px; font-weight: bold;" t-out="object.hr_employee_manager_id.name or 'Guest'" />
 													</td>
 													<td valign="middle" align="right">
 														<t t-if="is_online">
@@ -58,7 +58,7 @@
 													<td valign="top" style="font-size: 14px;">
 														<div>
 															Hello
-															<t t-out="object.name or 'Guest'" />
+															<t t-out="object.hr_employee_manager_id.name or 'Guest'" />
 															,
 															<br />
 															We are excited to remind you that the event
