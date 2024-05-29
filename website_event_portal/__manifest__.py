@@ -39,6 +39,9 @@
     'maintainer': 'Vertel AB',
     'repository': 'https://github.com/vertelab/odoo-website',
     'depends': ['website_event', 'mail', 'portal'],
+    'assets': {
+        'web.assets_frontend': ['website_event_portal/static/src/scss/make_status_text_black.scss',]
+        },
     "data": [
         'views/event_portal_templates.xml',
         # ~ 'security/security.xml',
