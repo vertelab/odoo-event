@@ -8,6 +8,8 @@ from collections import OrderedDict
 from odoo.http import request
 import werkzeug
 
+import logging
+_logger = logging.getLogger(__name__)
 
 class PortalEvent(CustomerPortal):
 
@@ -44,9 +46,15 @@ class PortalEvent(CustomerPortal):
         if not sortby:
             sortby = 'create_date'
         order = searchbar_sortings[sortby]['order']
-
+        active_stage_ids = request.env['event.stage'].search([('name','not ilike','Cancelled'),('name','not ilike','Ended')]).ids
+        _logger.error(f"{active_stage_ids=}"*50)
+        active_event_ids = request.env['event.event'].search([('stage_id','in',active_stage_ids)]).ids
+        _logger.error(f"{active_event_ids=}"*50)
         searchbar_filters = {
             'all': {'label': _('All'), 'domain': []},
+            'confirmed': {'label': _('Confirmed'), 'domain': [('state', '=', 'open')]},
+            'cancelled': {'label': _('Cancelled'), 'domain': [('state', '=', 'cancel')]},
+            'ongoing': {'label': _('Ongoing'), 'domain': [('event_id', 'in', active_event_ids)]},
         }
         # default filter by value
         if not filterby:
@@ -68,6 +76,7 @@ class PortalEvent(CustomerPortal):
         )
         # content according to pager and archive selected
         events = EventAttendee.search(domain, order=order, limit=self._items_per_page, offset=pager['offset'])
+        
         request.session['my_events_history'] = events.ids[:100]
 
         values.update({
