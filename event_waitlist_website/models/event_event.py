@@ -11,7 +11,7 @@ class EventEvent(models.Model):
 
     @api.depends("full_website_url")
     def _compute_full_website_url_field(self):
-
+        
         base_url = self.env['ir.config_parameter'].get_param('web.base.url')
 
         for event in self:
@@ -41,7 +41,9 @@ class EventEvent(models.Model):
             _logger.warning(f"event {event=}")
             onsubscribe_schedulers = event.event_mail_ids.filtered(lambda event_mail: event_mail.interval_type == 'open_event_slot')
 
-            _logger.warning(f"onsubscribe_schedulers {onsubscribe_schedulers=}")
-            onsubscribe_schedulers.with_user(SUPERUSER_ID).execute()
+            if onsubscribe_schedulers:
+
+                _logger.warning(f"onsubscribe_schedulers {onsubscribe_schedulers=}")
+                onsubscribe_schedulers.with_user(SUPERUSER_ID).execute()
 
         return events

@@ -10,6 +10,60 @@ class EventRegistration(models.Model):
         string="Event Registration", comodel_name="slide.channel.partner",
     )
     
+    hr_employee_manager_id = fields.Many2one(
+        string="Employee", comodel_name="hr.employee", compute='_compute_hr_employee_manager_id', readonly=False, store=True)
+
+    @api.depends('hr_employee_manager_id')
+    def _compute_hr_employee_manager_id(self):
+        
+        for registration in self:
+
+            registration.hr_employee_manager_id = False
+
+            hr_employee_domain = [('name', '=', registration.name),('work_phone', '=', registration.phone),('work_email', '=', registration.email)]
+            
+            hr_employee_id = self.env['hr.employee'].search(hr_employee_domain)
+            
+            if hr_employee_id:
+
+                registration.hr_employee_manager_id = hr_employee_id.parent_id
+
+
+    def action_cancel(self):
+        
+        res = super().action_cancel()
+        
+        ## Hitta rätt mail scedular och lägga in event.mail.registration classen på den.
+        mail_schedulers = self.env['event.mail'].search([('event_id','=',self.event_id.id),('interval_type','=','after_cancel')])
+        
+        for mail_scheduler in mail_schedulers:
+
+            registrations_not_yet_in_scheduler_domain = [('id', 'in', self.ids),('event_id', '=', mail_scheduler.event_id.id)]
+
+            registrations_not_yet_in_scheduler = self.env['event.registration'].search(registrations_not_yet_in_scheduler_domain)
+
+            for mail_registration in mail_scheduler.mail_registration_ids:
+
+                if mail_registration.registration_id in registrations_not_yet_in_scheduler:
+
+                    mail_registration.mail_sent = False
+
+            new_canceled_registrations = registrations_not_yet_in_scheduler - mail_scheduler.mail_registration_ids.registration_id
+
+            mail_scheduler._create_missing_mail_registrations(new_canceled_registrations)
+
+            all_mail_done = all(mail_registration.mail_sent == True for mail_registration in mail_scheduler.mail_registration_ids)
+            total_sent = len(mail_scheduler.mail_registration_ids.filtered(lambda reg: reg.mail_sent))
+
+            mail_scheduler.update({
+                    'mail_done': all_mail_done,
+                    'mail_count_done': total_sent
+                })
+
+        _logger.warning("cancel was invoked!!!!!"*100)
+
+        return res
+
     def writeSlideChannelPartner(self):
         for record in self:
             if record.state == "open" and record.event_id.slide_channel_id and not record.slide_channel_partner_id:
@@ -77,7 +131,6 @@ class EventRegistration(models.Model):
         return vals_list
     
     def write(self, vals):
-        logging.warning("event write"*100)        
         res = super(EventRegistration, self).write(vals)
         if 'state' in vals and vals['state'] == "open":
             logging.warning(f'{vals=}')
