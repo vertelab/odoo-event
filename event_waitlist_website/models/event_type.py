@@ -46,10 +46,6 @@ class EventType(models.Model):
             'context': "{'default_event_type_id_id': %d}" % self.id
         }
 
-    # date_begin = fields.Datetime(string='Start Date', required=False, tracking=True
-    #                              , default=lambda self: fields.Datetime.now())
-    # date_end = fields.Datetime(string='End Date', required=False, tracking=True,
-    #                            default=lambda self: fields.Datetime.now())
     date_tz = fields.Selection(
         _tz_get, string='Timezone', required=True,
         compute='_compute_date_tz', precompute=True, readonly=False, store=True)
@@ -86,23 +82,6 @@ class EventType(models.Model):
         tracking=True
     )
 
-    # def _get_event_resource_urls(self):
-    #     url_date_start = self.date_begin.astimezone(timezone(self.date_tz)).strftime('%Y%m%dT%H%M%S')
-    #     url_date_stop = self.date_end.astimezone(timezone(self.date_tz)).strftime('%Y%m%dT%H%M%S')
-    #     params = {
-    #         'action': 'TEMPLATE',
-    #         'text': self.name,
-    #         'dates': f'{url_date_start}/{url_date_stop}',
-    #         'ctz': self.date_tz,
-    #         'details': self.name,
-    #     }
-    #     if self.address_id:
-    #         params.update(location=self.address_inline)
-    #     encoded_params = werkzeug.urls.url_encode(params)
-    #     google_url = GOOGLE_CALENDAR_URL + encoded_params
-    #     iCal_url = f'/event/{self.id:d}/ics?{encoded_params}'
-    #     return {'google_url': google_url, 'iCal_url': iCal_url}
-
     def _default_cover_properties(self):
         res = super()._default_cover_properties()
         res['opacity'] = '0.4'
@@ -110,46 +89,13 @@ class EventType(models.Model):
 
     # website
     website_published = fields.Boolean(tracking=True)
-    # website_menu = fields.Boolean(
-    #     string='Website Menu',
-    #     compute='_compute_website_menu', precompute=True, readonly=False, store=True,
-    #     help="Allows to display and manage event-specific menus on website.")
     menu_id = fields.Many2one('website.menu', 'Event Menu', copy=False)
-    # menu_register_cta = fields.Boolean(
-    #     'Extra Register Button', compute='_compute_menu_register_cta',
-    #     readonly=False, store=True)
-    # sub-menus management
-    # introduction_menu = fields.Boolean(
-    #     "Introduction Menu", compute="_compute_website_menu_data",
-    #     readonly=False, store=True)
-    # introduction_menu_ids = fields.One2many(
-    #     "website.event.menu", "event_id", string="Introduction Menus",
-    #     domain=[("menu_type", "=", "introduction")])
-    # location_menu = fields.Boolean(
-    #     "Location Menu", compute="_compute_website_menu_data",
-    #     readonly=False, store=True)
-    # location_menu_ids = fields.One2many(
-    #     "website.event.menu", "event_id", string="Location Menus",
-    #     domain=[("menu_type", "=", "location_menu")])
-
     address_name = fields.Char(related='address_id.name')
-
-    # is_one_day = fields.Boolean(compute='_compute_field_is_one_day')
 
     organizer_id = fields.Many2one(
         'res.partner', string='Organizer', tracking=True,
         default=lambda self: self.env.company.partner_id,
         check_company=True)
-
-    # @api.depends('date_begin', 'date_end', 'date_tz')
-    # def _compute_field_is_one_day(self):
-    #     for event in self:
-    #         # Need to localize because it could begin late and finish early in
-    #         # another timezone
-    #         event = event._set_tz_context()
-    #         begin_tz = fields.Datetime.context_timestamp(event, event.date_begin)
-    #         end_tz = fields.Datetime.context_timestamp(event, event.date_end)
-    #         event.is_one_day = (begin_tz.date() == end_tz.date())
 
     def _set_tz_context(self):
         self.ensure_one()
@@ -164,15 +110,6 @@ class EventType(models.Model):
     def google_map_link(self, zoom=8):
         """ Temporary method for stable """
         return self._google_map_link(zoom=zoom)
-
-    # @api.depends("website_menu")
-    # def _compute_website_menu_data(self):
-    #     """ Synchronize with website_menu at change and let people update them
-    #     at will afterwards. """
-    #     for event in self:
-    #         event.introduction_menu = event.website_menu
-    #         event.location_menu = event.website_menu
-            # event.register_menu = event.website_menu
 
     @api.depends('name')
     def _compute_website_url(self):
@@ -216,14 +153,7 @@ class EventType(models.Model):
                 domain.append(['|', ("country_id", "=", int(country)), ("country_id", "=", False)])
 
         no_date_domain = domain.copy()
-        # dates = self._search_build_dates()
         current_date = None
-        # for date_details in dates:
-        #     if date == date_details[0]:
-        #         domain.append(date_details[2])
-        #         no_country_domain.append(date_details[2])
-        #         if date_details[0] != 'upcoming':
-        #             current_date = date_details[1]
 
         search_fields = ['name']
         fetch_fields = ['name', 'website_url', 'address_name']
@@ -250,12 +180,9 @@ class EventType(models.Model):
             'model': 'event.type',
             'base_domain': domain,
             'search_fields': search_fields,
-            # 'search_extra': search_in_address,
             'fetch_fields': fetch_fields,
             'mapping': mapping,
             'icon': 'fa-ticket',
-            # for website_event main controller:
-            # 'dates': dates,
             'current_date': current_date,
             'search_tags': search_tags,
             'no_date_domain': no_date_domain,

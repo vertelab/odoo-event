@@ -334,7 +334,7 @@
                                         </thead>
 
                                         <tbody class="event_tbody">
-                                            <t t-foreach="event_type.event_ids" t-as="event">
+                                            <t t-foreach="event_type.event_ids.filtered(lambda ev: ev.website_published and ev.date_end >= datetime.datetime.now())" t-as="event">
                                                 <tr>
                                                     <td name="td_event_name">
                                                         <a t-attf-href="/event/#{ slug(event) }/#{(not event.menu_id) and 'register'}">
@@ -371,14 +371,15 @@
                                     <div class="container d-none d-lg-block">
                                         <t t-call="event_waitlist_website.registration_template"/>
                                     </div>
-                                                         <div class="d-flex flex-wrap gap-1 small">
-                                                            <t t-foreach="event_type.tag_ids" t-as="tag">
-                                                                <span t-if="tag.color"
-                                                                    t-attf-class="badge mt-3 mt-sm-0 rounded-pill px-2 p-1 #{'o_tag_color_%s' % tag.color if tag.color else 'text-bg-light'}">
-                                                                    <t t-out="tag.name"/>
-                                                                </span>
-                                                            </t>
-                                                        </div>
+
+                                    <div class="d-flex flex-wrap gap-1 small">
+                                        <t t-foreach="event_type.tag_ids" t-as="tag">
+                                            <span t-if="tag.color"
+                                                t-attf-class="badge mt-3 mt-sm-0 rounded-pill px-2 p-1 #{'o_tag_color_%s' % tag.color if tag.color else 'text-bg-light'}">
+                                                <t t-out="tag.name"/>
+                                            </span>
+                                        </t>
+                                    </div>
 
                                     <!-- Organizer -->
                                     <div t-if="event_type.organizer_id" class="o_wevent_sidebar_block border-bottom pb-3 mb-3">

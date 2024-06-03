@@ -1,6 +1,7 @@
 from odoo import models, fields, _, api
 import uuid
 
+
 class EventWaitingList(models.Model):
     _name = 'event.waiting.list'
     _inherit = ['mail.thread', 'mail.activity.mixin']
@@ -8,14 +9,12 @@ class EventWaitingList(models.Model):
     _order = 'id desc'
 
     event_type_id = fields.Many2one('event.type', string='Event Type', required=True)
-
     event_id = fields.Many2one('event.event', string='Event')
-
     active = fields.Boolean(default=True)
-
     removal_link = fields.Char(compute="_compute_removal_link")
-
-    unique_removal_uuid = fields.Char(compute="_compute_unique_removal_uuid", store=True, string="This uuid is used to make it possible for users to unsubscribe from the waiting list")
+    unique_removal_uuid = fields.Char(compute="_compute_unique_removal_uuid", store=True,
+                                      string="This uuid is used to make it possible for users to unsubscribe from the "
+                                             "waiting list")
 
     @api.depends('removal_link')
     def _compute_removal_link(self):
@@ -23,24 +22,15 @@ class EventWaitingList(models.Model):
         base_url = self.env['ir.config_parameter'].get_param('web.base.url')
 
         for waiting_list_id in self:
-
-            waiting_list_id.removal_link = f"{base_url}/event-type/waiting-list-registration/remove/{waiting_list_id.unique_removal_uuid}"
-
+            unique_removal_uuid = waiting_list_id.unique_removal_uuid
+            remove_url = f"{base_url}/event-type/waiting-list-registration/remove"
+            waiting_list_id.removal_link = f"{remove_url}/{unique_removal_uuid}"
 
     @api.depends('unique_removal_uuid')
     def _compute_unique_removal_uuid(self):
-
         for waiting_list_id in self:
-
-            if waiting_list_id.unique_removal_uuid == False:
-
+            if not waiting_list_id.unique_removal_uuid:
                 waiting_list_id.unique_removal_uuid = str(uuid.uuid4())
-
-
-    # utm informations
-    # utm_campaign_id = fields.Many2one('utm.campaign', 'Campaign', index=True, ondelete='set null')
-    # utm_source_id = fields.Many2one('utm.source', 'Source', index=True, ondelete='set null')
-    # utm_medium_id = fields.Many2one('utm.medium', 'Medium', index=True, ondelete='set null')
 
     # attendee
     partner_id = fields.Many2one('res.partner', string='Booked by', tracking=1)

@@ -33,7 +33,7 @@
     'repository': 'https://github.com/vertelab/odoo-event',
     'description': """
     """,
-    'depends': ['event','website_slides'],
+    'depends': ['hr','event','website_slides'],
     'data': [
         'data/event_reminder_mail_templet.xml',
         'data/event_subscription_mail_templet.xml',
