@@ -1,0 +1,25 @@
+<odoo>
+	
+	<template id="portal_my_home_events" name="Add Button" inherit_id="website_event_portal.event_my_event_registration" customize_show="True" priority="30">
+		<xpath expr="//span[@t-field='event_registration.event_id.description']" position="after">
+		 	<a t-if="event_registration.event_id.slide_channel_id" t-attf-href="/slides/#{ slug(event_registration.event_id.slide_channel_id) }" t-att-title="event_registration.event_id.slide_channel_id.name">
+        		<button class="btn btn-primary py-2 w-40">Gå till utbildningen</button>
+      		</a>
+		</xpath>
+	</template>
+
+	<template id="portal_my_events" name="Add Course Completion" inherit_id="website_event_portal.portal_my_events" customize_show="True" priority="30">
+		
+		<xpath expr="//tr[@class='active']" position="inside">
+			<th>Status på elearning</th>
+		</xpath>
+		
+		<xpath expr="//td[@class='tx_status']" position="after">
+			<td class="d-none d-md-table-cell">
+				<span t-field="event.event_id.slide_channel_id.completion"/>&#37;
+			</td>
+		</xpath>
+
+	</template>
+
+</odoo>
