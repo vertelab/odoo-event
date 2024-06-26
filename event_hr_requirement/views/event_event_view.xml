@@ -1,0 +1,23 @@
+<odoo>
+    <data>
+        <record id="event_event_form" model="ir.ui.view">
+            <field name="name">event.event.form</field>
+            <field name="model">event.event</field>
+            <field name="inherit_id" ref="event.view_event_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='event_notes']" position="after">
+                    <page string="Requirement" id="event_requirement">
+                        <field mode="tree" nolabel="1" name="employee_skill_ids" widget="skills_one2many" class="mt-2">
+                            <tree>
+                                <field name="skill_id"/>
+                                <field name="skill_level_id"/>
+                                <field name="level_progress" widget="progressbar"/>
+                                <field name="skill_type_id" optional="hidden"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
