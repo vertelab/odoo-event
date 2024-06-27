@@ -1,0 +1,17 @@
+<odoo>
+    <template id="event_description_full" inherit_id="website_event.event_description_full">
+        <xpath expr="//t[@t-call='website_event.event_details']/section[1]/div[hasclass('container')]/div[1]/div[2]/div[1]/div[last()]" position="before">
+            <!-- Requirements -->
+            <div class="o_wevent_sidebar_block border-bottom pb-3 mb-3" t-if="event.skill_ids">
+                <h6 class="o_wevent_sidebar_title">Requirements</h6>
+                <p>These are the required skills for this event.</p>
+                <t t-foreach="event.employee_skill_ids" t-as="skill">
+                    <p><strong><span t-esc="skill.display_name"/></strong>
+                    (<em><span t-esc="skill.skill_level_id.display_name"/></em>)
+                    </p>
+
+                </t>
+            </div>
+        </xpath>
+    </template>
+</odoo>
