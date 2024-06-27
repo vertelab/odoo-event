@@ -1,0 +1,23 @@
+<odoo>
+  <data>
+  
+    <record id="view_employee_form_inherit" model="ir.ui.view">
+      <field name="name">hr_employee_form_inherit</field>
+      <field name="model">hr.employee</field>
+      <field name="inherit_id" ref="hr.view_employee_form"/>
+      <field name="arch" type="xml">
+        <xpath postion="inside" expr="//div[@name='button_box']">
+            <button name="test" string="test" type="object" groups="hr.group_hr_user" invisible="not active"/>
+        </xpath>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="test_action_tree">
+      <field name="view_mode">tree</field>
+      <field name="view_id" ref="view_test_tree"/>
+      <field name="act_window_id" ref="test_action"/>
+    </record>
+
+
+  </data>
+</odoo>
