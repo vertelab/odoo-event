@@ -5,8 +5,11 @@
             <div class="o_wevent_sidebar_block border-bottom pb-3 mb-3" t-if="event.skill_ids">
                 <h6 class="o_wevent_sidebar_title">Requirements</h6>
                 <p>These are the required skills for this event.</p>
-                <t t-foreach="event.skill_ids" t-as="skill">
-                    <strong><p t-esc="skill.name"/></strong>
+                <t t-foreach="event.employee_skill_ids" t-as="skill">
+                    <p><strong><span t-esc="skill.display_name"/></strong>
+                    (<em><span t-esc="skill.skill_level_id.display_name"/></em>)
+                    </p>
+
                 </t>
             </div>
         </xpath>
