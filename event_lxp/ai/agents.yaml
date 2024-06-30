@@ -1,0 +1,43 @@
+framework: crewai
+topic: Create Learning Experianse Platform personalized courses
+roles:
+  content_researcher:
+    backstory: Experienced in educational content research, focusing on gathering
+      and structuring data from various sources.
+    goal: Gather comprehensive data for personalized courses
+    role: Content Researcher
+    tasks:
+      data_collection:
+        description: Collect and organize educational resources, articles, and study
+          materials relevant to a variety of subjects.
+        expected_output: Structured data in CSV format containing educational resources
+          with detailed descriptions.
+    tools:
+    - ''
+  course_developer:
+    backstory: Skilled in curriculum design and personalized education, with a knack
+      for translating raw data into actionable learning paths.
+    goal: Develop personalized course curriculum
+    role: Course Developer
+    tasks:
+      curriculum_design:
+        description: Design a personalized course curriculum using the collected data,
+          tailored to individual learning preferences.
+        expected_output: Comprehensive DOCX file with detailed lesson plans, modules,
+          and learning objectives.
+    tools:
+    - ''
+  platform_integration_specialist:
+    backstory: Experienced in technical integration, ensuring that educational content
+      is seamlessly incorporated into e-learning platforms.
+    goal: Integrate the course curriculum into the learning platform
+    role: Platform Integration Specialist
+    tasks:
+      content_integration:
+        description: Integrate the course curriculum into the chosen learning management
+          system (LMS), ensuring full functionality and user accessibility.
+        expected_output: Fully functional course available on the Learning Experience
+          Platform, ready for student access.
+    tools:
+    - ''
+dependencies: []
