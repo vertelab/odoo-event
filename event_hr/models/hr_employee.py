@@ -7,6 +7,9 @@ class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
     def action_view_recommended_certification(self):
+        """This function shows 'mandatory.edu' based on their hr.job and other survey.survey and trie to find courses to recommend.
+        
+        """
         mandatory_edu_vals_list = []
         self.env['mandatory.edu'].search([('employee_id', '=', self.id)]).unlink()
 
@@ -113,6 +116,11 @@ class HrEmployee(models.Model):
         }
 
     def _compute_recommended_certification(self):
+        """
+        Finds and sets recommended courses on the hr.emåloyee.
+        There are three sources of recommended courses.
+        
+        """
         for rec in self:
             employee_slide_channel_ids = rec.user_partner_id.slide_channel_ids
             employee_certification_ids = rec.user_partner_id.survey_user_input_ids
