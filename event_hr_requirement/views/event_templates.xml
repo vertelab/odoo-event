@@ -2,8 +2,10 @@
     <template id="event_description_full" inherit_id="website_event.event_description_full">
         <xpath expr="//t[@t-call='website_event.event_details']/section[1]/div[hasclass('container')]/div[1]/div[2]/div[1]/div[last()]" position="before">
             <!-- Requirements -->
+            
+            
             <div class="o_wevent_sidebar_block border-bottom pb-3 mb-3" t-if="event.skill_ids">
-                <h6 class="o_wevent_sidebar_title">Requirements</h6>
+                <h6 class="o_wevent_sidebar_title">Required Skills</h6>
                 <p>These are the required skills for this event.</p>
                 <t t-foreach="event.employee_skill_ids" t-as="skill">
                     <p><strong><span t-esc="skill.display_name"/></strong>
@@ -12,6 +14,47 @@
 
                 </t>
             </div>
+            
+            <div class="o_wevent_sidebar_block border-bottom pb-3 mb-3" t-if="event.event_required_event_type_ids">
+                <h6 class="o_wevent_sidebar_title">Required Courses</h6>
+                <p>These are the required courses for this event.</p>
+                <p>These are the required courses for this event.</p>
+                <t t-foreach="event.event_required_event_type_ids" t-as="event_type">
+                    <p><strong><span t-esc="event_type.display_name"/></strong></p>
+                </t>
+            </div>
+
         </xpath>
     </template>
+    
+    <template id="event_type_description_full" inherit_id="event_waitlist_website.event_type_description_full">
+        <xpath expr="//div[contains(@class, 'd-lg-flex') and contains(@class, 'justify-content-end') and contains(@class, 'col-lg-4') and contains(@class, 'col-xl-3') and contains(@class, 'mb-3') and contains(@class, 'mb-lg-0') and contains(@class, 'd-print-none')]/div[contains(@class, 'mt-3')]/div[contains(@class, 'o_wevent_sidebar_block')]" position="after">
+
+            <!-- Requirements -->
+
+            
+            <div class="o_wevent_sidebar_block border-bottom pb-3 mb-3" t-if="event_type.skill_ids">
+                <h6 class="o_wevent_sidebar_title">Required Skills</h6>
+                <p>These are the required skills for this event.</p>
+                <t t-foreach="event_type.employee_skill_ids" t-as="skill">
+                    <p><strong><span t-esc="skill.display_name"/></strong>
+                    (<em><span t-esc="skill.skill_level_id.display_name"/></em>)
+                    </p>
+
+                </t>
+            </div>
+            
+            <div class="o_wevent_sidebar_block border-bottom pb-3 mb-3" t-if="event_type.event_type_required_event_type_ids">
+                <h6 class="o_wevent_sidebar_title">Required Courses</h6>
+                <p>These are the required courses for this event.</p>
+                <t t-foreach="event_type.event_type_required_event_type_ids" t-as="event_type">
+                    <p><strong><span t-esc="event_type.display_name"/></strong></p>
+                </t>
+            </div>
+
+        </xpath>
+    </template>
+    
+    
+
 </odoo>

@@ -39,7 +39,7 @@
     'maintainer': 'Vertel AB',
     'repository': 'https://github.com/vertelab/odoo-event',
     # Any module necessary for this one to work correctly
-    'depends': ['hr', 'event', 'website_event'],
+    'depends': ['hr', 'event', 'website_event','event_waitlist_website', 'hr_skills'],
     'data': [
         'views/event_event_view.xml',
         'views/event_templates.xml',
