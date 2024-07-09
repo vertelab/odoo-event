@@ -18,10 +18,11 @@
             <div class="o_wevent_sidebar_block border-bottom pb-3 mb-3" t-if="event.event_required_event_type_ids">
                 <h6 class="o_wevent_sidebar_title">Required Courses</h6>
                 <p>These are the required courses for this event.</p>
-                <p>These are the required courses for this event.</p>
                 <t t-foreach="event.event_required_event_type_ids" t-as="event_type">
-                    <p><strong><span t-esc="event_type.display_name"/></strong></p>
-                </t>
+                    <p><a t-attf-href="/event-type/#{slug(event_type)}">
+                        <strong><span t-esc="event_type.name"/></strong>
+                    </a></p>
+                </t>1
             </div>
 
         </xpath>
@@ -48,7 +49,12 @@
                 <h6 class="o_wevent_sidebar_title">Required Courses</h6>
                 <p>These are the required courses for this event.</p>
                 <t t-foreach="event_type.event_type_required_event_type_ids" t-as="event_type">
+<!--
                     <p><strong><span t-esc="event_type.display_name"/></strong></p>
+-->
+                    <p><a t-attf-href="/event-type/#{slug(event_type)}">
+                        <strong><span t-esc="event_type.name"/></strong>
+                    </a></p>
                 </t>
             </div>
 
