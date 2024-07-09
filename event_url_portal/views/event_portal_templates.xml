@@ -1,0 +1,25 @@
+<odoo>
+	
+	<template id="portal_my_home_events" name="Add Button" inherit_id="website_event_portal.event_my_event_registration" customize_show="True" priority="30">
+		<xpath expr="//span[@t-field='event_registration.event_id.description']" position="after">
+            <a t-if="event_registration.meeting_event_url" target="_blank" t-att-href="'http://' + event_registration.meeting_event_url if not event_registration.meeting_event_url.startswith('http') else event_registration.meeting_event_url">
+                <button class="btn btn-primary py-2 w-40">Skype Möte</button>
+            </a>
+		</xpath>
+	</template>
+    
+    
+    <template id="registration_complete_url" name="Add Button" inherit_id="website_event.registration_complete" customize_show="True" priority="30">
+            <xpath expr="//div[@t-if='attendees']" position="inside">
+                <div id="event_meeting_url" class="mt-4 d-flex flex-column flex-md-row">
+                    <a t-if="event.meeting_event_url" target="_blank" t-att-href="'http://' + event.meeting_event_url if not event.meeting_event_url.startswith('http') else event.meeting_event_url">
+                        <button class="btn btn-primary py-2 w-40">Skype Möte</button>
+                    </a>
+                </div>
+            </xpath>
+    </template>
+    
+   
+
+
+</odoo>

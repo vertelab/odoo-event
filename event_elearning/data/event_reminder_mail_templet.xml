@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 	<data>
+
+        
+        
 		<record id="event_elearning.event_reminder_with_slide_link" model="mail.template">
 			<field name="name">
 				Event: Reminder With Course Link

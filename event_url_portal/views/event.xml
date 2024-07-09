@@ -1,0 +1,27 @@
+<odoo>
+	<data>
+        <record id="event_event_form_view" model="ir.ui.view">
+            <field name="name">event.event.form_inherit</field>
+            <field name="model">event.event</field>
+            <field name="inherit_id" ref="event.view_event_form"/>
+            <field name="arch" type="xml">
+                <field name="event_type_id" position="after">
+                    <field name="meeting_event_url"/>
+                </field>
+            </field>
+        </record>
+        
+        <record id="view_event_registration_form" model="ir.ui.view">
+            <field name="name">view_event_registration_form</field>
+            <field name="model">event.registration</field>
+            <field name="inherit_id" ref="event.view_event_registration_form"/>
+            <field name="arch" type="xml">
+                <field name="event_id" position="after">
+                    <field name="meeting_event_url"/>
+                </field>
+            </field>
+        </record>
+        
+  </data>
+
+</odoo>

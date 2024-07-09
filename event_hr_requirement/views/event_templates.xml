@@ -22,7 +22,7 @@
                     <p><a t-attf-href="/event-type/#{slug(event_type)}">
                         <strong><span t-esc="event_type.name"/></strong>
                     </a></p>
-                </t>1
+                </t>
             </div>
 
         </xpath>
