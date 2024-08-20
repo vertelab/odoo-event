@@ -37,7 +37,7 @@
     'license': 'AGPL-3',
     'contributor': '',
     'maintainer': 'Vertel AB',
-    'repository': 'https://github.com/vertelab/odoo-website',
+    'repository': 'https://github.com/vertelab/odoo-event',
     'depends': ['website_event', 'mail', 'portal'],
     'assets': {
         'web.assets_frontend': ['website_event_portal/static/src/scss/make_status_text_black.scss',]
