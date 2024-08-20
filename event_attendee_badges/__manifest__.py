@@ -30,7 +30,7 @@
     """,
     #'sequence': '1',
     'author': 'Vertel AB',
-    'website': 'https://vertel.se/apps/odoo-event/event-attendee-badges',
+    'website': 'https://vertel.se/apps/odoo-event/event_attendee_badges',
     'images': ['static/description/banner.png'], # 560x280 px.
     'license': 'AGPL-3',
     'contributor': '',
