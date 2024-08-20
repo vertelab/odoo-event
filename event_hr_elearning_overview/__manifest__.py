@@ -31,7 +31,7 @@
     """,
     #'sequence': 1,
     'author': 'Vertel AB',
-    'website': 'https://vertel.se/apps/odoo-',
+    'website': 'https://vertel.se/apps/odoo-event/event_hr_elearning_overview',
     'images': ['static/description/banner.png'], # 560x280
     'license': 'AGPL-3',
     'depends': ["hr","website_slides"],
