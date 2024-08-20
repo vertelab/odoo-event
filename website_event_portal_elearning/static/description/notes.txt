@@ -1,5 +1,5 @@
-odoo-event / event_elearning
-2024-08-20
+odoo-event / event_portal_elearning
+2024-08-21
 
 Be aware of these!
 [project]/[module]/static/description/banner.png
@@ -52,7 +52,8 @@ ls | wc -l
 grep -sR "'website':" */*__.py | tr "'" " "
 
 Find the latest project:
-grep -r "2023-04-*" odoo-*/*/static/description/notes.txt
-grep -r "2023-04-*" */static/description/notes.txt
+grep -r "2024-08-*" odoo-*/*/static/description/notes.txt
+grep -r "2024-12*" /usr/share/odoo*/*/static/description/notes.txt
+
 
 

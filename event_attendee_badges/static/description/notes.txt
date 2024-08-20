@@ -1,5 +1,5 @@
-odoo-event / event_elearning
-2024-08-20
+odoo-event / event_attendee_badges
+2024-08-21
 
 Be aware of these!
 [project]/[module]/static/description/banner.png
