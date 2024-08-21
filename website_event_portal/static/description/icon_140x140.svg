@@ -2,24 +2,24 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="140px"
    height="140px"
    viewBox="0 0 140 140"
    version="1.1"
    id="SVGRoot"
    sodipodi:docname="icon_140x140.svg"
-   inkscape:export-filename="/usr/share/odoo-website/website_event_portal_listing/static/description/icon.png"
+   inkscape:export-filename="/home/jakob/Dokument/Odoo17/odoo-event/website_event_portal/static/description/icon.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
-   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <defs
      id="defs3475" />
   <sodipodi:namedview
@@ -29,17 +29,18 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.1213203"
-     inkscape:cx="-28.981684"
-     inkscape:cy="-5.6176046"
+     inkscape:zoom="1"
+     inkscape:cx="128.5"
+     inkscape:cy="46"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1383"
-     inkscape:window-height="962"
-     inkscape:window-x="729"
-     inkscape:window-y="233"
-     inkscape:window-maximized="0" />
+     inkscape:window-width="1558"
+     inkscape:window-height="909"
+     inkscape:window-x="2282"
+     inkscape:window-y="143"
+     inkscape:window-maximized="0"
+     inkscape:pagecheckerboard="0" />
   <metadata
      id="metadata3478">
     <rdf:RDF>
@@ -48,7 +49,6 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -67,41 +67,33 @@
        style="stroke-width:4.65477753" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.13623142px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.99999994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="66.785942"
-       y="75.277802"
-       id="text2035"
-       transform="scale(1.0611032,0.94241541)"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.2499px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="71.043198"
+       y="81.161736"
+       id="text2035"><tspan
          sodipodi:role="line"
-         x="66.785942"
-         y="75.277802"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.13107681px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;stroke-width:0.99999994px"
-         id="tspan880">Website</tspan><tspan
+         x="71.043198"
+         y="81.161736"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.3333px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;stroke-width:1px"
+         id="tspan824">Website</tspan><tspan
          sodipodi:role="line"
-         x="66.785942"
-         y="96.328918"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.13107681px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;stroke-width:0.99999994px"
-         id="tspan818">Event</tspan><tspan
+         x="71.043198"
+         y="102.38217"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.3333px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;stroke-width:1px"
+         id="tspan967">Event</tspan><tspan
          sodipodi:role="line"
-         x="66.785942"
-         y="117.38004"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.13107681px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;stroke-width:0.99999994px"
-         id="tspan820">Portal</tspan><tspan
-         sodipodi:role="line"
-         x="66.785942"
-         y="138.43115"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.13107681px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;stroke-width:0.99999994px"
-         id="tspan882">Listing</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:43.02507401px;line-height:1.25;font-family:'Futura PT';-inkscape-font-specification:'Futura PT, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;"
-       x="4.3798747"
-       y="44.647236"
-       id="text839"><tspan
-         sodipodi:role="line"
-         id="tspan837"
-         x="4.3798747"
-         y="44.647236"
-         style="stroke-width:1;fill:#ffffff;"></tspan></text>
+         x="71.043198"
+         y="123.6026"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.3333px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;stroke-width:1px"
+         id="tspan2927">Portal</tspan></text>
+    <image
+       y="6.166666"
+       x="4.6380653"
+       id="image830"
+       xlink:href="data:image/png;base64,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 AAAAAElFTkSuQmCC "
+       style="stroke-width:2.68340278;image-rendering:optimizeQuality"
+       preserveAspectRatio="none"
+       height="38.75676"
+       width="37.266113" />
   </g>
 </svg>

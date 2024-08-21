@@ -32,7 +32,7 @@
     """,
     # 'sequence': '1',
     'author': 'Vertel AB',
-    'website': 'https://vertel.se/apps/odoo-website/website_event_portal_listing',
+    'website': 'https://vertel.se/apps/odoo-website/website_event_portal',
     'images': ['static/description/banner.png'],  # 560x280 px.
     'license': 'AGPL-3',
     'contributor': '',
