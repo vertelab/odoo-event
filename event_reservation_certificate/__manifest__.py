@@ -29,9 +29,9 @@
     # for the full list
     'category': 'Event',
     'description': """
-    14.0.0.1
+    0.0.1
         - Added Certificate and action to registration list view and registration form view
-    14.0.0.2
+    0.0.2
         - Removed Readonly on the certificate field.
     """,
     #'sequence': '1',
