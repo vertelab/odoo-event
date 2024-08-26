@@ -23,11 +23,11 @@
 #
 {
     'name': 'Event: Type Tier Validation',
-    'version': '17.0.0.0.1',
+    'version': '0.0.1',
     'summary': 'Extends the functionality of Event Type to support a tier validation process.',
     'category': 'Event',
     'description': """
-    14.0.0.0.1 - Added Kanban view and group by state on event type
+    0.0.1 - Added Kanban view and group by state on event type
     """,
     'images': ['static/description/banner.png'], # 560x280 px.
     'author': 'Vertel AB',
