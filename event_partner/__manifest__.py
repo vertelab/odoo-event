@@ -21,7 +21,7 @@
 
 {
     'name': 'Event: Partner',
-    'version': '17.0.1.1.0',
+    'version': '1.1.0',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'To be able to have multiple partners on event.',
     # Categories can be used to filter modules in modules listing
@@ -30,11 +30,11 @@
     'category': 'Event',
     'description': """
     To be able to have multiple partners on event. \n
-    14.0.1.1.0 - Added translation \n
-    14.0.0.2 \n
+    1.1.0 - Added translation \n
+    0.0.2 \n
         - Improvement to Event Access Right \n
         - Added the available seats to tree and form view \n
-    14.0.0.1 \n
+    0.0.1 \n
         - Changed Maximum seat to Available seat \n
         - Improved access right for event partners \n
     """,
