@@ -21,15 +21,15 @@
 
 {
     'name': 'Event: Webpage',
-    'version': '17.0.0.1',
-    # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
+    'version': '0.0.1',
+    # Version ledger: XX.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'Allows for more control of the appearance of an using event templates.',
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Event',
     'description': """
-        14.0.0.1.0
+          0.1.0
            - added the ticket desctiption on the webpage for an event.
     """,
     #'sequence': '1',
