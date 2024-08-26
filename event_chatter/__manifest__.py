@@ -29,7 +29,7 @@
     # for the full list
     'category': 'Event',
     'description': """
-    14.0.0.1
+    0.0.1
     - Added Chatter functionality to event.
     """,
     #'sequence': '1',
