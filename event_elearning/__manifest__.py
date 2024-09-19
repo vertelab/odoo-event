@@ -20,7 +20,7 @@
 ##############################################################################
 
 {
-    'name': 'Event Elearning',
+    'name': 'Event: Elearning',
     'version': '0.2',
     'summary': '',
     'category': 'Event',
