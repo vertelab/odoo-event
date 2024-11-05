@@ -6,11 +6,14 @@ class EventRegistration(models.Model):
 
     state = fields.Selection(selection_add=[('reservation', 'Reservation')])
 
+
 class EventReservationTicket(models.Model):
     _inherit = 'event.event.ticket'
-    seats_available_event_limit = fields.Integer(string='Available Seats Event Limit', compute='_compute_seats_event_limit', store=True)
+    seats_available_event_limit = fields.Integer(string='Available Seats Event Limit',
+                                                 compute='_compute_seats_event_limit', store=True)
 
-    @api.depends('seats_max', 'registration_ids.state','event_id','event_id.seats_limited','event_id.seats_max', 'event_id.seats_expected','event_id.seats_available')
+    @api.depends('seats_max', 'registration_ids.state', 'event_id', 'event_id.seats_limited', 'event_id.seats_max',
+                 'event_id.seats_expected', 'event_id.seats_available')
     def _compute_seats_event_limit(self):
         """ Determine reserved, available, reserved but unconfirmed and used seats. """
         # initialize fields to 0 + compute seats availability
@@ -40,9 +43,9 @@ class EventReservationTicket(models.Model):
             if ticket.seats_max > 0:
                 ticket.seats_available = ticket.seats_max - (ticket.seats_reserved + ticket.seats_used)
                 if ticket.event_id and ticket.event_id.seats_limited:
-                        ticket.seats_available_event_limit = min(ticket.seats_available,ticket.event_id.seats_available)
-                else: 
-                     ticket.seats_available_event_limit = ticket.seats_available
+                    ticket.seats_available_event_limit = min(ticket.seats_available, ticket.event_id.seats_available)
+                else:
+                    ticket.seats_available_event_limit = ticket.seats_available
             elif ticket.event_id.seats_limited:
                 ticket.seats_available_event_limit = ticket.event_id.seats_available
             else:
@@ -52,7 +55,8 @@ class EventReservationTicket(models.Model):
 class EventEvent(models.Model):
     _inherit = 'event.event'
 
-    def mail_attendees(self, template_id, force_send=False, filter_func=lambda self: self.state not in ['cancel', 'reservation']):
+    def mail_attendees(self, template_id, force_send=False,
+                       filter_func=lambda self: self.state not in ['cancel', 'reservation']):
         for event in self:
             for attendee in event.registration_ids.filtered(filter_func):
                 self.env['mail.template'].browse(template_id).send_mail(attendee.id, force_send=force_send)
