@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="event_event_view_form_inherit_mass_mailing_reservation" model="ir.ui.view">
+        <field name="name">event.event.view.form.inherit.mass.mailing.reservation</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_mass_mailing_attendees']" position="after">
+                <button name="action_mass_mailing_reservations" type="object" string="Contact Reservations"
+                    groups="mass_mailing.group_mass_mailing_user"
+                    attrs="{'invisible': [('seats_expected', '=', 0)]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

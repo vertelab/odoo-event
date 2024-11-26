@@ -37,6 +37,7 @@
     'repository': 'https://github.com/vertelab/odoo-event',
     'depends': ['mass_mailing_event', 'event_reservation'],
     'data': [
+        'views/event_views.xml'
     ],
     'application': False,
     'installable': True,
