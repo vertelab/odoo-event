@@ -6,7 +6,7 @@ _logger = logging.getLogger(__name__)
 
 class Event_event(models.Model):
     _inherit = 'event.event'
-    calendar_event_id = fields.Many2one('calendar.event',readonly=True)
+    calendar_event_id = fields.Many2one('calendar.event',readonly=True,copy=False)
 
     # create_event re-creates the event as a meeting in the calendar
     def create_event(self):
