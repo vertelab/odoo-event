@@ -21,7 +21,7 @@
 
 {
     'name': 'Event: Partner Foodallergy',
-    'version': '17.0.0.3',
+    'version': '1.3',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'Extends the event registration form view with an option about foodallergy.',
     # Categories can be used to filter modules in modules listing
