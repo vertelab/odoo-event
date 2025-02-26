@@ -22,8 +22,8 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
-    'name': 'Event Waitlist Website',
-    'version': '17.0.1.0.0',
+    'name': 'Event: Waitlist Website',
+    'version': '1.0',
     'summary': 'Allow event waitlist on event template from website.',
     'category': 'Event',
     'description': """
