@@ -21,7 +21,7 @@
 
 {
     'name': 'Event: Reservation Certificate',
-    'version': '17.0.0.2',
+    'version': '1.0.2',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'Adds Certificate to Event Reservation.',
     # Categories can be used to filter modules in modules listing
