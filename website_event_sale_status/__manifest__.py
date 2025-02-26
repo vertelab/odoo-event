@@ -21,7 +21,7 @@
 
 {
     'name': 'Event: Website Event Sale Tentative Status',
-    'version': '17.0.0.0.0',
+    'version': '1.0',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'Enhance event and sale with functionality.',
     # Categories can be used to filter modules in modules listing
