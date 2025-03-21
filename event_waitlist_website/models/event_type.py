@@ -1,12 +1,16 @@
 from ast import literal_eval
 from dateutil.relativedelta import relativedelta
+#from odoo.tools import slug
+#from odoo.addons.http_routing.models.ir_http import slug
+from werkzeug.urls import url_quote_plus as slug
+
 import json
 import werkzeug.urls
 
 from pytz import utc, timezone
 
 from odoo import models, fields, api, _
-from odoo.addons.http_routing.models.ir_http import slug
+#from odoo.addons.http_routing.models.ir_http import slug
 from odoo.tools.translate import html_translate
 from odoo.addons.base.models.res_partner import _tz_get
 from odoo.exceptions import ValidationError

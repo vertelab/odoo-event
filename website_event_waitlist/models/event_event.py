@@ -1,4 +1,6 @@
 from odoo import models, fields, api, _
+from odoo.tools import slug
+
 import logging
 
 class EventEvent(models.Model):

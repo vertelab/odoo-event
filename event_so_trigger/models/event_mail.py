@@ -56,7 +56,7 @@ class TriggerEvent(models.Model):
                 mail.mail_registration_ids.execute()
             else:
                 # Do not send emails if the mailing was scheduled before the event but the event is over
-                if not mail.mail_sent and mail.scheduled_date <= now and mail.notification_type == 'mail' and \
+                if not mail.mail_done and mail.scheduled_date <= now and mail.notification_type == 'mail' and \
                         (mail.interval_type != 'before_event' or mail.event_id.date_end > now):
                     mail.event_id.mail_attendees(mail.template_id.id)
                     mail.write({'mail_sent': True})

@@ -1,5 +1,5 @@
 from odoo import models, fields, api, _
-
+from odoo.tools import slug
 
 class Event(models.Model):
     _inherit = 'event.event' 
