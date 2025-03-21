@@ -1,5 +1,6 @@
-<?xml version="1.0"?>
-<odoo><data>
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
 
     <!-- EVENT.REGISTRATION VIEWS -->
     <record model="ir.ui.view" id="view_event_waiting_tree">
@@ -9,13 +10,17 @@
             <tree string="Registration" multi_edit="1" sample="1"
                   expand="1" default_order="create_date desc"
                   class="o_event_event_waiting_list_view_tree">
+<!--
                 <field name="active" column_invisible="True"/>
                 <field name="create_date" optional="show" string="Registration Date"/>
+-->
                 <field name="name"/>
+<!--
                 <field name="partner_id" optional="hide"/>
                 <field name="email" optional="show"/>
                 <field name="phone" optional="show"/>
                 <field name="company_name" optional="hide"/>
+-->
                 <field name="event_type_id"/>
             </tree>
         </field>
@@ -140,4 +145,5 @@
         sequence="4"
         action="action_event_event_waiting_list"
         groups="event.group_event_user"/>
-</data></odoo>
+</data>
+</odoo>
