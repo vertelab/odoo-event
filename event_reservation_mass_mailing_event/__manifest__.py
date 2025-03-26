@@ -20,33 +20,26 @@
 ##############################################################################
 
 {
-    'name': 'Event: Partner Calendar',
-    'version': '1.0',
-    # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
-    'summary': 'New events are shown in the calendar.',
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
-    # for the full list
+    'name': 'Event: Event Reservation Mass Mailing Event',
+    'version': '18.0.0.1',
+    'summary': 'Adds additional filter for Mass Mailing Event',
     'category': 'Event',
     'description': """
-    Newly created events creates corresponding entries in the calendar.\n\n
-    Features:\n
-        * The start/end-time of the calendar entry is updated when the start/end time of the event changes.\n
-        * Attendees of the event are added to the calendar event when they are added/removed to/from the event.\n
-        * The calendar entry is removed when the event is removed.\n\n
-    This module is maintained from: https://github.com/vertelab/odoo-event/tree/14.0/event_partner_calendar/ \n
+    14.0.0.1
+        - Adds additional filter to the mass mailing recipient for events
     """,
-    #'sequence': '1',
     'author': 'Vertel AB',
-    'website': 'https://vertel.se/apps/odoo-event/event_partner_calendar',
-    'images': ['static/description/banner.png'], # 560x280 px.
+    'website': 'https://vertel.se/apps/odoo-event/event_reservation_mass_mailing_event',
+    'images': ['static/description/banner.png'],
     'license': 'AGPL-3',
     'contributor': '',
     'maintainer': 'Vertel AB',
     'repository': 'https://github.com/vertelab/odoo-event',
-    # Any module necessary for this one to work correctly
-    'depends': ['event','calendar'],
-    'data': [],
+    'depends': ['mass_mailing_event', 'event_reservation'],
+    'data': [
+        'views/event_views.xml'
+    ],
+    'application': False,
     'installable': True,
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

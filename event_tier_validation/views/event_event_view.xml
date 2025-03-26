@@ -45,12 +45,7 @@
         <field name="inherit_id" ref="event.view_event_form"/>
         <field name="arch" type="xml">
             <xpath expr="/form/header" position="inside">
-                <button 
-                        name="confirm_state" 
-                        string="Bekräfta" 
-                        type="object" 
-                        states="draft"
-                        />
+                <button name="confirm_state" string="Bekräfta" type="object" invisible="state != 'draft'"/>
             </xpath>
         </field>
     </record>

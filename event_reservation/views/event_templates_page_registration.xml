@@ -53,21 +53,7 @@
     </template>
 
     <template id="registration_template" inherit_id="website_event.registration_template">
-<!--	    <small t-field="ticket.description" class="text-muted py-2" position="after">-->
-<!--            <small t-if="ticket.sale_available and not ticket.is_expired" class="text-muted mr-3" itemprop="availabilityEnds">-->
-<!--                 - Tillgängliga platser: <span t-field="ticket.seats_available_event_limit"/>-->
-<!--            </small>-->
-<!--        </small>-->
-<!--        <xpath expr="//form[@id='registration_form']/div[@id='o_wevent_tickets']/div[@t-else='']//div[hasclass('o_wevent_nowrap')]" position="before">-->
-<!--            <small t-if="not event.event_ticket_ids and event.seats_limited">-->
-<!--                - Tillgängliga platser:  <span t-esc="event.seats_available"/>-->
-<!--            </small>-->
-<!--            <small t-elif="event.event_ticket_ids and event.event_ticket_ids[0].seats_max > 0 or event.event_ticket_ids and event.seats_limited">-->
-<!--               - Tillgängliga platser:  <span t-esc="event.event_ticket_ids[0].seats_available_event_limit"/>-->
-<!--            </small>-->
-<!--        </xpath>-->
-<!-- -->
-        <xpath expr="//div[hasclass('mb-3')]/div[1]/t[@t-else='']/button[1]" position="after">
+        <xpath expr="//button[@t-if='event.event_registrations_open']" position="after">
             <button class="btn btn-primary py-2 w-100" id="reservation_form" type="button" data-bs-toggle="modal" data-bs-target="#modal_event_attendee_reservation">
                 <span t-if="event.event_registrations_sold_out">Reserve Seat</span>
                 <span t-else="">Reserve Seat</span>

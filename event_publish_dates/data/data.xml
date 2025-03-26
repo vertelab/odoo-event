@@ -5,8 +5,6 @@
             <field name="name">Auto Publish Events</field>
             <field name="interval_number">1</field>
             <field name="interval_type">minutes</field>
-            <field name="numbercall">-1</field>
-            <field eval="False" name="doall" />
             <field name="model_id" ref="event_publish_dates.model_event_event"/>
             <field name="code">model._cron_publish_event()</field>
             <field name="state">code</field>
@@ -16,8 +14,6 @@
             <field name="name">Auto Un-Publish Events</field>
             <field name="interval_number">1</field>
             <field name="interval_type">minutes</field>
-            <field name="numbercall">-1</field>
-            <field eval="False" name="doall" />
             <field name="model_id" ref="event_publish_dates.model_event_event"/>
             <field name="code">model._cron_un_publish_event()</field>
             <field name="state">code</field>

@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+        <menuitem
+            name="Event Templates"
+            id="event.menu_event_type"
+            sequence="1"
+            parent="event.menu_event_configuration"
+            groups="event_changed_user_rights.group_event_template_manager"
+        />
+
+        <menuitem name="Event Templates"
+            id="event.menu_event_type"
+            sequence="1"
+            parent="event.menu_event_configuration"
+            groups="event_changed_user_rights.group_event_template_manager"
+        />
+
+        <menuitem name="Event Stages"
+            id="event.event_stage_menu"
+            sequence="2"
+            parent="event.menu_event_configuration"
+            groups="event_changed_user_rights.group_event_template_manager"
+        />
+
+        <menuitem name="Mail Schedulers"
+            id="event.menu_event_mail_schedulers"
+            sequence="10"
+            parent="event.menu_event_configuration"
+            groups="event_changed_user_rights.group_event_template_manager"
+        />
+
+        <menuitem name="Event Tags Categories"
+            id="event.menu_event_category"
+            sequence="20"
+            parent="event.menu_event_configuration"
+            groups="event_changed_user_rights.group_event_template_manager"
+        />
+
+        <menuitem id="website_event.menu_website_event_menu"
+            name="Website Menus"
+            action="website_event.website_event_menu_action"
+            parent="event.menu_event_configuration"
+            groups="event_changed_user_rights.group_event_template_manager"
+            sequence="99"
+        />
+
+        <menuitem
+            id="event.menu_event_global_settings"
+            name="Settings"
+            parent="event.menu_event_configuration"
+            sequence="0"
+            action="event.action_event_configuration"
+            groups="event_changed_user_rights.group_event_template_manager"
+        />
+    </data>
+
+</odoo>

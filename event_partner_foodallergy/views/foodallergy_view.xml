@@ -6,8 +6,8 @@
         <field name="inherit_id" ref="event.view_event_registration_form"/>
         <field name="arch" type="xml">
             <xpath expr="//group[@name='event']" position="inside">
-                <field name="food_is_served" attrs="{'invisible': True}"/>
-                <field name="food_allergy" attrs="{'invisible': [('food_is_served', '=', False)]}"/>
+                <field name="food_is_served" invisible="1"/>
+                <field name="food_allergy" invisible="food_is_served == False"/>
             </xpath>
         </field>
     </record>
@@ -17,7 +17,7 @@
         <field name="model">event.event</field>
         <field name="inherit_id" ref="event.view_event_form"/>
         <field name="arch" type="xml">
-            <field name="auto_confirm" position="after">
+            <field name="event_type_id" position="after">
                 <field name="food_is_served"/>
             </field>
         </field>

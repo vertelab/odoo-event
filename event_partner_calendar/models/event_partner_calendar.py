@@ -4,8 +4,10 @@ from odoo import models, fields, api, _
 import logging
 _logger = logging.getLogger(__name__)
 
-class Event_event(models.Model):
+
+class EventEvent(models.Model):
     _inherit = 'event.event'
+
     calendar_event_id = fields.Many2one('calendar.event',readonly=True,copy=False)
 
     # create_event re-creates the event as a meeting in the calendar
@@ -22,15 +24,15 @@ class Event_event(models.Model):
                             'privacy': 'confidential',
                         })
 
-    @api.model
-    def create(self,vals):
-        res = super(Event_event, self).create(vals)
-        if vals.get('date_begin'):
+    @api.model_create_multi
+    def create(self, vals_list):
+        res = super(EventEvent, self).create(vals_list)
+        if vals_list.get('date_begin'):
             res.create_event()
         return res
 
     def write(self,values):
-        res = super(Event_event,self).write(values)
+        res = super(EventEvent,self).write(values)
         if values.get('date_begin') or values.get('date_end'):
             self.create_event()
         return res
@@ -39,9 +41,9 @@ class Event_event(models.Model):
     def unlink(self):
         self.calendar_event_id.unlink()
         for rec in self:
-            for event_reg in rec.env['event.registration'].search([('event_id','=',rec.id)]):
+            for event_reg in rec.env['event.registration'].search([('event_id', '=', rec.id)]):
                event_reg.unlink()   # unlinks registrations (attendees) from the event before it's unlinked
-        res = super(Event_event,self).unlink()
+        res = super(EventEvent,self).unlink()
 
     # get_attendees returns a new list of attendees from partner_id and re-adds the person who created the event
     def get_attendees(self):
@@ -59,12 +61,12 @@ class Event_event(models.Model):
             return attendee_list
     #TODO: Why is this return IN a for loop? Does this create problems for when this forloo is ACTUALLY supposed to be used?
 
-class Event_reg(models.Model):
+class EventReg(models.Model):
     _inherit = 'event.registration'
 
-    @api.model
-    def create(self,vals):
-        res = super(Event_reg, self).create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        res = super(EventReg, self).create(vals_list)
         self.update_event_attendees()
         return res
 
@@ -83,7 +85,7 @@ class Event_reg(models.Model):
     def update_event_attendees(self):
         for res in self:
             if res.event_id.id:
-                event = res.env['event.event'].search([('id','=',res.event_id.id)])
+                event = res.env['event.event'].search([('id', '=', res.event_id.id)])
                 attendees = event.get_attendees()
                 if attendees:
                     event.calendar_event_id.write({'partner_ids':[(6, 0, attendees)]})

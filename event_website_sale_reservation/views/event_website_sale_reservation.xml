@@ -1,4 +1,5 @@
 <odoo>
+    <!-- this needs to be revisited (iammiracle).
     <template id="registration_template_taxes" inherit_id="website_event_sale.registration_template" >
         <xpath expr="//div[hasclass('o_wevent_registration_single')]//span[@t-field='tickets.price_reduce']" position="after">
             <span groups="account.group_show_line_subtotals_tax_excluded">&amp;nbsp;excl. VAT</span>
@@ -7,4 +8,5 @@
             <span groups="account.group_show_line_subtotals_tax_included">&amp;nbsp;incl. VAT</span>
         </xpath>
     </template>
+    -->
 </odoo>

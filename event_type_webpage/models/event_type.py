@@ -1,5 +1,4 @@
 from odoo import models, fields, api, _
-from odoo.addons.http_routing.models.ir_http import slug
 
 
 class EventType(models.Model):
@@ -18,4 +17,4 @@ class EventType(models.Model):
         super(EventType, self)._compute_website_url()
         for event_type in self:
             if event_type.id:
-                event_type.website_url = '/event-type/%s' % slug(event_type)
+                event_type.website_url = "/event-type/%s" % (self.env['ir.http']._slug(event_type))

@@ -10,10 +10,10 @@ class EventRegistration(models.Model):
     partner_gender = fields.Selection(
         string="Partner gender",
         selection=[
-            ("male", _("Male")),
-            ("female", _("Female")),
-            ("other", _("Other")),
-            ("decline", _("Decline to answer")),
+            ("male", "Male"),
+            ("female", "Female"),
+            ("other", "Other"),
+            ("decline", "Decline to answer"),
         ],
         readonly=True,
     )

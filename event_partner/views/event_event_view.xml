@@ -16,7 +16,7 @@
             <field name="model">event.event.ticket</field>
             <field name="inherit_id" ref="event.event_event_ticket_view_tree_from_event"/>
             <field name="arch" type="xml">
-                <field name="seats_unconfirmed" position="after">
+                <field name="seats_max" position="after">
                     <field name="seats_available" sum="Total" width="110px" string="Available" optional="hide"/>
                 </field>
             </field>
@@ -27,7 +27,7 @@
             <field name="model">event.event.ticket</field>
             <field name="inherit_id" ref="event.event_event_ticket_view_form_from_event"/>
             <field name="arch" type="xml">
-                <field name="seats_unconfirmed" position="after">
+                <field name="seats_max" position="after">
                     <field name="seats_available"/>
                 </field>
             </field>

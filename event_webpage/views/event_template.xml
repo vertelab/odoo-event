@@ -36,14 +36,14 @@
         <template id="event_default_empty_description" name="Event default description">
             <section class="s_text_block">
                 <p>
-                    <span></span>
+                    <span/>
                 </p>
-                <span></span>
+                <span/>
                 <p>
-                    <span></span>
+                    <span/>
                 </p>
                 <p>
-                    <span></span>
+                    <span/>
                 </p>
             </section>
         </template>

@@ -41,7 +41,7 @@
     'repository': 'https://github.com/vertelab/odoo-event',
     # Any module necessary for this one to work correctly
 
-    'depends': ['event', 'website_event', 'website_sale'],
+    'depends': ['event', 'website_event', 'website_sale', 'event_reservation'],
     'data': [
         'data/ir_cron.xml',
     ],

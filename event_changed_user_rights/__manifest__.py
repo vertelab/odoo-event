@@ -20,33 +20,32 @@
 ##############################################################################
 
 {
-    'name': 'Event: Partner Calendar',
-    'version': '1.0',
+    'name': 'Event: Changed User Rights',
+    'version': '18.0.0.1',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
-    'summary': 'New events are shown in the calendar.',
+    'summary': 'Event User Rights.',
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Event',
     'description': """
-    Newly created events creates corresponding entries in the calendar.\n\n
-    Features:\n
-        * The start/end-time of the calendar entry is updated when the start/end time of the event changes.\n
-        * Attendees of the event are added to the calendar event when they are added/removed to/from the event.\n
-        * The calendar entry is removed when the event is removed.\n\n
-    This module is maintained from: https://github.com/vertelab/odoo-event/tree/14.0/event_partner_calendar/ \n
+    This group will be used to limit various things the normal event_admin is allowed to do.
     """,
     #'sequence': '1',
     'author': 'Vertel AB',
-    'website': 'https://vertel.se/apps/odoo-event/event_partner_calendar',
+    'website': 'https://vertel.se/apps/odoo-event/event_changed_user_rights',
     'images': ['static/description/banner.png'], # 560x280 px.
     'license': 'AGPL-3',
     'contributor': '',
     'maintainer': 'Vertel AB',
     'repository': 'https://github.com/vertelab/odoo-event',
     # Any module necessary for this one to work correctly
-    'depends': ['event','calendar'],
-    'data': [],
+    'depends': ['website_event', 'event', 'base'],
+    'data': [
+        'security/security.xml',
+        'views/event_menu.xml'
+    ],
+    'application': False,
     'installable': True,
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
