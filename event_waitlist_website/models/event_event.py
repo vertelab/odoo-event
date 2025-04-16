@@ -1,7 +1,11 @@
+# # if VERSION <= 17.0
+from odoo.addons.website.models.website import slug
+# #else
 from odoo import models, fields, api, _, SUPERUSER_ID
+# #endif
+
 import logging
 _logger = logging.getLogger(__name__)
-
 
 class EventEvent(models.Model):
     _inherit = 'event.event'	
