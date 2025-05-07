@@ -43,7 +43,7 @@
 
     'depends': ['website_event', 'event'],
     'data': [
-        'data/event_open_slot_templet.xml',
+        # ~ 'data/event_open_slot_templet.xml',
         'views/event_event_view.xml',
         'views/event_template.xml',
     ],

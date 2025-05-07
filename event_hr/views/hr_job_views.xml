@@ -48,7 +48,7 @@
       <field name="model">hr.job</field>
       <field name="inherit_id" ref="hr.view_hr_job_tree" />
       <field name="arch" type="xml">
-        <field name="company_id" position="inside">
+        <field name="company_id" position="before">
           <field name="mandatory_event_ids" widget="many2many_tags" optional="hide" />
           <field name="event_ids" widget="many2many_tags" optional="hide" />
         </field>
