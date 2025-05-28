@@ -1,6 +1,6 @@
 from odoo import models, api, fields, SUPERUSER_ID
 from odoo.addons.event.models.event_mail import _INTERVALS
-
+import logging
 
 class TriggerEvent(models.Model):
     _inherit = "event.mail"
@@ -77,6 +77,7 @@ class EventRegistration(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
+        logging.warning(f"mar /usr/share/odoo-event/event_so_trigger/models/event_mail.py {vals_list=}")
         registrations = super(EventRegistration, self).create(vals_list)
         for reg in registrations:
             if reg.state == 'reservation':

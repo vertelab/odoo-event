@@ -24,7 +24,10 @@ class WebsiteEventReservationController(WebsiteEventController):
             if field_name not in registration_fields:
                 continue
             elif isinstance(registration_fields[field_name], (fields.Many2one, fields.Integer)):
-                value = int(value) or False  # 0 is considered as a void many2one aka False
+                try:
+                    value = int(value) or False  # 0 is considered as a void many2one aka False
+                except:
+                    pass
             else:
                 value = value
 
