@@ -77,7 +77,7 @@
                                 opt_events_list_cards and 'border-top' or '',
                             )">
                                     <span t-if="not event.event_registrations_open" class="text-danger">
-                                        <t t-if="event.start_sale_date and event.start_sale_date &gt; datetime.date.today()">
+                                        <t t-if="event.start_sale_datetime and event.start_sale_datetime &gt; datetime.date.today()">
                                             Registrations not yet open
                                         </t>
                                         <t t-elif="event.event_registrations_sold_out">
@@ -154,7 +154,7 @@
                                 opt_events_list_cards and 'border-top' or '',
                             )">
                                     <span t-if="not event.event_registrations_open" class="text-danger">
-                                        <t t-if="event.start_sale_date and event.start_sale_date &gt; datetime.date.today()">
+                                        <t t-if="event.start_sale_datetime and event.start_sale_datetime &gt; datetime.date.today()">
                                             Registrations not yet open
                                         </t>
                                         <t t-elif="event.event_registrations_sold_out">
@@ -178,20 +178,21 @@
     </template>
 
 
-<!-- we can improve this if we see the need for it (commented by miracle)
-        <template id="registration_template" inherit_id="website_event.registration_template">-->
+    <!-- we can improve this if we see the need for it (commented by miracle) -->
+    <template id="registration_template" inherit_id="website_event.modal_ticket_registration">
 <!--        <xpath expr="//form[@id='registration_form']/div[@id='o_wevent_tickets']//div[@id='o_wevent_tickets_collapse']/div[@t-foreach='tickets']/div[1]/small[last()]" position="after">-->
-<!--            <small t-if="ticket.sale_available and not ticket.is_expired" class="text-muted mr-3" itemprop="availabilityEnds">-->
-<!--                Available Seats: <span t-field="ticket.seats_available"/>-->
-<!--            </small>-->
-<!--        </xpath>-->
-<!--        <xpath expr="//form[@id='registration_form']/div[@id='o_wevent_tickets']/div[@t-else='']//div[hasclass('o_wevent_nowrap')]" position="before">-->
-<!--            <small t-if="not event.event_ticket_ids and event.seats_limited">-->
-<!--                Available Seats: <span t-esc="event.seats_available"/>-->
-<!--            </small>-->
-<!--            <small t-elif="event.event_ticket_ids">-->
-<!--                Available Seats: <span t-esc="event.event_ticket_ids[0].seats_available"/>-->
-<!--            </small>-->
-<!--        </xpath>-->
-<!--    </template>-->
+        <xpath expr="//form[@id='registration_form']/div[@id='o_wevent_tickets']//div[@id='o_wevent_tickets_collapse']//div[1]/small[last()]" position="after">
+            <small t-if="ticket.sale_available and not ticket.is_expired" class="text-muted mr-3" itemprop="availabilityEnds">
+                Available Seats: <span t-field="ticket.seats_available"/>
+            </small>
+        </xpath>
+        <xpath expr="//form[@id='registration_form']/div[@id='o_wevent_tickets']/div[@t-else='']//div[1]/small[last()]" position="before">
+            <small t-if="not event.event_ticket_ids and event.seats_limited">
+                Available Seats: <span t-esc="event.seats_available"/>
+            </small>
+            <small t-elif="event.event_ticket_ids">
+                Available Seats: <span t-esc="event.event_ticket_ids[0].seats_available"/>
+            </small>
+        </xpath>
+    </template>
 </odoo>
