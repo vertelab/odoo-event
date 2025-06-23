@@ -42,7 +42,7 @@
     'repository': 'https://github.com/vertelab/odoo-event',
     # Any module necessary for this one to work correctly
 
-    'depends': ['website_event', 'event', 'base'],
+    'depends': ['website_event', 'event', 'base',],
     'data': [
         'views/event_registration_views.xml',
     ],

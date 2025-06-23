@@ -7,6 +7,22 @@ from odoo import api, fields, models, _
 class Job(models.Model):
     _inherit = "hr.job"
 
+    survey_type = fields.Selection([
+        ('internal', 'Internal'),
+        ('external', 'External')
+        ], string="Survey Type")
+
+    user_id = fields.Many2one('res.users', string="Responsible")
+    access_mode = fields.Selection([
+        ('public', 'Public'),
+        ('private', 'Private')
+    ], string="Access Mode")
+    
+    channel_type = fields.Selection([
+        ('internal', 'Internal'),
+        ('external', 'External')
+    ], string="Channel Type")
+    
     mandatory_event_ids = fields.Many2many(
         'event.type', 'hr_job_mandatory_event_ids', 'job_id', 'event_id',
         string='Mandatory Courses',  help="Mandatory Courses for this position")

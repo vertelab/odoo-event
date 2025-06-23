@@ -52,8 +52,8 @@ Odoo LXP creates a coherent learning environment that breaks down traditional ba
     # Any module necessary for this one to work correctly
     'depends': ['website_event', 'event', 'base', 'portal'],
     'data': [
-	'security/ir.model.access.csv',
-        'views/event_views.xml',
+        #'security/ir.model.access.csv',
+        #'views/event_views.xml',
     ],
     'application': False,
     'installable': True,

@@ -13,7 +13,7 @@ from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
 
 from odoo import fields, http, _
-from odoo.addons.http_routing.models.ir_http import slug
+# ~ from odoo.addons.http_routing.models.ir_http import slug
 from odoo.addons.website.controllers.main import QueryURL
 from odoo.addons.event.controllers.main import EventController
 from odoo.http import request
@@ -21,9 +21,8 @@ from odoo.osv import expression
 from odoo.tools.misc import get_lang, format_date
 
 
-class WebsiteEventController(http.Controller):
 
- 
+class WebsiteEventController(http.Controller):
 
     @http.route(['/waitinglists', '/waitinglists/page/<int:page>', ], type='http', auth="public", website=True)
     def events(self, page=1, **searches):

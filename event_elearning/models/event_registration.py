@@ -77,7 +77,6 @@ class EventRegistration(models.Model):
         return vals_list
     
     def write(self, vals):
-        logging.warning("event write"*100)        
         res = super(EventRegistration, self).write(vals)
         if 'state' in vals and vals['state'] == "open":
             logging.warning(f'{vals=}')

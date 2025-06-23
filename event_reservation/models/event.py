@@ -16,10 +16,13 @@ class EventReservationTicket(models.Model):
     @api.depends('seats_max', 'registration_ids.state', 'event_id', 'event_id.seats_limited', 'event_id.seats_max',
                  'event_id.seats_available')
     def _compute_seats_event_limit(self):
+        #TODO figure out the purpose of this module and fix compute
+        self.seats_available_event_limit = False
+        return
         """ Determine reserved, available, reserved but unconfirmed and used seats. """
         # initialize fields to 0 + compute seats availability
         for ticket in self:
-            # ticket.seats_unconfirmed = ticket.seats_reserved = ticket.seats_used = ticket.seats_available = 0
+            #ticket.seats_unconfirmed = ticket.seats_reserved = ticket.seats_used = ticket.seats_available = 0
             ticket.seats_reserved = ticket.seats_used = ticket.seats_available = 0
         # aggregate registrations by ticket and by state
         results = {}

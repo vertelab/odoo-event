@@ -1,72 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-        <record id="view_hr_job_form" model="ir.ui.view">
-            <field name="name">hr.job.form</field>
-            <field name="model">hr.job</field>
-            <field name="inherit_id" ref="hr.view_hr_job_form"/>
-            <field name="arch" type="xml">
-                <xpath expr="//page[last()]" position="after">
-                    <page string="Courses" name="courses_page">
-                        <group>
-                            <group>
-                                <div colspan="2">
-                                    <field name="mandatory_survey_ids" nolabel="1" colspan="4" readonly="0">
-                                        <tree editable="bottom" create="false" delete="false">
-                                            <field name="display_name"/>
-                                            <field name="survey_type"/>
-                                            <field name="user_id"/>
-                                            <field name="access_mode"/>
-                                        </tree>
-                                    </field>
-                                </div>
-                            </group>
-                            <group>
-                                <div colspan="2">
-                                    <field name="mandatory_slide_channel_ids" nolabel="1" colspan="4" readonly="0">
-                                        <tree editable="bottom" create="false" delete="false">
-                                            <field name="name"/>
-                                            <field name="channel_type"/>
-                                            <field name="user_id"/>
-                                        </tree>
-                                    </field>
-                                </div>
-                            </group>
-                            <group>
-                                <field name="resume_renewal"/>
-                            </group>
-                        </group>
-                    </page>
-                </xpath>
-            </field>
-        </record>
-
-        <record id="view_hr_job_tree" model="ir.ui.view">
-            <field name="name">hr.job.tree</field>
-            <field name="model">hr.job</field>
-            <field name="inherit_id" ref="hr.view_hr_job_tree"/>
-            <field name="arch" type="xml">
-                <field name="company_id" position="inside">
-                    <field name="mandatory_event_ids" widget="many2many_tags" optional="hide"/>
-                    <field name="event_ids" widget="many2many_tags" optional="hide"/>
-                </field>
-            </field>
-        </record>
-
-
-        <!--<record id="view_job_filter" model="ir.ui.view">
-            <field name="name">hr.job.search</field>
-            <field name="model">hr.job</field>
-            <field name="inherit_id" ref="hr.view_job_filter"/>
-            <field name="arch" type="xml">
-                <search string="Jobs">
-                    <field name="department_id" position="after">
-                        <field name="mandatory_event_ids" />
-                        <field name="event_ids" />
-                    </field>
-                </search>
-            </field>
-        </record>-->
-
-    </data>
+  <data>
+    <record id="view_hr_job_form" model="ir.ui.view">
+      <field name="name">hr.job.form</field>
+      <field name="model">hr.job</field>
+      <field name="inherit_id" ref="hr.view_hr_job_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//page[last()]" position="after">
+          <page string="Courses" name="courses_page">
+            <group>
+              <group>
+                <div colspan="2">
+                  <field name="mandatory_survey_ids" nolabel="1" colspan="4" readonly="0">
+                    <tree editable="bottom" create="false" delete="false">
+                      <field name="display_name" />
+                      <field name="survey_type" />
+                      <field name="user_id" />
+                      <field name="access_mode" />
+                    </tree>
+                  </field>
+                </div>
+              </group>
+              <group>
+                <div colspan="2">
+                  <field name="mandatory_slide_channel_ids" nolabel="1" colspan="4" readonly="0">
+                    <tree editable="bottom" create="false" delete="false">
+                      <field name="name" />
+                      <field name="channel_type" />
+                      <field name="user_id" />
+                    </tree>
+                  </field>
+                </div>
+              </group>
+              <group>
+                <field name="resume_renewal" />
+              </group>
+            </group>
+          </page>
+        </xpath>
+      </field>
+    </record>
+    <record id="view_hr_job_tree" model="ir.ui.view">
+<!--
+      <field name="name">hr.job.tree</field>
+-->
+      <field name="name">hr.job</field>
+      <field name="model">hr.job</field>
+      <field name="inherit_id" ref="hr.view_hr_job_tree" />
+      <field name="arch" type="xml">
+        <field name="company_id" position="before">
+          <field name="mandatory_event_ids" widget="many2many_tags" optional="hide" />
+          <field name="event_ids" widget="many2many_tags" optional="hide" />
+        </field>
+      </field>
+    </record>
+    <!--<record id="view_job_filter" model="ir.ui.view">
+         <field name="name">hr.job.search</field>
+         <field name="model">hr.job</field>
+         <field name="inherit_id" ref="hr.view_job_filter"/>
+         <field name="arch" type="xml">
+         <search string="Jobs">
+         <field name="department_id" position="after">
+         <field name="mandatory_event_ids" />
+         <field name="event_ids" />
+         </field>
+         </search>
+         </field>
+         </record>-->
+  </data>
 </odoo>

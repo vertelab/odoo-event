@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+	# -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
 import logging
@@ -26,9 +26,11 @@ class EventEvent(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
+        logging.warning(f"mar /usr/share/odoo-event/event_partner_calendar/models/event_partner_calendar.py {vals_list=}")
         res = super(EventEvent, self).create(vals_list)
-        if vals_list.get('date_begin'):
-            res.create_event()
+        for vals in vals_list:
+            if vals.get('date_begin'):
+                res.create_event()
         return res
 
     def write(self,values):

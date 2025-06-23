@@ -1,1 +1,2 @@
 git@github.com:OCA/server-ux.git /usr/share/odooext-OCA-server-ux
+git@github.com:OCA/web.git /usr/share/odooext-OCA-web
