@@ -26,7 +26,7 @@
             <field name="name">mandatory.edu.form</field>
             <field name="model">mandatory.edu</field>
             <field name="arch" type="xml">
-                <tree
+                <list
                         decoration-danger="date_end &gt; (context_today() - datetime.timedelta(days=lead_time)).strftime('%Y-%m-%d')"
                         decoration-success="date_end &lt; (context_today() - datetime.timedelta(days=lead_time)).strftime('%Y-%m-%d')"
                         decoration-warning="date_end &lt; (context_today() - datetime.timedelta(days=lead_time)).strftime('%Y-%m-%d')"
@@ -37,7 +37,7 @@
                     <field name="lead_time" optional="hide"/>
                     <field name="date_end" optional="show"/>
                     <field name="mandatory" optional="show"/>
-                </tree>
+                </list>
             </field>
          </record>
     </data>
