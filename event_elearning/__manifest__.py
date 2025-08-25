@@ -38,6 +38,8 @@
         'data/event_reminder_mail_templet.xml',
         'data/event_subscription_mail_templet.xml',
         'views/event_event.xml',
+        'views/menu.xml',
+        'security/security.xml',
     ],
     'demo': [],
     'qweb': [],
