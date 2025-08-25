@@ -1,7 +1,7 @@
 /** @odoo-module **/
 
 import publicWidget from "@web/legacy/js/public/public_widget";
-import { jsonrpc } from "@web/core/network/rpc_service";
+import { rpc } from "@web/core/network/rpc";
 
 // Catch registration form event, because of JS for attendee details
 var EventWaitListRegistrationForm = publicWidget.Widget.extend({
@@ -48,7 +48,7 @@ var EventWaitListRegistrationForm = publicWidget.Widget.extend({
         var $button = $(ev.currentTarget).closest('[type="submit"]');
         const post = this._getPost();
         $button.attr('disabled', true);
-        return jsonrpc($form.attr('action'), post).then(function (modal) {
+        return rpc($form.attr('action'), post).then(function (modal) {
             var $modal = $(modal);
             $modal.find('.modal-body > div').removeClass('container'); // retrocompatibility - REMOVE ME in master / saas-19
             $modal.appendTo(document.body);

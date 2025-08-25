@@ -23,13 +23,13 @@
                     </p>
                 </sheet>
                 <field name="event_registration_ids">
-                    <tree string="Registrations" editable="top" create="false">
+                    <list string="Registrations" editable="top" create="false">
                         <field name="sale_order_line_id" invisible="1"/>
                         <field name="event_reservation_type_id" force_save="1"/>
 <!--                        <field name="event_id" domain="[('event_type_id', '=', event_reservation_type_id), ('date_end', '>=', datetime.date.today().strftime('%Y-%m-%d')), ('state', '!=', 'cancel'), '|', ('seats_availability', '=', 'unlimited'), ('seats_available', '>', 0)]" context="{'default_event_type_id': event_reservation_type_id}" />-->
                         <field name="event_id" domain="[('event_type_id', '=', event_reservation_type_id), ('date_end', '>=', datetime.date.today().strftime('%Y-%m-%d')), '|', ('seats_limited', '=', False), ('seats_available', '>', 0)]" context="{'default_event_type_id': event_reservation_type_id}" />
                         <field name="event_ticket_id" domain="[('event_id', '=', event_id)]" required="1" />
-                    </tree>
+                    </list>
                 </field>
                 <footer>
                     <button string="Next" name="action_convert_to_registration" type="object" class="btn-primary" help="Configure registrations" />

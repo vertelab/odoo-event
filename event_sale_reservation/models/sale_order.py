@@ -47,6 +47,6 @@ class SaleOrder(models.Model):
             "name": _("Attendees"),
             "res_model": "event.registration",
             "type": "ir.actions.act_window",
-            "view_mode": "tree,form,calendar,graph",
+            "view_mode": "list,form,calendar,graph",
             "view_type": "form",
         }

@@ -73,7 +73,7 @@ class HrEmployee(models.Model):
         edu_ids = self.env['mandatory.edu'].create(mandatory_edu_vals_list)
         return {
             'name': _('Courses'),
-            'view_mode': 'tree,form',
+            'view_mode': 'list,form',
             'domain': [('id', 'in', edu_ids.ids)],
             'res_model': 'mandatory.edu',
             'type': 'ir.actions.act_window',
@@ -109,7 +109,7 @@ class HrEmployee(models.Model):
     def action_view_completed_certification(self):
         return {
             'name': _('Certifications'),
-            'view_mode': 'tree,form',
+            'view_mode': 'list,form',
             'domain': [('partner_id', 'in', self.user_partner_id.ids)],
             'res_model': 'survey.user_input',
             'type': 'ir.actions.act_window',
@@ -172,7 +172,7 @@ class HrEmployee(models.Model):
     def action_view_recommended_certification_old(self):
         return {
             'name': _('Recommended Certifications'),
-            'view_mode': 'tree,form',
+            'view_mode': 'list,form',
             'domain': [('id', 'in', self.recommended_certification_ids.ids)],
             'res_model': 'survey.survey',
             'type': 'ir.actions.act_window',
