@@ -11,6 +11,9 @@
                 <button name="action_set_done" position="replace">
                     <button name="action_set_done" string="Attended" invisible="state not in ['open', 'reservation']" type="object" class="oe_highlight"/>
                 </button>
+                <button name="action_confirm" position="replace">
+                    <button name="action_confirm" string="Registered" type="object" class="oe_highlight" invisible="not active or state not in ['draft', 'reservation']"/>
+                </button>
             </field>
         </record>
     </data>
