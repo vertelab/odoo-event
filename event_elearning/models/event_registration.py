@@ -30,7 +30,7 @@ class EventRegistration(models.Model):
                    })
                slide_channel_partner_id = record.env['slide.channel.partner'].search([('channel_id','=',record.event_id.slide_channel_id.id),('partner_id','=',partner_id.id),('event_registration_ids','=',record.id)])
                logging.warning(f"{slide_channel_partner_id=}")
-               slide_channel_partner_id = record.env['slide.channel.partner'].search([('channel_id','=',record.event_id.slide_channel_id.id),('partner_id','=',partner_id.id),'|',('active','=',True),('active','=',False))])
+               slide_channel_partner_id = record.env['slide.channel.partner'].search([('channel_id','=',record.event_id.slide_channel_id.id),('partner_id','=',partner_id.id),'|',('active','=',True),('active','=',False)])
                logging.warning(f"{slide_channel_partner_id=}")
                logging.warning(f"{slide_channel_partner_id.event_registration_ids=}")
                
