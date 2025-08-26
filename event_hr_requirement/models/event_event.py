@@ -1,6 +1,4 @@
 from odoo import models, fields, api, _
-from odoo.tools import slug
-
 class Event(models.Model):
     _inherit = 'event.event' 
     event_required_event_type_ids = fields.Many2many('event.type', string="Event Templates")
