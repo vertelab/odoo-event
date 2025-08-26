@@ -15,7 +15,6 @@ class EventRegistration(models.Model):
 
         for record in self:
             if record.state == "open" and record.event_id.slide_channel_id and not record.slide_channel_partner_id:
-<<<<<<< HEAD
                 partner_id = self.env['res.partner'].search([('name','=',record.name),('phone','=',record.phone),('email','=',record.email),('user_ids','!=',False),('employee_ids','!=',False)], limit=1)
                 if not partner_id:
                     partner_id = self.env['res.partner'].search([('name','=',record.name),('phone','=',record.phone),('email','=',record.email),('user_ids','!=',False)], limit=1)
@@ -60,37 +59,6 @@ class EventRegistration(models.Model):
                     slide_channel_partner_id.active = True
 
             record.slide_channel_partner_id = slide_channel_partner_id
-=======
-               partner_id = self.env['res.partner'].search([('name','=',record.name),('phone','=',record.phone),('email','=',record.email),('user_ids','!=',False),('employee_ids','!=',False)], limit=1)
-               if not partner_id:
-                   partner_id = self.env['res.partner'].search([('name','=',record.name),('phone','=',record.phone),('email','=',record.email),('user_ids','!=',False)], limit=1)
-               if not partner_id:
-                   partner_id = self.env['res.partner'].search([('name','=',record.name),('phone','=',record.phone),('email','=',record.email)], limit=1)
-               if not partner_id:
-                   partner_id = self.env['res.partner'].search([('name','=',record.name),('email','=',record.email)], limit=1)
-               if not partner_id:
-                   partner_id = self.env['res.partner'].search([('email','=',record.email)], limit=1)
-               if not partner_id:
-                   partner_id = self.env['res.partner'].create({
-                   'name':record.name,
-                   'phone':record.phone,
-                   'email':record.email,
-                   })
-               slide_channel_partner_id = record.env['slide.channel.partner'].search([('channel_id','=',record.event_id.slide_channel_id.id),('partner_id','=',partner_id.id),('event_registration_ids','=',record.id)])
-               logging.warning(f"{slide_channel_partner_id=}")
-               slide_channel_partner_id = record.env['slide.channel.partner'].search([('channel_id','=',record.event_id.slide_channel_id.id),('partner_id','=',partner_id.id),'|',('active','=',True),('active','=',False)])
-               logging.warning(f"{slide_channel_partner_id=}")
-               logging.warning(f"{slide_channel_partner_id.event_registration_ids=}")
-               
-               if not slide_channel_partner_id:
-                   slide_channel_partner_id = record.env['slide.channel.partner'].create({
-                   'channel_id':record.event_id.slide_channel_id.id,
-                   'partner_id':partner_id.id,
-                   # ~ 'event_registration_id':record.id,
-                   })
-               slide_channel_partner_id.active = True
-               record.slide_channel_partner_id = slide_channel_partner_id
->>>>>>> 68b9888fa452546a406bc35f1b108fd588ac2347
 
     @api.model
     def createSlideChannelPartner(self, vals_list):
