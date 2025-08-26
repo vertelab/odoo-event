@@ -44,6 +44,7 @@
     "data": [
         "views/event_registration_views.xml",
         "views/event_templates_page_registration.xml",
+        "views/res_config_settings_views.xml",
         # "views/assets.xml",
     ],
     # 'assets': {

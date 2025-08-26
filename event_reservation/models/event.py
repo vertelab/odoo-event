@@ -6,6 +6,45 @@ class EventRegistration(models.Model):
 
     state = fields.Selection(selection_add=[('reservation', 'Reservation')])
 
+    def _confirm_next_reservation(self):
+        auto_confirm_reserved = self.env['ir.config_parameter'].sudo().get_param(
+            'event_reservation.auto_confirm_reserved'
+        )
+        if self.state == 'cancel' and auto_confirm_reserved:
+            if self.event_id.seats_limited and self.event_id.seats_available > 0 and self.event_id.seats_used < self.event_id.seats_max:
+                next_candidate = self._get_oldest_reservation_for_event()
+                if next_candidate:
+                    next_candidate.action_confirm()
+                    next_candidate._send_confirmation_notification()
+
+    def _send_confirmation_notification(self):
+        """
+        Send notification to participant when confirmed from reservation
+        """
+        template = self.env.ref('event.event_registration_mail_template_badge', raise_if_not_found=False)
+        email_vals = {'subject': 'Congratulations, Your Spot has been Confirmed!!!'}
+        if template:
+            template.send_mail(self.id, email_values=email_vals, force_send=True)
+
+    def _get_oldest_reservation_for_event(self):
+        return self.env['event.registration'].search([
+            ('state', '=', 'reservation'),
+            ('event_id', '=', self.event_id.id)
+        ], order='create_date asc', limit=1)
+
+
+    def action_cancel(self):
+        if self.state in ['open', 'done']:
+            result = super().action_cancel()
+            self._confirm_next_reservation()
+            return result
+        return super().action_cancel()
+    
+    def unlink(self):
+        self._confirm_next_reservation()
+        return super().unlink()
+
+
 
 class EventReservationTicket(models.Model):
     _inherit = 'event.event.ticket'
