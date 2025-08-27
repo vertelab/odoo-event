@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <record id="slide_channel_form_view" model="ir.ui.view">
+            <field name="name">slide.channel</field>
+            <field name="model">slide.channel</field>
+            <field name="inherit_id" ref="website_slides.view_slide_channel_form"/>
+            <field name="arch" type="xml">
+                <field name="website_id" position="after">
+                    <field name="target_demographic_id"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>
