@@ -1,0 +1,23 @@
+<odoo>
+  
+  <template id="course_join" inherit_id="website_slides.course_join">
+    <xpath expr="//div[hasclass('alert') and hasclass('my-0') and hasclass('bg-100')]/div" position="replace">
+        <div>
+            <small>
+                Finish
+                <a t-if="len(channel.prerequisite_channel_ids) == 1"
+                    t-attf-href="/slides/{{channel.prerequisite_channel_ids[0].id}}"
+                    t-out="channel.prerequisite_channel_ids[0].name"/>
+                <a t-else="" href="#" class="o_wslides_js_prerequisite_course"
+                    t-att-data-channels="json.dumps(
+                        [{'course_id': course.id, 'course_name': course.name}
+                        for course in channel.prerequisite_channel_ids]
+                    )">
+                    courses
+                </a>
+            </small>
+        </div>
+    </xpath>
+  </template>
+
+</odoo>
