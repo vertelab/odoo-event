@@ -49,7 +49,7 @@ class EventRegistration(models.Model):
                         missing_courses = self.env["slide.channel"].browse(missing_courses).mapped("name")
 
                         if missing_courses:
-                            raise UserError(f"You need to finish the prerequisite course/courses {", ".join(missing_courses)} before you sign up for this one.")
+                            raise UserError(f"{partner_id.name} is missing prerequisite course/courses. Finish {", ".join(missing_courses)} before you sign up for this one.")
 
                         slide_channel_partner_id = self.env['slide.channel.partner'].create({
                             'channel_id':record.event_id.slide_channel_id.id,
@@ -103,8 +103,8 @@ class EventRegistration(models.Model):
                         missing_courses = self.env["slide.channel"].browse(missing_courses).mapped("name")
 
                         if missing_courses:
-                            raise UserError(f"You need to finish the prerequisite course/courses {", ".join(missing_courses)} before you sign up for this one.")
-
+                            raise UserError(f"{partner_id.name} is missing prerequisite course/courses. Finish {", ".join(missing_courses)} before you sign up for this one.")
+                            
                         slide_channel_partner_id = self.env['slide.channel.partner'].create({
                             'channel_id':event_id.slide_channel_id.id,
                             'partner_id':partner_id.id,

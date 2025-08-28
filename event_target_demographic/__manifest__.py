@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Odoo SA, Open Source Management Solution, third party addon
-#    Copyright (C) 2024- Vertel AB (<https://vertel.se>).
+#    Copyright (C) 2022- Vertel AB (<https://vertel.se>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,34 +18,35 @@
 #    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+# Copyright 2021 Tecnativa - Jairo Llopis
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
-    'name': 'Event: Elearning LMS',
-    'version': '0.2',
-    'summary': '',
+    'name': 'Event: Target Demographic',
+    'version': '1.0',
+    # Version ledger: 17.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
+    'summary': 'Allow Target Demographics on Events.',
     'category': 'Event',
+    'description': """
+        Allow Target Demographics on Events.
+    """,
     'author': 'Vertel AB',
-    'website': 'https://vertel.se/apps/odoo-event/event_elearning',
-    'images': ['/static/description/banner.png'], # 560x280 px.
+    'website': 'https://vertel.se/apps/odoo-event/event_target_demographic',
+    'images': ['static/description/banner.png'], # 560x280 px.
     'license': 'AGPL-3',
     'contributor': '',
     'maintainer': 'Vertel AB',
     'repository': 'https://github.com/vertelab/odoo-event',
-    'description': """
-    """,
-    'depends': ['hr','event','website_slides'],
-    'data': [
-        'security/security.xml',
-        'data/event_reminder_mail_templet.xml',
-        'data/event_subscription_mail_templet.xml',
-        'views/event_event.xml',
-        'views/menu.xml',
-        'views/website_slides_templates_course.xml',
+    "application": False,
+    "installable": True,
+    'depends': ['event', 'website_slides'],
+    "data": [
+        'security/ir.model.access.csv',
+        'views/event_target_demographic_view.xml',
+        'views/event_type_view.xml',
+        'views/event_event_view.xml',
+        'views/slide_channel_view.xml',
+        'security/event_security.xml',
     ],
-    'demo': [],
-    'qweb': [],
-    'installable': True,
-    'application': False,
-    'auto_install': False,
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
