@@ -35,11 +35,12 @@
     """,
     'depends': ['hr','event','website_slides'],
     'data': [
+        'security/security.xml',
         'data/event_reminder_mail_templet.xml',
         'data/event_subscription_mail_templet.xml',
         'views/event_event.xml',
         'views/menu.xml',
-        'security/security.xml',
+        'views/website_slides_templates_course.xml',
     ],
     'demo': [],
     'qweb': [],
