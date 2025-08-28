@@ -51,7 +51,26 @@
             <menuitem id="menu_lms_courses" name="Courses" action="event_elearning.lms_slide_channel_action_overview" sequence="1"/>
             <menuitem id="menu_lms_course_catalog" name="Course Catalog" action="event_elearning.lms_action_event_type" sequence="2"/>
             <menuitem id="menu_lms_occasions" name="Occasions" action="event_elearning.lms_action_event_view" sequence="3"/>
+            <menuitem id="menu_reports" name="Reports" sequence="4">
+            </menuitem>
+            <menuitem id="configuration" name="Configuration" sequence="5"/>
         </menuitem>
+        
+        <menuitem id="menu_separator_courses_report" name="Course Reports" sequence="1" parent="menu_reports"/>
+        <menuitem id="menu_separator_occation_report" name="Occation Reports" sequence="2" parent="menu_reports"/>
+        
+        
+        
+        <menuitem id="menu_separator_courses" name="Course configuration" sequence="1" parent="configuration"/>
+        <menuitem id="meny_slide_settings" name="Course Settings" action="website_slides.website_slides_action_settings" sequence="2" parent="menu_separator_courses"/>
+        <menuitem id="menu_course_groups" name="Course Groups" action="website_slides.slide_channel_tag_group_action" sequence="3" parent="menu_separator_courses"/>
+        <menuitem id="menu_course_tags" name="Course Tags" action="website_slides.action_slide_tag" sequence="4" parent="menu_separator_courses"/>
+
+        <menuitem id="menu_separator_occation" name="Occation configuration" sequence="5" parent="configuration"/>
+        <menuitem id="meny_event_settings" name="Course Occasion Settings" action="event.action_event_configuration" sequence="6" parent="menu_separator_occation"/>
+        <menuitem id="meny_event_stage_action" name="Course Stages" action="event.event_stage_action" sequence="7" parent="menu_separator_occation"/>
+        <menuitem id="meny_event_tag_category_action_tree" name="Course Occasion Categories" action="event.event_tag_category_action_tree" sequence="8" parent="menu_separator_occation"/>
+        <menuitem id="meny_event_action_event_mail" name="Email Triggers" action="event.action_event_mail" sequence="9" parent="menu_separator_occation"/>
     </data>
 
 </odoo>
