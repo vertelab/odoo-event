@@ -49,5 +49,10 @@
     'installable': True,
     'application': False,
     'auto_install': False,
+    'assets': {
+        'web.assets_frontend': [
+            'event_lms/static/src/js/slides_course_fullscreen_player.js',
+        ]
+    }
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

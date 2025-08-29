@@ -1,87 +1,132 @@
 <odoo>
-  
-  <template id="course_join" inherit_id="website_slides.course_join">
-    <xpath expr="//div[hasclass('alert') and hasclass('my-0') and hasclass('bg-100')]/div" position="replace">
-        <div>
-            <small>
-                Finish
-                <a t-if="len(channel.prerequisite_channel_ids) == 1"
-                    t-attf-href="/slides/{{channel.prerequisite_channel_ids[0].id}}"
-                    t-out="channel.prerequisite_channel_ids[0].name"/>
-                <a t-else="" href="#" class="o_wslides_js_prerequisite_course"
-                    t-att-data-channels="json.dumps(
-                        [{'course_id': course.id, 'course_name': course.name}
-                        for course in channel.prerequisite_channel_ids]
-                    )">
-                    courses
+    <template id="course_join" inherit_id="website_slides.course_join">
+        <xpath expr="//div[hasclass('alert') and hasclass('my-0') and hasclass('bg-100')]/div" position="replace">
+            <div>
+                <small>
+                    Finish
+                    <a t-if="len(channel.prerequisite_channel_ids) == 1"
+                        t-attf-href="/slides/{{channel.prerequisite_channel_ids[0].id}}"
+                        t-out="channel.prerequisite_channel_ids[0].name"/>
+                    <a t-else="" href="#" class="o_wslides_js_prerequisite_course"
+                        t-att-data-channels="json.dumps(
+                            [{'course_id': course.id, 'course_name': course.name}
+                            for course in channel.prerequisite_channel_ids]
+                        )">
+                        courses
+                    </a>
+                </small>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="slide_fullscreen_sidebar_category" name="Slides category template for fullscreen view side bar" inherit_id="website_slides.slide_fullscreen_sidebar_category">
+        <xpath expr="//li[hasclass('o_wslides_fs_sidebar_list_item')]" position="attributes">
+            <attribute name="t-att-data-event-type-id">slug(slide.event_type_id) if slide.slide_category == 'event_type' and slide.event_type_id else ''</attribute>
+        </xpath>
+    </template>
+
+
+    <template id="slide_aside_training_category" name="Category item for the slide detailed view list" inherit_id="website_slides.slide_aside_training_category">
+        <xpath expr="//a[@t-att-href=&quot;'/slides/slide/%s' % (slug(aside_slide)) if can_access else '#'&quot;]" position="attributes">
+            <attribute name="t-att-href">'/event-type/%s' % (slug(aside_slide.event_type_id)) if can_access and aside_slide.slide_category == 'event_type' else '/slides/slide/%s' % (slug(aside_slide)) if can_access else '#'</attribute>
+        </xpath>
+    </template>
+
+    <template id="slide_content_detailed" name="Slide: Detailed Content" inherit_id="website_slides.slide_content_detailed">
+        <!-- Update previous button -->
+        <xpath expr="//a[@t-att-href=&quot;'/slides/slide/%s' % (slug(previous_slide)) if previous_slide else '#'&quot;]" position="attributes">
+            <attribute name="t-att-href">'/event-type/%s' % (slug(previous_slide.event_type_id)) if previous_slide and previous_slide.slide_category == 'event_type' else '/slides/slide/%s' % (slug(previous_slide)) if previous_slide else '#'</attribute>
+        </xpath>
+
+        <!-- Update next button -->
+        <xpath expr="//a[@t-att-href=&quot;'/slides/slide/%s' % (slug(next_slide)) if next_slide else '#'&quot;]" position="attributes">
+            <attribute name="t-att-href">'/event-type/%s' % (slug(next_slide.event_type_id)) if next_slide and next_slide.slide_category == 'event_type' else '/slides/slide/%s' % (slug(next_slide)) if next_slide else '#'</attribute>
+        </xpath>
+
+        <!-- Update fullscreen button -->
+        <xpath expr="//a[@t-att-href=&quot;'/slides/slide/%s?fullscreen=1' % (slug(slide))&quot;]" position="attributes">
+            <attribute name="t-att-href">'/event-type/%s?fullscreen=1' % (slug(slide.event_type_id)) if slide.slide_category == 'event_type' else '/slides/slide/%s?fullscreen=1' % (slug(slide))</attribute>
+        </xpath>
+    </template>
+
+    <template id="lesson_content_quiz" name="Lesson: Quiz specific content" inherit_id="website_slides.lesson_content_quiz">
+        <xpath expr="//div[@class='o_wslides_js_lesson_quiz col']" position="attributes">
+            <attribute name="t-att-data-next-slide-url">'/event-type/%s' % (slug(next_slide.event_type_id)) if next_slide and next_slide.slide_category == 'event_type' else '/slides/slide/%s' % (slug(next_slide)) if next_slide else None</attribute>
+        </xpath>
+    </template>
+
+    <template id="course_slides_list_slide" inherit_id="website_slides.course_slides_list_slide">
+        <xpath expr="//div[hasclass('text-truncate', 'me-auto')]" position="replace">
+            <div class="text-truncate me-auto">
+                <!-- Check if slide category is event_type -->
+                <a t-if="not invite_preview and (slide.is_preview or channel.is_member or channel.can_publish) and slide.slide_category == 'event_type'"
+                   class="o_wslides_js_slides_list_slide_link"
+                   t-attf-href="/event-type/#{slug(slide.event_type_id)}">
+                    <span t-field="slide.name"/>
                 </a>
-            </small>
-        </div>
-    </xpath>
-  </template>
-  
-  
-  <template id="course_slides_list_slide" name="Slide template for a training channel" inherit_id="website_slides.course_slides_list_slide">
-   <xpath expr="//li//div[@class='text-truncate me-auto']" position="replace">
-            <a t-if="not invite_preview and (slide.is_preview or channel.is_member or channel.can_publish or slide.slide_category != 'event_type')" class="o_wslides_js_slides_list_slide_link" t-attf-href="/slides/slide/#{slug(slide)}">
-                <span t-field="slide.name"/>
-            </a>
-            <a t-elif="not invite_preview and (slide.is_preview or channel.is_member or channel.can_publish or slide.slide_category == 'event_type')" class="o_wslides_js_slides_list_slide_link" t-attf-href="/event-type/{slug(slide.event_type_id)}">
-                <span t-field="slide.name"/>
-            </a>
-            <span t-else="">
-                <span t-esc="slide.name"/>
-            </span>
-    </xpath>
-<!--
-    <li t-att-index="j" t-att-data-slide-id="slide.id" t-att-data-category-id="category_id" t-attf-class="o_wslides_slides_list_slide o_wslides_js_list_item bg-white-50 border-top-0 d-flex align-items-center ps-2 #{'py-1 pe-2' if not channel.can_upload else ''}">
-        <div t-if="channel.can_publish" class=" o_wslides_slides_list_drag m-2 o_not_editable">
-            <i class="fa fa-sort"></i>
-        </div>
-        <i t-attf-class="fa #{slide.slide_icon_class} py-2 mx-2"/>
-        <div class="text-truncate me-auto">
-            <a t-if="not invite_preview and (slide.is_preview or channel.is_member or channel.can_publish)" class="o_wslides_js_slides_list_slide_link" t-attf-href="/slides/slide/#{slug(slide)}">
-                <span t-field="slide.name"/>
-            </a>
-            <span t-else="">
-                <span t-esc="slide.name"/>
-            </span>
-        </div>
+                <!-- Default behavior for non-event_type slides -->
+                <a t-elif="not invite_preview and (slide.is_preview or channel.is_member or channel.can_publish)"
+                   class="o_wslides_js_slides_list_slide_link"
+                   t-attf-href="/slides/slide/#{slug(slide)}">
+                    <span t-field="slide.name"/>
+                </a>
+                <!-- Fallback for cases where link shouldn't be shown -->
+                <span t-else="">
+                    <span t-esc="slide.name"/>
+                </span>
+            </div>
+        </xpath>
+    </template>
 
-        <div class="d-flex flex-row o_not_editable align-items-center">
-            <a name="o_wslides_list_slide_add_quizz" t-if="channel.can_upload and not slide.question_ids" t-attf-href="/slides/slide/#{slug(slide)}?quiz_quick_create" aria-label="Add quiz">
-                <span class="badge text-bg-primary badge-hide fw-normal m-1">Add Quiz</span>
-            </a>
-            <a t-if="channel.can_upload" href="#" name="o_wslides_slide_toggle_is_preview" aria-label="Preview">
-                <span t-att-data-slide-id="slide.id" t-attf-class="o_wslides_js_slide_toggle_is_preview badge #{'text-bg-success' if slide.is_preview else 'text-bg-primary badge-hide'} fw-normal m-1"><span>Preview</span></span>
-            </a>
-            <t t-elif="slide.is_preview and not channel.is_member">
-                <span class="badge text-bg-success fw-normal m-1"><span>Preview</span></span>
-            </t>
-            <span t-if="slide.is_new_slide and not channel_progress[slide.id].get('completed')" class="badge text-bg-info badge-arrow-right fw-normal m-1">
-                New
-            </span>
-            <span t-if="slide.question_ids" t-att-class="'badge fw-bold m-1 %s' % ('text-bg-success' if channel_progress[slide.id].get('completed') else 'text-bg-warning')">
-                <i t-attf-class="fa fa-fw #{'fa-check' if channel_progress[slide.id].get('completed') else 'fa-flag'}"/>
-                <t t-esc="channel_progress[slide.id].get('quiz_karma_won', 0) if channel_progress[slide.id].get('completed') else channel_progress[slide.id].get('quiz_karma_gain', 0)"/> xp
-            </span>
-            <span class="badge text-bg-danger fw-normal m-1" t-if="not slide.website_published">Unpublished</span>
-        </div>
 
-        <div t-if="channel.is_member or channel.can_publish" class="pt-2 pb-2 border-start ms-2 me-2 ps-2 d-flex flex-row align-items-center o_wslides_slides_list_slide_controls o_not_editable">
-            <t t-call="website_slides.slide_sidebar_done_button">
-                <t t-set="is_member" t-value="channel.is_member"/>
-                <t t-set="slide_completed" t-value="channel_progress[slide.id].get('completed')"/>
-                <t t-set="use_slide_icon" t-value="False"/>
-            </t>
-            <span t-if="channel.can_publish" class="d-none d-md-flex">
-                <a t-if="slide.slide_category == 'article'" class="mx-2 o_text_link text-primary o_not_editable" target="_blank" t-attf-href="/slides/slide/#{slug(slide)}?enable_editor=1" title="Edit"><span class="fa fa-pencil"/></a>
-                <a t-else="" class="mx-2 o_text_link text-primary o_not_editable" target="_blank" t-attf-href="/odoo/slide.slide/{{slide.id}}" title="Edit in backend"><span class="fa fa-pencil"/></a>
-                <a href="#" t-att-data-slide-id="slide.id" class="o_text_link text-danger mx-2 o_wslides_js_slide_archive o_not_editable" title="Delete"><span class="fa fa-trash"/></a>
-            </span>
-        </div>
-    </li>
--->
-</template>
+
+<!--    <template id="slide_aside_training_category" name="Category item for the slide detailed view list" inherit_id="website_slides.slide_aside_training_category">-->
+<!--        <xpath expr="//li[@class='p-0 pb-1']" position="attributes">-->
+<!--            <attribute name="t-att-data-category">aside_slide.slide_category</attribute>-->
+<!--            <attribute name="t-att-data-event-type-id">slug(aside_slide.event_type_id) if aside_slide.slide_category == 'event_type' else ''</attribute>-->
+<!--        </xpath>-->
+
+<!--        <xpath expr="//div[@class='o_wslides_lesson_link_name text-truncate']" position="replace">-->
+<!--            <div class="o_wslides_lesson_link_name text-truncate" t-att-title="aside_slide.name">-->
+<!--                <a t-att-href="'/event-type/%s' % (slug(aside_slide.event_type_id)) if aside_slide.slide_category == 'event_type' else '/slides/slide/%s' % (slug(aside_slide))"-->
+<!--                   style="text-decoration: none; color: inherit;">-->
+<!--                    <span t-esc="aside_slide.name"/>-->
+<!--                </a>-->
+<!--                <span class="align-items-end" t-if="aside_slide.question_ids">-->
+<!--                    <span t-att-class="'badge rounded-pill %s' % ('text-bg-success' if channel_progress[aside_slide.id].get('completed') else 'text-bg-info')">-->
+<!--                        <t t-esc="channel_progress[aside_slide.id].get('quiz_karma_won') if channel_progress[aside_slide.id].get('completed') else channel_progress[aside_slide.id].get('quiz_karma_gain')"/> xp-->
+<!--                    </span>-->
+<!--                </span>-->
+<!--            </div>-->
+<!--        </xpath>-->
+<!--    </template>-->
+
+<!--    <template id="slide_aside_training_category" name="Category item for the slide detailed view list" inherit_id="website_slides.slide_aside_training_category">-->
+<!--        &lt;!&ndash; Add data attributes to the li element that represents each slide &ndash;&gt;-->
+<!--        <xpath expr="//li[@class='p-0 pb-1']" position="attributes">-->
+<!--            <attribute name="t-att-data-category">aside_slide.slide_category</attribute>-->
+<!--            <attribute name="t-att-data-event-type-id">slug(aside_slide.event_type_id) if aside_slide.slide_category == 'event_type' else ''</attribute>-->
+<!--        </xpath>-->
+
+<!--        &lt;!&ndash; Also add to the main div that has the click handler &ndash;&gt;-->
+<!--        <xpath expr="//div[contains(@class, 'o_wslides_lesson_aside_list_link')]" position="attributes">-->
+<!--            <attribute name="t-att-data-category">aside_slide.slide_category</attribute>-->
+<!--            <attribute name="t-att-data-event-type-id">slug(aside_slide.event_type_id) if aside_slide.slide_category == 'event_type' else ''</attribute>-->
+<!--        </xpath>-->
+<!--    </template>-->
+
+<!--    <template id="slide_aside_training_category" name="Category item for the slide detailed view list" inherit_id="website_slides.slide_aside_training_category">-->
+<!--        &lt;!&ndash; Add data attributes to the li element that represents each slide &ndash;&gt;-->
+<!--&lt;!&ndash;        <xpath expr="//li[@class='p-0 pb-1']" position="attributes">&ndash;&gt;-->
+<!--&lt;!&ndash;            <attribute name="t-att-data-category">aside_slide.slide_category</attribute>&ndash;&gt;-->
+<!--&lt;!&ndash;            <attribute name="t-att-data-event-type-id">aside_slide.event_type_id</attribute>&ndash;&gt;-->
+<!--&lt;!&ndash;            <attribute name="t-att-data-debug-info">str(aside_slide.event_type_id) + ' | ' + str(aside_slide.slide_category)</attribute>&ndash;&gt;-->
+<!--&lt;!&ndash;        </xpath>&ndash;&gt;-->
+<!--        <xpath expr="//t[@t-foreach='category_slide_ids']/li[@class='p-0 pb-1']" position="attributes">-->
+<!--            <attribute name="t-att-data-category">aside_slide.slide_category</attribute>-->
+<!--            <attribute name="t-att-data-event-type-id">aside_slide.event_type_id</attribute>-->
+<!--            <attribute name="t-att-data-debug-info">str(aside_slide.event_type_id) + ' | ' + str(aside_slide.slide_category)</attribute>-->
+<!--        </xpath>-->
+<!--    </template>-->
 
 </odoo>
