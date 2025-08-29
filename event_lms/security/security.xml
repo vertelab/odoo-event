@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+
+        <record id="group_lms_elearning_admin" model="res.groups">
+            <field name="name">E-Learning Admin</field>
+            <field name="category_id" ref="base.module_category_hidden"/>
+            <field name="implied_ids" eval="[(4, ref('website_slides.group_website_slides_manager')), (4, ref('event.group_event_manager'))]"/>
+        </record>
+
+        <function model="ir.ui.menu" name="update_elearning_group">
+            <value eval="[ref('website_slides.website_slides_menu_root'), ref('event.event_main_menu')]"/>
+        </function>
+
+    </data>
+</odoo>
