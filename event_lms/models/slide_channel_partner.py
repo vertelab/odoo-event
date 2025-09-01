@@ -5,3 +5,5 @@ class SlideChannelPartner(models.Model):
 
     event_registration_ids = fields.One2many('event.registration', 'slide_channel_partner_id', 'Events Registrations')
 
+
+

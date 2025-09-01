@@ -72,6 +72,33 @@ var EventTypeFullscreen = Fullscreen.include({
             var slide = findSlide(this.slides, {id: slideID, isQuiz: isQuiz});
             this.sidebar._updateSlideEntry(slide);
         }
+    }, // <- Added missing comma here
+
+    /**
+     * Override _onChangeSlideRequest to handle event_type slides
+     */
+    _onChangeSlideRequest: function (ev) {
+        var slideData = ev.data;
+        var newSlide = findSlide(this.slides, {
+            id: slideData.id,
+            isQuiz: slideData.isQuiz || false,
+        });
+
+        // Check if this is an event_type slide by looking at the DOM
+        var $slideElem = this.$('.o_wslides_fs_sidebar_list_item[data-id="' + slideData.id + '"]');
+        var slideCategory = $slideElem.data('category');
+
+        if (slideCategory === 'event_type') {
+            var eventTypeId = $slideElem.data('eventTypeId');
+            if (eventTypeId) {
+                console.log("Redirecting to event_type:", `/event-type/${eventTypeId}`);
+                window.location.href = `/event-type/${eventTypeId}`;
+                return;
+            }
+        }
+
+        // Default behavior for non-event_type slides
+        this._super.apply(this, arguments);
     }
 });
 

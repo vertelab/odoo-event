@@ -19,8 +19,8 @@
         </xpath>
     </template>
 
-    <template id="slide_fullscreen_sidebar_category" name="Slides category template for fullscreen view side bar" inherit_id="website_slides.slide_fullscreen_sidebar_category">
-        <xpath expr="//li[hasclass('o_wslides_fs_sidebar_list_item')]" position="attributes">
+    <template id="slide_fullscreen_sidebar_category_extended" inherit_id="website_slides.slide_fullscreen_sidebar_category">
+        <xpath expr="//li[@t-att-data-id='slide.id']" position="attributes">
             <attribute name="t-att-data-event-type-id">slug(slide.event_type_id) if slide.slide_category == 'event_type' and slide.event_type_id else ''</attribute>
         </xpath>
     </template>
