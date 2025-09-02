@@ -75,7 +75,7 @@
 
     <template id="registration_template" inherit_id="website_event.registration_template">
         <xpath expr="//button[@t-if='event.event_registrations_open']" position="after">
-            <button t-if="event.event_registrations_sold_out" class="btn btn-primary py-2 w-100" id="reservation_form" type="button" data-bs-toggle="modal" data-bs-target="#modal_event_attendee_reservation">
+            <button class="btn btn-primary py-2 mb-2 w-100" id="reservation_form" type="button" data-bs-toggle="modal" data-bs-target="#modal_event_attendee_reservation" t-if="event.event_registrations_sold_out">
                 <span>Reserve Seat</span>
             </button>
         </xpath>
@@ -173,7 +173,7 @@
                                 "fields": ["phone", "mobile", "email"]
                                 }'/>
                         </div>
-                        <div id="add_to_calendar" class="mt-4 d-flex flex-column flex-md-row">
+                        <div id="add_to_calendar" class="mt-4 d-flex flex-column flex-md-row gap-2">
                             <a role="button" class="btn btn-primary" t-att-href="iCal_url">
                                 <i class="fa fa-fw fa-calendar"/> Add to iCal/Outlook
                             </a>

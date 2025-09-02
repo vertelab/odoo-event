@@ -1,0 +1,296 @@
+<odoo>
+    <data>
+
+        <record id="lms_slide_channel_action_overview" model="ir.actions.act_window">
+            <field name="name">Courses</field>
+            <field name="path">elearning</field>
+            <field name="res_model">slide.channel</field>
+            <field name="view_mode">kanban,list,form</field>
+            <field name="view_id" ref="website_slides.slide_channel_view_kanban"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    <strong>Create a course</strong>
+                </p>
+                <p>
+                    Your eLearning platform starts here!<br/>
+                    Upload content, set up rewards, manage attendees...
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="lms_action_event_type">
+            <field name="name">Event Templates</field>
+            <field name="res_model">event.type</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create an Event Template
+                </p><p>
+                    Event Templates combine configurations you use often and are
+                    usually based on the types of events you organize (e.g. "Workshop",
+                    "Roadshow", "Online Webinar", etc).
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="lms_action_event_view">
+           <field name="name">Occasions</field>
+           <field name="path">occasions</field>
+           <field name="res_model">event.event</field>
+           <field name="view_mode">kanban,calendar,list,form,pivot,graph,activity</field>
+           <field name="search_view_id" ref="event.view_event_search"/>
+           <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Create an Event
+              </p><p>
+                Schedule and organize your events: handle registrations, send automated confirmation emails, sell tickets, etc.
+              </p>
+            </field>
+        </record>
+
+        <record id="lms_website_slides_action_settings" model="ir.actions.act_window">
+            <field name="name">Course Settings</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module': 'website_slides', 'bin_size': False}</field>
+        </record>
+
+        <record id="lms_slide_channel_tag_group_action" model="ir.actions.act_window">
+            <field name="name">Course Groups</field>
+            <field name="res_model">slide.channel.tag.group</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a Course Group
+                </p>
+                <p>
+                    Use Course Groups to classify and organize your Courses.
+                </p>
+            </field>
+        </record>
+
+        <record id="lms_action_slide_tag" model="ir.actions.act_window">
+            <field name="name">Content Tags</field>
+            <field name="res_model">slide.tag</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a Content Tag
+                </p>
+                <p>
+                    Use Content Tags to classify your Content.
+                </p>
+            </field>
+        </record>
+
+        <record id="lms_action_event_configuration" model="ir.actions.act_window">
+            <field name="name">Settings</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module' : 'event', 'bin_size': False}</field>
+        </record>
+
+        <record id="lms_event_stage_action" model="ir.actions.act_window">
+            <field name="name">Event Stages</field>
+            <field name="res_model">event.stage</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create an Event Stage
+                </p><p>
+                    Event stages are used to track the progress of an Event from its origin until its conclusion.
+                </p>
+            </field>
+        </record>
+
+        <record id="lms_event_tag_category_action_tree" model="ir.actions.act_window" >
+            <field name="name">Event Tags Categories</field>
+            <field name="res_model">event.tag.category</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create an Event Tag Category
+                </p><p>
+                    Use Event Tag Categories to classify and organize your event tags.
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="lms_action_event_mail">
+            <field name="name">Events Mail Schedulers</field>
+            <field name="res_model">event.mail</field>
+            <field name="context">{'create': False}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Nothing Scheduled yet!
+                </p><p>
+                    Under this technical menu you will find all scheduled communication related to your events.
+                </p>
+            </field>
+        </record>
+
+        <record id="lms_slide_channel_action_report" model="ir.actions.act_window">
+            <field name="name">Courses</field>
+            <field name="res_model">slide.channel</field>
+            <field name="view_mode">list,graph,pivot,form</field>
+            <field name="view_id" ref="website_slides.slide_channel_view_tree_report"/>
+            <field name="context">{"search_default_filter_published":1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    <strong>Create a course</strong>
+                </p>
+                <p>
+                    Your eLearning platform starts here!<br/>
+                    Upload content, set up rewards, manage attendees...
+                </p>
+            </field>
+        </record>
+
+        <record id="lms_slide_slide_action_report" model="ir.actions.act_window">
+            <field name="name">Contents</field>
+            <field name="res_model">slide.slide</field>
+            <field name="view_mode">graph,list,form,pivot</field>
+            <field name="context">{"search_default_published": 1}</field>
+            <field name="domain">[('is_category', '=', False)]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No data yet!
+                </p><p>
+                    Create new content for your eLearning
+                </p>
+            </field>
+        </record>
+
+        <record id="lms_slide_channel_partner_action_report" model="ir.actions.act_window">
+            <field name="name">Attendees</field>
+            <field name="res_model">slide.channel.partner</field>
+            <field name="view_mode">graph,pivot,list,kanban</field>
+            <field name="search_view_id" ref="website_slides.slide_channel_partner_view_search"/>
+            <field name="context">{'search_default_groupby_member_status': 1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    <strong>No Attendees Yet!</strong>
+                </p>
+                <p>
+                    From here you'll be able to monitor attendees and to track their progress.
+                </p>
+            </field>
+        </record>
+
+        <record id="lms_rating_rating_action_slide_channel" model="ir.actions.act_window">
+            <field name="name">Reviews</field>
+            <field name="res_model">rating.rating</field>
+            <field name="domain">[('consumed', '=', True), ('res_model', '=', 'slide.channel')]</field>
+            <field name="context">{}</field>
+            <field name="view_mode">kanban,list,graph,pivot,form</field>
+            <field name="search_view_id" ref="website_slides.rating_rating_view_search_slide_channel"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_empty_folder">
+                    No Reviews yet!
+                </p>
+                <p>Come back later to check the feedbacks given by your Attendees.</p>
+            </field>
+        </record>
+
+        <record id="lms_slide_question_action_report" model="ir.actions.act_window">
+            <field name="name">Quizzes</field>
+            <field name="res_model">slide.question</field>
+            <field name="view_mode">list,graph,pivot,form</field>
+            <field name="view_id" ref="website_slides.slide_question_view_tree_report"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No Quiz data yet!
+                </p>
+                <p>
+                    Come back later to oversee how well your Attendees are doing.
+                </p>
+            </field>
+        </record>
+
+        <record id="lms_action_registration" model="ir.actions.act_window">
+            <field name="name">Attendees</field>
+            <field name="res_model">event.registration</field>
+            <field name="view_mode">graph,pivot,kanban,list,form</field>
+            <field name="context">{
+                    'search_default_filter_last_month_creation': 1,
+                    'search_default_taken': 1,
+                    'search_default_status': 2,
+                    'search_default_group_by_create_date_day': 3,
+                    'search_default_group_event': 1,
+                    'registration_view_hide_group_by_create_date_week': 1,
+                }
+            </field>
+            <field name="search_view_id" ref="event.view_registration_search"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No Attendees yet!
+                </p><p>
+                    From this dashboard you can report, analyze and detect trends regarding your event registrations.
+                </p>
+            </field>
+        </record>
+
+        <record id="lms_event_sale_report_action" model="ir.actions.act_window">
+            <field name="name">Revenues</field>
+            <field name="res_model">event.sale.report</field>
+            <field name="view_mode">graph,pivot</field>
+            <field name="context">{
+                'search_default_priced_tickets': 1,
+                'search_default_event_date_start': 1,
+                'pivot_measures': ['__count__', 'sale_price_untaxed', 'sale_price'],
+            }</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No Event Revenues yet!
+                </p><p>
+                    Come back once tickets have been sold to overview your sales income.
+                </p>
+            </field>
+        </record>
+
+        <record id="lms_action_event_event_waiting_list" model="ir.actions.act_window">
+            <field name="res_model">event.waiting.list</field>
+            <field name="name">Waiting List</field>
+            <field name="view_mode">list,form,graph</field>
+        </record>
+
+        <menuitem name="Learning Management System" id="menu_lms" sequence="55">
+            <menuitem id="menu_lms_course_elements" name="Courses" action="event_lms.lms_slide_channel_action_overview" sequence="1"/>
+            <menuitem id="menu_lms_course_catalog" name="Teacher-led opportunity Type" action="event_lms.lms_action_event_type" sequence="2"/>
+            <menuitem id="menu_lms_occasions" name="Teacher-led Opportunitys" action="event_lms.lms_action_event_view" sequence="3"/>
+
+            <menuitem id="lms_configuration" name="Configuration" sequence="4">
+                <menuitem id="menu_separator_courses" name="Course Configuration" sequence="1">
+                    <menuitem id="menu_lms_slide_settings" name="Course Settings" action="lms_website_slides_action_settings" sequence="2"/>
+                    <menuitem id="menu_lms_course_groups" name="Course Groups" action="lms_slide_channel_tag_group_action" sequence="3"/>
+                    <menuitem id="menu_lms_course_tags" name="Course Tags" action="lms_action_slide_tag" sequence="4"/>
+                </menuitem>
+                <menuitem id="menu_separator_occasion" name="Occasion Configuration" sequence="5">
+                    <menuitem id="menu_lms_event_settings" name="Course Occasion Settings" action="lms_action_event_configuration" sequence="6"/>
+                    <menuitem id="menu_lms_event_stage_action" name="Course Stages" action="lms_event_stage_action" sequence="8"/>
+                    <menuitem id="menu_lms_event_tag_category_action_tree" name="Course Occasion Categories" action="lms_event_tag_category_action_tree" sequence="9"/>
+                    <menuitem id="menu_lms_event_action_event_mail" name="Email Triggers" action="lms_action_event_mail" sequence="10"/>
+                </menuitem>
+            </menuitem>
+
+            <menuitem id="menu_reports" name="Reporting" sequence="6">
+                <menuitem id="menu_separator_courses_report" name="Course Reports" sequence="1">
+                    <menuitem id="lms_website_slides_menu_report_courses" name="Courses" action="lms_slide_channel_action_report" sequence="1"/>
+                    <menuitem id="lms_website_slides_menu_report_contents" name="Contents" action="lms_slide_slide_action_report" sequence="2"/>
+                    <menuitem id="lms_website_slides_menu_report_attendees" name="Attendees" action="lms_slide_channel_partner_action_report" sequence="3"/>
+                    <menuitem id="lms_website_slides_menu_report_reviews" name="Reviews" action="lms_rating_rating_action_slide_channel" sequence="4"/>
+                    <menuitem id="lms_website_slides_menu_report_quizzes" name="Quizzes" action="lms_slide_question_action_report" sequence="5"/>
+                </menuitem>
+
+                <menuitem id="menu_separator_occasion_report" name="Occasion Reports" sequence="7">
+                    <menuitem id="lms_menu_action_registration" name="Attendees" action="lms_action_registration" sequence="1"/>
+                    <menuitem id="lms_menu_action_event_waiting_list" name="Waiting List" action="lms_action_event_event_waiting_list" sequence="2"/>
+                    <menuitem id="lms_menu_action_show_revenues" name="Revenues" action="lms_event_sale_report_action" sequence="3"/>
+                </menuitem>
+            </menuitem>
+        </menuitem>
+
+    </data>
+
+</odoo>

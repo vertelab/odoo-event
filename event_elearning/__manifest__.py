@@ -20,7 +20,7 @@
 ##############################################################################
 
 {
-    'name': 'Event: Elearning',
+    'name': 'Event: Elearning LMS',
     'version': '0.2',
     'summary': '',
     'category': 'Event',
@@ -33,11 +33,14 @@
     'repository': 'https://github.com/vertelab/odoo-event',
     'description': """
     """,
-    'depends': ['hr','event','website_slides'],
+    'depends': ['hr','event','website_slides', 'event_sale', 'event_waitlist_website'],
     'data': [
+        'security/security.xml',
         'data/event_reminder_mail_templet.xml',
         'data/event_subscription_mail_templet.xml',
         'views/event_event.xml',
+        'views/menu.xml',
+        'views/website_slides_templates_course.xml',
     ],
     'demo': [],
     'qweb': [],

@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record id="action_target_demographic" model="ir.actions.act_window">
+            <field name="name">Target Demographic</field>
+            <field name="res_model">event.target.demographic</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem
+            id="menu_target_demographic"
+            name="Target Demographic"
+            parent="event_lms.menu_lms"
+            action="action_target_demographic"></menuitem>
+    </data>
+</odoo>

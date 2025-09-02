@@ -1,6 +1,7 @@
 <odoo>
     <template id="event_description_full" inherit_id="website_event.event_description_full">
-        <xpath expr="//t[@t-call='website_event.event_details']/section[1]/div[hasclass('container')]/div[1]/div[2]/div[1]/div[last()]" position="before">
+        <!--<xpath expr="//t[@t-call='website_event.event_details']/section[1]/div[hasclass('container')]/div[1]/div[2]/div[1]/div[last()]" position="before">-->
+        <xpath expr="//t[@t-call='website_event.event_details']/section/div[hasclass('container')]/div[1]/div[1]/div[1]" position="before">
             <!-- Requirements -->
             
             

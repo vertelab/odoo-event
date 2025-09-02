@@ -34,7 +34,7 @@
     'website': 'https://vertel.se/apps/odoo-event/website_event_portal_elearning',
     'images': ['static/description/banner.png'], # 560x280
     'license': 'AGPL-3',
-    'depends': ['website_event_portal', 'event_elearning'],
+    'depends': ['website_event_portal', 'event_lms'],
      #"external_dependencies": {
      #   "bin": ["openssl",], 
      #   "python": ["acme_tiny", "IPy",],

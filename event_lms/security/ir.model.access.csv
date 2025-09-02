@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_lms_course_manager,access LMS course for managers,model_lms_course,event.group_event_manager,1,1,1,1
+access_lms_course_slides_manager,access LMS course for slides managers,model_lms_course,website_slides.group_website_slides_manager,1,1,1,1
+access_lms_course_user,access LMS course for all users,model_lms_course,,1,0,0,0
+access_lms_step_manager,access LMS step for managers,model_lms_step,event.group_event_manager,1,1,1,1
+access_lms_step_slides_manager,access LMS step for slides managers,model_lms_step,website_slides.group_website_slides_manager,1,1,1,1
+access_lms_step_user,access LMS step for all users,model_lms_step,,1,0,0,0
+

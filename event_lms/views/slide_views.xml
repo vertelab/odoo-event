@@ -1,0 +1,13 @@
+<odoo>
+    <record id="view_slide_slide_form_wo_channel_id" model="ir.ui.view">
+            <field name="name">slide.slide.form.wo.channel_id</field>
+            <field name="model">slide.slide</field>
+            <field name="inherit_id" ref="website_slides.view_slide_slide_form"/>
+            <field name="arch" type="xml">
+              <field name="video_url" position="after">
+                  <field name="event_type_id" invisible="slide_category != 'event_type'" readonly="slide_category != 'event_type'" required="slide_category == 'event_type'"/>
+              </field>
+            </field>
+    </record>
+</odoo>
+        
