@@ -1,0 +1,103 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_target_demographic
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20250901\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-02 14:00+0000\n"
+"PO-Revision-Date: 2025-09-02 16:03+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. module: event_target_demographic
+#: model:ir.model,name:event_target_demographic.model_slide_channel
+msgid "Course"
+msgstr "Kurs"
+
+#. module: event_target_demographic
+#: model:ir.model.fields,field_description:event_target_demographic.field_event_target_demographic__create_uid
+msgid "Created by"
+msgstr "Skapad av"
+
+#. module: event_target_demographic
+#: model:ir.model.fields,field_description:event_target_demographic.field_event_target_demographic__create_date
+msgid "Created on"
+msgstr "Skapad på"
+
+#. module: event_target_demographic
+#: model:ir.model.fields,field_description:event_target_demographic.field_event_target_demographic__display_name
+msgid "Display Name"
+msgstr "Visa namn"
+
+#. module: event_target_demographic
+#: model:ir.model.fields,field_description:event_target_demographic.field_event_target_demographic__domain
+#: model:ir.model.fields,help:event_target_demographic.field_event_target_demographic__domain
+msgid "Domain"
+msgstr "Domän"
+
+#. module: event_target_demographic
+#: model:ir.model,name:event_target_demographic.model_event_event
+msgid "Event"
+msgstr "Evenemang"
+
+#. module: event_target_demographic
+#: model:ir.model,name:event_target_demographic.model_event_target_demographic
+msgid "Event Target Demographic"
+msgstr "Event Målgrupp Demografi"
+
+#. module: event_target_demographic
+#: model:ir.model,name:event_target_demographic.model_event_type
+msgid "Event Template"
+msgstr "Evenemangsmall"
+
+#. module: event_target_demographic
+#: model:ir.model.fields,field_description:event_target_demographic.field_event_target_demographic__id
+msgid "ID"
+msgstr "ID"
+
+#. module: event_target_demographic
+#: model:ir.model.fields,field_description:event_target_demographic.field_event_target_demographic__write_uid
+msgid "Last Updated by"
+msgstr "Senast uppdaterad av"
+
+#. module: event_target_demographic
+#: model:ir.model.fields,field_description:event_target_demographic.field_event_target_demographic__write_date
+msgid "Last Updated on"
+msgstr "Senast uppdaterad den"
+
+#. module: event_target_demographic
+#: model:ir.model.fields,field_description:event_target_demographic.field_event_target_demographic__model_id
+msgid "Model"
+msgstr "Modell"
+
+#. module: event_target_demographic
+#: model:ir.model.fields,field_description:event_target_demographic.field_event_target_demographic__model_name
+msgid "Model Name"
+msgstr "Modellnamn"
+
+#. module: event_target_demographic
+#: model:ir.model.fields,field_description:event_target_demographic.field_event_target_demographic__name
+msgid "Name"
+msgstr "Namn"
+
+#. module: event_target_demographic
+#: model:ir.actions.act_window,name:event_target_demographic.action_target_demographic
+#: model:ir.model.fields,field_description:event_target_demographic.field_event_event__target_demographic_id
+#: model:ir.model.fields,field_description:event_target_demographic.field_event_type__target_demographic_id
+#: model:ir.model.fields,field_description:event_target_demographic.field_slide_channel__target_demographic_id
+#: model:ir.ui.menu,name:event_target_demographic.menu_target_demographic
+msgid "Target Demographic"
+msgstr "Demografisk målgrupp"
+
+#. module: event_target_demographic
+#: model:ir.model.fields,field_description:event_target_demographic.field_event_target_demographic__user_ids
+msgid "User"
+msgstr "Användare"
