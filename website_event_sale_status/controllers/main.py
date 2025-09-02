@@ -24,8 +24,8 @@ _logger = logging.getLogger(__name__)
 
 class CustomWebsiteEventControllerRegistration(WebsiteEventController):
 
-    @http.route(['''/event/<model("event.event"):event>/registration/confirm'''], type='http', auth="public", methods=['POST'], website=True)
-    def registration_confirm(self, event, **post):
+    #@http.route(['''/event/<model("event.event"):event>/registration/confirm'''], type='http', auth="public", methods=['POST'], website=True)
+    def dep_registration_confirm(self, event, **post):
         """ Check before creating and finalize the creation of the registrations
             that we have enough seats for all selected tickets.
             If we don't, the user is instead redirected to page to register with a

@@ -180,7 +180,6 @@
 
     <!-- we can improve this if we see the need for it (commented by miracle) -->
     <template id="registration_template" inherit_id="website_event.modal_ticket_registration">
-<!--        <xpath expr="//form[@id='registration_form']/div[@id='o_wevent_tickets']//div[@id='o_wevent_tickets_collapse']/div[@t-foreach='tickets']/div[1]/small[last()]" position="after">-->
         <xpath expr="//form[@id='registration_form']/div[@id='o_wevent_tickets']//div[@id='o_wevent_tickets_collapse']//div[1]/small[last()]" position="after">
             <small t-if="ticket.sale_available and not ticket.is_expired" class="text-muted mr-3" itemprop="availabilityEnds">
                 Available Seats: <span t-field="ticket.seats_available"/>

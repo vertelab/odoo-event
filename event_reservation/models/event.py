@@ -1,5 +1,5 @@
 from odoo import models, fields, api, _
-
+import logging
 
 class EventRegistration(models.Model):
     _inherit = 'event.registration'
@@ -17,8 +17,8 @@ class EventReservationTicket(models.Model):
                  'event_id.seats_available')
     def _compute_seats_event_limit(self):
         #TODO figure out the purpose of this module and fix compute
-        self.seats_available_event_limit = False
-        return
+        #self.seats_available_event_limit = False
+        #return
         """ Determine reserved, available, reserved but unconfirmed and used seats. """
         # initialize fields to 0 + compute seats availability
         for ticket in self:
@@ -28,13 +28,13 @@ class EventReservationTicket(models.Model):
         results = {}
         if self.ids:
             state_field = {
-                'draft': 'seats_unconfirmed',
-                'open': 'seats_reserved',
-                'done': 'seats_used',
+            'open': 'seats_reserved',
+            'done': 'seats_used',
             }
+
             query = """ SELECT event_ticket_id, state, count(event_id)
                         FROM event_registration
-                        WHERE event_ticket_id IN %s AND state IN ('draft', 'open', 'done')
+                        WHERE event_ticket_id IN %s AND state IN ('open', 'done')
                         GROUP BY event_ticket_id, state
                     """
             self.env['event.registration'].flush_model(['event_id', 'event_ticket_id', 'state'])
