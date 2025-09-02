@@ -9,7 +9,7 @@
         <menuitem
             id="menu_target_demographic"
             name="Target Demographic"
-            parent="event_elearning.menu_lms"
+            parent="event_lms.menu_lms"
             action="action_target_demographic"></menuitem>
     </data>
 </odoo>

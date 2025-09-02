@@ -39,7 +39,7 @@
     'repository': 'https://github.com/vertelab/odoo-event',
     "application": False,
     "installable": True,
-    'depends': ['event_elearning', 'event_target_demographic'],
+    'depends': ['event_lms', 'event_target_demographic'],
     "data": [
         'views/menu.xml',
     ],
