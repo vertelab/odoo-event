@@ -2230,7 +2230,7 @@ msgstr ""
 #. module: event_lms
 #: model:ir.ui.menu,name:event_lms.menu_lms
 msgid "Learning Management System"
-msgstr "System för inlärningshantering"
+msgstr "Lärplattform"
 
 #. module: event_lms
 #: model:ir.model,name:event_lms.model_ir_ui_menu
@@ -2339,22 +2339,22 @@ msgstr "Bildspel"
 #. module: event_lms
 #: model:ir.ui.menu,name:event_lms.menu_lms_occasions
 msgid "Teacher-led Opportunitys"
-msgstr "Lärarledda möjligheter"
+msgstr "Lärarledda tillfällen"
 
 #. module: event_lms
 #: model:ir.model.fields.selection,name:event_lms.selection__slide_slide__slide_category__event_type
 msgid "Teacher-led opportunity"
-msgstr "Lärarledd möjlighet"
+msgstr "Lärarledd tillfälle"
 
 #. module: event_lms
 #: model:ir.ui.menu,name:event_lms.menu_lms_course_catalog
 msgid "Teacher-led opportunity Type"
-msgstr "Lärarledd möjlighet Typ"
+msgstr "Lärarledd Tillfälle Typ"
 
 #. module: event_lms
 #: model:ir.model.fields,field_description:event_lms.field_slide_slide__event_type_id
 msgid "Teacher-led opportunity type"
-msgstr "Typ av lärarledd möjlighet"
+msgstr "Typ av lärarledd tilläfälle"
 
 #. module: event_lms
 #: model_terms:ir.actions.act_window,help:event_lms.lms_action_event_mail
