@@ -10,12 +10,13 @@ class EventRegistration(models.Model):
         auto_confirm_reserved = self.env['ir.config_parameter'].sudo().get_param(
             'event_reservation.auto_confirm_reserved'
         )
-        if self.state == 'cancel' and auto_confirm_reserved:
-            if self.event_id.seats_limited and self.event_id.seats_available > 0 and self.event_id.seats_used < self.event_id.seats_max:
-                next_candidate = self._get_oldest_reservation_for_event()
-                if next_candidate:
-                    next_candidate.action_confirm()
-                    next_candidate._send_confirmation_notification()
+        for record in self:
+            if record.state == 'cancel' and auto_confirm_reserved:
+                if record.event_id.seats_limited and record.event_id.seats_available > 0 and record.event_id.seats_used < record.event_id.seats_max:
+                    next_candidate = record._get_oldest_reservation_for_event()
+                    if next_candidate:
+                       next_candidate.action_confirm()
+                       next_candidate._send_confirmation_notification()
 
     def _send_confirmation_notification(self):
         """

@@ -2286,7 +2286,7 @@ msgstr "Tillfällesrapporter"
 #. module: event_lms
 #: model:ir.actions.act_window,name:event_lms.lms_action_event_view
 msgid "Occasions"
-msgstr "Tillfälligheter"
+msgstr "Tillfällen"
 
 #. module: event_lms
 #: model:ir.actions.act_window,name:event_lms.lms_slide_question_action_report
