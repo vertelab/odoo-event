@@ -1,5 +1,6 @@
 <odoo>
 
+<!--
     <template id="portal_my_home_events" name="Show Events" inherit_id="portal.portal_my_home" customize_show="True" priority="30">
         <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
             <t t-call="portal.portal_docs_entry">
@@ -10,6 +11,7 @@
             </t>
         </xpath>
     </template>
+-->
 
     
     
@@ -81,6 +83,37 @@
     </template>
 
 
+<!--
+   <t name="My Tasks" t-name="project.portal_my_tasks">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Tasks</t>
+            </t>
+            <t t-if="not grouped_tasks">
+                <div class="alert alert-warning" role="alert">
+                    There are no tasks.
+                </div>
+            </t>
+            <t t-call="project.portal_tasks_list"/>
+        </t>
+    </t>
+-->
+
+    <template id="portal_record_layout" name="Portal single record layout">
+        <div t-attf-class="card mt-0 rounded #{classes if classes else ''}">
+            <div t-if="card_header" t-attf-class="card-header #{header_classes if header_classes else ''}">
+                <t t-out="card_header"/>
+            </div>
+            <div t-if="card_body" t-attf-class="card-body #{body_classes if body_classes else ''}">
+                <t t-out="card_body"/>
+            </div>
+        </div>
+    </template>
+
+
+
     <template id="event_my_event_registration" name="My Event Reservation">
         <t t-call="portal.portal_layout">
             <t t-set="o_portal_fullwidth_alert" groups="event.group_event_user">
@@ -89,7 +122,7 @@
                 </t>
             </t>
 
-            <t t-call="portal.portal_record_layout">
+            <t t-call="website_event_portal.portal_record_layout">
                 <t t-set="card_header">
                     <div class="row col-12">
                         <div class="col-6">

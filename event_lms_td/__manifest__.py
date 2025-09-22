@@ -22,7 +22,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
-    'name': 'Event: Target Demographic',
+    'name': 'Event: LMS Target Demographic',
     'version': '1.0',
     # Version ledger: 17.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'Allow Target Demographics on Events.',
@@ -39,7 +39,7 @@
     'repository': 'https://github.com/vertelab/odoo-event',
     "application": False,
     "installable": True,
-    'depends': ['event_elearning', 'event_target_demographic'],
+    'depends': ['event_lms', 'event_target_demographic'],
     "data": [
         'views/menu.xml',
     ],
