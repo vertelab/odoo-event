@@ -9,7 +9,7 @@
                         type="text"
                         name="name"
                         t-att-value="partner_sudo.name"
-                        t-attf-class="form-control #{error.get('name') and 'is-invalid' or ''}"
+                        class="form-control"
                     />
                 </div>
                 <div class="w-100"/>
@@ -24,7 +24,7 @@
                         type="email"
                         name="email"
                         t-att-value="partner_sudo.email"
-                        t-attf-class="form-control #{error.get('email') and 'is-invalid' or ''}"
+                        class="form-control"
                     />
                 </div>
                 <div id="div_phone" class="col-lg-6 mb-2">
@@ -34,7 +34,7 @@
                         type="tel"
                         name="phone"
                         t-att-value="partner_sudo.phone"
-                        t-attf-class="form-control #{error.get('phone') and 'is-invalid' or ''}"
+                        class="form-control"
                     />
                 </div>
                 <t t-if="website._display_partner_b2b_fields()">
@@ -54,7 +54,7 @@
                                 name="company_name"
                                 t-att-value="partner_sudo.commercial_company_name"
                                 t-att-readonly="'1' if vat_warning else None"
-                                t-attf-class="form-control #{error.get('commercial_company_name') and 'is-invalid' or ''}"
+                                class="form-control"
                             />
                             <small t-if="vat_warning" class="form-text text-muted d-block d-lg-none">
                                 Changing company name is not allowed once document(s) have been issued for your account. Please contact us directly for this operation.
@@ -70,7 +70,7 @@
                                 name="vat"
                                 t-att-value="partner_sudo.vat"
                                 t-att-readonly="'1' if vat_warning else None"
-                                t-attf-class="form-control #{error.get('vat') and 'is-invalid' or ''}"
+                                class="form-control"
                             />
                             <small t-if="vat_warning" class="form-text text-muted d-block d-lg-none">
                                 Changing VAT number is not allowed once document(s) have been issued for your account. Please contact us directly for this operation.
@@ -85,33 +85,33 @@
                 </t>
                 <div id="div_street" class="col-lg-12 mb-2">
                     <label class="col-form-label" for="o_street">Street and Number</label>
-                    <input id="o_street" type="text" name="street" t-attf-class="form-control #{error.get('street') and 'is-invalid' or ''}" t-att-value="partner_sudo.street"/>
+                    <input id="o_street" type="text" name="street" class="form-control" t-att-value="partner_sudo.street"/>
                 </div>
                 <div id="div_street2" class="col-lg-12 mb-2">
                     <label class="col-form-label label-optional" for="o_street2">Apartment, suite, etc.</label>
-                    <input id="o_street2" type="text" name="street2" t-attf-class="form-control #{error.get('street2') and 'is-invalid' or ''}" t-att-value="partner_sudo.street2" />
+                    <input id="o_street2" type="text" name="street2" class="form-control" t-att-value="partner_sudo.street2" />
                 </div>
                 <div class="w-100"/>
                 <t t-if="zip_before_city">
                     <div id="div_zip" class="col-md-4 mb-2">
                         <label class="col-form-label label-optional" for="o_zip">Zip Code</label>
-                        <input id="o_zip" type="text" name="zip" t-attf-class="form-control #{error.get('zip') and 'is-invalid' or ''}" t-att-value="partner_sudo.zip"/>
+                        <input id="o_zip" type="text" name="zip" class="form-control" t-att-value="partner_sudo.zip"/>
                     </div>
                 </t>
                 <div id="div_city" class="col-md-8 mb-2">
                     <label class="col-form-label" for="o_city">City</label>
-                    <input id="o_city" type="text" name="city" t-attf-class="form-control #{error.get('city') and 'is-invalid' or ''}" t-att-value="partner_sudo.city"/>
+                    <input id="o_city" type="text" name="city" class="form-control" t-att-value="partner_sudo.city"/>
                 </div>
                 <t t-if="not zip_before_city">
                     <div id="div_zip" class="col-md-4 mb-2">
                         <label class="col-form-label label-optional" for="o_zip">Zip Code</label>
-                        <input id="o_zip" type="text" name="zip" t-attf-class="form-control #{error.get('zip') and 'is-invalid' or ''}" t-att-value="partner_sudo.zip"/>
+                        <input id="o_zip" type="text" name="zip" class="form-control" t-att-value="partner_sudo.zip"/>
                     </div>
                 </t>
                 <div class="w-100"/>
                 <div id="div_country" class="col-lg-6 mb-2" style="display:none !important;">
                     <label class="col-form-label" for="o_country_id">Country</label>
-                    <select id="o_country_id" name="country_id" t-attf-class="form-select #{error.get('country_id') and 'is-invalid' or ''}">
+                    <select id="o_country_id" name="country_id" class="form-select">
                         <option value="">Country...</option>
                         <t t-foreach="countries" t-as="c">
                              <t t-if="c.code == 'SE'">
@@ -128,7 +128,7 @@
                 <div id="div_state" class="col-lg-6 mb-2"
                      t-att-style="not country_states and 'display: none'">
                     <label class="col-form-label" for="o_state_id">State / Province</label>
-                    <select id="o_state_id" name="state_id" t-attf-class="form-select #{error.get('state_id') and 'is-invalid' or ''}">
+                    <select id="o_state_id" name="state_id" class="form-select">
                         <option value="">State / Province...</option>
                         <t t-foreach="country_states" t-as="s">
                             <option t-att-value="s.id" t-att-selected="s.id == state_id">
