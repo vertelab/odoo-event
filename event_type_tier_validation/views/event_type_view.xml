@@ -48,6 +48,13 @@
                         type="object"
                         invisible="validated != True or (validated == True and state == 'reviewed')"
                     />
+                    <button 
+                        name="draft_state" 
+                        string="Set to draft"
+                        type="object"
+                        invisible="state == 'draft'"
+                    />
+
                 </header>
             </xpath>
         </field>
