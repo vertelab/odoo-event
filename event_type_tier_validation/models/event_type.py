@@ -29,3 +29,8 @@ class EventType(models.Model):
     
     def confirm_state(self):
         self.state = 'reviewed'
+
+
+    def draft_state(self):
+        self.restart_validation()
+        self.state = 'draft'
