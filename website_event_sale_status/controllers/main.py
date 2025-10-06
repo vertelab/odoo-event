@@ -63,6 +63,7 @@ class CustomWebsiteSaleControllerRegistration(WebsiteSale):
         sale_order_id = request.session.get('sale_last_order_id')
         if sale_order_id:
             order = request.env['sale.order'].sudo().browse(sale_order_id)
+            order.action_confirm()
             event_registration_ids = request.env['event.registration'].sudo().search([("sale_order_line_id", "in", order.order_line.ids)])
             for event_registration_id in event_registration_ids:
                 event_registration_id.sudo().write({"state":"open"})
