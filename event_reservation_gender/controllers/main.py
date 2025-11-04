@@ -56,10 +56,13 @@ class WebsiteEventController(WebsiteEventController):
                 logging.warning(f"{registration_fields=}")
                 if field_name not in registration_fields:
                     continue
-                if not field_name == 'partner_gender':
-                   registrations.setdefault(registration_index, dict())[field_name] = int(value) or False
+
+                field = registration_fields[field_name]
+                if field.type in ('many2one', 'many2many', 'one2many'):
+                    registrations.setdefault(registration_index, dict())[field_name] = int(value) or False
                 else:
                     registrations.setdefault(registration_index, dict())[field_name] = value or False
+
                 logging.warning(f"{registrations=}")
                 continue
 
