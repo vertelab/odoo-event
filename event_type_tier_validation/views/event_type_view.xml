@@ -48,6 +48,13 @@
                         type="object"
                         invisible="validated != True or (validated == True and state == 'reviewed')"
                     />
+                    <button 
+                        name="draft_state" 
+                        string="Set to draft"
+                        type="object"
+                        invisible="state == 'draft'"
+                    />
+
                 </header>
             </xpath>
         </field>
@@ -117,7 +124,7 @@
     <record model="ir.actions.act_window" id="event.action_event_type">
         <field name="name">Event Templates</field>
         <field name="res_model">event.type</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">kanban,list,form</field>
         <field name="context">{"search_default_group_state": 1}</field>
     </record>
 </odoo>
