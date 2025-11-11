@@ -34,15 +34,20 @@
 
             <record id="website_slides.rule_slide_channel_visibility_signed_in_user" model="ir.rule">
                 <field name="domain_force">
-                    ['&amp;' ,('target_demographic_id.user_ids', 'in', user.id),
-                '&amp;',
-                    ('website_published', '=', True),
+[
+    '|',
+        ('target_demographic_id.user_ids', 'in', user.id),
+        '&amp;',
+            ('target_demographic_id', '=', False),
+            '&amp;',
+                ('website_published', '=', True),
+                '|',
+                    ('visibility', 'in', ('public', 'connected')),
                     '|',
-                        ('visibility', 'in', ('public', 'connected')),
-                        '|',
-                            ('is_member_invited', '=', True),
-                            ('is_member', '=', True),
-                ]
+                        ('is_member_invited', '=', True),
+                        ('is_member', '=', True),
+]
+
                 </field>
             </record>
 

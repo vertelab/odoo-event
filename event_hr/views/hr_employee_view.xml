@@ -11,8 +11,8 @@
                     <button type="object" name="action_view_completed_certification" class="oe_stat_button" icon="fa-trophy">
                         <field name="completed_certification_count" string="Certified" widget="statinfo"/>
                     </button>
-                    <button type="object" name="action_view_recommended_certification" class="oe_stat_button" icon="fa-trophy">
-                        <field name="recommended_certification_count" string="Recommended Courses" widget="statinfo"/>
+                    <button type="object" name="action_view_recommended_certification" class="oe_stat_button" string="Recommended Courses" icon="fa-trophy">
+                        <!--<field name="recommended_certification_count" string="Recommended Courses" widget="statinfo"/>-->
                     </button>
                 </xpath>
 <!--                <field name="work_location_id" position="after">-->
