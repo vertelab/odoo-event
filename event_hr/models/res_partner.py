@@ -56,8 +56,31 @@ class ResPartner(models.Model):
     def action_view_survey_inputs(self):
         return {
             'name': _('Certifications'),
-            'view_mode': 'tree,form',
+            'view_mode': 'list,form',
             'domain': [('partner_id', 'in', self.ids)],
             'res_model': 'survey.user_input',
             'type': 'ir.actions.act_window',
         }
+
+    employee_id = fields.Many2one(
+        'hr.employee',
+        string="Main Employee",
+        compute='_compute_employee_id',
+        search='_search_main_employee',
+        store=False,
+        readonly=False,
+    )
+
+    @api.depends('employee_ids')
+    def _compute_employee_id(self):
+        for partner in self:
+            if partner.employee_ids:
+                employee = partner.employee_ids[0]
+            else:
+                employee = False
+            partner.employee_id = employee
+
+    def _search_employee_id(self, operator, value):
+        """Search for partners based on their main employee"""
+        return [('employee_ids', operator, value)]
+

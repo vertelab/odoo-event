@@ -47,6 +47,7 @@
         'views/hr_employee_view.xml',
         'views/res_partner_views.xml',
         'views/survey_survey_view.xml',
+        'views/slide_channel_partner_views.xml',
     ],
     'application': False,
     'installable': True,

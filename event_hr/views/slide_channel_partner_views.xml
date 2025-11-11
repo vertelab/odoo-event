@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="slide_channel_partner_view_search" model="ir.ui.view">
+            <field name="name">slide.channel.partner.search</field>
+            <field name="model">slide.channel.partner</field>
+            <field name="inherit_id" ref="website_slides.slide_channel_partner_view_search"/>
+            <field name="arch" type="xml">
+                <field name="channel_id" position="after">
+                    <field name="employee_job_id"/>
+                    <field name="employee_department_id"/>
+                </field>
+                <xpath expr="//filter[@name='groupby_channel_id']" position="after">
+                    <filter string="Jobs" name="groupby_job_id" context="{'group_by': 'employee_job_id'}"/>
+                    <filter string="Departments" name="groupby_department_id" context="{'group_by': 'employee_department_id'}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
