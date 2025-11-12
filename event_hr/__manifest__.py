@@ -48,6 +48,7 @@
         'views/res_partner_views.xml',
         'views/survey_survey_view.xml',
         'views/slide_channel_partner_views.xml',
+        'views/slide_channel_tag_views.xml',
     ],
     'application': False,
     'installable': True,

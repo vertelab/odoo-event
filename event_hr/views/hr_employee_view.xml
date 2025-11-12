@@ -6,8 +6,11 @@
             <field name="model">hr.employee</field>
             <field name="inherit_id" ref="hr.view_employee_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//div[@name='button_box']" position="inside">
+                <field name="category_ids" position="after">
+                    <field name="slide_channel_tag_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}"/>
+                </field>
 
+                <xpath expr="//div[@name='button_box']" position="inside">
                     <button type="object" name="action_view_completed_certification" class="oe_stat_button" icon="fa-trophy">
                         <field name="completed_certification_count" string="Certified" widget="statinfo"/>
                     </button>
@@ -30,6 +33,9 @@
                         decoration-danger="date_end &gt; (context_today() - datetime.timedelta(days=lead_time)).strftime('%Y-%m-%d')"
                         decoration-success="date_end &lt; (context_today() - datetime.timedelta(days=lead_time)).strftime('%Y-%m-%d')"
                         decoration-warning="date_end &lt; (context_today() - datetime.timedelta(days=lead_time)).strftime('%Y-%m-%d')"
+                        create="false"
+                        edit="false"
+                        delete="false"
                 >
                     <field name="edu_reference" optional="show" class="oe_inline" options="{'hide_model': True, 'no_create': True, 'no_open': True}"/>
                     <field name="edu_source_reference" optional="show" class="oe_inline" options="{'hide_model': True, 'no_create': True, 'no_open': True}"/>

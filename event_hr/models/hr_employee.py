@@ -6,6 +6,10 @@ from odoo import models, fields, api, _
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
+    slide_channel_tag_ids = fields.Many2many(
+        'slide.channel.tag', 'hr_employee_slide_channel_tag_rel', 'employee_id', 'slide_channel_tag_id',
+        string='Tags', help='Used to categorize and filter displayed channels/courses')
+
     def action_view_recommended_certification(self):
         """This function shows 'mandatory.edu' based on their hr.job and other survey.survey and trie to find courses to recommend.
         
@@ -21,11 +25,11 @@ class HrEmployee(models.Model):
             ('employee_id', '=', self.id), ('display_type', '=', 'certification'),
         ])
 
-        mandatory_surveys = self.job_id.mandatory_survey_ids
+        mandatory_surveys = self.job_id.mandatory_survey_ids | self.slide_channel_tag_ids.mapped('survey_survey_ids') # survery.survery: certification
         intersection = mandatory_surveys & all_surveys
         todo_mandatory_survey = mandatory_surveys | intersection
         todo_voluntary_certs = all_surveys - intersection
-        mandatory_courses = self.job_id.mandatory_slide_channel_ids
+        mandatory_courses = self.job_id.mandatory_slide_channel_ids | self.slide_channel_tag_ids.mapped('channel_ids') # slide.channel
 
         for cert in todo_voluntary_certs:
             event_type = self.env['event.type'].search([('slide_channel_id', 'in', cert.slide_channel_ids.ids)],
@@ -60,7 +64,6 @@ class HrEmployee(models.Model):
             })
 
         for slide_channel_id in mandatory_courses:
-            print(f"{slide_channel_id.display_name=}")
             event_type = self.env['event.type'].search([('slide_channel_id', '=', slide_channel_id.id)], limit=1)
             mandatory_edu_vals_list.append({
                 "edu_reference": f"event.type,{event_type.id}" if event_type else f"slide.channel,{slide_channel_id.id}",
@@ -77,6 +80,7 @@ class HrEmployee(models.Model):
             'domain': [('id', 'in', edu_ids.ids)],
             'res_model': 'mandatory.edu',
             'type': 'ir.actions.act_window',
+            'context': {'create': False},
         }
 
     # @api.depends('user_partner_id')
