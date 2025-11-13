@@ -1,15 +1,306 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
+# 	* event_hr
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0-20250826\n"
+"Project-Id-Version: Odoo Server 18.0-20251110\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-27 12:15+0000\n"
-"PO-Revision-Date: 2025-08-27 12:15+0000\n"
+"POT-Creation-Date: 2025-11-13 14:31+0000\n"
+"PO-Revision-Date: 2025-11-13 15:36+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. module: event_hr
+#: model_terms:ir.ui.view,arch_db:event_hr.res_partner_view_form
+msgid "<span class=\"o_stat_text\">Certifications</span>"
+msgstr "<span class=\"o_stat_text\">Certifieringar</span>"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_hr_job__access_mode
+msgid "Access Mode"
+msgstr "Åtkomstläge"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_slide_channel_tag__survey_survey_ids
+msgid "Certificate"
+msgstr "Certifikat"
+
+#. module: event_hr
+#. odoo-python
+#: code:addons/event_hr/models/hr_employee.py:0
+#: code:addons/event_hr/models/res_partner.py:0
+#: model:ir.model.fields,field_description:event_hr.field_res_partner__survey_user_input_ids
+#: model:ir.model.fields,field_description:event_hr.field_res_users__survey_user_input_ids
+#: model_terms:ir.ui.view,arch_db:event_hr.slide_channel_tag_view_form
+#: model_terms:ir.ui.view,arch_db:event_hr.view_hr_job_form
+msgid "Certifications"
+msgstr "Certifieringar"
+
+#. module: event_hr
+#: model_terms:ir.ui.view,arch_db:event_hr.view_hr_employee_form
+msgid "Certified"
+msgstr "Certifierad"
+
+#. module: event_hr
+#: model:ir.model,name:event_hr.model_slide_channel_partner
+msgid "Channel / Partners (Members)"
+msgstr "Kanal / Kontakter (Medlemmar)"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_hr_job__channel_type
+msgid "Channel Type"
+msgstr "Typ av kanal"
+
+#. module: event_hr
+#: model:ir.model,name:event_hr.model_slide_channel_tag
+msgid "Channel/Course Tag"
+msgstr "Kanal-/kursetikett"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_hr_employee__completed_certification_count
+#: model:ir.model.fields,field_description:event_hr.field_hr_employee__recommended_certification_count
+msgid "Completed Certification(s)"
+msgstr "Ifylld(a) certifiering(ar)"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_res_partner__completed_survey_user_input_ids
+#: model:ir.model.fields,field_description:event_hr.field_res_users__completed_survey_user_input_ids
+msgid "Completed Certifications"
+msgstr "Genomförda certifieringar"
+
+#. module: event_hr
+#: model:ir.model,name:event_hr.model_res_partner
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_res_partner__survey_user_input_count
+#: model:ir.model.fields,field_description:event_hr.field_res_users__survey_user_input_count
+msgid "Course Count"
+msgstr "Antal kurser"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_hr_employee__slide_channel_tag_ids
+#: model_terms:ir.ui.view,arch_db:event_hr.view_hr_employee_form_search
+msgid "Course Tags"
+msgstr "Kursetiketter"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_survey_survey__validity
+msgid "Course Validity"
+msgstr "Kursvaliditet"
+
+#. module: event_hr
+#. odoo-python
+#: code:addons/event_hr/models/hr_employee.py:0
+#: model:ir.model.fields,field_description:event_hr.field_hr_job__mandatory_slide_channel_ids
+#: model_terms:ir.ui.view,arch_db:event_hr.slide_channel_tag_view_form
+#: model_terms:ir.ui.view,arch_db:event_hr.view_hr_job_form
+msgid "Courses"
+msgstr "Kurs"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_mandatory_edu__create_uid
+msgid "Created by"
+msgstr "Skapad av"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_mandatory_edu__create_date
+msgid "Created on"
+msgstr "Skapad på"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_mandatory_edu__date_end
+msgid "Date End"
+msgstr "Datum Slut"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_hr_job__resume_renewal
+msgid "Days to Recommendation"
+msgstr "Dagar till rekommendation"
+
+#. module: event_hr
+#: model_terms:ir.ui.view,arch_db:event_hr.slide_channel_partner_view_search
+msgid "Departments"
+msgstr "Avdelningar"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_mandatory_edu__display_name
+msgid "Display Name"
+msgstr "Visningsnamn"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_mandatory_edu__edu_reference
+msgid "Edu Reference"
+msgstr "Edu-referens"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_mandatory_edu__edu_source_reference
+msgid "Edu Source Reference"
+msgstr "Edu källhänvisning"
+
+#. module: event_hr
+#: model:ir.model,name:event_hr.model_hr_employee
+#: model:ir.model.fields,field_description:event_hr.field_mandatory_edu__employee_id
+msgid "Employee"
+msgstr "Anställd"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_slide_channel_partner__employee_department_id
+msgid "Employee Department"
+msgstr "Avdelning för anställda"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_slide_channel_partner__employee_job_id
+msgid "Employee Job"
+msgstr "Anställd Jobb"
+
+#. module: event_hr
+#: model:ir.model,name:event_hr.model_event_event
+msgid "Event"
+msgstr "Evenemang"
+
+#. module: event_hr
+#: model:ir.model.fields.selection,name:event_hr.selection__hr_job__channel_type__external
+#: model:ir.model.fields.selection,name:event_hr.selection__hr_job__survey_type__external
+msgid "External"
+msgstr "Extern"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_res_partner__failed_survey_user_input_ids
+#: model:ir.model.fields,field_description:event_hr.field_res_users__failed_survey_user_input_ids
+msgid "Failed Certifications"
+msgstr "Misslyckade certifieringar"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_mandatory_edu__id
+msgid "ID"
+msgstr "ID"
+
+#. module: event_hr
+#: model:ir.model.fields.selection,name:event_hr.selection__hr_job__channel_type__internal
+#: model:ir.model.fields.selection,name:event_hr.selection__hr_job__survey_type__internal
+msgid "Internal"
+msgstr "Internt"
+
+#. module: event_hr
+#: model:ir.model,name:event_hr.model_hr_job
+msgid "Job Position"
+msgstr "Tjänst"
+
+#. module: event_hr
+#: model_terms:ir.ui.view,arch_db:event_hr.slide_channel_partner_view_search
+msgid "Jobs"
+msgstr "Jobb"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_mandatory_edu__write_uid
+msgid "Last Updated by"
+msgstr "Senast uppdaterad av"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_mandatory_edu__write_date
+msgid "Last Updated on"
+msgstr "Senast uppdaterad den"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_mandatory_edu__lead_time
+#: model:ir.model.fields,field_description:event_hr.field_survey_survey__lead_time
+msgid "Lead Time"
+msgstr "Ledtid"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_res_partner__employee_id
+msgid "Main Employee"
+msgstr "Huvudanställd"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_mandatory_edu__mandatory
+msgid "Mandatory"
+msgstr "Obligatoriskt"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_hr_job__mandatory_event_ids
+msgid "Mandatory Courses"
+msgstr "Obligatoriska kurser"
+
+#. module: event_hr
+#: model:ir.model.fields,help:event_hr.field_hr_job__mandatory_event_ids
+msgid "Mandatory Courses for this position"
+msgstr "Obligatoriska kurser för denna befattning"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_hr_job__event_ids
+msgid "Other Courses"
+msgstr "Övriga kurser"
+
+#. module: event_hr
+#: model:ir.model.fields,help:event_hr.field_hr_job__event_ids
+msgid "Other Courses for this position"
+msgstr "Andra kurser för denna position"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_res_partner__passed_survey_user_input_ids
+#: model:ir.model.fields,field_description:event_hr.field_res_users__passed_survey_user_input_ids
+msgid "Passed Certifications"
+msgstr "Godkända certifieringar"
+
+#. module: event_hr
+#: model:ir.model.fields.selection,name:event_hr.selection__hr_job__access_mode__private
+msgid "Private"
+msgstr "Privat"
+
+#. module: event_hr
+#: model:ir.model.fields.selection,name:event_hr.selection__hr_job__access_mode__public
+msgid "Public"
+msgstr "Allmänheten"
+
+#. module: event_hr
+#. odoo-python
+#: code:addons/event_hr/models/hr_employee.py:0
+#: model:ir.model.fields,field_description:event_hr.field_hr_employee__recommended_certification_ids
+msgid "Recommended Certifications"
+msgstr "Rekommenderade certifieringar"
+
+#. module: event_hr
+#: model_terms:ir.ui.view,arch_db:event_hr.view_hr_employee_form
+msgid "Recommended Courses"
+msgstr "Rekommenderade kurser"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_hr_job__user_id
+msgid "Responsible"
+msgstr "Ansvarig"
+
+#. module: event_hr
+#: model:ir.model,name:event_hr.model_survey_survey
+#: model:ir.model.fields,field_description:event_hr.field_hr_job__mandatory_survey_ids
+msgid "Survey"
+msgstr "Enkät"
+
+#. module: event_hr
+#: model:ir.model.fields,field_description:event_hr.field_hr_job__survey_type
+msgid "Survey Type"
+msgstr "Typ av undersökning"
+
+#. module: event_hr
+#: model:ir.model,name:event_hr.model_survey_user_input
+msgid "Survey User Input"
+msgstr "Enkät användarsvar"
+
+#. module: event_hr
+#: model:ir.model.fields,help:event_hr.field_hr_employee__slide_channel_tag_ids
+msgid "Used to categorize and filter displayed channels/courses"
+msgstr "Används för att kategorisera och filtrera visade kanaler/kurser"
+
+#. module: event_hr
+#: model:ir.model,name:event_hr.model_mandatory_edu
+msgid "mandatory.edu"
+msgstr "obligatorisk.edu"
