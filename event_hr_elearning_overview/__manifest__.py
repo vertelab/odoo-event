@@ -34,12 +34,14 @@
     'website': 'https://vertel.se/apps/odoo-event/event_hr_elearning_overview',
     'images': ['static/description/banner.png'], # 560x280
     'license': 'AGPL-3',
-    'depends': ["hr","website_slides"],
+    'depends': ["hr", "website_slides", "event_hr"],
      #"external_dependencies": {
      #   "bin": ["openssl",], 
      #   "python": ["acme_tiny", "IPy",],
      #},
-    'data': ["views/hr_employee_views.xml"],
+    'data': [
+        # "views/hr_employee_views.xml"
+    ],
     'demo': [],
     'application': False,
     'installable': True,    

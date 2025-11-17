@@ -18,12 +18,17 @@ class HrEmployee(models.Model):
             rec.subordinate_course_participants_ids = subordinate_course_participants
             rec.subordinate_course_participants_count = len(rec.subordinate_course_participants_ids)
 
-    subordinate_course_participants_ids = fields.One2many('slide.channel.partner', 'partner_id',
-                                                          string='Subordinate Course Participants',
-                                                          compute='compute_subordinate_course_participants')
+    subordinate_course_participants_ids = fields.One2many(
+        'slide.channel.partner',
+        'employee_id',
+        string='Subordinate Course Participants',
+        compute='compute_subordinate_course_participants'
+    )
 
-    subordinate_course_participants_count = fields.Integer(string="Number of subordinate course Participants",
-                                                           compute='compute_subordinate_course_participants')
+    subordinate_course_participants_count = fields.Integer(
+        string="Number of subordinate course Participants",
+        compute='compute_subordinate_course_participants'
+    )
 
     def manager_course_overview(self):
         return {
