@@ -8,7 +8,7 @@ class HrEmployee(models.Model):
 
     slide_channel_tag_ids = fields.Many2many(
         'slide.channel.tag', 'hr_employee_slide_channel_tag_rel', 'employee_id', 'slide_channel_tag_id',
-        string='Tags', help='Used to categorize and filter displayed channels/courses')
+        string='Course Tags', help='Used to categorize and filter displayed channels/courses')
 
     def action_view_recommended_certification(self):
         """This function shows 'mandatory.edu' based on their hr.job and other survey.survey and trie to find courses to recommend.

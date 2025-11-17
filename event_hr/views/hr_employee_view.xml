@@ -23,6 +23,24 @@
 <!--                </field>-->
             </field>
          </record>
+         
+         
+        <record id="view_hr_employee_form_search" model="ir.ui.view">
+            <field name="name">hr.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_filter"/>
+            <field name="arch" type="xml">
+                
+                <xpath expr="//field[@name='category_ids']" position="after">
+                    <field name="slide_channel_tag_ids" groups="hr.group_hr_user"/>
+                </xpath>
+                
+                <xpath expr="//filter[@name='group_category_ids']" position="after">
+                    <filter name="group_slide_channel_tag_ids" string="Course Tags" domain="[]" context="{'group_by': 'slide_channel_tag_ids'}"/>
+                </xpath>
+                
+            </field>
+         </record>
 
 
         <record id="view_mandatory_edu_tree" model="ir.ui.view">
