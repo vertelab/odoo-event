@@ -66,7 +66,7 @@ class ResPartner(models.Model):
         'hr.employee',
         string="Main Employee",
         compute='_compute_employee_id',
-        search='_search_main_employee',
+        search='_search_employee_id',
         store=False,
         readonly=False,
     )
