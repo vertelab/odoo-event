@@ -2,7 +2,8 @@ from datetime import date, timedelta
 from odoo import models, fields, api, _
 from odoo.tools import html2plaintext
 from odoo.addons.hr_skills_survey.models.survey_user import SurveyUserInput as SurveyUserInputOG
-
+import logging
+_logger = logging.getLogger(__name__)
 
 class SurveyUserInput(models.Model):
     _inherit = 'survey.user_input'
@@ -47,12 +48,26 @@ class Survey(models.Model):
 
 class MandatoryEdu(models.TransientModel):
     _name = "mandatory.edu"
+    
+    def action_view_course(self):
+        self.ensure_one()
+        if self.edu_source_reference:
+            _logger.warning(f"{self.edu_source_reference=}")
+            return {
+                'type': 'ir.actions.act_window',
+                'name': 'View Course',
+                'res_model': self.edu_source_reference._name,
+                'res_id': self.edu_source_reference.id,
+                'view_mode': 'form',
+                'target': 'current',
+            }
+        return False
 
     @api.model
     def _selection_reference_model(self):
         return [('event.type', 'Course'), ('survey.survey', 'Survey'), ('slide.channel', 'Course')]
 
-    edu_reference = fields.Reference(selection=_selection_reference_model, readonly=True)
+    edu_reference = fields.Reference(selection=_selection_reference_model, readonly=True, string="Course Name")
 
     def _selection_source_model(self):
         return [('survey.survey', 'Survey'), ('slide.channel', 'Course')]
