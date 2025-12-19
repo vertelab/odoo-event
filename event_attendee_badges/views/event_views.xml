@@ -5,9 +5,10 @@
             <field name="model">event.registration</field>
             <field name="inherit_id" ref="event.view_event_registration_form"/>
             <field name="arch" type="xml">
-              <field name="name" position="after">
-                  <field name="attendee_company_name"/>
-              </field>
+                <field name="name" position="after">
+                    <field name="attendee_company_name"/>
+                    <field name="attendee_company_image"/>
+                </field>
             </field>
         </record>
     </data>
