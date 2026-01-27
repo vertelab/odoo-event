@@ -20,7 +20,7 @@ class EventRegistrationCron(models.Model):
                         f"are too old: {registration_search_filtered}")
         for registration in registration_search_filtered:
             event_time_zone = pytz.timezone(registration.event_id.date_tz)
-            registration_date_open = registration.date_open.astimezone(event_time_zone)
+            registration_date_open = registration.event_begin_date.astimezone(event_time_zone)
 
             if registration_date_open <= datetime.now().astimezone(event_time_zone) - timedelta(hours=1):
                 if registration.sale_order_id.invoice_ids:
