@@ -23,7 +23,7 @@ msgstr "Tillgängliga"
 #. module: event_partner
 #: model_terms:ir.ui.view,arch_db:event_partner.registration_template
 msgid "Available Seats:"
-msgstr "Tillgängliga platser"
+msgstr "Tillgängliga platser:"
 
 #. module: event_partner
 #: model:ir.model.fields,field_description:event_partner.field_event_event__display_name
@@ -38,17 +38,17 @@ msgstr "Utbildningen"
 #. module: event_partner
 #: model:ir.model.fields,field_description:event_partner.field_event_event__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: event_partner
 #: model:ir.model.fields,field_description:event_partner.field_event_event____last_update
 msgid "Last Modified on"
-msgstr "Senast redigerad"
+msgstr "Senast redigerad den"
 
 #. module: event_partner
 #: model:ir.model.fields,field_description:event_partner.field_event_event__res_partner_ids
 msgid "Partners"
-msgstr "Kontakter"
+msgstr "Partners"
 
 #. module: event_partner
 #: model_terms:ir.ui.view,arch_db:event_partner.event_event_ticket_view_tree_from_event
