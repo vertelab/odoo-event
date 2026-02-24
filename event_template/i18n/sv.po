@@ -7,18 +7,20 @@ msgstr ""
 "Project-Id-Version: Odoo Server 14.0-20210929\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-09 13:41+0000\n"
-"PO-Revision-Date: 2021-12-09 13:41+0000\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2026-02-24 14:37+0100\n"
+"Last-Translator: Jakob Krabbe <jakob.krabbe@vertel.se>\n"
 "Language-Team: \n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #. module: event_template
 #: model_terms:ir.ui.view,arch_db:event_template.event_event_partner_form
 msgid "Create Event From Template"
-msgstr "Skapa från en mall"
+msgstr "Skapa evenemang från en mall"
 
 #. module: event_template
 #: model:ir.model.fields,field_description:event_template.field_event_event__display_name
@@ -28,12 +30,12 @@ msgstr "Visningsnamn"
 #. module: event_template
 #: model:ir.model,name:event_template.model_event_event
 msgid "Event"
-msgstr "Utbildningen"
+msgstr "Evenemang"
 
 #. module: event_template
 #: model:ir.model.fields,field_description:event_template.field_event_event__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: event_template
 #: model:ir.model.fields,field_description:event_template.field_event_event__is_template

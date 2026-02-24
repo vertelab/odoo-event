@@ -7,18 +7,20 @@ msgstr ""
 "Project-Id-Version: Odoo Server 14.0-20210312\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-07 08:18+0000\n"
-"PO-Revision-Date: 2022-02-07 08:18+0000\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2026-02-24 14:58+0100\n"
+"Last-Translator: Jakob Krabbe <jakob.krabbe@vertel.se>\n"
 "Language-Team: \n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #. module: event_reservation_certificate
 #: model_terms:ir.ui.view,arch_db:event_reservation_certificate.list_view_event_registration_certify
 msgid "Approve"
-msgstr "Godkänn"
+msgstr "Godkänna"
 
 #. module: event_reservation_certificate
 #: model:ir.model.fields.selection,name:event_reservation_certificate.selection__event_registration__certified__true
@@ -28,12 +30,12 @@ msgstr "Godkänd"
 #. module: event_reservation_certificate
 #: model:ir.model.fields.selection,name:event_reservation_certificate.selection__event_registration__certified__false
 msgid "Unapproved"
-msgstr "Icke Godkänd"
+msgstr "Ej godkänd"
 
 #. module: event_reservation_certificate
 #: model:ir.model.fields,field_description:event_reservation_certificate.field_event_registration__certified
 msgid "Certified"
-msgstr "Godkänd"
+msgstr "Auktoriserad"
 
 #. module: event_reservation_certificate
 #: model:ir.model.fields,field_description:event_reservation_certificate.field_event_registration__display_name
@@ -43,14 +45,14 @@ msgstr "Visningsnamn"
 #. module: event_reservation_certificate
 #: model:ir.model,name:event_reservation_certificate.model_event_registration
 msgid "Event Registration"
-msgstr "Anmälan"
+msgstr "Evenemangsregistrering"
 
 #. module: event_reservation_certificate
 #: model:ir.model.fields,field_description:event_reservation_certificate.field_event_registration__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: event_reservation_certificate
 #: model:ir.model.fields,field_description:event_reservation_certificate.field_event_registration____last_update
 msgid "Last Modified on"
-msgstr "Senast redigerad"
+msgstr "Senast redigerad den"
