@@ -7,13 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 14.0-20210929\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-11 20:51+0000\n"
-"PO-Revision-Date: 2021-12-11 20:51+0000\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2026-02-24 14:16+0100\n"
+"Last-Translator: Jakob Krabbe <jakob.krabbe@vertel.se>\n"
 "Language-Team: \n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #. module: event_website_filters
 #: model_terms:ir.ui.view,arch_db:event_website_filters.event_state_filter
@@ -24,24 +26,24 @@ msgstr "<span>Onlineutbildningar</span>"
 #: code:addons/event_website_filters/controllers/main.py:0
 #, python-format
 msgid "All Countries"
-msgstr ""
+msgstr "Alla länder"
 
 #. module: event_website_filters
 #: code:addons/event_website_filters/controllers/main.py:0
 #, python-format
 msgid "All Event Types"
-msgstr "Alla utbildningstyper"
+msgstr "Alla evenemangstyper"
 
 #. module: event_website_filters
 #: code:addons/event_website_filters/controllers/main.py:0
 #, python-format
 msgid "All States"
-msgstr "Alla län"
+msgstr "Alla lägen"
 
 #. module: event_website_filters
 #: model_terms:ir.ui.view,arch_db:event_website_filters.event_state_filter
 msgid "All states"
-msgstr "Alla län"
+msgstr "Alla lägen"
 
 #. module: event_website_filters
 #: model:ir.model.fields,field_description:event_website_filters.field_event_event__display_name
@@ -51,17 +53,17 @@ msgstr "Visningsnamn"
 #. module: event_website_filters
 #: model:ir.model,name:event_website_filters.model_event_event
 msgid "Event"
-msgstr "Utbildningen"
+msgstr "Evenemang"
 
 #. module: event_website_filters
 #: model_terms:ir.ui.view,arch_db:event_website_filters.event_type_filter
 msgid "Event Types"
-msgstr "Utbildningstyper"
+msgstr "Evenemangstyper"
 
 #. module: event_website_filters
 #: model:ir.model.fields,field_description:event_website_filters.field_event_event__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: event_website_filters
 #: model:ir.model.fields,field_description:event_website_filters.field_event_event____last_update
@@ -72,27 +74,27 @@ msgstr "Senast redigerad"
 #: code:addons/event_website_filters/controllers/main.py:0
 #, python-format
 msgid "Past Events"
-msgstr ""
+msgstr "Tidigare evenemang"
 
 #. module: event_website_filters
 #: model:ir.model.fields,field_description:event_website_filters.field_event_event__state_id
 msgid "State"
-msgstr "Län"
+msgstr "Läge"
 
 #. module: event_website_filters
 #: code:addons/event_website_filters/controllers/main.py:0
 #, python-format
 msgid "This month"
-msgstr ""
+msgstr "Denna månaden"
 
 #. module: event_website_filters
 #: code:addons/event_website_filters/controllers/main.py:0
 #, python-format
 msgid "Today"
-msgstr ""
+msgstr "Idag"
 
 #. module: event_website_filters
 #: code:addons/event_website_filters/controllers/main.py:0
 #, python-format
 msgid "Upcoming Events"
-msgstr ""
+msgstr "Kommande evenemang"
