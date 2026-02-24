@@ -42,7 +42,7 @@ msgstr "Evenemang"
 #. module: event_publish_dates
 #: model:ir.model.fields,field_description:event_publish_dates.field_event_event__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: event_publish_dates
 #: model:ir.model.fields,field_description:event_publish_dates.field_event_event____last_update
