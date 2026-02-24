@@ -83,6 +83,14 @@ class TriggerEvent(models.Model):
 
         self._refresh_mail_count_done()
 
+    def _execute_event_based_for_registrations(self, registrations):
+        registrations = registrations.filtered(
+            lambda r: r.state != 'reservation'
+        )
+        if registrations:
+            return super()._execute_event_based_for_registrations(registrations)
+        return True
+
 
 class TriggerEventType(models.Model):
     _inherit = "event.type.mail"
