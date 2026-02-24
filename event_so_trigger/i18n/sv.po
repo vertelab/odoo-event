@@ -7,27 +7,27 @@ msgstr ""
 "Project-Id-Version: Odoo Server 14.0-20221010\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-30 10:28+0000\n"
-"PO-Revision-Date: 2023-10-30 11:31+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2026-02-24 14:41+0100\n"
+"Last-Translator: Jakob Krabbe <jakob.krabbe@vertel.se>\n"
 "Language-Team: \n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #. module: event_so_trigger
 #: model:ir.model.fields.selection,name:event_so_trigger.selection__event_mail__interval_type__after_confirmed_so
 #: model:ir.model.fields.selection,name:event_so_trigger.selection__event_type_mail__interval_type__after_confirmed_so
 msgid "After Confirmed Sale Order"
-msgstr "Efter bekräftad kundorder"
+msgstr "Efter bekräftad försäljningsorder"
 
 #. module: event_so_trigger
 #: model:ir.model.fields.selection,name:event_so_trigger.selection__event_mail__interval_type__after_reservation_reg
 #: model:ir.model.fields.selection,name:event_so_trigger.selection__event_type_mail__interval_type__after_reservation_reg
 msgid "After Reservation Registration"
-msgstr "Efter intresseanmälan"
+msgstr "Registrering efter bokning"
 
 #. module: event_so_trigger
 #: model:ir.model.fields,field_description:event_so_trigger.field_event_mail__display_name
@@ -40,12 +40,12 @@ msgstr "Visningsnamn"
 #. module: event_so_trigger
 #: model:ir.model,name:event_so_trigger.model_event_mail
 msgid "Event Automated Mailing"
-msgstr "Automatiserat Utbildnings Epostutskick"
+msgstr "Automatiserad utskick av evenemang"
 
 #. module: event_so_trigger
 #: model:ir.model,name:event_so_trigger.model_event_registration
 msgid "Event Registration"
-msgstr "Utbildningsanmälningar"
+msgstr "Evenemangsregistrering"
 
 #. module: event_so_trigger
 #: model:ir.model.fields,field_description:event_so_trigger.field_event_mail__id
@@ -53,7 +53,7 @@ msgstr "Utbildningsanmälningar"
 #: model:ir.model.fields,field_description:event_so_trigger.field_event_registration__id
 #: model:ir.model.fields,field_description:event_so_trigger.field_event_type_mail__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: event_so_trigger
 #: model:ir.model.fields,field_description:event_so_trigger.field_event_mail____last_update
@@ -61,7 +61,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:event_so_trigger.field_event_registration____last_update
 #: model:ir.model.fields,field_description:event_so_trigger.field_event_type_mail____last_update
 msgid "Last Modified on"
-msgstr "Senast redigerad"
+msgstr "Senast redigerad den"
 
 #. module: event_so_trigger
 #: model:ir.model,name:event_so_trigger.model_event_type_mail
