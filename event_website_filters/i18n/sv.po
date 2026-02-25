@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 14.0-20210929\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-11 20:51+0000\n"
-"PO-Revision-Date: 2026-02-24 14:16+0100\n"
+"PO-Revision-Date: 2026-02-25 10:44+0100\n"
 "Last-Translator: Jakob Krabbe <jakob.krabbe@vertel.se>\n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -20,7 +20,7 @@ msgstr ""
 #. module: event_website_filters
 #: model_terms:ir.ui.view,arch_db:event_website_filters.event_state_filter
 msgid "<span>Online Events</span>"
-msgstr "<span>Onlineutbildningar</span>"
+msgstr "<span>Onlineevenemang</span>"
 
 #. module: event_website_filters
 #: code:addons/event_website_filters/controllers/main.py:0
@@ -68,7 +68,7 @@ msgstr "ID"
 #. module: event_website_filters
 #: model:ir.model.fields,field_description:event_website_filters.field_event_event____last_update
 msgid "Last Modified on"
-msgstr "Senast redigerad"
+msgstr "Senast redigerad den"
 
 #. module: event_website_filters
 #: code:addons/event_website_filters/controllers/main.py:0
