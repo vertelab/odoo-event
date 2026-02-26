@@ -10,14 +10,3 @@ _logger = logging.getLogger(__name__)
 class EventEvent(models.Model):
     _inherit = "event.event"
 
-    def write(self, vals):
-        res = super().write(vals)
-        for event in self:
-            if not event.website_published:
-                registration_search = self.env['event.registration'].search([
-                    ('visitor_id', '!=', False), ('state', '=', 'draft'), ('event_id', '=', event.id)
-                ])
-                registration_search.action_cancel()
-                registration_search.sale_order_id.state = "cancel"
-        return res
-
