@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* event_reservation_certificate
+# 	* event_reservation
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0-20210312\n"
+"Project-Id-Version: Odoo Server 14.0-20211230\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-07 08:18+0000\n"
-"PO-Revision-Date: 2026-02-24 14:58+0100\n"
+"POT-Creation-Date: 2022-05-17 14:39+0000\n"
+"PO-Revision-Date: 2026-02-24 16:13+0100\n"
 "Last-Translator: Jakob Krabbe <jakob.krabbe@vertel.se>\n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -17,42 +17,123 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#. module: event_reservation_certificate
-#: model_terms:ir.ui.view,arch_db:event_reservation_certificate.list_view_event_registration_certify
-msgid "Approve"
-msgstr "Godkänna"
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.reservation_complete
+msgid "<b>Start</b>"
+msgstr "<b>Start</b>"
 
-#. module: event_reservation_certificate
-#: model:ir.model.fields.selection,name:event_reservation_certificate.selection__event_registration__certified__true
-msgid "Approved"
-msgstr "Godkänd"
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.reservation_complete
+msgid "<br/> <b>End</b>"
+msgstr "<br/> <b>Slut</b>"
 
-#. module: event_reservation_certificate
-#: model:ir.model.fields.selection,name:event_reservation_certificate.selection__event_registration__certified__false
-msgid "Unapproved"
-msgstr "Ej godkänd"
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.reservation_complete
+msgid "<i class=\"fa fa-fw fa-calendar\"/> Add to Google Calendar"
+msgstr "<i class=\"fa fa-fw fa-calendar\"/> Lägg till i Google Kalender"
 
-#. module: event_reservation_certificate
-#: model:ir.model.fields,field_description:event_reservation_certificate.field_event_registration__certified
-msgid "Certified"
-msgstr "Auktoriserad"
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.reservation_complete
+msgid "<i class=\"fa fa-fw fa-calendar\"/> Add to iCal/Outlook"
+msgstr "<i class=\"fa fa-fw fa-calendar\"/> Lägg till i iCal/Outlook"
 
-#. module: event_reservation_certificate
-#: model:ir.model.fields,field_description:event_reservation_certificate.field_event_registration__display_name
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.event_registration_form_view
+msgid "Attended"
+msgstr "Deltog"
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.event_reservation_attendee_details
+#: model_terms:ir.ui.view,arch_db:event_reservation.registration_template
+msgid "Cancel"
+msgstr "Avbryt"
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.event_reservation_attendee_details
+#: model_terms:ir.ui.view,arch_db:event_reservation.registration_template
+msgid "Close"
+msgstr "Stäng"
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.event_reservation_attendee_details
+#: model_terms:ir.ui.view,arch_db:event_reservation.registration_template
+msgid "Continue"
+msgstr "Fortsätt"
+
+#. module: event_reservation
+#: model:ir.model.fields,field_description:event_reservation.field_event_registration__display_name
 msgid "Display Name"
 msgstr "Visningsnamn"
 
-#. module: event_reservation_certificate
-#: model:ir.model,name:event_reservation_certificate.model_event_registration
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.event_reservation_attendee_details
+#: model_terms:ir.ui.view,arch_db:event_reservation.registration_template
+msgid "Email"
+msgstr "E-post"
+
+#. module: event_reservation
+#: model:ir.model,name:event_reservation.model_event_registration
 msgid "Event Registration"
 msgstr "Evenemangsregistrering"
 
-#. module: event_reservation_certificate
-#: model:ir.model.fields,field_description:event_reservation_certificate.field_event_registration__id
+#. module: event_reservation
+#: model:ir.model.fields,field_description:event_reservation.field_event_registration__id
 msgid "ID"
 msgstr "ID"
 
-#. module: event_reservation_certificate
-#: model:ir.model.fields,field_description:event_reservation_certificate.field_event_registration____last_update
+#. module: event_reservation
+#: model:ir.model.fields,field_description:event_reservation.field_event_registration____last_update
 msgid "Last Modified on"
 msgstr "Senast redigerad den"
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.reservation_complete
+msgid "N/A"
+msgstr "Ej tillgänglig"
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.event_reservation_attendee_details
+#: model_terms:ir.ui.view,arch_db:event_reservation.registration_template
+msgid "Name"
+msgstr "Namn"
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.event_reservation_attendee_details
+#: model_terms:ir.ui.view,arch_db:event_reservation.registration_template
+msgid "Phone <small>(Optional)</small>"
+msgstr "Telefon <small>(Valfri)</small>"
+
+#. module: event_reservation
+#. openerp-web
+#: code:addons/event_reservation/static/src/js/event_reservation.js:0
+#, python-format
+msgid "Please select at least one ticket."
+msgstr "Var vänlig välj minst en biljett."
+
+#. module: event_reservation
+#: model:ir.model.fields.selection,name:event_reservation.selection__event_registration__state__reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.event_reservation_attendee_details
+#: model_terms:ir.ui.view,arch_db:event_reservation.registration_template
+msgid "Reservation"
+msgstr "Reservation"
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.reservation_complete
+msgid "Reservation confirmed!"
+msgstr "Reservation bekräftad!"
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.registration_template
+msgid "Reserve Seat"
+msgstr "Reservera Plats"
+
+#. module: event_reservation
+#: model:ir.model.fields,field_description:event_reservation.field_event_registration__state
+msgid "Status"
+msgstr "Läge"
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.event_reservation_attendee_details
+#: model_terms:ir.ui.view,arch_db:event_reservation.registration_template
+msgid "Ticket #"
+msgstr "Biljett #"
