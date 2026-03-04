@@ -1,7 +1,7 @@
 <odoo>
     <data>
         <template id="event_type_filter" inherit_id="website_event.index_topbar" customize_show="True" name="Filter by Event Type">
-            <xpath expr="//div[hasclass('o_wevent_index_topbar_filters')]" position="inside">
+            <xpath expr="//div[hasclass('o_wevent_index_topbar_filters')]/div[hasclass('o_wevent_search')]" position="before">
                 <div class="dropdown d-none d-lg-block">
                     <a href="#" role="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" title="Filter by Type">
                         <i class="fa fa-calendar"/>
@@ -24,7 +24,7 @@
         </template>
 
         <template id="event_state_filter" inherit_id="website_event.index_topbar" customize_show="True" name="Filter by State">
-            <xpath expr="//div[hasclass('o_wevent_index_topbar_filters')]" position="inside">
+            <xpath expr="//div[hasclass('o_wevent_index_topbar_filters')]/div[hasclass('o_wevent_search')]" position="before">
                 <div class="dropdown d-none d-lg-block">
                     <a href="#" role="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" title="Filter by State">
                         <i class="fa fa-map-marker"/>
