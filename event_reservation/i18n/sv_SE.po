@@ -1,0 +1,179 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_reservation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20250317\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-04 13:48+0000\n"
+"PO-Revision-Date: 2026-03-04 13:48+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.reservation_complete
+msgid "<b>Start</b>"
+msgstr ""
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.reservation_complete
+msgid "<br/> <b>End</b>"
+msgstr "<br/> <b>Slut</b>"
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.reservation_complete
+msgid "<i class=\"fa fa-fw fa-calendar\"/> Add to Google Calendar"
+msgstr "<i class=\"fa fa-fw fa-calendar\"/> Lägg till i Google Kalender"
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.reservation_complete
+msgid "<i class=\"fa fa-fw fa-calendar\"/> Add to iCal/Outlook"
+msgstr "<i class=\"fa fa-fw fa-calendar\"/> Lägg till i iCal/Outlook"
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.registration_template
+msgid "<span>Reserve Seat</span>"
+msgstr "<span>Reservera plats</span>"
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.event_reservation_attendee_details
+msgid "<span>×</span>"
+msgstr ""
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.event_registration_form_view
+msgid "Attended"
+msgstr "Deltog"
+
+#. module: event_reservation
+#: model:ir.model.fields,field_description:event_reservation.field_res_config_settings__auto_confirm_reserved
+msgid "Auto Confirm Reserved"
+msgstr "Automatiskt bekräfta reserverad plats"
+
+#. module: event_reservation
+#: model:ir.model.fields,field_description:event_reservation.field_event_event_ticket__seats_available_event_limit
+msgid "Available Seats Event Limit"
+msgstr ""
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.registration_template_inherit_available
+msgid "Available Seats:"
+msgstr "Tillgängliga Platser"
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.event_reservation_attendee_details
+#: model_terms:ir.ui.view,arch_db:event_reservation.modal_event_attendee_reservation
+msgid "Cancel"
+msgstr "Avbryt"
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.event_reservation_attendee_details
+#: model_terms:ir.ui.view,arch_db:event_reservation.modal_event_attendee_reservation
+msgid "Close"
+msgstr "Stäng"
+
+#. module: event_reservation
+#: model:ir.model,name:event_reservation.model_res_config_settings
+msgid "Config Settings"
+msgstr "Inställningar"
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.event_reservation_attendee_details
+#: model_terms:ir.ui.view,arch_db:event_reservation.modal_event_attendee_reservation
+msgid "Continue"
+msgstr "Fortsätt"
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.event_reservation_attendee_details
+#: model_terms:ir.ui.view,arch_db:event_reservation.modal_event_attendee_reservation
+msgid "Email"
+msgstr "E-post"
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.res_config_settings_view_form
+msgid "Enable Auto Confirm Reserved"
+msgstr ""
+
+#. module: event_reservation
+#: model:ir.model,name:event_reservation.model_event_event
+msgid "Event"
+msgstr "Evenemang"
+
+#. module: event_reservation
+#: model:ir.model,name:event_reservation.model_event_registration
+msgid "Event Registration"
+msgstr "Anmälan"
+
+#. module: event_reservation
+#: model:ir.model,name:event_reservation.model_event_event_ticket
+msgid "Event Ticket"
+msgstr "Biljett"
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.reservation_complete
+msgid "N/A"
+msgstr "Ej tillgänglig"
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.event_reservation_attendee_details
+#: model_terms:ir.ui.view,arch_db:event_reservation.modal_event_attendee_reservation
+msgid "Name"
+msgstr "Namn"
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.event_reservation_attendee_details
+#: model_terms:ir.ui.view,arch_db:event_reservation.modal_event_attendee_reservation
+msgid "Phone <small>(Optional)</small>"
+msgstr "Telefon <small>(Valfri)</small>"
+
+#. module: event_reservation
+#. odoo-javascript
+#: code:addons/event_reservation/static/src/js/event_reservation.js:0
+msgid "Please select at least one ticket."
+msgstr ""
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.event_registration_form_view
+msgid "Registered"
+msgstr ""
+
+#. module: event_reservation
+#: model:ir.model.fields.selection,name:event_reservation.selection__event_registration__state__reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.event_reservation_attendee_details
+#: model_terms:ir.ui.view,arch_db:event_reservation.modal_event_attendee_reservation
+msgid "Reservation"
+msgstr "Reservation"
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.reservation_complete
+msgid "Reservation confirmed!"
+msgstr "Reservation bekräftad"
+
+#. module: event_reservation
+#: model:ir.model.fields,field_description:event_reservation.field_event_registration__state
+msgid "Status"
+msgstr ""
+
+#. module: event_reservation
+#: model_terms:ir.ui.view,arch_db:event_reservation.event_reservation_attendee_details
+#: model_terms:ir.ui.view,arch_db:event_reservation.modal_event_attendee_reservation
+msgid "Ticket #"
+msgstr "Deltagare #"
+
+#. module: event_reservation
+#: model:ir.model.fields,help:event_reservation.field_event_registration__state
+msgid ""
+"Unconfirmed: registrations in a pending state waiting for an action (specific case, notably with sale status)\n"
+"Registered: registrations considered taken by a client\n"
+"Attended: registrations for which the attendee attended the event\n"
+"Cancelled: registrations cancelled manually"
+msgstr ""
+"Obekräftade: registreringar i vänteläge som väntar på en åtgärd (specialfall, särskilt med försäljningsstatus)\n"
+"Registrerade: registreringar som anses ha tagits av en kund\n"
+"Närvarade: registreringar för vilka deltagaren närvarade vid evenemanget\n"
+"Avbokade: registreringar som avbokats manuellt"
