@@ -2,12 +2,13 @@
     <data>
         <template id="event_type_filter" inherit_id="website_event.index_topbar" customize_show="True" name="Filter by Event Type">
             <xpath expr="//div[hasclass('o_wevent_index_topbar_filters')]" position="inside">
-                <li class="nav-item dropdown mr-2 my-1">
-                    <a href="#" role="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                <div class="dropdown d-none d-lg-block">
+                    <a href="#" role="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" title="Filter by Type">
                         <i class="fa fa-calendar"/>
-                        <t t-if="current_type" t-esc="current_type.name"/>
+                        <t t-if="current_type" t-out="current_type.name"/>
                         <t t-else="">Event Types</t>
                     </a>
+
                     <div class="dropdown-menu">
                         <t t-foreach="event_types" t-as="event_type">
                             <t t-if="event_type['event_type_id']">
@@ -18,14 +19,14 @@
                             </t>
                         </t>
                     </div>
-                </li>
+                </div>
             </xpath>
         </template>
 
         <template id="event_state_filter" inherit_id="website_event.index_topbar" customize_show="True" name="Filter by State">
             <xpath expr="//div[hasclass('o_wevent_index_topbar_filters')]" position="inside">
-                <li class="nav-item dropdown mr-2 my-1">
-                    <a href="#" role="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                <div class="dropdown d-none d-lg-block">
+                    <a href="#" role="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" title="Filter by State">
                         <i class="fa fa-map-marker"/>
                         <t t-if="current_state" t-esc="current_state.name"/>
                         <t t-else="">All states</t>
@@ -46,7 +47,7 @@
                             </t>
                         </t>
                     </div>
-                </li>
+                </div>
             </xpath>
         </template>
 
