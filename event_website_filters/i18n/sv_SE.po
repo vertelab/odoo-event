@@ -1,0 +1,95 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_website_filters
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20250317\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-05 08:01+0000\n"
+"PO-Revision-Date: 2026-03-05 09:08+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: sv_SE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. module: event_website_filters
+#: model_terms:ir.ui.view,arch_db:event_website_filters.event_state_filter
+msgid "<span>Online Events</span>"
+msgstr "<span>Onlineevenemang</span>"
+
+#. module: event_website_filters
+#. odoo-python
+#: code:addons/event_website_filters/controllers/main.py:0
+msgid "All Countries"
+msgstr ""
+
+#. module: event_website_filters
+#. odoo-python
+#: code:addons/event_website_filters/controllers/main.py:0
+msgid "All Event Types"
+msgstr ""
+
+#. module: event_website_filters
+#. odoo-python
+#: code:addons/event_website_filters/controllers/main.py:0
+msgid "All States"
+msgstr "Alla lägen"
+
+#. module: event_website_filters
+#: model_terms:ir.ui.view,arch_db:event_website_filters.event_state_filter
+msgid "All states"
+msgstr "Alla lägen"
+
+#. module: event_website_filters
+#: model:ir.model,name:event_website_filters.model_event_event
+msgid "Event"
+msgstr "Evenemang"
+
+#. module: event_website_filters
+#: model_terms:ir.ui.view,arch_db:event_website_filters.event_type_filter
+msgid "Event Types"
+msgstr "Evenemangstyper"
+
+#. module: event_website_filters
+#: model_terms:ir.ui.view,arch_db:event_website_filters.event_state_filter
+msgid "Filter by State"
+msgstr "Filtrera efter län"
+
+#. module: event_website_filters
+#: model_terms:ir.ui.view,arch_db:event_website_filters.event_type_filter
+msgid "Filter by Type"
+msgstr "Filtrera efter typ"
+
+#. module: event_website_filters
+#. odoo-python
+#: code:addons/event_website_filters/controllers/main.py:0
+msgid "Past Events"
+msgstr "Tidigare evenemang"
+
+#. module: event_website_filters
+#: model:ir.model.fields,field_description:event_website_filters.field_event_event__state_id
+msgid "State"
+msgstr "Län"
+
+#. module: event_website_filters
+#. odoo-python
+#: code:addons/event_website_filters/controllers/main.py:0
+msgid "This month"
+msgstr "Den här månaden"
+
+#. module: event_website_filters
+#. odoo-python
+#: code:addons/event_website_filters/controllers/main.py:0
+msgid "Today"
+msgstr "Idag"
+
+#. module: event_website_filters
+#. odoo-python
+#: code:addons/event_website_filters/controllers/main.py:0
+msgid "Upcoming Events"
+msgstr "Kommande evenemang"
