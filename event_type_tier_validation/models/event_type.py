@@ -23,10 +23,14 @@ class EventType(models.Model):
     state = fields.Selection([
         ('draft', 'Event Template Draft'),
         ('reviewed', 'Event Template Reviewed')
-    ], string='Status', readonly=True, store=True, index=True, tracking=3, default='draft', copy=False)
+    ], string='Status', readonly=True, store=True, index=True, default='draft', copy=False)
 
     _tier_validation_manual_config = False
-    
+
+    @api.model
+    def _valid_field_parameter(self, field, name):
+        return name == 'tracking' or super()._valid_field_parameter(field, name)
+
     def confirm_state(self):
         self.state = 'reviewed'
 
