@@ -1,8 +1,8 @@
 <odoo>
     <data>
 
-        <record id="group_lms_elearning_admin" model="res.groups">
-            <field name="name">E-Learning Admin</field>
+        <record id="group_lms_elearning_admin_lms" model="res.groups">
+            <field name="name">LMS E-Learning Admin</field>
             <field name="category_id" ref="base.module_category_hidden"/>
             <field name="implied_ids" eval="[(4, ref('website_slides.group_website_slides_manager')), (4, ref('event.group_event_manager'))]"/>
         </record>

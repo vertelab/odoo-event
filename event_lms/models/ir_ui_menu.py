@@ -6,5 +6,5 @@ class UIMenu(models.Model):
 
     def update_elearning_group(self):
         self.write({
-            'groups_id': [(6, 0, [self.env.ref('event_lms.group_lms_elearning_admin').id])]
+            'groups_id': [(6, 0, [self.env.ref('event_lms.group_lms_elearning_admin_lms').id])]
         })
