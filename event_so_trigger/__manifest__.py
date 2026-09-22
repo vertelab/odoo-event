@@ -28,7 +28,7 @@
         To be able to send email when there is a sale order. Trigger Email Based on Sale Order.
     """,
     'author': 'Vertel AB',
-    'website': 'https://vertel.se/apps/odoo-event/event_template',
+    'website': 'https://vertel.se/apps/odoo-event/event_so_trigger',
     'license': 'AGPL-3',
     'contributor': '',
     'maintainer': 'Vertel AB',

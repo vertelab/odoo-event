@@ -25,7 +25,7 @@
     'summary': '',
     'category': 'Event',
     'author': 'Vertel AB',
-    'website': 'https://vertel.se/apps/odoo-event/event_elearning',
+    'website': 'https://vertel.se/apps/odoo-event/event_lms',
     'images': ['/static/description/banner.png'], # 560x280 px.
     'license': 'AGPL-3',
     'contributor': '',

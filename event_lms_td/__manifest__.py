@@ -31,7 +31,7 @@
         Allow Target Demographics on Events.
     """,
     'author': 'Vertel AB',
-    'website': 'https://vertel.se/apps/odoo-event/event_target_demographic',
+    'website': 'https://vertel.se/apps/odoo-event/event_lms_td',
     'images': ['static/description/banner.png'], # 560x280 px.
     'license': 'AGPL-3',
     'contributor': '',
