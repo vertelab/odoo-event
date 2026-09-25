@@ -23,12 +23,20 @@
 #
 {
     'name': 'Event: Website Event Url',
-    'version': '0.1',
-    'summary': '',
+    'version': '18.0.1.0.0',
+    'summary': "Adds portal links to events.",
     'category': 'Event', # Technical Settings|Localization|Payroll Localization|Account Charts|User types|Invoicing|Sales|Human Resources|Operations|Marketing|Manufacturing|Website|Theme|Administration|Appraisals|Sign|Helpdesk|Administration|Extra Rights|Other Extra Rights|
-    'description': """
-    
-    """,
+    'description': '''
+Website Event Url
+=================
+
+    Adds portal links to events.
+
+    Features:
+
+        - UI Integration: Extends 2 view(s) in the Odoo interface.
+        - Extends Odoo: Builds on event.event, event.registration.
+    ''',
     #'sequence': 1,
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-event/event_url_portal',

@@ -21,19 +21,27 @@
 
 {
     'name': 'Event: Reservation Certificate',
-    'version': '1.0.2',
+    'version': '18.0.1.0.2',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'Adds Certificate to Event Reservation.',
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Event',
-    'description': """
+    'description': '''
+Reservation Certificate
+=======================
+
     0.0.1
-        - Added Certificate and action to registration list view and registration form view
-    0.0.2
-        - Removed Readonly on the certificate field.
-    """,
+            - Added Certificate and action to registration list view and registration form view
+        0.0.2
+            - Removed Readonly on the certificate field.
+
+    Features:
+
+        - UI Integration: Extends 1 view(s) in the Odoo interface.
+        - Extends Odoo: Builds on event.registration.
+    ''',
     #'sequence': '1',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-event/event_reservation_certificate',

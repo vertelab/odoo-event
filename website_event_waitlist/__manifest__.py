@@ -21,16 +21,24 @@
 
 {
     'name': 'Event: Website Event Waitlist',
-    'version': '1.0',
+    'version': '18.0.1.0.0',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'Enhance event with waiting list functionality.',
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Event',
-    'description': """
+    'description': '''
+Website Event Waitlist
+======================
+
     Enhance event with waiting list functionality.
-    """,
+
+    Features:
+
+        - UI Integration: Extends 2 view(s) in the Odoo interface.
+        - Extends Odoo: Builds on event.event.
+    ''',
     #'sequence': '1',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-event/website_event_waitlist',

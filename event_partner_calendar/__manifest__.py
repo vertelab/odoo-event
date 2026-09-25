@@ -21,21 +21,28 @@
 
 {
     'name': 'Event: Partner Calendar',
-    'version': '1.0',
+    'version': '18.0.1.0.0',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'New events are shown in the calendar.',
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Event',
-    'description': """
+    'description': '''
+Partner Calendar
+================
+
     Newly created events creates corresponding entries in the calendar.\n\n
-    Features:\n
-        * The start/end-time of the calendar entry is updated when the start/end time of the event changes.\n
-        * Attendees of the event are added to the calendar event when they are added/removed to/from the event.\n
-        * The calendar entry is removed when the event is removed.\n\n
-    This module is maintained from: https://github.com/vertelab/odoo-event/tree/14.0/event_partner_calendar/ \n
-    """,
+        Features:\n
+            * The start/end-time of the calendar entry is updated when the start/end time of the event changes.\n
+            * Attendees of the event are added to the calendar event when they are added/removed to/from the event.\n
+            * The calendar entry is removed when the event is removed.\n\n
+        This module is maintained from: https://github.com/vertelab/odoo-event/tree/14.0/event_partner_calendar/ \n
+
+    Features:
+
+        - Extends Odoo: Builds on event.event, event.registration.
+    ''',
     #'sequence': '1',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-event/event_partner_calendar',

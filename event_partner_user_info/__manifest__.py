@@ -21,19 +21,26 @@
 
 {
     'name': 'Event: Partner User Info',
-    'version': '1.0',
+    'version': '18.0.1.0.0',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'Extends the event registration form view with visible information about the size of the event.',
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Event',
-    'description': """
-        Extends the event registration form view with visible information about the size of the event\n\n
-        Features:\n
-            *   Adds visible information about the size of the event.\n
-        This module is maintained from: https://github.com/vertelab/odoo-event/tree/14.0/event_partner_max_users/\n
-    """,
+    'description': '''
+Partner User Info
+=================
+
+    Extends the event registration form view with visible information about the size of the event\n\n
+            Features:\n
+                *   Adds visible information about the size of the event.\n
+            This module is maintained from: https://github.com/vertelab/odoo-event/tree/14.0/event_partner_max_users/\n
+
+    Features:
+
+        - UI Integration: Extends 1 view(s) in the Odoo interface.
+    ''',
     #'sequence': '1',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-event/event_partner_user_info',

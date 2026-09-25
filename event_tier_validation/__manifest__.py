@@ -23,12 +23,20 @@
 #
 {
     'name': 'Event: Tier Validation',
-    'version': '1.0',
+    'version': '18.0.1.0.0',
     'summary': 'Extends the functionality of Event Type to support a tier validation process.',
     'category': 'Event',
-    'description': """
-    Long description of module's purpose
-    """,
+    'description': '''
+Tier Validation
+===============
+
+    Extends the functionality of Event Type to support a tier validation process.
+
+    Features:
+
+        - UI Integration: Extends 1 view(s) in the Odoo interface.
+        - Extends Odoo: Builds on event.event, tier.definition.
+    ''',
     #'sequence': 1,
     'images': ['static/description/banner.png'], # 560x280 px.
     'author': 'Vertel AB',

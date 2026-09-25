@@ -21,19 +21,29 @@
 
 {
     'name': 'Event: Publish Dates',
-    'version': '1.0',
+    'version': '18.0.1.0.0',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'Extends the website event publish date.',
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Event',
-    'description': """
+    'description': '''
+Publish Dates
+=============
+
     Extends the website event publish date\n\n
-    Features:\n
-        * Two fields were added for a publishing date and un-publishing date. \n
-        * Added cron job to auto publish event on website and also un-publish. \n
-    """,
+        Features:\n
+            * Two fields were added for a publishing date and un-publishing date. \n
+            * Added cron job to auto publish event on website and also un-publish. \n
+
+    Features:
+
+        - Web integration: Exposes HTTP endpoints for external systems.
+        - Automation: Scheduled jobs: Auto Publish Events, Auto Un-Publish Events.
+        - UI Integration: Extends 1 view(s) in the Odoo interface.
+        - Extends Odoo: Builds on event.event.
+    ''',
     #'sequence': '1',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-event/event_publish_dates',

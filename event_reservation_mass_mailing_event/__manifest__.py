@@ -21,13 +21,21 @@
 
 {
     'name': 'Event: Event Reservation Mass Mailing Event',
-    'version': '18.0.0.1',
-    'summary': 'Adds additional filter for Mass Mailing Event',
+    'version': '18.0.0.1.0',
+    'summary': 'Adds additional filter for Mass Mailing Event.',
     'category': 'Event',
-    'description': """
+    'description': '''
+Event Reservation Mass Mailing Event
+====================================
+
     14.0.0.1
-        - Adds additional filter to the mass mailing recipient for events
-    """,
+            - Adds additional filter to the mass mailing recipient for events
+
+    Features:
+
+        - UI Integration: Extends 1 view(s) in the Odoo interface.
+        - Extends Odoo: Builds on event.event.
+    ''',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-event/event_reservation_mass_mailing_event',
     'images': ['static/description/banner.png'],

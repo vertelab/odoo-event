@@ -21,16 +21,23 @@
 
 {
     'name': 'Event: Changed User Rights',
-    'version': '18.0.0.1',
+    'version': '18.0.0.1.0',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'Event User Rights.',
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Event',
-    'description': """
+    'description': '''
+Changed User Rights
+===================
+
     This group will be used to limit various things the normal event_admin is allowed to do.
-    """,
+
+    Features:
+
+        - UI Integration: Extends 1 view(s) in the Odoo interface.
+    ''',
     #'sequence': '1',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-event/event_changed_user_rights',

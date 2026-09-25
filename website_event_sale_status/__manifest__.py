@@ -21,16 +21,25 @@
 
 {
     'name': 'Event: Website Event Sale Tentative Status',
-    'version': '1.0',
+    'version': '18.0.1.0.0',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'Enhance event and sale with functionality.',
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Event',
-    'description': """
+    'description': '''
+Website Event Sale Tentative Status
+===================================
+
     If you register for an event with the attendee status wont be set to confirmed right away, only when they go through the entire flow.
-    """,
+
+    Features:
+
+        - Web integration: Exposes HTTP endpoints for external systems.
+        - Automation: Scheduled jobs: Rensa ofullständiga utbildningsanmälningar.
+        - Extends Odoo: Builds on event.event, event.registration.
+    ''',
     #'sequence': '1',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-event/website_event_sale_status',

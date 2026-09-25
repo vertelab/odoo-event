@@ -23,12 +23,19 @@
 #
 {
     'name': 'Event: Website Event Portal Elearning Glue',
-    'version': '0.1',
-    'summary': '',
+    'version': '18.0.1.0.0',
+    'summary': "Links event registrations to e-learning courses in the portal.",
     'category': 'Event', # Technical Settings|Localization|Payroll Localization|Account Charts|User types|Invoicing|Sales|Human Resources|Operations|Marketing|Manufacturing|Website|Theme|Administration|Appraisals|Sign|Helpdesk|Administration|Extra Rights|Other Extra Rights|
-    'description': """
-    
-    """,
+    'description': '''
+Website Event Portal Elearning Glue
+===================================
+
+    Links event registrations to e-learning courses in the portal.
+
+    Features:
+
+        - UI Integration: Extends 1 view(s) in the Odoo interface.
+    ''',
     #'sequence': 1,
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-event/website_event_portal_elearning',

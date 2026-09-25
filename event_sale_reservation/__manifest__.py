@@ -23,16 +23,27 @@
 
 {
     'name': 'Event: Sale Reservation',
-    'version': '1.0',
+    'version': '18.0.1.0.0',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'Allow selling event registrations before the event exists.',
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Event',
-    'description': """
-    To sell event reservations.
-    """,
+    'description': '''
+Sale Reservation
+================
+
+    Allow selling event registrations before the event exists.
+
+    Features:
+
+        - Web integration: Exposes HTTP endpoints for external systems.
+        - Guided Wizards: Step-by-step dialogs for data entry.
+        - Reports: Adds printable reports.
+        - UI Integration: Extends 5 view(s) in the Odoo interface.
+        - Extends Odoo: Builds on event.registration, event.type, event_reservation_type_id, product.template.
+    ''',
     #'sequence': '1',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-event/event_sale_reservation',

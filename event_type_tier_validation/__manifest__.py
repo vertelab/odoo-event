@@ -23,12 +23,20 @@
 #
 {
     'name': 'Event: Type Tier Validation',
-    'version': '0.0.1',
+    'version': '18.0.1.0.0',
     'summary': 'Extends the functionality of Event Type to support a tier validation process.',
     'category': 'Event',
-    'description': """
-    0.0.1 - Added Kanban view and group by state on event type
-    """,
+    'description': '''
+Type Tier Validation
+====================
+
+    Extends the functionality of Event Type to support a tier validation process.
+
+    Features:
+
+        - UI Integration: Extends 1 view(s) in the Odoo interface.
+        - Extends Odoo: Builds on event.type, tier.definition.
+    ''',
     'images': ['static/description/banner.png'], # 560x280 px.
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-event/event_type_tier_validation',

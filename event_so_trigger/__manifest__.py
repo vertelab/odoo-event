@@ -21,12 +21,19 @@
 
 {
     'name': 'Event: Trigger Email Based on Sale Order',
-    'version': '1.0',
+    'version': '18.0.1.0.0',
     'summary': 'Trigger Email Based on Sale Order.',
     'category': 'Event',
-    'description': """
-        To be able to send email when there is a sale order. Trigger Email Based on Sale Order.
-    """,
+    'description': '''
+Trigger Email Based on Sale Order
+=================================
+
+    To be able to send email when there is a sale order. Trigger Email Based on Sale Order.
+
+    Features:
+
+        - Extends Odoo: Builds on event.mail, event.mail.registration, event.registration, event.type.mail.
+    ''',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-event/event_so_trigger',
     'license': 'AGPL-3',

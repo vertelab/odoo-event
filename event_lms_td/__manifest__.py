@@ -23,13 +23,20 @@
 
 {
     'name': 'Event: LMS Target Demographic',
-    'version': '1.0',
+    'version': '18.0.1.0.0',
     # Version ledger: 17.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'Allow Target Demographics on Events.',
     'category': 'Event',
-    'description': """
-        Allow Target Demographics on Events.
-    """,
+    'description': '''
+LMS Target Demographic
+======================
+
+    Allow Target Demographics on Events.
+
+    Features:
+
+        - UI Integration: Extends 2 view(s) in the Odoo interface.
+    ''',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-event/event_lms_td',
     'images': ['static/description/banner.png'], # 560x280 px.

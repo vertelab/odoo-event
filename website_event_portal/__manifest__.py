@@ -22,9 +22,21 @@
 
 {
     'name': 'Event: Website Event Portal Listing',
-    'version': '1.1.0',
+    'version': '18.0.1.1.0',
     # Version ledger: XX.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'User can see the events the user is registered for in My documents.',
+    'description': '''
+Website Event Portal Listing
+============================
+
+    User can see the events the user is registered for in My documents.
+
+    Features:
+
+        - Web integration: Exposes HTTP endpoints for external systems.
+        - UI Integration: Extends 1 view(s) in the Odoo interface.
+        - Extends Odoo: Builds on event.registration.
+    ''',
     'category': 'Website',
     "description": """"
     User can see the events the user is registered for in My documents. \n

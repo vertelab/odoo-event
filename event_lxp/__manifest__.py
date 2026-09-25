@@ -21,26 +21,33 @@
 
 {
     'name': 'Event: Learning Experience Platform',
-    'version': '1.0',
+    'version': '18.0.1.0.0',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'Adds AI-driven functionality to the LX-plattform in Event/e-learning.',
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Event',
-    'description': """
-Adds AI-driven functionality to the LX-plattform in Event/e-learning.
-Odoo Learning Experience Platform (LXP) is an innovative and AI-powered extension of Odoo e-learning, designed to provide a personalized and engaging educational experience. The module is a complement to gamification and other collaboration functions.
-This platform integrates advanced AI technology to offer personalized recommendations and content tailored to the user's interests and skills.
+    'description': '''
+Learning Experience Platform
+============================
 
-At the heart of Odoo LXP is user-driven interactivity. Students have complete freedom to create and share their own content, which promotes a dynamic and inclusive learning environment. Using the platform's intuitive tools, users can easily create lessons, upload images, and start polls to engage their fellow students. This makes learning a collective experience where everyone can contribute and grow together.
+    Adds AI-driven functionality to the LX-plattform in Event/e-learning.
+    Odoo Learning Experience Platform (LXP) is an innovative and AI-powered extension of Odoo e-learning, designed to provide a personalized and engaging educational experience. The module is a complement to gamification and other collaboration functions.
+    This platform integrates advanced AI technology to offer personalized recommendations and content tailored to the user's interests and skills.
 
-The AI ​​technology in Odoo LXP continuously analyzes users' behavior and learning style to offer personalized recommendations. These recommendations include courses, articles, videos and other educational resources relevant to the user's individual needs and goals. The system takes into account past activities, interests and achievements to ensure that each user receives an optimized learning journey.
+    At the heart of Odoo LXP is user-driven interactivity. Students have complete freedom to create and share their own content, which promotes a dynamic and inclusive learning environment. Using the platform's intuitive tools, users can easily create lessons, upload images, and start polls to engage their fellow students. This makes learning a collective experience where everyone can contribute and grow together.
 
-An important feature of Odoo LXP is the ability to like and share other people's content. This fosters a culture of sharing and collaboration where students can inspire and learn from each other. The platform also encourages cross-functional collaboration through specialized collaboration groups (channels). These groups enable users from different departments or areas of interest to work together, share insights and solve problems together.
+    The AI ​​technology in Odoo LXP continuously analyzes users' behavior and learning style to offer personalized recommendations. These recommendations include courses, articles, videos and other educational resources relevant to the user's individual needs and goals. The system takes into account past activities, interests and achievements to ensure that each user receives an optimized learning journey.
 
-Odoo LXP creates a coherent learning environment that breaks down traditional barriers in education. By combining personalized AI technology with a strong user-driven component, the platform offers an engaging and personalized experience that promotes continuous development and collaboration. This platform represents the future of learning, where every student has the opportunity to shape their own educational path and benefit from the collective intelligence of the community. 
-    """,
+    An important feature of Odoo LXP is the ability to like and share other people's content. This fosters a culture of sharing and collaboration where students can inspire and learn from each other. The platform also encourages cross-functional collaboration through specialized collaboration groups (channels). These groups enable users from different departments or areas of interest to work together, share insights and solve problems together.
+
+    Odoo LXP creates a coherent learning environment that breaks down traditional barriers in education. By combining personalized AI technology with a strong user-driven component, the platform offers an engaging and personalized experience that promotes continuous development and collaboration. This platform represents the future of learning, where every student has the opportunity to shape their own educational path and benefit from the collective intelligence of the community.
+
+    Features:
+
+        - Focused Fix: A small, targeted improvement to standard Odoo behaviour.
+    ''',
     #'sequence': '1',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-event/event_lxp',

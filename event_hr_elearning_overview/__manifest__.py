@@ -23,12 +23,21 @@
 #
 {
     'name': 'Event: HR e-Learning Overview',
-    'version': '0.1',
-    'summary': '',
+    'version': '18.0.1.0.0',
+    'summary': "Shows an e-learning overview for employees at events.",
     'category': 'Event', # Technical Settings|Localization|Payroll Localization|Account Charts|User types|Invoicing|Sales|Human Resources|Operations|Marketing|Manufacturing|Website|Theme|Administration|Appraisals|Sign|Helpdesk|Administration|Extra Rights|Other Extra Rights|
-    'description': """
-    
-    """,
+    'description': '''
+HR e-Learning Overview
+======================
+
+    Shows an e-learning overview for employees at events.
+
+    Features:
+
+        - Web integration: Exposes HTTP endpoints for external systems.
+        - UI Integration: Extends 1 view(s) in the Odoo interface.
+        - Extends Odoo: Builds on hr.employee, slide.channel.partner.
+    ''',
     #'sequence': 1,
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-event/event_hr_elearning_overview',

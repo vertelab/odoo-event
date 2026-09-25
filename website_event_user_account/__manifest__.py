@@ -21,16 +21,23 @@
 
 {
     'name': 'Event: Website Event User Account',
-    'version': '1.0',
+    'version': '18.0.1.0.0',
     # Version ledger: 17.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'Create portal account for participants of an event.',
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Event',
-    'description': """
+    'description': '''
+Website Event User Account
+==========================
+
     Create portal account for participants of an event.
-    """,
+
+    Features:
+
+        - Web integration: Exposes HTTP endpoints for external systems.
+    ''',
     #'sequence': '1',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-event/website_event_user_account',

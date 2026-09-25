@@ -21,8 +21,8 @@
 
 {
     'name': 'Event: Elearning LMS',
-    'version': '0.2',
-    'summary': '',
+    'version': '18.0.1.0.0',
+    'summary': "Links events to the LMS.",
     'category': 'Event',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-event/event_lms',
@@ -31,8 +31,17 @@
     'contributor': '',
     'maintainer': 'Vertel AB',
     'repository': 'https://github.com/vertelab/odoo-event',
-    'description': """
-    """,
+    'description': '''
+Elearning LMS
+=============
+
+    Links events to the LMS.
+
+    Features:
+
+        - UI Integration: Extends 4 view(s) in the Odoo interface.
+        - Extends Odoo: Builds on event.event, event.registration, event.type, slide.channel.
+    ''',
     'depends': ['hr','event','website_slides', 'event_sale', 'event_waitlist_website'],
     'data': [
         'security/security.xml',

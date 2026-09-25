@@ -21,17 +21,25 @@
 
 {
     'name': 'Event: Webpage',
-    'version': '0.0.1',
+    'version': '18.0.1.0.0',
     # Version ledger: XX.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'Allows for more control of the appearance of an using event templates.',
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Event',
-    'description': """
-          0.1.0
-           - added the ticket desctiption on the webpage for an event.
-    """,
+    'description': '''
+Webpage
+=======
+
+    0.1.0
+               - added the ticket desctiption on the webpage for an event.
+
+    Features:
+
+        - UI Integration: Extends 3 view(s) in the Odoo interface.
+        - Extends Odoo: Builds on event.event, event.type.
+    ''',
     #'sequence': '1',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-event/event_webpage',
