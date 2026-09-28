@@ -59,4 +59,3 @@ Website Sale Reservation
         "views/event_website_sale_reservation.xml",
     ],
 }
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

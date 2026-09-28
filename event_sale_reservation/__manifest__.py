@@ -67,4 +67,3 @@ Sale Reservation
     # and not sum of qtys; integrating with them would require a glue module
     "excludes": ["event_registration_multi_qty", "event_sale_registration_multi_qty"],
 }
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
