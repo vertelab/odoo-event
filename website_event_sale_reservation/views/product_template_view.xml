@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2021 Tecnativa - Jairo Llopis
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <!-- OCA/event_sale_reservation adds ``event_reservation_type_id`` after the
+         product ``type`` field. Here we only surface the read-only
+         ``event_reservation_ok`` alias next to the reservation type, so users
+         can see at a glance that a product is a reservation product. -->
+    <record id="event_sale_product_template_form_reservation" model="ir.ui.view">
+        <field name="name">Show reservation flag on product</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <field name="service_tracking" position="after">
+                <field name="event_reservation_ok"
+                       invisible="not event_reservation_ok"
+                       groups="event.group_event_user"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
