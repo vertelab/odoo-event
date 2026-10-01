@@ -24,7 +24,9 @@
     
     
         <template id="registration_course" name="Add Button" inherit_id="website_event.registration_complete" customize_show="True" priority="30">
-            <xpath expr="//div[@t-if='attendees']" position="inside">
+            <!-- Odoo 18: the confirmation container is div.o_wereg_confirmed
+                 (the old //div[@t-if='attendees'] anchor is gone). -->
+            <xpath expr="//div[hasclass('o_wereg_confirmed')]" position="inside">
                 <div id="event_registration_course" class="mt-4 d-flex flex-column flex-md-row">
                     <a t-if="event.slide_channel_id" t-attf-href="/slides/#{ slug(event.slide_channel_id) }" t-att-title="event.slide_channel_id.name">
                         <button class="btn btn-primary py-2 w-40">Gå till utbildning</button>

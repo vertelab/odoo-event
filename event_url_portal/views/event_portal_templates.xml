@@ -7,10 +7,9 @@
     </xpath>
   </template>
   <template id="registration_complete_url" name="Add Button" inherit_id="website_event.registration_complete" customize_show="True" priority="30">
-<!--
-    <xpath expr="//div[@t-if='attendees']" position="inside">
--->
-    <xpath expr="//div[@t-if='active']" position="after">
+    <!-- Odoo 18: the attendees block is <t t-if="attendees" t-call="..."/> inside
+         the confirmation container (the old //div[@t-if='active'] anchor is gone). -->
+    <xpath expr="//div[hasclass('o_wereg_confirmed')]" position="inside">
       <div id="event_meeting_url" class="mt-4 d-flex flex-column flex-md-row">
         <a t-if="event.meeting_event_url" target="_blank" t-att-href="'http://' + event.meeting_event_url if not event.meeting_event_url.startswith('http') else event.meeting_event_url">
           <button class="btn btn-primary py-2 w-40">Skype Möte</button>

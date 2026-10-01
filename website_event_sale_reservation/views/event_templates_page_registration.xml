@@ -57,7 +57,7 @@
             <button t-if="event.event_registrations_sold_out"
                     type="button"
                     class="btn btn-primary"
-                    id="reservation_form"
+                    id="website_event_sale_reservation_form"
                     data-bs-toggle="modal"
                     data-bs-target="#modal_attendees_reservation">
                 Reserve Seat

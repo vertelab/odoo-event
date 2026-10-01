@@ -42,7 +42,7 @@ Website Event Url
     'website': 'https://vertel.se/apps/odoo-event/event_url_portal',
     'images': ['static/description/banner.png'], # 560x280
     'license': 'AGPL-3',
-    'depends': ['event'],
+    'depends': ['event', 'website_event_portal'],
      #"external_dependencies": {
      #   "bin": ["openssl",], 
      #   "python": ["acme_tiny", "IPy",],

@@ -22,7 +22,6 @@
                                 <list create="false" delete="false">
                                     <field name="title"/>
                                     <field name="user_id"/>
-                                    <field name="department_id"/>
                                 </list>
                             </field>
                         </page>
