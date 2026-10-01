@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_event_registration_form_scan" model="ir.ui.view">
+        <field name="name">event.registration.form.scan</field>
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event.view_event_registration_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_leads" type="object"
+                        class="oe_stat_button" icon="fa-filter"
+                        invisible="lead_count == 0">
+                    <field name="lead_count" widget="statinfo" string="Leads"/>
+                </button>
+            </xpath>
+            <xpath expr="//sheet" position="inside">
+                <group string="Badge Scanning" name="badge_scanning">
+                    <field name="scan_consent"/>
+                    <field name="scan_token" groups="event_lead_scan.group_scan_manager"/>
+                    <field name="scan_token_url" widget="CopyClipboardChar"
+                           groups="event_lead_scan.group_scan_manager"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_event_registration_list_scan" model="ir.ui.view">
+        <field name="name">event.registration.list.scan</field>
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event.view_event_registration_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="after">
+                <field name="scan_consent" optional="hide" widget="boolean_toggle"/>
+                <field name="lead_count" optional="hide" string="Leads"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

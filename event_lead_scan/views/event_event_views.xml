@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_event_form_scan" model="ir.ui.view">
+        <field name="name">event.event.form.scan</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_scan_sessions" type="object"
+                        class="oe_stat_button" icon="fa-qrcode">
+                    <field name="scan_session_count" widget="statinfo"
+                           string="Scan Sessions"/>
+                </button>
+                <button name="action_view_scan_leads" type="object"
+                        class="oe_stat_button" icon="fa-filter"
+                        invisible="scan_lead_count == 0">
+                    <field name="scan_lead_count" widget="statinfo"
+                           string="Scanned Leads"/>
+                </button>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Scan Sessions" name="scan_sessions">
+                    <field name="scan_session_ids" readonly="1">
+                        <list string="Scan Sessions" create="false">
+                            <field name="name"/>
+                            <field name="responsible_id"/>
+                            <field name="state" widget="badge"
+                                   decoration-success="state == 'open'"
+                                   decoration-muted="state == 'done'"
+                                   decoration-danger="state == 'cancelled'"/>
+                            <field name="date_start"/>
+                            <field name="lead_count" string="Leads"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_event_lead_scan_session_manager,event.lead.scan.session.manager,model_event_lead_scan_session,event_lead_scan.group_scan_manager,1,1,1,1
+access_event_lead_scan_session_user,event.lead.scan.session.user,model_event_lead_scan_session,event_lead_scan.group_scan_user,1,0,0,0
+access_event_lead_scan_session_sales,event.lead.scan.session.sales,model_event_lead_scan_session,sales_team.group_sale_salesman,1,0,0,0

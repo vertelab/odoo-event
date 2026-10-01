@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ===================== Scanner (mobile, no login) ===================== -->
+    <template id="scan_app" name="Event Lead Scan — Scanner">
+        <t t-call="website.layout">
+            <t t-set="no_header" t-value="True"/>
+            <t t-set="no_footer" t-value="True"/>
+            <div class="container-fluid p-0" id="scan_root"
+                 t-att-data-session-token="session_token"
+                 t-att-data-session-state="session.state">
+                <div class="bg-dark text-white p-3 sticky-top">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="fw-bold" t-esc="session.name"/>
+                            <small class="text-white-50" t-esc="session.event_id.name"/>
+                        </div>
+                        <div class="text-end">
+                            <div class="fs-4 fw-bold" id="scan_counter"
+                                 t-esc="session.lead_count"/>
+                            <small class="text-white-50">leads</small>
+                        </div>
+                    </div>
+                    <div id="scan_sync_status" class="small mt-1 text-warning d-none">
+                        <i class="fa fa-cloud-upload"/> <span id="scan_pending_count">0</span>
+                        waiting to sync
+                    </div>
+                </div>
+
+                <div t-if="not session._is_scannable()" class="alert alert-warning m-3">
+                    <h4 class="alert-heading">Session closed</h4>
+                    <p class="mb-0">
+                        This scanning session is <t t-esc="session.state"/>.
+                        Ask the organiser to open a new one.
+                    </p>
+                </div>
+
+                <t t-if="session._is_scannable()">
+                    <!-- Camera -->
+                    <div class="p-3">
+                        <video id="scan_video" class="w-100 rounded bg-black"
+                               playsinline="playsinline" muted="muted"
+                               style="max-height:45vh;object-fit:cover;"/>
+                        <div class="d-grid gap-2 mt-2">
+                            <button id="scan_start_camera" class="btn btn-primary btn-lg">
+                                <i class="fa fa-camera"/> Start camera
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Manual entry: a first-class path, not a fallback -->
+                    <div class="p-3 border-top">
+                        <label class="form-label fw-bold" for="scan_manual_input">
+                            Enter badge code
+                        </label>
+                        <div class="input-group input-group-lg">
+                            <input id="scan_manual_input" type="text"
+                                   class="form-control" autocomplete="off"
+                                   placeholder="Paste or type the code"/>
+                            <button id="scan_manual_submit" class="btn btn-secondary">
+                                Capture
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Confirmation -->
+                    <div id="scan_confirm" class="p-3 border-top d-none">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title" id="scan_attendee_name">—</h5>
+                                <p class="card-text text-muted" id="scan_attendee_company">—</p>
+                                <div id="scan_duplicate_warning"
+                                     class="alert alert-info py-2 d-none">
+                                    Already scanned in this session — updating.
+                                </div>
+                                <div id="scan_consent_warning"
+                                     class="alert alert-warning py-2 d-none">
+                                    This attendee has not consented to sharing
+                                    their details with exhibitors.
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label">Score</label>
+                                    <div class="btn-group w-100" role="group">
+                                        <input type="radio" class="btn-check"
+                                               name="scan_score" id="score_hot" value="hot"/>
+                                        <label class="btn btn-outline-danger" for="score_hot">Hot</label>
+                                        <input type="radio" class="btn-check"
+                                               name="scan_score" id="score_warm" value="warm"/>
+                                        <label class="btn btn-outline-warning" for="score_warm">Warm</label>
+                                        <input type="radio" class="btn-check"
+                                               name="scan_score" id="score_cold" value="cold"/>
+                                        <label class="btn btn-outline-info" for="score_cold">Cold</label>
+                                    </div>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label" for="scan_note">Note</label>
+                                    <textarea id="scan_note" class="form-control" rows="2"
+                                              placeholder="What did you talk about?"></textarea>
+                                </div>
+                                <div class="d-grid gap-2">
+                                    <button id="scan_save" class="btn btn-success btn-lg">
+                                        <i class="fa fa-check"/> Save lead
+                                    </button>
+                                    <button id="scan_cancel" class="btn btn-outline-secondary">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="scan_message" class="p-3"></div>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <!-- ===================== Error page ===================== -->
+    <template id="scan_error" name="Event Lead Scan — Error">
+        <t t-call="website.layout">
+            <div class="container py-5">
+                <div class="alert alert-danger">
+                    <h4 class="alert-heading">Cannot open the scanner</h4>
+                    <p t-esc="error_message"/>
+                    <hr/>
+                    <p class="mb-0 text-muted"><small>Code: <t t-esc="error_code"/></small></p>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- ===================== Badge QR fallback ===================== -->
+    <template id="badge_qr" name="Event Lead Scan — Badge QR">
+        <t t-call="website.layout">
+            <div class="container py-5 text-center">
+                <h3 t-esc="registration.event_id.name"/>
+                <p class="text-muted" t-esc="registration.partner_id.name"/>
+                <img class="img-fluid border rounded p-3 bg-white"
+                     style="max-width:320px;"
+                     t-att-src="'/report/barcode/?barcode_type=QR&amp;value=%s&amp;width=600&amp;height=600&amp;humanreadable=0' % scan_token"
+                     alt="Badge QR code"/>
+                <p class="mt-3 text-muted">
+                    Show this to an exhibitor to share your details.
+                </p>
+            </div>
+        </t>
+    </template>
+</odoo>

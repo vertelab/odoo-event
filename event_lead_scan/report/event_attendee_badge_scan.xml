@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        Badge report with the scan QR (design decision D2).
+        The QR encodes the registration's scan token - random, not the id.
+    -->
+    <record id="action_report_event_attendee_badge_scan" model="ir.actions.report">
+        <field name="name">Attendee Badge with Scan QR</field>
+        <field name="model">event.registration</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">event_lead_scan.report_attendee_badge_scan</field>
+        <field name="report_file">event_lead_scan.report_attendee_badge_scan</field>
+        <field name="print_report_name">'Badge - %s' % (object.partner_id.name or object.name)</field>
+        <field name="binding_model_id" ref="event.model_event_registration"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_attendee_badge_scan">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="registration">
+                <div class="page"
+                     style="page-break-after: always; text-align: center;">
+                    <div style="border: 2px solid #333; border-radius: 8px; padding: 12mm;">
+                        <h2 t-esc="registration.event_id.name"
+                            style="margin-bottom: 2mm;"/>
+                        <h1 t-esc="registration.partner_id.name or registration.name"
+                            style="margin-top: 0; font-size: 28pt;"/>
+                        <p t-if="registration.partner_id.parent_name"
+                           t-esc="registration.partner_id.parent_name"
+                           style="font-size: 14pt; color: #666;"/>
+                        <img t-if="registration.scan_token"
+                             t-att-src="'/report/barcode/?barcode_type=QR&amp;value=%s&amp;width=600&amp;height=600&amp;humanreadable=0' % registration.scan_token"
+                             style="width: 55mm; height: 55mm; margin-top: 4mm;"
+                             alt="Scan QR"/>
+                        <p style="font-size: 9pt; color: #888; margin-top: 2mm;">
+                            Scan this code to share your contact details
+                        </p>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ============================== List ============================== -->
+    <record id="view_event_lead_scan_session_list" model="ir.ui.view">
+        <field name="name">event.lead.scan.session.list</field>
+        <field name="model">event.lead.scan.session</field>
+        <field name="arch" type="xml">
+            <list string="Scan Sessions" decoration-muted="state == 'cancelled'">
+                <field name="name"/>
+                <field name="event_id"/>
+                <field name="responsible_id"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'open'"
+                       decoration-info="state == 'draft'"
+                       decoration-muted="state == 'done'"
+                       decoration-danger="state == 'cancelled'"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="lead_count" string="Leads"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ============================== Form ============================== -->
+    <record id="view_event_lead_scan_session_form" model="ir.ui.view">
+        <field name="name">event.lead.scan.session.form</field>
+        <field name="model">event.lead.scan.session</field>
+        <field name="arch" type="xml">
+            <form string="Scan Session">
+                <header>
+                    <button name="action_open" type="object" string="Open for Scanning"
+                            class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="action_done" type="object" string="Close Session"
+                            invisible="state != 'open'"/>
+                    <button name="action_cancel" type="object" string="Cancel"
+                            invisible="state in ('done', 'cancelled')"
+                            confirm="Cancel this session? Its scan link stops working immediately."/>
+                    <button name="action_reset_draft" type="object" string="Reset to Draft"
+                            invisible="state not in ('done', 'cancelled')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,open,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_leads" type="object"
+                                class="oe_stat_button" icon="fa-filter"
+                                invisible="lead_count == 0">
+                            <field name="lead_count" widget="statinfo" string="Leads"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="e.g. Exhibitor name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="event_id"
+                                   options="{'no_create': True}"/>
+                            <field name="responsible_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                        </group>
+                    </group>
+                    <group string="Scanner Link" colspan="2">
+                        <field name="session_token" widget="CopyClipboardChar"
+                               groups="event_lead_scan.group_scan_manager"/>
+                        <div class="text-muted" colspan="2">
+                            Open <code>/event_lead_scan/scan/&lt;token&gt;</code> on a phone
+                            to scan attendee badges. No Odoo login is required, so treat
+                            the token as a secret. Closing or cancelling the session
+                            revokes it.
+                        </div>
+                    </group>
+                    <notebook>
+                        <page string="Leads" name="leads">
+                            <field name="lead_ids" readonly="1">
+                                <list string="Captured Leads" create="false">
+                                    <field name="name"/>
+                                    <field name="partner_id"/>
+                                    <field name="scan_score" widget="badge"
+                                           decoration-danger="scan_score == 'hot'"
+                                           decoration-warning="scan_score == 'warm'"
+                                           decoration-info="scan_score == 'cold'"/>
+                                    <field name="scan_time"/>
+                                    <field name="scanned_by_id"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="note" placeholder="Anything worth remembering about this session…"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============================== Kanban ============================== -->
+    <record id="view_event_lead_scan_session_kanban" model="ir.ui.view">
+        <field name="name">event.lead.scan.session.kanban</field>
+        <field name="model">event.lead.scan.session</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" class="o_kanban_small_column">
+                <field name="state"/>
+                <field name="lead_count"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="d-flex justify-content-between">
+                            <field name="name" class="fw-bold"/>
+                            <field name="lead_count" widget="statinfo" string="Leads"/>
+                        </div>
+                        <div class="text-muted">
+                            <field name="event_id"/>
+                        </div>
+                        <div>
+                            <field name="responsible_id" widget="many2one_avatar_user"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- ============================== Search ============================== -->
+    <record id="view_event_lead_scan_session_search" model="ir.ui.view">
+        <field name="name">event.lead.scan.session.search</field>
+        <field name="model">event.lead.scan.session</field>
+        <field name="arch" type="xml">
+            <search string="Scan Sessions">
+                <field name="name"/>
+                <field name="event_id"/>
+                <field name="responsible_id"/>
+                <filter name="filter_open" string="Open" domain="[('state', '=', 'open')]"/>
+                <filter name="filter_draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <filter name="filter_done" string="Done" domain="[('state', '=', 'done')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_event" string="Event" context="{'group_by': 'event_id'}"/>
+                    <filter name="group_responsible" string="Responsible" context="{'group_by': 'responsible_id'}"/>
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ============================== Actions ============================== -->
+    <record id="action_event_lead_scan_session" model="ir.actions.act_window">
+        <field name="name">Scan Sessions</field>
+        <field name="res_model">event.lead.scan.session</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="search_view_id" ref="view_event_lead_scan_session_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a scan session</p>
+            <p>
+                A scan session is one exhibitor or staff member scanning attendee
+                badges. Open it to get a link you can use on a phone.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_event_lead_scan_session"
+              name="Scan Sessions"
+              parent="event.menu_event_registration_desk"
+              action="action_event_lead_scan_session"
+              sequence="30"/>
+</odoo>
