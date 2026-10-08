@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Odoo SA, Open Source Management Solution, third party addon
-#    Copyright (C) 2022- Vertel AB (<https://vertel.se>).
+#    Copyright (C) 2022- Vertel Sverige AB (<https://vertel.se>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -21,24 +21,17 @@
 
 {
     'name': 'Event: Trigger Email Based on Sale Order',
-    'version': '18.0.1.0.0',
+    'version': '1.0',
     'summary': 'Trigger Email Based on Sale Order.',
     'category': 'Event',
-    'description': '''
-Trigger Email Based on Sale Order
-=================================
-
-    To be able to send email when there is a sale order. Trigger Email Based on Sale Order.
-
-    Features:
-
-        - Extends Odoo: Builds on event.mail, event.mail.registration, event.registration, event.type.mail.
-    ''',
-    'author': 'Vertel AB',
-    'website': 'https://vertel.se/apps/odoo-event/event_so_trigger',
+    'description': """
+        To be able to send email when there is a sale order. Trigger Email Based on Sale Order.
+    """,
+    'author': 'Vertel Sverige AB',
+    'website': 'https://vertel.se/apps/odoo-event/event_template',
     'license': 'AGPL-3',
     'contributor': '',
-    'maintainer': 'Vertel AB',
+    'maintainer': 'Vertel Sverige AB',
     'repository': 'https://github.com/vertelab/odoo-event',
     'depends': ['website_event', 'event'],
     'data': [
@@ -46,3 +39,4 @@ Trigger Email Based on Sale Order
     'application': False,
     'installable': True,
 }
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

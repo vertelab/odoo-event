@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Odoo SA, Open Source Management Solution, third party addon
-#    Copyright (C) 2022- Vertel AB (<https://vertel.se>).
+#    Copyright (C) 2022- Vertel Sverige AB (<https://vertel.se>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -21,27 +21,19 @@
 
 {
     'name': 'Event: Event Reservation Mass Mailing Event',
-    'version': '18.0.0.1.0',
-    'summary': 'Adds additional filter for Mass Mailing Event.',
+    'version': '18.0.0.1',
+    'summary': 'Adds additional filter for Mass Mailing Event',
     'category': 'Event',
-    'description': '''
-Event Reservation Mass Mailing Event
-====================================
-
+    'description': """
     14.0.0.1
-            - Adds additional filter to the mass mailing recipient for events
-
-    Features:
-
-        - UI Integration: Extends 1 view(s) in the Odoo interface.
-        - Extends Odoo: Builds on event.event.
-    ''',
-    'author': 'Vertel AB',
+        - Adds additional filter to the mass mailing recipient for events
+    """,
+    'author': 'Vertel Sverige AB',
     'website': 'https://vertel.se/apps/odoo-event/event_reservation_mass_mailing_event',
     'images': ['static/description/banner.png'],
     'license': 'AGPL-3',
     'contributor': '',
-    'maintainer': 'Vertel AB',
+    'maintainer': 'Vertel Sverige AB',
     'repository': 'https://github.com/vertelab/odoo-event',
     'depends': ['mass_mailing_event', 'event_reservation'],
     'data': [
@@ -50,3 +42,4 @@ Event Reservation Mass Mailing Event
     'application': False,
     'installable': True,
 }
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

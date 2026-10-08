@@ -39,7 +39,7 @@ Tier Validation
     ''',
     #'sequence': 1,
     'images': ['static/description/banner.png'], # 560x280 px.
-    'author': 'Vertel AB',
+    'author': 'Vertel Sverige AB',
     'website': 'https://vertel.se/apps/odoo-event/event_tier_validation',
     'license': 'AGPL-3',
      #"external_dependencies": {

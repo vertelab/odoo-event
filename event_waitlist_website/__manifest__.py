@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Odoo SA, Open Source Management Solution, third party addon
-#    Copyright (C) 2022- Vertel AB (<https://vertel.se>).
+#    Copyright (C) 2022- Vertel Sverige AB (<https://vertel.se>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -23,27 +23,18 @@
 
 {
     'name': 'Event: Waitlist Website',
-    'version': '18.0.1.0.0',
+    'version': '1.0',
     'summary': 'Allow event waitlist on event template from website.',
     'category': 'Event',
-    'description': '''
-Waitlist Website
-================
-
-    Allow event waitlist on event template from website.
-
-    Features:
-
-        - Web integration: Exposes HTTP endpoints for external systems.
-        - UI Integration: Extends 4 view(s) in the Odoo interface.
-        - Extends Odoo: Builds on event.event, event.mail, event.type, event.waiting.list.
-    ''',
-    'author': 'Vertel AB',
+    'description': """
+        Allow event waitlist on event template from website.
+    """,
+    'author': 'Vertel Sverige AB',
     'website': 'https://vertel.se/apps/odoo-event/event_waitlist_website',
     'images': ['static/description/banner.png'], # 560x280 px.
     'license': 'AGPL-3',
     'contributor': '',
-    'maintainer': 'Vertel AB',
+    'maintainer': 'Vertel Sverige AB',
     'repository': 'https://github.com/vertelab/odoo-event',
     "application": True,
     "installable": True,
@@ -67,3 +58,4 @@ Waitlist Website
         ],
     },
 }
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

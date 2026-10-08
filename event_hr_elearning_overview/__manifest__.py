@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Odoo SA, Open Source Management Solution, third party addon
-#    Copyright (C) 2024- Vertel AB (<https://vertel.se>).
+#    Copyright (C) 2024- Vertel Sverige AB (<https://vertel.se>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -39,7 +39,7 @@ HR e-Learning Overview
         - Extends Odoo: Builds on hr.employee, slide.channel.partner.
     ''',
     #'sequence': 1,
-    'author': 'Vertel AB',
+    'author': 'Vertel Sverige AB',
     'website': 'https://vertel.se/apps/odoo-event/event_hr_elearning_overview',
     'images': ['static/description/banner.png'], # 560x280
     'license': 'AGPL-3',

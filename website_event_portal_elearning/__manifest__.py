@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Odoo SA, Open Source Management Solution, third party addon
-#    Copyright (C) 2024- Vertel AB (<https://vertel.se>).
+#    Copyright (C) 2024- Vertel Sverige AB (<https://vertel.se>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -37,7 +37,7 @@ Website Event Portal Elearning Glue
         - UI Integration: Extends 1 view(s) in the Odoo interface.
     ''',
     #'sequence': 1,
-    'author': 'Vertel AB',
+    'author': 'Vertel Sverige AB',
     'website': 'https://vertel.se/apps/odoo-event/website_event_portal_elearning',
     'images': ['static/description/banner.png'], # 560x280
     'license': 'AGPL-3',

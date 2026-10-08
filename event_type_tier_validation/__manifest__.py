@@ -38,7 +38,7 @@ Type Tier Validation
         - Extends Odoo: Builds on event.type, tier.definition.
     ''',
     'images': ['static/description/banner.png'], # 560x280 px.
-    'author': 'Vertel AB',
+    'author': 'Vertel Sverige AB',
     'website': 'https://vertel.se/apps/odoo-event/event_type_tier_validation',
     'license': 'AGPL-3',
     'repository': 'https://github.com/vertelab/odoo-event',

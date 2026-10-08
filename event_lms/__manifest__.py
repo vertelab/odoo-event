@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Odoo SA, Open Source Management Solution, third party addon
-#    Copyright (C) 2024- Vertel AB (<https://vertel.se>).
+#    Copyright (C) 2024- Vertel Sverige AB (<https://vertel.se>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -21,27 +21,18 @@
 
 {
     'name': 'Event: Elearning LMS',
-    'version': '18.0.1.0.0',
-    'summary': "Links events to the LMS.",
+    'version': '0.2',
+    'summary': '',
     'category': 'Event',
-    'author': 'Vertel AB',
-    'website': 'https://vertel.se/apps/odoo-event/event_lms',
+    'author': 'Vertel Sverige AB',
+    'website': 'https://vertel.se/apps/odoo-event/event_elearning',
     'images': ['/static/description/banner.png'], # 560x280 px.
     'license': 'AGPL-3',
     'contributor': '',
-    'maintainer': 'Vertel AB',
+    'maintainer': 'Vertel Sverige AB',
     'repository': 'https://github.com/vertelab/odoo-event',
-    'description': '''
-Elearning LMS
-=============
-
-    Links events to the LMS.
-
-    Features:
-
-        - UI Integration: Extends 4 view(s) in the Odoo interface.
-        - Extends Odoo: Builds on event.event, event.registration, event.type, slide.channel.
-    ''',
+    'description': """
+    """,
     'depends': ['hr','event','website_slides', 'event_sale', 'event_waitlist_website'],
     'data': [
         'security/security.xml',
@@ -64,3 +55,4 @@ Elearning LMS
         ]
     }
 }
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
