@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rating_rating_event_view" model="ir.actions.act_window">
+        <field name="name">Ratings</field>
+        <field name="res_model">rating.rating</field>
+        <field name="view_mode">kanban,list,graph,pivot,form</field>
+        <field name="domain">[('res_model', '=', "event.event")]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">
+                No rating yet
+            </p><p>
+                There is no rating for this events at the moment.
+            </p>
+        </field>
+    </record>
+
+    <!-- Add menu entry in Event Report -->
+    <menuitem name="Event Ratings"
+        id="rating_rating_event_report"
+        parent="event.menu_reporting_events"
+        action="event_rating.rating_rating_event_view"
+        sequence="30"/>
+            
+
+</odoo>
